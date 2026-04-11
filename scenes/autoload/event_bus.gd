@@ -1,0 +1,4 @@
+extends Node
+
+signal entered_interactable_area
+signal exited_interactable_area
