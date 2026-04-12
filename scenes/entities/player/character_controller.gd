@@ -4,6 +4,7 @@
 # Happy prototyping!
 
 extends CharacterBody3D
+class_name Player
 
 ## Can we move around?
 @export var can_move : bool = true
