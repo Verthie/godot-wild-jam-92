@@ -10,7 +10,7 @@ radius = 0.05
 height = 0.2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
-radius = 0.04
+radius = 0.08
 height = 0.2
 
 [node name="CharacterController" type="CharacterBody3D" unique_id=379629607]
@@ -40,5 +40,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18046477, 0)
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=631175288]
 current = true
 fov = 45.0
-near = 0.165
+near = 0.01
 far = 300.0

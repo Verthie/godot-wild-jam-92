@@ -25,6 +25,10 @@ Globals="*uid://c2vnoyoxorfxu"
 
 gdscript/warnings/unused_signal=0
 
+[display]
+
+window/size/mode=3
+
 [input]
 
 forward={
