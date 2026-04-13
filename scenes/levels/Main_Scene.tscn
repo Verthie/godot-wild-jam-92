@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/entities/player/character_controller.tscn" id="1_p1d0p"]
 [ext_resource type="ArrayMesh" uid="uid://db3yslr7lhxjy" path="res://resources/meshes/lunchpad.tres" id="6_ae3sc"]
 [ext_resource type="ArrayMesh" uid="uid://hu8gt6fv2o4q" path="res://resources/meshes/arbol.tres" id="7_1f2hn"]
+[ext_resource type="PackedScene" uid="uid://dij0fgki3wcqa" path="res://scenes/objects/Floor_Lamp.tscn" id="7_ohk1s"]
 [ext_resource type="Shape3D" uid="uid://cdhd8j5d4jo1g" path="res://resources/collision_shapes/tree_shape.tres" id="11_ae3sc"]
 [ext_resource type="Shape3D" uid="uid://ccwyi0oxl0khj" path="res://resources/collision_shapes/lunchpad_shape.tres" id="11_j46mn"]
 [ext_resource type="PackedScene" uid="uid://ci65t4naoepao" path="res://scenes/entities/monster/monster_controller.tscn" id="14_84bhp"]
@@ -623,7 +624,7 @@ collision_mask = 2
 shape = ExtResource("11_ae3sc")
 
 [node name="Arbol (17)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=960612158]
-transform = Transform3D(-0.6306759, 1.2234813e-16, 0.77604645, 1.7634579e-16, 1, -1.4343345e-17, -0.77604645, 1.2780653e-16, -0.6306759, -1.6354021, 2.8795912e-15, -20.965307)
+transform = Transform3D(-0.6306759, 1.2234814e-16, 0.7760465, 1.7634579e-16, 1, -1.4343345e-17, -0.7760465, 1.2780653e-16, -0.6306759, -1.8078601, -1.1920929e-07, -20.936687)
 mesh = ExtResource("7_1f2hn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (17)" unique_id=1450650446]
@@ -1883,7 +1884,7 @@ collision_mask = 2
 shape = ExtResource("11_ae3sc")
 
 [node name="Arbol (25)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1848386936]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -1.2024798, 2.7398829e-15, -20.286615)
+transform = Transform3D(-0.99904835, 1.2234814e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -1.4965792, 0, -20.299458)
 mesh = ExtResource("7_1f2hn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (25)" unique_id=1571971852]
@@ -2457,3 +2458,90 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (169)/StaticBody3D" unique_id=1457945589]
 shape = ExtResource("11_ae3sc")
+
+[node name="LightPath" type="Node3D" parent="." unique_id=3828187]
+
+[node name="Pair" type="Node3D" parent="LightPath" unique_id=1730179144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3423278, -0.058099836, 7.6174707)
+
+[node name="Floor_Lamp" parent="LightPath/Pair" unique_id=2085654262 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23470962, -0.067084, 0.2391653)
+
+[node name="Floor_Lamp2" parent="LightPath/Pair" unique_id=1999523458 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17924893, 0.016894594, -0.31149387)
+
+[node name="Pair2" type="Node3D" parent="LightPath" unique_id=362543616]
+transform = Transform3D(0.98604256, 0, -0.1664934, 0, 1, 0, 0.1664934, 0, 0.98604256, 0.38977844, -0.058099836, 6.981223)
+visible = false
+
+[node name="Floor_Lamp" parent="LightPath/Pair2" unique_id=2137653337 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23470962, -0.13040888, 0.2391653)
+
+[node name="Floor_Lamp2" parent="LightPath/Pair2" unique_id=1510551747 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17924893, -0.07042748, -0.31149387)
+
+[node name="Pair3" type="Node3D" parent="LightPath" unique_id=98696932]
+transform = Transform3D(0.98604256, 0, -0.1664934, 0, 1, 0, 0.1664934, 0, 0.98604256, -0.3495695, -0.13606407, 6.3940873)
+
+[node name="Floor_Lamp" parent="LightPath/Pair3" unique_id=1126719763 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23470962, -0.13040888, 0.2391653)
+
+[node name="Floor_Lamp2" parent="LightPath/Pair3" unique_id=1564894817 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.17924905, -0.015722468, -0.3114934)
+
+[node name="Pair4" type="Node3D" parent="LightPath" unique_id=1337098303]
+transform = Transform3D(0.9945001, 0, -0.10473677, 0, 1, 0, 0.10473677, 0, 0.9945001, -1.2567742, -0.058099955, 5.726237)
+visible = false
+
+[node name="Floor_Lamp" parent="LightPath/Pair4" unique_id=1289293618 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23470968, -0.22440532, 0.2391653)
+
+[node name="Floor_Lamp2" parent="LightPath/Pair4" unique_id=805241827 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17924893, -0.12178828, -0.3114934)
+
+[node name="Pair5" type="Node3D" parent="LightPath" unique_id=93655393]
+transform = Transform3D(0.98491377, 0, -0.17304659, 0, 1, 0, 0.17304659, 0, 0.98491377, -2.1562839, -0.058100075, 5.054603)
+
+[node name="Floor_Lamp" parent="LightPath/Pair5" unique_id=618567025 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23470962, -0.21365395, 0.23916578)
+
+[node name="Floor_Lamp2" parent="LightPath/Pair5" unique_id=471915793 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17924869, -0.17753893, -0.31149435)
+
+[node name="Pair6" type="Node3D" parent="LightPath" unique_id=454200360]
+transform = Transform3D(0.957496, 0, -0.288447, 0, 1, 0, 0.288447, 0, 0.957496, -2.860249, -0.058100075, 4.338553)
+visible = false
+
+[node name="Floor_Lamp" parent="LightPath/Pair6" unique_id=134980269 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -0.23470962, -0.21236727, 0.2391653)
+
+[node name="Floor_Lamp2" parent="LightPath/Pair6" unique_id=147108383 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 0.17924905, -0.18473068, -0.31149387)
+
+[node name="Pair7" type="Node3D" parent="LightPath" unique_id=2140183801]
+transform = Transform3D(0.90632266, 0, -0.42258668, 0, 1, 0, 0.42258668, 0, 0.90632266, -3.5163188, -0.058100075, 3.432129)
+
+[node name="Floor_Lamp" parent="LightPath/Pair7" unique_id=496607098 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -0.23470962, -0.21892068, 0.2391653)
+
+[node name="Floor_Lamp2" parent="LightPath/Pair7" unique_id=2054700889 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 0.17924881, -0.19474155, -0.31149435)
+
+[node name="Pair8" type="Node3D" parent="LightPath" unique_id=878711758]
+transform = Transform3D(0.68326116, 0, -0.7301743, 0, 1, 0, 0.7301743, 0, 0.68326116, -3.891425, -0.058099955, 2.158948)
+visible = false
+
+[node name="Floor_Lamp" parent="LightPath/Pair8" unique_id=1553059295 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2347095, -0.19525266, 0.2391653)
+
+[node name="Floor_Lamp2" parent="LightPath/Pair8" unique_id=1590108783 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17924881, -0.20351192, -0.31149387)
+
+[node name="Pair9" type="Node3D" parent="LightPath" unique_id=1024991693]
+transform = Transform3D(0.5230641, 0, -0.8522936, 0, 1, 0, 0.8522936, 0, 0.5230641, -3.9766326, -0.058099955, 0.8466065)
+
+[node name="Floor_Lamp" parent="LightPath/Pair9" unique_id=472638056 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, -0.23470974, -0.21090415, 0.23916507)
+
+[node name="Floor_Lamp2" parent="LightPath/Pair9" unique_id=1106695410 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, 0.17924893, -0.18802562, -0.3114941)
