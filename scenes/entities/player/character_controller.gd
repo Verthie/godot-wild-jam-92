@@ -10,7 +10,9 @@ signal object_focused(tag: String)
 signal object_unfocused
 signal talked(text: String)
 signal enabled_sampler(tries_amount: int)
-signal pulled_lever()
+signal pulled_cure_lever
+signal produced_oxygen
+signal died
 
 ## Can we move around?
 @export var can_move : bool = true
@@ -51,8 +53,15 @@ signal pulled_lever()
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
 
+@onready var head: Node3D = $Head
+@onready var collider: CollisionShape3D = $Collider
+@onready var interaction_ray: Area3D = $Head/InteractionRay
+
+@onready var hand_right: Node3D = $Head/HandRight
+@onready var hand_left: Node3D = $Head/HandLeft
+
 ## The amount of interaction areas that currently overlap with the player
-var interact_areas := 0
+# var interact_areas := 0
 
 var mouse_captured : bool = false
 var look_rotation : Vector2
@@ -63,13 +72,6 @@ var can_interact : bool = false
 var left_hand_item: Node3D = null
 var right_hand_item: Node3D = null
 
-
-## IMPORTANT REFERENCES
-@onready var head: Node3D = $Head
-@onready var collider: CollisionShape3D = $Collider
-@onready var interaction_ray: Area3D = $Head/InteractionRay
-@onready var hand_right: Node3D = $Head/HandRight
-@onready var hand_left: Node3D = $Head/HandLeft
 
 func _ready() -> void:
 	interaction_ray.area_entered.connect(_on_interaction_ray_area_entered)
@@ -247,10 +249,21 @@ func handle_interaction(hand: String) -> void:
 
 			talked.emit("Brewing comences, ingredients are dissolved...")
 
+			var ingredients_array: Array[String] = []
+
+			for ingredient: Interactable in brewing_contents:
+				ingredients_array.append(ingredient.tag)
+
+			print(brewing_stand.tag, " ingredients: ", ingredients_array)
+
+			if brewing_stand.tag == "o2 brewing stand" and ingredients_array == ["watermelon", "mist seed"]:
+				print("produced oxygen")
+				produced_oxygen.emit()
+
 			brewing_stand.node_array.clear()
 
 			if brewing_stand.tag == "cure brewing stand":
-				pulled_lever.emit()
+				pulled_cure_lever.emit()
 
 			# TODO display results on the board
 		3: # Log
@@ -272,14 +285,12 @@ func handle_interaction(hand: String) -> void:
 
 			elif bowl_contents.size() < interactable.capacity:
 				if (hand == "right" and right_hand_item != null):
-					print("fuck")
 					bowl_contents.append(right_hand_item)
 					right_hand_item.reparent(interactable.holder_node, false)
 					right_hand_item.position = Vector3.ZERO
 					right_hand_item = null
 
 				if (hand == "left" and left_hand_item != null):
-					print("fuck")
 					bowl_contents.append(left_hand_item)
 					left_hand_item.reparent(interactable.holder_node, false)
 					left_hand_item.position = Vector3.ZERO
@@ -302,7 +313,6 @@ func handle_interaction(hand: String) -> void:
 				left_hand_item.queue_free()
 				left_hand_item = null
 				enabled_sampler.emit(5)
-
 		_:
 			return
 
@@ -337,6 +347,9 @@ func check_input_mappings():
 # 	interact_areas += delta
 # 	interact_areas = max(interact_areas, 0)
 # 	can_interact = interact_areas > 0
+
+func die() -> void:
+	died.emit()
 
 # BUG issues with the prompt display: whenever 2 or more areas are overlapped with the interaction_ray
 func _on_interaction_ray_area_entered(area: Area3D) -> void:

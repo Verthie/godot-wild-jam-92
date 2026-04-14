@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/entities/player/character_controller.tscn" id="1_vdry6"]
 [ext_resource type="Texture2D" uid="uid://b8jykp8xs34om" path="res://icon.svg" id="2_sib0q"]
 [ext_resource type="Script" uid="uid://b2xs64x34jn87" path="res://scenes/items/interactable.gd" id="3_lo6n4"]
+[ext_resource type="Script" uid="uid://cp7b2o2eixs5s" path="res://scenes/managers/oxygen_manager.gd" id="4_cti6j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vdry6"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -149,9 +150,10 @@ size = Vector3(0.1, 0.1, 0.1)
 [node name="TestingSite" type="Node3D" unique_id=1928496112]
 script = ExtResource("1_hos1m")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1458421141 node_paths=PackedStringArray("player")]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1458421141 node_paths=PackedStringArray("player", "oxygen_manager")]
 script = ExtResource("1_rr2b8")
 player = NodePath("../CharacterController")
+oxygen_manager = NodePath("../OxygenManager")
 
 [node name="Sprite2D" type="Sprite2D" parent="UI" unique_id=798295479]
 position = Vector2(541, 318)
@@ -191,6 +193,20 @@ theme_override_font_sizes/font_size = 32
 text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="OxygenBar" type="ProgressBar" parent="UI" unique_id=1127640955]
+offset_right = 223.0
+offset_bottom = 41.0
+step = 1.0
+value = 100.0
+
+[node name="OxygenManager" type="Node" parent="." unique_id=1462439268 node_paths=PackedStringArray("player")]
+script = ExtResource("4_cti6j")
+player = NodePath("../CharacterController")
+
+[node name="Timer" type="Timer" parent="OxygenManager" unique_id=1679044356]
+wait_time = 100.0
+autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1292501255]
 environment = SubResource("Environment_lo6n4")
