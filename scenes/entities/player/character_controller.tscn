@@ -13,16 +13,30 @@ height = 0.2
 radius = 0.08
 height = 0.2
 
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_igst2"]
+length = 0.3
+
 [node name="CharacterController" type="CharacterBody3D" unique_id=379629607]
 collision_layer = 51
 collision_mask = 4
 script = ExtResource("1_igst2")
+can_move = null
+has_gravity = null
+can_jump = null
 can_sprint = true
 can_freefly = true
+look_speed = null
 base_speed = 1.0
 jump_velocity = 3.0
 sprint_speed = 1.6
 freefly_speed = 5.0
+input_left = null
+input_right = null
+input_forward = null
+input_back = null
+input_jump = null
+input_sprint = null
+input_freefly = null
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=2036181286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -43,13 +57,13 @@ fov = 45.0
 near = 0.01
 far = 300.0
 
-[node name="RayCast3D" type="RayCast3D" parent="Head" unique_id=452454077]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, -0.07)
-target_position = Vector3(0, 0, -1)
+[node name="InteractionRay" type="Area3D" parent="Head" unique_id=145702423]
+collision_layer = 0
 collision_mask = 32
-hit_from_inside = true
-collide_with_areas = true
-collide_with_bodies = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/InteractionRay" unique_id=345456330]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+shape = SubResource("SeparationRayShape3D_igst2")
 
 [node name="OxygenTimer" type="Timer" parent="." unique_id=1047567052]
 wait_time = 100.0

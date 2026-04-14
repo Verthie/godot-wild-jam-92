@@ -53,51 +53,39 @@ var move_speed : float = 0.0
 var freeflying : bool = false
 var can_interact : bool = false
 
-## The amount of interaction areas that currently overlap with the player
-var interact_areas := 0
-
-## Updates the amount of overlapping areas
-func update_interaction(delta: int) -> void:
-	interact_areas += delta
-	interact_areas = max(interact_areas, 0)
-	can_interact = interact_areas > 0
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
-@onready var ray_cast: RayCast3D = $Head/RayCast3D
+@onready var interaction_ray: Area3D = $Head/InteractionRay
 
 func _ready() -> void:
+	interaction_ray.area_entered.connect(_on_interaction_ray_area_entered)
+	interaction_ray.area_exited.connect(_on_interaction_ray_area_exited)
 	check_input_mappings()
 	capture_mouse()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
 
 func _input(_event: InputEvent) -> void:
-	# when player is in range and is looking at an interactable
+	if !can_interact:
+		return
 
-	if can_interact and ray_cast.is_colliding():
-		var interactable: Node3D = ray_cast.get_collider()
+	if Input.is_action_pressed("interact_left"):
+		pass
+	if Input.is_action_pressed("interact_right"):
+		pass
 
-		EventBus.object_focused.emit(interactable.get_parent().tag)
-
-		if Input.is_action_pressed("interact_left"):
-			pass
-		if Input.is_action_pressed("interact_right"):
-			pass
-
-		# TODO -> interaction logic - player side
-		# change the if statements to match case
-		# if looking at item:
-			# picking up item
-		# if looking at brewing stand and holding an item:
-			# putting item inside the brewing stand
-		# if looking at log:
-			# reading log
-		# if looking at tape:
-			# reading tape:
-	else:
-		EventBus.object_unfocused.emit()
+	# TODO -> interaction logic - player side
+	# change the if statements to match case
+	# if looking at item:
+		# picking up item
+	# if looking at brewing stand and holding an item:
+		# putting item inside the brewing stand
+	# if looking at log:
+		# reading log
+	# if looking at tape:
+		# reading tape:
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -219,3 +207,12 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
+
+
+func _on_interaction_ray_area_entered(area: Area3D) -> void:
+	EventBus.object_focused.emit(area.get_parent().tag)
+	can_interact = true
+
+func _on_interaction_ray_area_exited(_area: Area3D) -> void:
+	EventBus.object_unfocused.emit()
+	can_interact = true

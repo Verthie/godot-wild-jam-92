@@ -50,9 +50,6 @@ size = Vector3(0.04, 0.04, 0.04)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ni35"]
 albedo_color = Color(0.568, 0.8, 0.73039997, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vdry6"]
-size = Vector3(0.5, 0.5, 0.5)
-
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hos1m"]
 data = PackedVector3Array(0, 0.02, 0.02, 0.02, -0.02, 0.02, -0.02, -0.02, 0.02, 0, 0.02, -0.02, -0.02, -0.02, -0.02, 0.02, -0.02, -0.02, 0, 0.02, 0.02, 0, 0.02, -0.02, 0.02, -0.02, 0.02, 0, 0.02, -0.02, 0.02, -0.02, -0.02, 0.02, -0.02, 0.02, 0, 0.02, -0.02, 0, 0.02, 0.02, -0.02, -0.02, -0.02, 0, 0.02, 0.02, -0.02, -0.02, 0.02, -0.02, -0.02, -0.02, -0.02, -0.02, 0.02, 0.02, -0.02, 0.02, -0.02, -0.02, -0.02, 0.02, -0.02, 0.02, 0.02, -0.02, -0.02, -0.02, -0.02, -0.02)
 
@@ -168,6 +165,17 @@ mesh = SubResource("PlaneMesh_neyse")
 shape = SubResource("ConvexPolygonShape3D_vdry6")
 
 [node name="CharacterController" parent="." unique_id=379629607 instance=ExtResource("1_vdry6")]
+can_move = true
+has_gravity = true
+can_jump = true
+look_speed = 0.002
+input_left = "left"
+input_right = "right"
+input_forward = "forward"
+input_back = "backward"
+input_jump = "jump"
+input_sprint = "sprint"
+input_freefly = "freefly"
 
 [node name="InteractionTestSite" type="Node3D" parent="." unique_id=974981191]
 
@@ -195,13 +203,6 @@ tag = "moon seed"
 mesh = SubResource("PrismMesh_8w3bf")
 surface_material_override/0 = SubResource("StandardMaterial3D_0ni35")
 
-[node name="RangeArea" type="Area3D" parent="InteractionTestSite/Desk/MoonSeed" unique_id=561992776]
-collision_layer = 4
-collision_mask = 32
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk/MoonSeed/RangeArea" unique_id=1044220016]
-shape = SubResource("BoxShape3D_vdry6")
-
 [node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk/MoonSeed" unique_id=965413913]
 collision_layer = 32
 collision_mask = 0
@@ -226,13 +227,6 @@ tag = "watermelon"
 mesh = SubResource("SphereMesh_lo6n4")
 surface_material_override/0 = SubResource("StandardMaterial3D_8w3bf")
 
-[node name="RangeArea" type="Area3D" parent="InteractionTestSite/Desk2/Ingredients/Watermelon" unique_id=1997670358]
-collision_layer = 4
-collision_mask = 32
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk2/Ingredients/Watermelon/RangeArea" unique_id=426271896]
-shape = SubResource("BoxShape3D_vdry6")
-
 [node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk2/Ingredients/Watermelon" unique_id=2055381511]
 collision_layer = 32
 collision_mask = 0
@@ -249,14 +243,6 @@ tag = "carrot"
 mesh = SubResource("CylinderMesh_0ni35")
 surface_material_override/0 = SubResource("StandardMaterial3D_7odxn")
 
-[node name="RangeArea" type="Area3D" parent="InteractionTestSite/Desk2/Ingredients/Carrot" unique_id=1495452649]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0011352226, 0, 0)
-collision_layer = 4
-collision_mask = 32
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk2/Ingredients/Carrot/RangeArea" unique_id=1488922857]
-shape = SubResource("BoxShape3D_vdry6")
-
 [node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk2/Ingredients/Carrot" unique_id=1094919233]
 collision_layer = 32
 collision_mask = 0
@@ -272,14 +258,6 @@ tag = "pumpkin"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk2/Ingredients/Pumpkin" unique_id=1222028325]
 mesh = SubResource("SphereMesh_rr2b8")
 surface_material_override/0 = SubResource("StandardMaterial3D_rbn72")
-
-[node name="RangeArea" type="Area3D" parent="InteractionTestSite/Desk2/Ingredients/Pumpkin" unique_id=300870743]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0035716593, 0, 0)
-collision_layer = 4
-collision_mask = 32
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk2/Ingredients/Pumpkin/RangeArea" unique_id=2141801763]
-shape = SubResource("BoxShape3D_vdry6")
 
 [node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk2/Ingredients/Pumpkin" unique_id=1446709648]
 collision_layer = 32
@@ -298,14 +276,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024209738, -0.0013336837, -
 mesh = SubResource("PrismMesh_vdry6")
 surface_material_override/0 = SubResource("StandardMaterial3D_cti6j")
 
-[node name="RangeArea" type="Area3D" parent="InteractionTestSite/Desk2/Ingredients/MushSeed" unique_id=925841427]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024676017, 0, -0.01550895)
-collision_layer = 4
-collision_mask = 32
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk2/Ingredients/MushSeed/RangeArea" unique_id=572382425]
-shape = SubResource("BoxShape3D_vdry6")
-
 [node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk2/Ingredients/MushSeed" unique_id=1528792157]
 collision_layer = 32
 collision_mask = 0
@@ -323,14 +293,6 @@ tag = "mist seed"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024209738, -0.0014573932, -0.01638943)
 mesh = SubResource("PrismMesh_rr2b8")
 surface_material_override/0 = SubResource("StandardMaterial3D_hos1m")
-
-[node name="RangeArea" type="Area3D" parent="InteractionTestSite/Desk2/Ingredients/MistSeed" unique_id=839833152]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023548156, 0, -0.01550895)
-collision_layer = 4
-collision_mask = 32
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk2/Ingredients/MistSeed/RangeArea" unique_id=831295799]
-shape = SubResource("BoxShape3D_vdry6")
 
 [node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk2/Ingredients/MistSeed" unique_id=737298509]
 collision_layer = 32
