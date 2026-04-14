@@ -7,6 +7,10 @@ extends CharacterBody3D
 class_name Player
 
 signal object_focused(tag: String)
+signal object_unfocused
+signal talked(text: String)
+signal enabled_sampler(tries_amount: int)
+signal pulled_lever()
 
 ## Can we move around?
 @export var can_move : bool = true
@@ -47,17 +51,25 @@ signal object_focused(tag: String)
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
 
+## The amount of interaction areas that currently overlap with the player
+var interact_areas := 0
+
 var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
 var can_interact : bool = false
 
+var left_hand_item: Node3D = null
+var right_hand_item: Node3D = null
+
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 @onready var interaction_ray: Area3D = $Head/InteractionRay
+@onready var hand_right: Node3D = $Head/HandRight
+@onready var hand_left: Node3D = $Head/HandLeft
 
 func _ready() -> void:
 	interaction_ray.area_entered.connect(_on_interaction_ray_area_entered)
@@ -67,25 +79,6 @@ func _ready() -> void:
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
 
-func _input(_event: InputEvent) -> void:
-	if !can_interact:
-		return
-
-	if Input.is_action_pressed("interact_left"):
-		pass
-	if Input.is_action_pressed("interact_right"):
-		pass
-
-	# TODO -> interaction logic - player side
-	# change the if statements to match case
-	# if looking at item:
-		# picking up item
-	# if looking at brewing stand and holding an item:
-		# putting item inside the brewing stand
-	# if looking at log:
-		# reading log
-	# if looking at tape:
-		# reading tape:
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -106,6 +99,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			enable_freefly()
 		else:
 			disable_freefly()
+
+	if !can_interact:
+		return
+
+	if event.is_action_pressed("interact_left"):
+		handle_interaction("left")
+	if event.is_action_pressed("interact_right"):
+		handle_interaction("right")
 
 func _physics_process(delta: float) -> void:
 	# If freeflying, handle freefly and nothing else
@@ -183,6 +184,128 @@ func release_mouse():
 	get_viewport().set_input_as_handled()
 
 
+func handle_interaction(hand: String) -> void:
+	var overlapping_areas: Array = interaction_ray.get_overlapping_areas()
+
+	if overlapping_areas.is_empty():
+		return
+
+	var interactable: Interactable = overlapping_areas[0].get_parent()
+
+	match interactable.type:
+		0: # Ingredient
+			if hand == "right" and right_hand_item == null:
+				interactable.object_area.monitorable = false
+				interactable.reparent(hand_right, false)
+				interactable.position = Vector3.ZERO
+				right_hand_item = interactable
+
+			if hand == "left" and left_hand_item == null:
+				interactable.object_area.monitorable = false
+				interactable.reparent(hand_left, false)
+				interactable.position = Vector3.ZERO
+				left_hand_item = interactable
+		1: # Brewing Stand
+			# check if the brewing stand has empty slots if not display a prompt that it is full
+			var brewing_contents: Array[Node3D] = interactable.node_array
+
+			if brewing_contents.size() == interactable.capacity and (left_hand_item != null or right_hand_item != null):
+				talked.emit("The brewing stand seems to be full...")
+				return
+
+			# if it has empty slots and player holds an item he puts it inside
+			if (hand == "right" and right_hand_item != null and right_hand_item.tag != "moon seed"):
+				brewing_contents.append(right_hand_item)
+				right_hand_item.reparent(interactable.holder_node, false)
+				right_hand_item = null
+
+			elif (hand == "left" and left_hand_item != null and left_hand_item.tag != "moon seed"):
+				brewing_contents.append(left_hand_item)
+				left_hand_item.reparent(interactable.holder_node, false)
+				left_hand_item = null
+
+			elif brewing_contents.size() > 0:
+				if (hand == "right" and right_hand_item == null):
+					var item = brewing_contents.pop_back()
+					item.reparent(hand_right, false)
+					right_hand_item = item
+
+				if (hand == "left" and left_hand_item == null):
+					var item = brewing_contents.pop_back()
+					item.reparent(hand_left, false)
+					left_hand_item = item
+
+			print(interactable.tag, " ingredient amount: ", brewing_contents.size())
+		2: # Lever
+			var brewing_stand: Interactable = interactable.get_parent()
+
+			var brewing_contents: Array[Node3D] = brewing_stand.node_array
+
+			if brewing_contents.size() != brewing_stand.capacity:
+				talked.emit("It needs to be full...")
+				return
+
+			talked.emit("Brewing comences, ingredients are dissolved...")
+
+			brewing_stand.node_array.clear()
+
+			if brewing_stand.tag == "cure brewing stand":
+				pulled_lever.emit()
+
+			# TODO display results on the board
+		3: # Log
+			# TODO display log on screen
+			pass
+		4: # Bowl
+			var bowl_contents: Array[Node3D] = interactable.node_array
+
+			if bowl_contents.size() > 0:
+				if (hand == "right" and right_hand_item == null):
+					var item = bowl_contents.pop_back()
+					item.reparent(hand_right, false)
+					right_hand_item = item
+
+				if (hand == "left" and left_hand_item == null):
+					var item = bowl_contents.pop_back()
+					item.reparent(hand_left, false)
+					left_hand_item = item
+
+			elif bowl_contents.size() < interactable.capacity:
+				if (hand == "right" and right_hand_item != null):
+					print("fuck")
+					bowl_contents.append(right_hand_item)
+					right_hand_item.reparent(interactable.holder_node, false)
+					right_hand_item.position = Vector3.ZERO
+					right_hand_item = null
+
+				if (hand == "left" and left_hand_item != null):
+					print("fuck")
+					bowl_contents.append(left_hand_item)
+					left_hand_item.reparent(interactable.holder_node, false)
+					left_hand_item.position = Vector3.ZERO
+					left_hand_item = null
+		5: # Trash Can
+			if (hand == "right" and right_hand_item != null and right_hand_item.tag != "moon seed"):
+				right_hand_item.queue_free()
+				right_hand_item = null
+
+			if (hand == "left" and left_hand_item != null and left_hand_item.tag != "moon seed"):
+				left_hand_item.queue_free()
+				left_hand_item = null
+		6: # Sampler
+			if (hand == "right" and right_hand_item != null and right_hand_item.tag == "moon seed"):
+				right_hand_item.queue_free()
+				right_hand_item = null
+				enabled_sampler.emit(5)
+
+			if (hand == "left" and left_hand_item != null and left_hand_item.tag == "moon seed"):
+				left_hand_item.queue_free()
+				left_hand_item = null
+				enabled_sampler.emit(5)
+
+		_:
+			return
+
 ## Checks if some Input Actions haven't been created.
 ## Disables functionality accordingly.
 func check_input_mappings():
@@ -209,10 +332,17 @@ func check_input_mappings():
 		can_freefly = false
 
 
+## Updates the amount of overlapping areas
+# func update_interaction(delta: int) -> void:
+# 	interact_areas += delta
+# 	interact_areas = max(interact_areas, 0)
+# 	can_interact = interact_areas > 0
+
+# BUG issues with the prompt display: whenever 2 or more areas are overlapped with the interaction_ray
 func _on_interaction_ray_area_entered(area: Area3D) -> void:
-	EventBus.object_focused.emit(area.get_parent().tag)
+	object_focused.emit(area.get_parent().tag)
 	can_interact = true
 
 func _on_interaction_ray_area_exited(_area: Area3D) -> void:
-	EventBus.object_unfocused.emit()
-	can_interact = true
+	object_unfocused.emit()
+	can_interact = false

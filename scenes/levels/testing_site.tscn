@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c7nrx48oefey"]
 
+[ext_resource type="Script" uid="uid://0xn8fx38uoue" path="res://scenes/levels/testing_site.gd" id="1_hos1m"]
 [ext_resource type="Script" uid="uid://cytvprkhiiwil" path="res://scenes/ui/ui.gd" id="1_rr2b8"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/entities/player/character_controller.tscn" id="1_vdry6"]
 [ext_resource type="Texture2D" uid="uid://b8jykp8xs34om" path="res://icon.svg" id="2_sib0q"]
@@ -36,6 +37,9 @@ size = Vector3(0.065, 0.055, 0.065)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dq3xm"]
 albedo_color = Color(0.61, 0.61, 0.61, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dq3xm"]
+size = Vector3(0.065, 0.055, 0.065)
+
 [sub_resource type="SphereMesh" id="SphereMesh_vdry6"]
 radius = 0.05
 height = 0.075
@@ -43,6 +47,9 @@ height = 0.075
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sib0q"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.67058825)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8w3bf"]
+radius = 0.05
 
 [sub_resource type="PrismMesh" id="PrismMesh_8w3bf"]
 size = Vector3(0.04, 0.04, 0.04)
@@ -109,8 +116,23 @@ size = Vector3(0.17, 0.27, 0.215)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rr2b8"]
 albedo_color = Color(0.29074255, 0.65300024, 0.6306325, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hos1m"]
+size = Vector3(0.17, 0.27, 0.215)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dq3xm"]
+size = Vector3(0.065, 0.02, 0.02)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8w3bf"]
+size = Vector3(0.065, 0.02, 0.02)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lo6n4"]
 albedo_color = Color(0.16589999, 0.79, 0.40513825, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sib0q"]
+size = Vector3(0.17, 0.27, 0.215)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ni35"]
+size = Vector3(0.065, 0.02, 0.02)
 
 [sub_resource type="BoxMesh" id="BoxMesh_sib0q"]
 size = Vector3(0.7, 0.4, 0.02)
@@ -121,10 +143,15 @@ size = Vector3(0.1, 0.1, 0.1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edejb"]
 albedo_color = Color(0.74, 0.74, 0.74, 1)
 
-[node name="TestingSite" type="Node3D" unique_id=1928496112]
+[sub_resource type="BoxShape3D" id="BoxShape3D_cti6j"]
+size = Vector3(0.1, 0.1, 0.1)
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1458421141]
+[node name="TestingSite" type="Node3D" unique_id=1928496112]
+script = ExtResource("1_hos1m")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1458421141 node_paths=PackedStringArray("player")]
 script = ExtResource("1_rr2b8")
+player = NodePath("../CharacterController")
 
 [node name="Sprite2D" type="Sprite2D" parent="UI" unique_id=798295479]
 position = Vector2(541, 318)
@@ -148,6 +175,23 @@ text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1456963505]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 24
+
+[node name="PlayerSpeech" type="Label" parent="UI/MarginContainer" unique_id=1677268930]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1292501255]
 environment = SubResource("Environment_lo6n4")
 
@@ -165,17 +209,6 @@ mesh = SubResource("PlaneMesh_neyse")
 shape = SubResource("ConvexPolygonShape3D_vdry6")
 
 [node name="CharacterController" parent="." unique_id=379629607 instance=ExtResource("1_vdry6")]
-can_move = true
-has_gravity = true
-can_jump = true
-look_speed = 0.002
-input_left = "left"
-input_right = "right"
-input_forward = "forward"
-input_back = "backward"
-input_jump = "jump"
-input_sprint = "sprint"
-input_freefly = "freefly"
 
 [node name="InteractionTestSite" type="Node3D" parent="." unique_id=974981191]
 
@@ -184,15 +217,51 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 mesh = SubResource("BoxMesh_rr2b8")
 surface_material_override/0 = SubResource("StandardMaterial3D_vdry6")
 
-[node name="Sampler" type="MeshInstance3D" parent="InteractionTestSite/Desk" unique_id=720890808]
+[node name="Sampler" type="Node3D" parent="InteractionTestSite/Desk" unique_id=385077210]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0046089888, 0.12921335, 0.12163394)
+script = ExtResource("3_lo6n4")
+tag = "sampler"
+type = 6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk/Sampler" unique_id=720890808]
 mesh = SubResource("BoxMesh_vdry6")
 surface_material_override/0 = SubResource("StandardMaterial3D_dq3xm")
 
-[node name="Bowl" type="MeshInstance3D" parent="InteractionTestSite/Desk" unique_id=1704341862]
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk/Sampler" unique_id=1531454120]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk/Sampler/ObjectArea" unique_id=1332078129]
+shape = SubResource("BoxShape3D_dq3xm")
+
+[node name="SeedCount" type="Label3D" parent="InteractionTestSite/Desk/Sampler" unique_id=621771428]
+unique_name_in_owner = true
+transform = Transform3D(-6.389141e-09, 0, 0.195, 0, 0.14616652, 0, -0.14616652, 0, -8.52372e-09, 0.033893466, 0.001018241, -0.0023599267)
+modulate = Color(0.2325, 0.6464999, 0.75, 0.5921569)
+outline_modulate = Color(0.09835971, 0.42669177, 0.534842, 0.5019608)
+text = "5"
+font_size = 62
+
+[node name="Bowl" type="Node3D" parent="InteractionTestSite/Desk" unique_id=2035363366 node_paths=PackedStringArray("holder_node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0046089888, 0.12921335, -0.11560281)
+script = ExtResource("3_lo6n4")
+tag = "bowl"
+capacity = 1
+holder_node = NodePath("Holder")
+type = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk/Bowl" unique_id=1704341862]
 mesh = SubResource("SphereMesh_vdry6")
 surface_material_override/0 = SubResource("StandardMaterial3D_sib0q")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk/Bowl" unique_id=786969464]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk/Bowl/ObjectArea" unique_id=2051695050]
+shape = SubResource("SphereShape3D_8w3bf")
+
+[node name="Holder" type="Node3D" parent="InteractionTestSite/Desk/Bowl" unique_id=1663409372]
 
 [node name="MoonSeed" type="Node3D" parent="InteractionTestSite/Desk" unique_id=727871739]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.0039278865, 0.1223529, 0.016741917)
@@ -267,12 +336,11 @@ collision_mask = 0
 shape = SubResource("SphereShape3D_sib0q")
 
 [node name="MushSeed" type="Node3D" parent="InteractionTestSite/Desk2/Ingredients" unique_id=1461322726]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06718091, 0.14092346, 0.36559397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08967132, 0.14092346, 0.34823823)
 script = ExtResource("3_lo6n4")
 tag = "mush seed"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk2/Ingredients/MushSeed" unique_id=1753713285]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024209738, -0.0013336837, -0.01638943)
 mesh = SubResource("PrismMesh_vdry6")
 surface_material_override/0 = SubResource("StandardMaterial3D_cti6j")
 
@@ -281,16 +349,14 @@ collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk2/Ingredients/MushSeed/ObjectArea" unique_id=668460627]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024209738, -0.0013336837, -0.01638943)
 shape = SubResource("ConcavePolygonShape3D_hos1m")
 
 [node name="MistSeed" type="Node3D" parent="InteractionTestSite/Desk2/Ingredients" unique_id=116198786]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146296, 0.14092346, 0.36559397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16127309, 0.14092346, 0.34698194)
 script = ExtResource("3_lo6n4")
 tag = "mist seed"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk2/Ingredients/MistSeed" unique_id=1009056810]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024209738, -0.0014573932, -0.01638943)
 mesh = SubResource("PrismMesh_rr2b8")
 surface_material_override/0 = SubResource("StandardMaterial3D_hos1m")
 
@@ -299,24 +365,349 @@ collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk2/Ingredients/MistSeed/ObjectArea" unique_id=742695351]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024209738, -0.0013336837, -0.01638943)
 shape = SubResource("ConcavePolygonShape3D_cti6j")
 
-[node name="OxygenBrewingStand" type="Node3D" parent="InteractionTestSite" unique_id=316720168]
+[node name="Desk3" type="MeshInstance3D" parent="InteractionTestSite" unique_id=1574865315]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.019722342, 0.5912812)
+mesh = SubResource("BoxMesh_7odxn")
+surface_material_override/0 = SubResource("StandardMaterial3D_vdry6")
+
+[node name="Ingredients" type="Node3D" parent="InteractionTestSite/Desk3" unique_id=739855110]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.34728387, -0.019722342, 1.518026e-08)
+
+[node name="Watermelon" type="Node3D" parent="InteractionTestSite/Desk3/Ingredients" unique_id=1235397225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0077700093, 0.14092346, 0.35008502)
+script = ExtResource("3_lo6n4")
+tag = "watermelon"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk3/Ingredients/Watermelon" unique_id=1090540718]
+mesh = SubResource("SphereMesh_lo6n4")
+surface_material_override/0 = SubResource("StandardMaterial3D_8w3bf")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk3/Ingredients/Watermelon" unique_id=572442306]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk3/Ingredients/Watermelon/ObjectArea" unique_id=2101463706]
+shape = SubResource("SphereShape3D_lo6n4")
+
+[node name="Carrot" type="Node3D" parent="InteractionTestSite/Desk3/Ingredients" unique_id=235927479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07285121, 0.14092346, 0.35008502)
+script = ExtResource("3_lo6n4")
+tag = "carrot"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk3/Ingredients/Carrot" unique_id=1686669911]
+mesh = SubResource("CylinderMesh_0ni35")
+surface_material_override/0 = SubResource("StandardMaterial3D_7odxn")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk3/Ingredients/Carrot" unique_id=1631487664]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk3/Ingredients/Carrot/ObjectArea" unique_id=1296595756]
+shape = SubResource("CylinderShape3D_lo6n4")
+
+[node name="Pumpkin" type="Node3D" parent="InteractionTestSite/Desk3/Ingredients" unique_id=1600446268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15351087, 0.14092346, 0.35008502)
+script = ExtResource("3_lo6n4")
+tag = "pumpkin"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk3/Ingredients/Pumpkin" unique_id=1563882663]
+mesh = SubResource("SphereMesh_rr2b8")
+surface_material_override/0 = SubResource("StandardMaterial3D_rbn72")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk3/Ingredients/Pumpkin" unique_id=540508477]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk3/Ingredients/Pumpkin/ObjectArea" unique_id=1165034342]
+shape = SubResource("SphereShape3D_sib0q")
+
+[node name="MushSeed" type="Node3D" parent="InteractionTestSite/Desk3/Ingredients" unique_id=1927850141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08967132, 0.14092346, 0.34823823)
+script = ExtResource("3_lo6n4")
+tag = "mush seed"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk3/Ingredients/MushSeed" unique_id=383610461]
+mesh = SubResource("PrismMesh_vdry6")
+surface_material_override/0 = SubResource("StandardMaterial3D_cti6j")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk3/Ingredients/MushSeed" unique_id=784229920]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk3/Ingredients/MushSeed/ObjectArea" unique_id=665592114]
+shape = SubResource("ConcavePolygonShape3D_hos1m")
+
+[node name="MistSeed" type="Node3D" parent="InteractionTestSite/Desk3/Ingredients" unique_id=151629378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16127309, 0.14092346, 0.34698194)
+script = ExtResource("3_lo6n4")
+tag = "mist seed"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk3/Ingredients/MistSeed" unique_id=1980808200]
+mesh = SubResource("PrismMesh_rr2b8")
+surface_material_override/0 = SubResource("StandardMaterial3D_hos1m")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk3/Ingredients/MistSeed" unique_id=1551671913]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk3/Ingredients/MistSeed/ObjectArea" unique_id=1864132899]
+shape = SubResource("ConcavePolygonShape3D_cti6j")
+
+[node name="Desk4" type="MeshInstance3D" parent="InteractionTestSite" unique_id=59162599]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.019722342, 0.84545374)
+mesh = SubResource("BoxMesh_7odxn")
+surface_material_override/0 = SubResource("StandardMaterial3D_vdry6")
+
+[node name="Ingredients" type="Node3D" parent="InteractionTestSite/Desk4" unique_id=1197207343]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.34728387, -0.019722342, 1.518026e-08)
+
+[node name="Watermelon" type="Node3D" parent="InteractionTestSite/Desk4/Ingredients" unique_id=1560863360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0077700093, 0.14092346, 0.35008502)
+script = ExtResource("3_lo6n4")
+tag = "watermelon"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk4/Ingredients/Watermelon" unique_id=777360955]
+mesh = SubResource("SphereMesh_lo6n4")
+surface_material_override/0 = SubResource("StandardMaterial3D_8w3bf")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk4/Ingredients/Watermelon" unique_id=691538973]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk4/Ingredients/Watermelon/ObjectArea" unique_id=853770331]
+shape = SubResource("SphereShape3D_lo6n4")
+
+[node name="Carrot" type="Node3D" parent="InteractionTestSite/Desk4/Ingredients" unique_id=643043606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07285121, 0.14092346, 0.35008502)
+script = ExtResource("3_lo6n4")
+tag = "carrot"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk4/Ingredients/Carrot" unique_id=196532010]
+mesh = SubResource("CylinderMesh_0ni35")
+surface_material_override/0 = SubResource("StandardMaterial3D_7odxn")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk4/Ingredients/Carrot" unique_id=594640514]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk4/Ingredients/Carrot/ObjectArea" unique_id=614071070]
+shape = SubResource("CylinderShape3D_lo6n4")
+
+[node name="Pumpkin" type="Node3D" parent="InteractionTestSite/Desk4/Ingredients" unique_id=1206809821]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15351087, 0.14092346, 0.35008502)
+script = ExtResource("3_lo6n4")
+tag = "pumpkin"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk4/Ingredients/Pumpkin" unique_id=40678237]
+mesh = SubResource("SphereMesh_rr2b8")
+surface_material_override/0 = SubResource("StandardMaterial3D_rbn72")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk4/Ingredients/Pumpkin" unique_id=2107092458]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk4/Ingredients/Pumpkin/ObjectArea" unique_id=597035053]
+shape = SubResource("SphereShape3D_sib0q")
+
+[node name="MushSeed" type="Node3D" parent="InteractionTestSite/Desk4/Ingredients" unique_id=944201710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08967132, 0.14092346, 0.34823823)
+script = ExtResource("3_lo6n4")
+tag = "mush seed"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk4/Ingredients/MushSeed" unique_id=1108549191]
+mesh = SubResource("PrismMesh_vdry6")
+surface_material_override/0 = SubResource("StandardMaterial3D_cti6j")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk4/Ingredients/MushSeed" unique_id=1179673935]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk4/Ingredients/MushSeed/ObjectArea" unique_id=1218092833]
+shape = SubResource("ConcavePolygonShape3D_hos1m")
+
+[node name="MistSeed" type="Node3D" parent="InteractionTestSite/Desk4/Ingredients" unique_id=1001051076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16127309, 0.14092346, 0.34698194)
+script = ExtResource("3_lo6n4")
+tag = "mist seed"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk4/Ingredients/MistSeed" unique_id=622205892]
+mesh = SubResource("PrismMesh_rr2b8")
+surface_material_override/0 = SubResource("StandardMaterial3D_hos1m")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk4/Ingredients/MistSeed" unique_id=1240914358]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk4/Ingredients/MistSeed/ObjectArea" unique_id=664491535]
+shape = SubResource("ConcavePolygonShape3D_cti6j")
+
+[node name="Desk5" type="MeshInstance3D" parent="InteractionTestSite" unique_id=1095284199]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.019722342, 1.1154288)
+mesh = SubResource("BoxMesh_7odxn")
+surface_material_override/0 = SubResource("StandardMaterial3D_vdry6")
+
+[node name="Ingredients" type="Node3D" parent="InteractionTestSite/Desk5" unique_id=1043003459]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.34728387, -0.019722342, 1.518026e-08)
+
+[node name="Watermelon" type="Node3D" parent="InteractionTestSite/Desk5/Ingredients" unique_id=1655290850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0077700093, 0.14092346, 0.35008502)
+script = ExtResource("3_lo6n4")
+tag = "watermelon"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk5/Ingredients/Watermelon" unique_id=1165707982]
+mesh = SubResource("SphereMesh_lo6n4")
+surface_material_override/0 = SubResource("StandardMaterial3D_8w3bf")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk5/Ingredients/Watermelon" unique_id=2014410734]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk5/Ingredients/Watermelon/ObjectArea" unique_id=828782000]
+shape = SubResource("SphereShape3D_lo6n4")
+
+[node name="Carrot" type="Node3D" parent="InteractionTestSite/Desk5/Ingredients" unique_id=1099924021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07285121, 0.14092346, 0.35008502)
+script = ExtResource("3_lo6n4")
+tag = "carrot"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk5/Ingredients/Carrot" unique_id=726853380]
+mesh = SubResource("CylinderMesh_0ni35")
+surface_material_override/0 = SubResource("StandardMaterial3D_7odxn")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk5/Ingredients/Carrot" unique_id=1443620531]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk5/Ingredients/Carrot/ObjectArea" unique_id=1317343170]
+shape = SubResource("CylinderShape3D_lo6n4")
+
+[node name="Pumpkin" type="Node3D" parent="InteractionTestSite/Desk5/Ingredients" unique_id=1534352841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15351087, 0.14092346, 0.35008502)
+script = ExtResource("3_lo6n4")
+tag = "pumpkin"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk5/Ingredients/Pumpkin" unique_id=498828615]
+mesh = SubResource("SphereMesh_rr2b8")
+surface_material_override/0 = SubResource("StandardMaterial3D_rbn72")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk5/Ingredients/Pumpkin" unique_id=1344330273]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk5/Ingredients/Pumpkin/ObjectArea" unique_id=1820432559]
+shape = SubResource("SphereShape3D_sib0q")
+
+[node name="MushSeed" type="Node3D" parent="InteractionTestSite/Desk5/Ingredients" unique_id=1976423038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08967132, 0.14092346, 0.34823823)
+script = ExtResource("3_lo6n4")
+tag = "mush seed"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk5/Ingredients/MushSeed" unique_id=1037021845]
+mesh = SubResource("PrismMesh_vdry6")
+surface_material_override/0 = SubResource("StandardMaterial3D_cti6j")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk5/Ingredients/MushSeed" unique_id=1876500752]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk5/Ingredients/MushSeed/ObjectArea" unique_id=1817906448]
+shape = SubResource("ConcavePolygonShape3D_hos1m")
+
+[node name="MistSeed" type="Node3D" parent="InteractionTestSite/Desk5/Ingredients" unique_id=457425471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16127309, 0.14092346, 0.34698194)
+script = ExtResource("3_lo6n4")
+tag = "mist seed"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Desk5/Ingredients/MistSeed" unique_id=457155570]
+mesh = SubResource("PrismMesh_rr2b8")
+surface_material_override/0 = SubResource("StandardMaterial3D_hos1m")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Desk5/Ingredients/MistSeed" unique_id=571897341]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Desk5/Ingredients/MistSeed/ObjectArea" unique_id=1283200455]
+shape = SubResource("ConcavePolygonShape3D_cti6j")
+
+[node name="OxygenBrewingStand" type="Node3D" parent="InteractionTestSite" unique_id=316720168 node_paths=PackedStringArray("holder_node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3658718, 0.14064297, -0.6320474)
+script = ExtResource("3_lo6n4")
+tag = "o2 brewing stand"
+capacity = 2
+holder_node = NodePath("Holder")
+type = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/OxygenBrewingStand" unique_id=2028167704]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_lo6n4")
 surface_material_override/0 = SubResource("StandardMaterial3D_rr2b8")
 
-[node name="CureBrewingStand" type="Node3D" parent="InteractionTestSite" unique_id=32801948]
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/OxygenBrewingStand" unique_id=860693810]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/OxygenBrewingStand/ObjectArea" unique_id=22176309]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_hos1m")
+
+[node name="OxygenLever" type="Node3D" parent="InteractionTestSite/OxygenBrewingStand" unique_id=2018740236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13744056, 0.047964737, 0.00072956085)
+script = ExtResource("3_lo6n4")
+tag = "Lever"
+type = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/OxygenBrewingStand/OxygenLever" unique_id=1779115343]
+mesh = SubResource("BoxMesh_dq3xm")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/OxygenBrewingStand/OxygenLever" unique_id=54820297]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/OxygenBrewingStand/OxygenLever/ObjectArea" unique_id=426638248]
+shape = SubResource("BoxShape3D_8w3bf")
+
+[node name="Holder" type="Node3D" parent="InteractionTestSite/OxygenBrewingStand" unique_id=1299875881]
+
+[node name="CureBrewingStand" type="Node3D" parent="InteractionTestSite" unique_id=32801948 node_paths=PackedStringArray("holder_node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.376921, 0.14064297, -0.6320474)
+script = ExtResource("3_lo6n4")
+tag = "cure brewing stand"
+capacity = 5
+holder_node = NodePath("Holder")
+type = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/CureBrewingStand" unique_id=847822642]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("BoxMesh_lo6n4")
 surface_material_override/0 = SubResource("StandardMaterial3D_lo6n4")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/CureBrewingStand" unique_id=893990217]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/CureBrewingStand/ObjectArea" unique_id=650160473]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_sib0q")
+
+[node name="CureLever" type="Node3D" parent="InteractionTestSite/CureBrewingStand" unique_id=264783694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13765836, 0.047964737, 0.00072956085)
+script = ExtResource("3_lo6n4")
+tag = "Lever"
+type = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/CureBrewingStand/CureLever" unique_id=486694061]
+mesh = SubResource("BoxMesh_dq3xm")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/CureBrewingStand/CureLever" unique_id=1500856892]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/CureBrewingStand/CureLever/ObjectArea" unique_id=1084103574]
+shape = SubResource("BoxShape3D_0ni35")
+
+[node name="Holder" type="Node3D" parent="InteractionTestSite/CureBrewingStand" unique_id=246653080]
 
 [node name="Board" type="MeshInstance3D" parent="InteractionTestSite" unique_id=1388449282]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.6760789, 0.26381558, -0.05009383)
@@ -324,9 +715,19 @@ mesh = SubResource("BoxMesh_sib0q")
 
 [node name="Bin" type="Node3D" parent="InteractionTestSite" unique_id=185076195]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45216504, 0.04361403, 0.3434497)
+script = ExtResource("3_lo6n4")
+tag = "trash can"
+type = 5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="InteractionTestSite/Bin" unique_id=1129773934]
 mesh = SubResource("BoxMesh_hos1m")
 surface_material_override/0 = SubResource("StandardMaterial3D_edejb")
+
+[node name="ObjectArea" type="Area3D" parent="InteractionTestSite/Bin" unique_id=585680483]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTestSite/Bin/ObjectArea" unique_id=1103475531]
+shape = SubResource("BoxShape3D_cti6j")
 
 [node name="OxygenTestSite" type="Node3D" parent="." unique_id=1551543058]

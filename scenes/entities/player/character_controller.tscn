@@ -20,23 +20,12 @@ length = 0.3
 collision_layer = 51
 collision_mask = 4
 script = ExtResource("1_igst2")
-can_move = null
-has_gravity = null
-can_jump = null
 can_sprint = true
 can_freefly = true
-look_speed = null
 base_speed = 1.0
 jump_velocity = 3.0
 sprint_speed = 1.6
 freefly_speed = 5.0
-input_left = null
-input_right = null
-input_forward = null
-input_back = null
-input_jump = null
-input_sprint = null
-input_freefly = null
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=2036181286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -64,6 +53,12 @@ collision_mask = 32
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/InteractionRay" unique_id=345456330]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 shape = SubResource("SeparationRayShape3D_igst2")
+
+[node name="HandRight" type="Node3D" parent="Head" unique_id=1517090674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04094246, -0.027, -0.103)
+
+[node name="HandLeft" type="Node3D" parent="Head" unique_id=1653413214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041, -0.027, -0.103)
 
 [node name="OxygenTimer" type="Timer" parent="." unique_id=1047567052]
 wait_time = 100.0
