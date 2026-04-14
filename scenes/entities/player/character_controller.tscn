@@ -14,7 +14,7 @@ radius = 0.08
 height = 0.2
 
 [node name="CharacterController" type="CharacterBody3D" unique_id=379629607]
-collision_layer = 19
+collision_layer = 51
 collision_mask = 4
 script = ExtResource("1_igst2")
 can_sprint = true
@@ -42,3 +42,16 @@ current = true
 fov = 45.0
 near = 0.01
 far = 300.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Head" unique_id=452454077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, -0.07)
+target_position = Vector3(0, 0, -1)
+collision_mask = 32
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="OxygenTimer" type="Timer" parent="." unique_id=1047567052]
+wait_time = 100.0
+one_shot = true
+autostart = true

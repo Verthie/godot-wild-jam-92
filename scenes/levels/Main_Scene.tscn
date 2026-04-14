@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bwnfbu227ted2"]
+[gd_scene format=4 uid="uid://bl0xneds8b4rc"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/entities/player/character_controller.tscn" id="1_p1d0p"]
 [ext_resource type="ArrayMesh" uid="uid://db3yslr7lhxjy" path="res://resources/meshes/lunchpad.tres" id="6_ae3sc"]

@@ -1,4 +1,4 @@
 extends Node
 
-signal entered_interactable_area
-signal exited_interactable_area
+signal object_focused(tag: String)
+signal object_unfocused

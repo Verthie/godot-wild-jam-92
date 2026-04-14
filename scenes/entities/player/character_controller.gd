@@ -6,6 +6,8 @@
 extends CharacterBody3D
 class_name Player
 
+signal object_focused(tag: String)
+
 ## Can we move around?
 @export var can_move : bool = true
 ## Are we affected by gravity?
@@ -51,21 +53,38 @@ var move_speed : float = 0.0
 var freeflying : bool = false
 var can_interact : bool = false
 
+## The amount of interaction areas that currently overlap with the player
+var interact_areas := 0
+
+## Updates the amount of overlapping areas
+func update_interaction(delta: int) -> void:
+	interact_areas += delta
+	interact_areas = max(interact_areas, 0)
+	can_interact = interact_areas > 0
+
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var ray_cast: RayCast3D = $Head/RayCast3D
 
 func _ready() -> void:
-	EventBus.entered_interactable_area.connect(_on_player_entered_interactable_area)
-	EventBus.exited_interactable_area.connect(_on_player_exited_interactable_area)
 	check_input_mappings()
 	capture_mouse()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
 
 func _input(_event: InputEvent) -> void:
-	if can_interact and Input.is_action_pressed("interact"):
-		can_interact = false
+	# when player is in range and is looking at an interactable
+
+	if can_interact and ray_cast.is_colliding():
+		var interactable: Node3D = ray_cast.get_collider()
+
+		EventBus.object_focused.emit(interactable.get_parent().tag)
+
+		if Input.is_action_pressed("interact_left"):
+			pass
+		if Input.is_action_pressed("interact_right"):
+			pass
 
 		# TODO -> interaction logic - player side
 		# change the if statements to match case
@@ -77,6 +96,8 @@ func _input(_event: InputEvent) -> void:
 			# reading log
 		# if looking at tape:
 			# reading tape:
+	else:
+		EventBus.object_unfocused.emit()
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
@@ -168,7 +189,6 @@ func capture_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	mouse_captured = true
 
-
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
@@ -199,14 +219,3 @@ func check_input_mappings():
 	if can_freefly and not InputMap.has_action(input_freefly):
 		push_error("Freefly disabled. No InputAction found for input_freefly: " + input_freefly)
 		can_freefly = false
-
-
-func _on_player_entered_interactable_area():
-	can_interact = true
-
-	# UI -> display monit
-
-func _on_player_exited_interactable_area():
-	can_interact = false
-
-	# UI -> hide monit
