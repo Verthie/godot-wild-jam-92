@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ccri2hc7dtc13"]
+
+[ext_resource type="Script" uid="uid://tkk01u3ekvvx" path="res://scenes/items/brewing_room/oxygen_maker.gd" id="1_pc2wf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tqt2l"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ovgn"]
+transparency = 1
+depth_draw_mode = 1
+albedo_color = Color(1, 1, 1, 0.2509804)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pc2wf"]
+size = Vector3(1, 2, 1)
+
+[node name="Oxygen Maker" type="StaticBody3D" unique_id=1999525160]
+script = ExtResource("1_pc2wf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=508729463]
+mesh = SubResource("BoxMesh_tqt2l")
+surface_material_override/0 = SubResource("StandardMaterial3D_4ovgn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=470864478]
+shape = SubResource("BoxShape3D_pc2wf")
+
+[node name="Holder" type="Node3D" parent="." unique_id=349515427]
+
+[node name="Slot0" type="Node3D" parent="Holder" unique_id=187192471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Slot1" type="Node3D" parent="Holder" unique_id=1015580576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

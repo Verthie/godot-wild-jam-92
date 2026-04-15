@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bb1sb68ydk0ir"]
+
+[ext_resource type="Script" uid="uid://b8k56xde1mn4l" path="res://scenes/items/Ingredients/ingredient_item.gd" id="1_bgyrc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_efxw3"]
+rings = 0
+
+[node name="BeetrootItem" type="Node3D" unique_id=1097137764]
+script = ExtResource("1_bgyrc")
+tag = "beetroot"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1860347975]
+mesh = SubResource("CapsuleMesh_efxw3")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b5ymh4tk36cx4"]
+
+[ext_resource type="Script" uid="uid://b8k56xde1mn4l" path="res://scenes/items/Ingredients/ingredient_item.gd" id="1_0fjbo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_o87m8"]
+
+[node name="PotatoItem" type="Node3D" unique_id=1635313854]
+script = ExtResource("1_0fjbo")
+tag = "potato"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1389191007]
+mesh = SubResource("SphereMesh_o87m8")

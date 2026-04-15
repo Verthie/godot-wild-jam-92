@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dt771t30a4gau"]
 
-[ext_resource type="Script" uid="uid://c0fy04xhwh7qs" path="res://Scripts/tile.gd" id="1_2lh0i"]
+[ext_resource type="Script" uid="uid://c0fy04xhwh7qs" path="res://scenes/items/brewing_room/tile.gd" id="1_2lh0i"]
 
 [sub_resource type="GDScript" id="GDScript_3bgiv"]
 

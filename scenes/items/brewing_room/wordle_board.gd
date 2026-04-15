@@ -31,7 +31,7 @@ func display_result(result: Array):
 		
 		tiles[i].flip_to_color(color)
 		
-		print("Play flip sound")
+		# print("Play flip sound")
 		
 		await get_tree().create_timer(0.4).timeout
 	

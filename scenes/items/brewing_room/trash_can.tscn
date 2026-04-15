@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://i5ci573m23wc"]
 
-[ext_resource type="Script" uid="uid://dgpoedudqb2or" path="res://Scripts/trash_can.gd" id="1_yk8j1"]
+[ext_resource type="Script" uid="uid://dgpoedudqb2or" path="res://scenes/items/brewing_room/trash_can.gd" id="1_yk8j1"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_n0f86"]
 top_radius = 0.8

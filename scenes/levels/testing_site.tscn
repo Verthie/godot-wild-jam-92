@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cytvprkhiiwil" path="res://scenes/ui/ui.gd" id="1_rr2b8"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/entities/player/character_controller.tscn" id="1_vdry6"]
 [ext_resource type="Texture2D" uid="uid://b8jykp8xs34om" path="res://icon.svg" id="2_sib0q"]
-[ext_resource type="Script" uid="uid://b2xs64x34jn87" path="res://scenes/items/interactable.gd" id="3_lo6n4"]
+[ext_resource type="Script" uid="uid://b2xs64x34jn87" path="res://scenes/items/brewing_room/interactable.gd" id="3_lo6n4"]
 [ext_resource type="Script" uid="uid://cp7b2o2eixs5s" path="res://scenes/managers/oxygen_manager.gd" id="4_cti6j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vdry6"]

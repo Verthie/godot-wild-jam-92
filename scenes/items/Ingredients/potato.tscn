@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bd413m28777vl"]
+
+[ext_resource type="Script" uid="uid://d4nes2xn53c55" path="res://scenes/items/Ingredients/ingredient.gd" id="1_bffhh"]
+[ext_resource type="PackedScene" uid="uid://b5ymh4tk36cx4" path="res://scenes/items/Ingredients/potato_item.tscn" id="2_gltlr"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bffhh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n8vi8"]
+
+[node name="Potato" type="StaticBody3D" unique_id=1860237427]
+script = ExtResource("1_bffhh")
+ingredient_tag = "potato"
+ingredient_scene = ExtResource("2_gltlr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=124335808]
+mesh = SubResource("SphereMesh_bffhh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1773454392]
+shape = SubResource("SphereShape3D_n8vi8")

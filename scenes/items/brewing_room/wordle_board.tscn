@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dtoohwdtfkxew"]
 
-[ext_resource type="PackedScene" uid="uid://dt771t30a4gau" path="res://scenes/wordle_row.tscn" id="1_8s2aj"]
-[ext_resource type="Script" uid="uid://cjldvkumfamoq" path="res://scripts/wordle_board.gd" id="1_w4bsw"]
+[ext_resource type="PackedScene" uid="uid://dt771t30a4gau" path="res://scenes/items/brewing_room/wordle_row.tscn" id="1_8s2aj"]
+[ext_resource type="Script" uid="uid://cjldvkumfamoq" path="res://scenes/items/brewing_room/wordle_board.gd" id="1_w4bsw"]
 
 [node name="Wordle Board" type="Node3D" unique_id=1030027931]
 script = ExtResource("1_w4bsw")

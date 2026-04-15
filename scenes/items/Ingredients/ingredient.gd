@@ -22,7 +22,7 @@ func interact(player, hand):
 	
 	# Prevent swapping different items (not sure if necessary)
 	if held_item != null and held_item.tag != ingredient_tag:
-		print("Wrong item type")
+		# print("Wrong item type")
 		return
 	
 	# TAKE from source
@@ -31,7 +31,7 @@ func interact(player, hand):
 		return
 	
 	# PUT BACK to source
-	# Disable putting back
+	# Disable putting back for now
 	'''
 	if held_item.tag == ingredient_tag:
 		held_item.queue_free()

@@ -5,17 +5,41 @@ extends StaticBody3D
 	"pumpkin": preload("res://scenes/items/Ingredients/pumpkin_item.tscn"),
 	"carrot": preload("res://scenes/items/Ingredients/carrot_item.tscn"),
 	"mist_seed": preload("res://scenes/items/Ingredients/mist_seed_item.tscn"),
-	"mush_seed": preload("res://scenes/items/Ingredients/mush_seed_item.tscn")
+	"mush_seed": preload("res://scenes/items/Ingredients/mush_seed_item.tscn"),
+	"beetroot": preload("res://scenes/items/Ingredients/beetroot_item.tscn"),
+	"potato": preload("res://scenes/items/Ingredients/potato_item.tscn")
 }
 
 var current_items = [null, null, null, null, null]
 var current_index := 0
 # Just for testing
-var correct_recipe = ["watermelon", "pumpkin", "carrot", "mist_seed", "mush_seed"]
+var correct_recipe = []
+# Example: ["watermelon", "pumpkin", "carrot", "watermelon", "mush_seed"]
 
 @export var board_path: NodePath # remember to check export (Inspector)
 var board
 
+func generate_recipe():
+	var ingredients = ["watermelon", "pumpkin", "carrot", "mist_seed", "mush_seed",
+	"potato", "beetroot"]
+	var outside_ingredients = ["mist_seed", "mush_seed"]
+	var recipe = []
+	
+	while recipe.size() < 5:
+		var next = ingredients.pick_random()
+		
+		# no more than 2 in a recipe
+		if recipe.count(next) >= 2:
+			continue
+		
+		recipe.append(next)
+
+	if recipe.count("mist_seed") + recipe.count("mush_seed") < 1:
+		# force replace one slot with outside item
+		recipe[randi() % 5] = ingredients.pick_random()
+	
+	print("Shh, the recipe is: ", recipe)
+	return recipe
 
 
 func _ready() -> void:
@@ -24,7 +48,8 @@ func _ready() -> void:
 		board = get_node(board_path)
 	else:
 		print("Board path not assigned!")
-	print(evaluate_guess([1,3,2,2,2], [1,2,3,4,5]))
+	correct_recipe = generate_recipe()
+
 
 
 
@@ -41,12 +66,15 @@ func interact(player, hand):
 	# --- CASE 1: player holding item → put into stand ---
 	if held_item:
 		if current_index >= 5:
-			print("Stand full!")
+			# print("Stand full!")
 			return
 		
+		# Can repeat items, so commented this out
+		'''
 		if current_items.has(held_item.tag):
 			print("Ingredient already added!")
 			return
+		'''
 		
 		add_ingredient(held_item.tag)
 		
@@ -70,8 +98,7 @@ func interact(player, hand):
 		
 		return
 
-func get_interaction_text(player):
-	return "Left/Right: Insert/Take out item"
+
 
 func add_ingredient(item_tag):
 	current_items[current_index] = item_tag
@@ -79,12 +106,12 @@ func add_ingredient(item_tag):
 	
 	current_index += 1
 	
-	print("Current items:", current_items)
+	# print("Current items:", current_items)
 	
 
 func start_brewing():
 	if current_index < 5:
-		print("Need all 5 ingredients!")
+		# print("Need all 5 ingredients!")
 		return
 	
 	print("Brewing started...")
@@ -127,4 +154,13 @@ func evaluate_guess(guess: Array, correct_recipe: Array) -> Array:
 				ingredients_evaluated[j] = true
 				break
 	
+	if current_items == correct_recipe:
+		print("Congrats! You've crafted a CURE")
+	
 	return result
+
+func get_interaction_text(player):
+	if current_index < 5:
+		return "Brewing Stand\nLeft/Right: Insert/Take out item"
+	else:
+		return "Brewing Stand\nReady to Brew!"

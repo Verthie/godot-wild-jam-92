@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dn3dirl40vb0i"]
 
-[ext_resource type="Script" uid="uid://b8k56xde1mn4l" path="res://Scripts/ingredient_item.gd" id="1_87tpl"]
+[ext_resource type="Script" uid="uid://b8k56xde1mn4l" path="res://scenes/items/Ingredients/ingredient_item.gd" id="1_87tpl"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_tk7w3"]
 

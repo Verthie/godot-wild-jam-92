@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdrugicyh6exo"]
 
-[ext_resource type="Script" uid="uid://d4nes2xn53c55" path="res://scripts/ingredient.gd" id="1_sacrw"]
+[ext_resource type="Script" uid="uid://d4nes2xn53c55" path="res://scenes/items/Ingredients/ingredient.gd" id="1_sacrw"]
 [ext_resource type="PackedScene" uid="uid://dn3dirl40vb0i" path="res://scenes/items/Ingredients/watermelon_item.tscn" id="2_7878q"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_c02su"]

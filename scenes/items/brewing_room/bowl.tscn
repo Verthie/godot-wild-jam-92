@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://87oflr5ytl6"]
 
-[ext_resource type="Script" uid="uid://b0xfrd423i4w3" path="res://scripts/bowl.gd" id="1_mdowk"]
+[ext_resource type="Script" uid="uid://b0xfrd423i4w3" path="res://scenes/items/brewing_room/bowl.gd" id="1_mdowk"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_mdowk"]
 

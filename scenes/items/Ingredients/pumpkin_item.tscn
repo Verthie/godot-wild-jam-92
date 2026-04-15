@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmcqbakljba1d"]
 
-[ext_resource type="Script" uid="uid://b8k56xde1mn4l" path="res://Scripts/ingredient_item.gd" id="1_y4lnh"]
+[ext_resource type="Script" uid="uid://b8k56xde1mn4l" path="res://scenes/items/Ingredients/ingredient_item.gd" id="1_y4lnh"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_uatij"]
 height = 1.0

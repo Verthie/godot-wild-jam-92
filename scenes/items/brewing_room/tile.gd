@@ -8,22 +8,18 @@ var target_color := Color.WHITE
 var flipped := false
 
 
-'''
+
 var icon_lookup = {
-	"watermelon": preload("res://icons/watermelon.png"),
-	"pumpkin": preload("res://icons/pumpkin.png"),
-	"carrot": preload("res://icons/carrot.png"),
-	"mist_seed": preload("res://icons/mist_seed.png"),
-	"mush_seed": preload("res://icons/mush_seed.png")
+	"watermelon": preload("res://assets/textures/icons/watermelon.png"),
+	"pumpkin": preload("res://assets/textures/icons/pumpkin.png"),
+	"carrot": preload("res://assets/textures/icons/carrot.png"),
+	"mist_seed": preload("res://assets/textures/icons/mist_seed.png"),
+	"mush_seed": preload("res://assets/textures/icons/mush_seed.png"),
+	"beetroot": preload("res://assets/textures/icons/beetroot.png"),
+	"potato": preload("res://assets/textures/icons/potato.png")
 }
-'''
-var icon_lookup = {
-	"watermelon": preload("res://icon.svg"),
-	"pumpkin": preload("res://icon.svg"),
-	"carrot": preload("res://icon.svg"),
-	"mist_seed": preload("res://icon.svg"),
-	"mush_seed": preload("res://icon.svg")
-}
+
+
 
 func _ready() -> void:
 	icon.visible = false
