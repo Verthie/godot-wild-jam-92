@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://hk4ht0uf8q0q"]
+
+[ext_resource type="Script" uid="uid://d4nes2xn53c55" path="res://scripts/ingredient.gd" id="1_u4woo"]
+[ext_resource type="PackedScene" uid="uid://sayxk5xxp01m" path="res://scenes/items/Ingredients/mist_seed_item.tscn" id="2_1qndq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s5xtj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u4woo"]
+
+[node name="Mist Seed" type="StaticBody3D" unique_id=2058058112]
+script = ExtResource("1_u4woo")
+ingredient_tag = "mist_seed"
+ingredient_scene = ExtResource("2_1qndq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=856704731]
+shape = SubResource("CapsuleShape3D_s5xtj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=972873509]
+mesh = SubResource("CapsuleMesh_u4woo")

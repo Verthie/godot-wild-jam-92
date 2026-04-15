@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c7u8vnbckno0g"]
+
+[ext_resource type="Script" uid="uid://d4nes2xn53c55" path="res://scripts/ingredient.gd" id="1_l6cid"]
+[ext_resource type="PackedScene" uid="uid://cmcqbakljba1d" path="res://scenes/items/Ingredients/pumpkin_item.tscn" id="2_4614u"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hbckh"]
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4upqf"]
+height = 1.0
+
+[node name="Pumpkin" type="StaticBody3D" unique_id=1720921389]
+script = ExtResource("1_l6cid")
+ingredient_tag = "pumpkin"
+ingredient_scene = ExtResource("2_4614u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2034413392]
+mesh = SubResource("CylinderMesh_hbckh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2145067298]
+shape = SubResource("CylinderShape3D_4upqf")

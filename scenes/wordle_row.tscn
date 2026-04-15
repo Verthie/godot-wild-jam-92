@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dt771t30a4gau"]
+
+[ext_resource type="Script" uid="uid://c0fy04xhwh7qs" path="res://Scripts/tile.gd" id="1_2lh0i"]
+
+[sub_resource type="GDScript" id="GDScript_3bgiv"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3bgiv"]
+orientation = 2
+
+[node name="Wordle Row" type="Node3D" unique_id=2038062805]
+script = SubResource("GDScript_3bgiv")
+
+[node name="Tile1" type="MeshInstance3D" parent="." unique_id=2076569452]
+mesh = SubResource("PlaneMesh_3bgiv")
+script = ExtResource("1_2lh0i")
+
+[node name="Sprite3D" type="Sprite3D" parent="Tile1" unique_id=764907000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+
+[node name="Tile2" type="MeshInstance3D" parent="." unique_id=1173656238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+mesh = SubResource("PlaneMesh_3bgiv")
+script = ExtResource("1_2lh0i")
+
+[node name="Sprite3D" type="Sprite3D" parent="Tile2" unique_id=104634731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+
+[node name="Tile3" type="MeshInstance3D" parent="." unique_id=1958306569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+mesh = SubResource("PlaneMesh_3bgiv")
+script = ExtResource("1_2lh0i")
+
+[node name="Sprite3D" type="Sprite3D" parent="Tile3" unique_id=295278195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+
+[node name="Tile4" type="MeshInstance3D" parent="." unique_id=958232381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
+mesh = SubResource("PlaneMesh_3bgiv")
+script = ExtResource("1_2lh0i")
+
+[node name="Sprite3D" type="Sprite3D" parent="Tile4" unique_id=1438281343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+
+[node name="Tile5" type="MeshInstance3D" parent="." unique_id=1379498749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+mesh = SubResource("PlaneMesh_3bgiv")
+script = ExtResource("1_2lh0i")
+
+[node name="Sprite3D" type="Sprite3D" parent="Tile5" unique_id=1721692462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)

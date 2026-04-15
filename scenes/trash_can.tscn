@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://i5ci573m23wc"]
+
+[ext_resource type="Script" uid="uid://dgpoedudqb2or" path="res://Scripts/trash_can.gd" id="1_yk8j1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_n0f86"]
+top_radius = 0.8
+bottom_radius = 0.6
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yk8j1"]
+height = 1.0
+radius = 0.8
+
+[node name="Trash Can" type="StaticBody3D" unique_id=871694397]
+script = ExtResource("1_yk8j1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1212688319]
+mesh = SubResource("CylinderMesh_n0f86")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1943524045]
+shape = SubResource("CylinderShape3D_yk8j1")

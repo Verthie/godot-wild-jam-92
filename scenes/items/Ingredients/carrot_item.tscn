@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b58ixpyyp6jhh"]
+
+[ext_resource type="Script" uid="uid://b8k56xde1mn4l" path="res://Scripts/ingredient_item.gd" id="1_3s3i6"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nmn8a"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 1.0
+
+[node name="Carrot Item" type="Node3D" unique_id=1769635976]
+script = ExtResource("1_3s3i6")
+tag = "carrot"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=665176945]
+mesh = SubResource("CylinderMesh_nmn8a")

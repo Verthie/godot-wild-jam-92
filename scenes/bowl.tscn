@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://87oflr5ytl6"]
+
+[ext_resource type="Script" uid="uid://b0xfrd423i4w3" path="res://scripts/bowl.gd" id="1_mdowk"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_mdowk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78wkd"]
+size = Vector3(2, 1, 2)
+
+[node name="Bowl" type="StaticBody3D" unique_id=1430480643]
+script = ExtResource("1_mdowk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=851434285]
+mesh = SubResource("TorusMesh_mdowk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=290037952]
+shape = SubResource("BoxShape3D_78wkd")
+
+[node name="Holder" type="Node3D" parent="." unique_id=1294602965]

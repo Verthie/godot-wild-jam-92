@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://du87ily3jkq5i"]
+
+[ext_resource type="PackedScene" uid="uid://c7yrh733krtw4" path="res://scenes/basic_floor.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://gyuk608vhjtb" path="res://scenes/player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dp1tv838ajuea" path="res://scenes/monster.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://brhoentyagx0l" path="res://scenes/brewing_stand.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://dtoohwdtfkxew" path="res://scenes/wordle_board.tscn" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://hk4ht0uf8q0q" path="res://scenes/items/Ingredients/mist_seed.tscn" id="8_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://bdrugicyh6exo" path="res://scenes/items/Ingredients/watermelon.tscn" id="9_hptm8"]
+[ext_resource type="PackedScene" uid="uid://dfrxcowo62lhr" path="res://scenes/items/Ingredients/mush_seed.tscn" id="10_6iyac"]
+[ext_resource type="PackedScene" uid="uid://cr3loyqfonkmm" path="res://scenes/items/Ingredients/carrot.tscn" id="11_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://c7u8vnbckno0g" path="res://scenes/items/Ingredients/pumpkin.tscn" id="12_jkdf5"]
+[ext_resource type="PackedScene" uid="uid://i5ci573m23wc" path="res://scenes/trash_can.tscn" id="13_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://87oflr5ytl6" path="res://scenes/bowl.tscn" id="14_jkdf5"]
+[ext_resource type="PackedScene" uid="uid://ccri2hc7dtc13" path="res://scenes/oxygen_maker.tscn" id="15_wsu2k"]
+
+[sub_resource type="Environment" id="Environment_8gbba"]
+fog_enabled = true
+fog_light_color = Color(0.4021211, 0.5659656, 0.73290884, 1)
+fog_density = 0.0168
+
+[node name="Main" type="Node3D" unique_id=1236312849]
+
+[node name="Player" parent="." unique_id=1968613947 instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28731203, 0.7629088, 5.6907587)
+
+[node name="Basic Floor" parent="." unique_id=1327579539 instance=ExtResource("2_bo1nx")]
+transform = Transform3D(6.7061095, 0, 0, 0, 1.0097265, 0, 0, 0, 3.7787862, 0.009377599, 0.01969099, -0.008537769)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=910112341]
+transform = Transform3D(-0.34862262, -0.66977906, 0.6556362, -0.31445244, 0.7425606, 0.59137416, -0.88293964, 0, -0.46948707, 4.465897, 6.2566094, -2.2236834)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1829969976]
+environment = SubResource("Environment_8gbba")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1413647476]
+transform = Transform3D(0.7668705, 0.39993924, -0.50195444, 0.20769323, 0.5853723, 0.7837109, 0.60726696, -0.7052574, 0.36584008, -6.3294554, 5.478068, 2.719686)
+light_color = Color(0.57659346, 1, 0.9842419, 1)
+light_energy = 0.368
+sky_mode = 1
+
+[node name="Monster" parent="." unique_id=669077734 instance=ExtResource("4_jjvhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.19701, 4.5679073, -12.57005)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1380562462]
+
+[node name="InteractionLabel" type="Label" parent="CanvasLayer" unique_id=522501759]
+offset_left = 1.0
+offset_top = 27.0
+offset_right = 1150.0
+offset_bottom = 509.0
+theme_override_font_sizes/font_size = 20
+text = "Hello"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=989204937]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Crosshair" type="Label" parent="CanvasLayer/CenterContainer" unique_id=1283167817]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "+"
+
+[node name="Brewing Stand" parent="." unique_id=1285563339 instance=ExtResource("6_21xkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 1)
+board_path = NodePath("../Wordle Board")
+
+[node name="Wordle Board" parent="." unique_id=1030027931 instance=ExtResource("7_6bp64")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.0923667, 5.243663, -4.7154474)
+
+[node name="Mist Seed" parent="." unique_id=2058058112 instance=ExtResource("8_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.187021, 1.0186625, 3.7277918)
+
+[node name="Watermelon" parent="." unique_id=395670652 instance=ExtResource("9_hptm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.078108, 0.51866245, 5.396242)
+
+[node name="Mush Seed" parent="." unique_id=1163685808 instance=ExtResource("10_6iyac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9708242, 0.5186627, 7.2525563)
+
+[node name="Carrot" parent="." unique_id=1270557054 instance=ExtResource("11_fdnlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9505067, 0.5865387, 8.478658)
+
+[node name="Pumpkin" parent="." unique_id=1720921389 instance=ExtResource("12_jkdf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.837817, 0.51866245, 9.762868)
+
+[node name="Trash Can" parent="." unique_id=67957081 instance=ExtResource("13_fdnlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5068583, 0.5186627, 7.847106)
+
+[node name="Bowl" parent="." unique_id=1430480643 instance=ExtResource("14_jkdf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44221574, 0.51866245, 9.285364)
+
+[node name="Oxygen Maker" parent="." unique_id=1999525160 instance=ExtResource("15_wsu2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.604681, 0.5186628, 10.810875)

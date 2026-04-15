@@ -13,9 +13,6 @@ height = 0.2
 radius = 0.08
 height = 0.2
 
-[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_igst2"]
-length = 0.3
-
 [node name="CharacterController" type="CharacterBody3D" unique_id=379629607]
 collision_layer = 51
 collision_mask = 4
@@ -46,16 +43,34 @@ fov = 45.0
 near = 0.01
 far = 300.0
 
-[node name="InteractionRay" type="Area3D" parent="Head" unique_id=145702423]
-collision_layer = 0
-collision_mask = 32
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/InteractionRay" unique_id=345456330]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
-shape = SubResource("SeparationRayShape3D_igst2")
+[node name="InteractionRay" type="RayCast3D" parent="Head" unique_id=918543852]
+target_position = Vector3(0, 0, -0.5)
 
 [node name="HandRight" type="Node3D" parent="Head" unique_id=1517090674]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04094246, -0.027, -0.103)
 
 [node name="HandLeft" type="Node3D" parent="Head" unique_id=1653413214]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041, -0.027, -0.103)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1764515681]
+
+[node name="InteractionLabel" type="Label" parent="CanvasLayer" unique_id=82246271]
+offset_right = 1153.0
+offset_bottom = 531.0
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=1733749830]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Crosshair" type="Label" parent="CanvasLayer/CenterContainer" unique_id=135511513]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1

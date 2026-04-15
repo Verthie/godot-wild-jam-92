@@ -55,10 +55,21 @@ signal died
 
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
-@onready var interaction_ray: Area3D = $Head/InteractionRay
+# @onready var interaction_ray: Area3D = $Head/InteractionRay
+@onready var hold_ray = $Head/InteractionRay # Jason 15/4/26: changed to raycast
 
+var left_hand_item = null
+var right_hand_item = null
 @onready var hand_right: Node3D = $Head/HandRight
 @onready var hand_left: Node3D = $Head/HandLeft
+
+@export var interact_distance := 3.0 # how far player can interact
+@onready var interaction_label = $"CanvasLayer/InteractionLabel"
+@onready var crosshair = $"CanvasLayer/CenterContainer/Crosshair"
+var interactable = null
+
+var mouse_delta := Vector2.ZERO
+var walk_time := 0.0
 
 ## The amount of interaction areas that currently overlap with the player
 # var interact_areas := 0
@@ -69,13 +80,20 @@ var move_speed : float = 0.0
 var freeflying : bool = false
 var can_interact : bool = false
 
-var left_hand_item: Node3D = null
-var right_hand_item: Node3D = null
+
+var item_scenes = {
+	"watermelon": preload("res://scenes/items/Ingredients/watermelon_item.tscn"),
+	"pumpkin": preload("res://scenes/items/Ingredients/pumpkin_item.tscn"),
+	"carrot": preload("res://scenes/items/Ingredients/carrot_item.tscn"),
+	"mist_seed": preload("res://scenes/items/Ingredients/mist_seed_item.tscn"),
+	"mush_seed": preload("res://scenes/items/Ingredients/mush_seed_item.tscn")
+}
 
 
 func _ready() -> void:
-	interaction_ray.area_entered.connect(_on_interaction_ray_area_entered)
-	interaction_ray.area_exited.connect(_on_interaction_ray_area_exited)
+	# Switched to ray cast
+	# interaction_ray.area_entered.connect(_on_interaction_ray_area_entered)
+	# interaction_ray.area_exited.connect(_on_interaction_ray_area_exited)
 	check_input_mappings()
 	capture_mouse()
 	look_rotation.y = rotation.y
@@ -101,16 +119,37 @@ func _unhandled_input(event: InputEvent) -> void:
 			enable_freefly()
 		else:
 			disable_freefly()
-
+			
+	'''
 	if !can_interact:
 		return
-
+	
+	
 	if event.is_action_pressed("interact_left"):
 		handle_interaction("left")
 	if event.is_action_pressed("interact_right"):
 		handle_interaction("right")
+	'''
+	
+	# Jason 15/4/26 Changed, let's use try_interact() instead of handle_interaction()
+	if event.is_action_pressed("interact_left"):
+		try_interact("left")
 
-func _physics_process(delta: float) -> void:
+	if event.is_action_pressed("interact_right"):
+		try_interact("right")
+		
+	# Press E
+	if event.is_action_pressed("interact"):
+		try_interact("none")
+
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		mouse_delta = event.relative
+
+func _physics_process(delta: float) -> void:	
+	interactable = get_looked_at_interactable()
+	
 	# If freeflying, handle freefly and nothing else
 	if can_freefly and freeflying:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)
@@ -148,9 +187,46 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		velocity.y = 0
-
+	
+	# for bobbing of items, keep track of walk time
+	if velocity.length() > 0.1:
+		walk_time += delta * 6.0
+	else:
+		walk_time = 0.0
+	update_interaction_ui()
+	update_held_items(delta)
+	mouse_delta = Vector2.ZERO
+	
+	
 	# Use velocity to actually move
 	move_and_slide()
+
+
+func try_interact(hand: String):
+	
+	if interactable:
+		interactable.interact(self, hand)
+
+
+func update_interaction_ui():
+	var interactable = get_looked_at_interactable()
+	
+	if interactable:
+		interaction_label.visible = true
+		
+		if interactable.has_method("get_interaction_text"):
+			interaction_label.text = interactable.get_interaction_text(self)
+		else:
+			interaction_label.text = "Press E"
+		
+		if crosshair:
+			crosshair.modulate = Color.GREEN
+	else:
+		interaction_label.visible = false
+		
+		if crosshair:
+			crosshair.modulate = Color.WHITE
+
 
 
 ## Rotate us to look around.
@@ -185,7 +261,7 @@ func release_mouse():
 	mouse_captured = false
 	get_viewport().set_input_as_handled()
 
-
+'''
 func handle_interaction(hand: String) -> void:
 	var overlapping_areas: Array = interaction_ray.get_overlapping_areas()
 
@@ -193,6 +269,7 @@ func handle_interaction(hand: String) -> void:
 		return
 
 	var interactable: Interactable = overlapping_areas[0].get_parent()
+
 
 	match interactable.type:
 		0: # Ingredient
@@ -315,6 +392,7 @@ func handle_interaction(hand: String) -> void:
 				enabled_sampler.emit(5)
 		_:
 			return
+	'''
 
 ## Checks if some Input Actions haven't been created.
 ## Disables functionality accordingly.
@@ -359,3 +437,92 @@ func _on_interaction_ray_area_entered(area: Area3D) -> void:
 func _on_interaction_ray_area_exited(_area: Area3D) -> void:
 	object_unfocused.emit()
 	can_interact = false
+
+# Jason 15/4/26
+func get_looked_at_interactable():
+	if hold_ray.is_colliding():
+		var collider = hold_ray.get_collider()
+		if collider.has_method("interact"):
+			return collider
+	return null
+
+
+# Item helper functions
+
+func give_item_to_hand(scene: PackedScene, hand: String):
+	var instance = scene.instantiate()
+	
+	var hand_node
+	if hand == "left":
+		hand_node = hand_left
+		left_hand_item = instance
+	elif hand == "right":
+		hand_node = hand_right
+		right_hand_item = instance
+	hand_node.add_child(instance)
+	
+	# unified transform (how item looks on hand)
+	# tweak this for position of handheld items
+	# (possibly can change parameters in update_held_items as well if needed)
+	instance.position = Vector3(0, 0, 0)
+	instance.rotation_degrees = Vector3(20, 30, 0)
+	instance.scale = Vector3(0.04, 0.04, 0.04)
+	
+	return instance
+
+
+func get_hand_item(hand: String):
+	return left_hand_item if hand == "left" else right_hand_item
+	
+func clear_hand_item(hand: String):
+	if hand == "left":
+		left_hand_item = null
+	else:
+		right_hand_item = null
+
+
+func update_held_items(delta):
+	var distance = 0.5
+	
+	if hold_ray.is_colliding():
+		var collider = hold_ray.get_collider()
+		
+		if not collider.has_method("interact"):
+			distance = 0.03
+	
+	var base_pos = Vector3(0, 0, -distance)
+	
+	var current_speed = velocity.length()
+	
+	if left_hand_item:
+		left_hand_item.set_bob_intensity(current_speed)
+		left_hand_item.apply_sway(mouse_delta)
+		left_hand_item.set_base_y(base_pos.y)
+		left_hand_item.set_base_x(base_pos.x - 0)
+		var target = Vector3(base_pos.x - 0, left_hand_item.position.y, base_pos.z + 0.5)
+		left_hand_item.position = left_hand_item.position.lerp(target, 0.15)
+		# left_hand_item.apply_camera_lag(rotation_diff)
+		left_hand_item.set_walk_phase(walk_time)
+	
+		
+	
+	if right_hand_item:
+		right_hand_item.set_bob_intensity(current_speed)
+		right_hand_item.apply_sway(mouse_delta)
+		right_hand_item.set_base_y(base_pos.y)
+		right_hand_item.set_base_x(base_pos.x + 0)
+		var target = Vector3(base_pos.x + 0, right_hand_item.position.y, base_pos.z + 0.5)
+		right_hand_item.position = right_hand_item.position.lerp(target, 0.15)
+		# right_hand_item.apply_camera_lag(rotation_diff)
+		right_hand_item.set_walk_phase(walk_time)
+	
+	
+	mouse_delta = Vector2.ZERO
+
+# this is a rough fix for oxygen maker
+func spawn_item_by_tag(tag, hand):
+	match tag:
+		"mist_seed":
+			give_item_to_hand(preload("res://scenes/items/Ingredients/mist_seed_item.tscn"), hand)
+		"watermelon":
+			give_item_to_hand(preload("res://scenes/items/Ingredients/watermelon_item.tscn"), hand)

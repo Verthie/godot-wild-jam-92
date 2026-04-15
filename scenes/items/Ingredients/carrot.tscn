@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cr3loyqfonkmm"]
+
+[ext_resource type="Script" uid="uid://d4nes2xn53c55" path="res://scripts/ingredient.gd" id="1_25xbr"]
+[ext_resource type="PackedScene" uid="uid://b58ixpyyp6jhh" path="res://scenes/items/Ingredients/carrot_item.tscn" id="2_wejfu"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wy205"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_25xbr"]
+
+[node name="Carrot" type="StaticBody3D" unique_id=1270557054]
+script = ExtResource("1_25xbr")
+ingredient_tag = "carrot"
+ingredient_scene = ExtResource("2_wejfu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=128964844]
+transform = Transform3D(0.5505699, 0, 0, 0, 0.5678762, 0, 0, 0, 0.5505699, 0, 0, 0)
+mesh = SubResource("CylinderMesh_wy205")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=617719934]
+transform = Transform3D(0.55, 0, 0, 0, 0.5, 0, 0, 0, 0.55, 0, 0, 0)
+shape = SubResource("CylinderShape3D_25xbr")

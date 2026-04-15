@@ -1,14 +1,24 @@
 [gd_scene format=4 uid="uid://bl0xneds8b4rc"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/entities/player/character_controller.tscn" id="1_p1d0p"]
+[ext_resource type="PackedScene" uid="uid://i5ci573m23wc" path="res://scenes/trash_can.tscn" id="3_7npca"]
 [ext_resource type="ArrayMesh" uid="uid://kjt1hc6140uf" path="res://assets/models/Terrain/terrain_06.obj" id="3_b4qxk"]
+[ext_resource type="PackedScene" uid="uid://ccri2hc7dtc13" path="res://scenes/oxygen_maker.tscn" id="4_v01af"]
+[ext_resource type="PackedScene" uid="uid://87oflr5ytl6" path="res://scenes/bowl.tscn" id="5_32fx4"]
 [ext_resource type="ArrayMesh" uid="uid://db3yslr7lhxjy" path="res://resources/meshes/lunchpad.tres" id="6_ae3sc"]
 [ext_resource type="ArrayMesh" uid="uid://hu8gt6fv2o4q" path="res://resources/meshes/arbol.tres" id="7_1f2hn"]
 [ext_resource type="PackedScene" uid="uid://dij0fgki3wcqa" path="res://scenes/objects/Floor_Lamp.tscn" id="7_ohk1s"]
 [ext_resource type="PackedScene" uid="uid://b0owiqmsec0x2" path="res://scenes/levels/scene_start_v_1.tscn" id="8_u5lar"]
+[ext_resource type="PackedScene" uid="uid://hk4ht0uf8q0q" path="res://scenes/items/Ingredients/mist_seed.tscn" id="10_ugir4"]
+[ext_resource type="PackedScene" uid="uid://dfrxcowo62lhr" path="res://scenes/items/Ingredients/mush_seed.tscn" id="11_0ms8b"]
 [ext_resource type="Shape3D" uid="uid://cdhd8j5d4jo1g" path="res://resources/collision_shapes/tree_shape.tres" id="11_ae3sc"]
 [ext_resource type="Shape3D" uid="uid://ccwyi0oxl0khj" path="res://resources/collision_shapes/lunchpad_shape.tres" id="11_j46mn"]
+[ext_resource type="PackedScene" uid="uid://bdrugicyh6exo" path="res://scenes/items/Ingredients/watermelon.tscn" id="12_syf5b"]
+[ext_resource type="PackedScene" uid="uid://c7u8vnbckno0g" path="res://scenes/items/Ingredients/pumpkin.tscn" id="13_5e4yr"]
 [ext_resource type="PackedScene" uid="uid://ci65t4naoepao" path="res://scenes/entities/monster/monster_controller.tscn" id="14_84bhp"]
+[ext_resource type="PackedScene" uid="uid://cr3loyqfonkmm" path="res://scenes/items/Ingredients/carrot.tscn" id="14_lm6ht"]
+[ext_resource type="PackedScene" uid="uid://dtoohwdtfkxew" path="res://scenes/wordle_board.tscn" id="18_rm2y2"]
+[ext_resource type="PackedScene" uid="uid://brhoentyagx0l" path="res://scenes/brewing_stand.tscn" id="19_3vkbi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p1d0p"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -262,7 +272,7 @@ shadow_enabled = true
 shadow_bias = 0.0
 
 [node name="CharacterController" parent="." unique_id=379629607 instance=ExtResource("1_p1d0p")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.4885216, 2.3891482, 8.69071)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.087325, 0.19518977, -1.0861099)
 
 [node name="MonsterController" parent="." unique_id=1093900517 node_paths=PackedStringArray("player") instance=ExtResource("14_84bhp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6276593, 0, 4.5970864)
@@ -282,7 +292,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001034975, -0.0015531778, 
 mesh = SubResource("ArrayMesh_2o2yi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/BaseV1/base_walls" unique_id=1640354457]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001034975, -0.0015531778, 0.006377101)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0051965714, -0.0015531778, 0.0069357157)
 shape = SubResource("ConcavePolygonShape3D_aqpgw")
 
 [node name="base_platform" type="StaticBody3D" parent="terrain_v3/BaseV1" unique_id=1491593777]
@@ -296,6 +306,15 @@ mesh = SubResource("ArrayMesh_f7luw")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="terrain_v3/BaseV1/base_platform" unique_id=76146069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.868965, 0.32844684, -0.8436229)
 shape = SubResource("ConcavePolygonShape3D_ohk1s")
+
+[node name="Trash Can" parent="terrain_v3/BaseV1/base_platform" unique_id=871694397 instance=ExtResource("3_7npca")]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, 0.7782271, 0.42902854, -3.0033336)
+
+[node name="Oxygen Maker" parent="terrain_v3/BaseV1/base_platform" unique_id=1999525160 instance=ExtResource("4_v01af")]
+transform = Transform3D(0.115, 0, 0, 0, 0.115, 0, 0, 0, 0.115, -0.5672648, 0.46383113, -3.2624426)
+
+[node name="Bowl" parent="terrain_v3/BaseV1/base_platform" unique_id=1430480643 instance=ExtResource("5_32fx4")]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -0.35719943, 0.43723646, -3.2455122)
 
 [node name="Board" type="MeshInstance3D" parent="terrain_v3/BaseV1" unique_id=1239547771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.868965, 0.32844684, -0.8436229)
@@ -2466,3 +2485,25 @@ transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, 0.17
 
 [node name="Scene_Start_V1" parent="." unique_id=1708545908 instance=ExtResource("8_u5lar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4171736, 0.08606687, 9.0161495)
+
+[node name="Mist Seed" parent="." unique_id=2058058112 instance=ExtResource("10_ugir4")]
+transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -3.325658, 0.12910494, -1.772076)
+
+[node name="Mush Seed" parent="." unique_id=1163685808 instance=ExtResource("11_0ms8b")]
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -3.333729, 0.12982899, -1.6619382)
+
+[node name="Watermelon" parent="." unique_id=395670652 instance=ExtResource("12_syf5b")]
+transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -3.3013244, 0.08899963, -1.4963214)
+
+[node name="Pumpkin" parent="." unique_id=1720921389 instance=ExtResource("13_5e4yr")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -3.319079, 0.10073429, -1.3785876)
+
+[node name="Carrot" parent="." unique_id=1270557054 instance=ExtResource("14_lm6ht")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -3.3296635, 0.10877782, -1.2601533)
+
+[node name="Wordle Board" parent="." unique_id=1030027931 instance=ExtResource("18_rm2y2")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -4.325247, 0.3325619, -2.62581)
+
+[node name="Brewing Stand" parent="." unique_id=1285563339 instance=ExtResource("19_3vkbi")]
+transform = Transform3D(0.026672948, 0, -0.10155566, 0, 0.105, 0, 0.10155566, 0, 0.026672948, -3.2343998, 0.19382317, -2.4274025)
+board_path = NodePath("../Wordle Board")

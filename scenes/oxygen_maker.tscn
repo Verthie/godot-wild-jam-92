@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ccri2hc7dtc13"]
+
+[ext_resource type="Script" uid="uid://tkk01u3ekvvx" path="res://Scripts/oxygen_maker.gd" id="1_pc2wf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tqt2l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pc2wf"]
+
+[node name="Oxygen Maker" type="StaticBody3D" unique_id=1999525160]
+script = ExtResource("1_pc2wf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=508729463]
+mesh = SubResource("BoxMesh_tqt2l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=470864478]
+shape = SubResource("BoxShape3D_pc2wf")
+
+[node name="Holder" type="Node3D" parent="." unique_id=349515427]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bdrugicyh6exo"]
+
+[ext_resource type="Script" uid="uid://d4nes2xn53c55" path="res://scripts/ingredient.gd" id="1_sacrw"]
+[ext_resource type="PackedScene" uid="uid://dn3dirl40vb0i" path="res://scenes/items/Ingredients/watermelon_item.tscn" id="2_7878q"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_c02su"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sacrw"]
+
+[node name="Watermelon" type="StaticBody3D" unique_id=395670652]
+script = ExtResource("1_sacrw")
+ingredient_tag = "watermelon"
+ingredient_scene = ExtResource("2_7878q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=438052954]
+mesh = SubResource("PrismMesh_c02su")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2060344445]
+shape = SubResource("BoxShape3D_sacrw")
