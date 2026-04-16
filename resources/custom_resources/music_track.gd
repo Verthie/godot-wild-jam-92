@@ -2,7 +2,9 @@ extends Resource
 class_name MusicTrack
 
 enum MusicType {
-	GAME
+	CHASE,
+	MONSTER_CLOSE_PROXIMITY,
+	TAPE
 }
 
 @export var type: MusicType

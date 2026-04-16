@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://cxe6udf1crsvx"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_mo5yt"]
+[ext_resource type="AudioStream" uid="uid://d1eu7jg6k0nfx" path="res://assets/sfx/Hover Blip.wav" id="2_ms8lm"]
+
+[resource]
+script = ExtResource("1_mo5yt")
+limit = 1
+type = 16
+sound_effect = ExtResource("2_ms8lm")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"

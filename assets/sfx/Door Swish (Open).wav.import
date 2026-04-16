@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cvy66r12i8kfl"
+path="res://.godot/imported/Door Swish (Open).wav-61a5feda9ca370e53d2bf3e0afee3df3.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Door Swish (Open).wav"
+dest_files=["res://.godot/imported/Door Swish (Open).wav-61a5feda9ca370e53d2bf3e0afee3df3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

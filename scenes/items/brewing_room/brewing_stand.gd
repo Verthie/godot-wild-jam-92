@@ -62,14 +62,10 @@ func interact(player, hand):
 	if held_item:
 		if current_index >= 5:
 			# print("Stand full!")
+			AudioManager.create_audio(SoundEffect.SoundEffectType.BREWERY_WRONG)
 			return
 
-		# Can repeat items, so commented this out
-		'''
-		if current_items.has(held_item.tag):
-			print("Ingredient already added!")
-			return
-		'''
+		AudioManager.create_audio(SoundEffect.SoundEffectType.INSERT_INGREDIENT)
 
 		add_ingredient(held_item.tag)
 

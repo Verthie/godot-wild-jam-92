@@ -11,7 +11,7 @@ var modified: bool ## Stores if the audio manager scene is updated, we only need
 
 func _run() -> void:
 	# unpack the audio manager scene
-	var audio_manage_scene_instance: Node2D = audio_manage_scene.instantiate()
+	var audio_manage_scene_instance: Node3D = audio_manage_scene.instantiate()
 
 	# Loop through each file in the folder, load the resource, check if it's in the array or not, and if not, add it.
 	for file: String in files:

@@ -52,8 +52,10 @@ func interact(player, hand):
 	if item != null:
 		if stored_items.size() >= capacity:
 			# print("Oxygen dispenser is full")
+			AudioManager.create_audio(SoundEffect.SoundEffectType.BREWERY_WRONG)
 			return
 
+		AudioManager.create_audio(SoundEffect.SoundEffectType.INSERT_INGREDIENT)
 		var tag = item.tag
 		stored_items.append(item.tag)
 

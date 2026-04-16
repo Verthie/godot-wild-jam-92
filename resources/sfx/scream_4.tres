@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://cds8056nyqubn"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_3ht0g"]
+[ext_resource type="AudioStream" uid="uid://qcugu3p7d1pt" path="res://assets/sfx/Scream 4.ogg" id="2_3e3i0"]
+
+[resource]
+script = ExtResource("1_3ht0g")
+type = 10
+sound_effect = ExtResource("2_3e3i0")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"

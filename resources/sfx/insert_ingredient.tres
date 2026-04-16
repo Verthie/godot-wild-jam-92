@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://ba7m112687pjj"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_q06sp"]
+[ext_resource type="AudioStream" uid="uid://cjvuee601fel2" path="res://assets/sfx/Insert Ingredient.wav" id="2_q06sp"]
+
+[resource]
+script = ExtResource("1_q06sp")
+type = 21
+sound_effect = ExtResource("2_q06sp")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"

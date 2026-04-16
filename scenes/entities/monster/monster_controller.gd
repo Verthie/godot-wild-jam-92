@@ -66,6 +66,7 @@ func _physics_process(delta):
 
 	else:
 		# --- Chase Player ---
+		AudioManager.create_3d_audio_at_location(global_position, SoundEffect.SoundEffectType.MONSTER_APPEARS)
 
 		# "target" is the position of the player if standing on the floor
 		var target = player.global_position

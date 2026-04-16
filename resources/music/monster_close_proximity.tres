@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MusicTrack" format=3 uid="uid://bpq6eguiirt83"]
+
+[ext_resource type="Script" uid="uid://d0afcym3q4c34" path="res://resources/custom_resources/music_track.gd" id="1_22ra7"]
+[ext_resource type="AudioStream" uid="uid://kpym4yn6gsnr" path="res://assets/music/Monster Close Proximity Glitch SFX.ogg" id="1_suam8"]
+
+[resource]
+script = ExtResource("1_22ra7")
+type = 1
+audio_stream = ExtResource("1_suam8")
+metadata/_custom_type_script = "uid://d0afcym3q4c34"

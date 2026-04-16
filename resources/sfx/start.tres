@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://b7k8u8krhh72r"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_blirq"]
+[ext_resource type="AudioStream" uid="uid://dtwse3ckk640u" path="res://assets/sfx/Start Game.wav" id="2_crjdh"]
+
+[resource]
+script = ExtResource("1_blirq")
+type = 13
+sound_effect = ExtResource("2_crjdh")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"

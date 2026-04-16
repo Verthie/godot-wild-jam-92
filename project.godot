@@ -12,7 +12,7 @@ config_version=5
 
 config/name="godot_wild_jam_92"
 config/tags=PackedStringArray("3d", "adventure", "puzzle", "wild_jam")
-run/main_scene="uid://bl0xneds8b4rc"
+run/main_scene="uid://bnvxmragfq75r"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 
 EventBus="*uid://dnhki7wr1nvuk"
 Globals="*uid://c2vnoyoxorfxu"
+AudioManager="*uid://lv3hc1djv0g2"
+MusicManager="*uid://imsso14w3fwx"
 
 [debug]
 

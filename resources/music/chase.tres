@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MusicTrack" format=3 uid="uid://c53uqihtvgajn"]
+
+[ext_resource type="Script" uid="uid://d0afcym3q4c34" path="res://resources/custom_resources/music_track.gd" id="1_8ad3i"]
+[ext_resource type="AudioStream" uid="uid://d1d48aeq14twq" path="res://assets/music/Chase Music.ogg" id="1_op7n1"]
+
+[resource]
+script = ExtResource("1_8ad3i")
+audio_stream = ExtResource("1_op7n1")
+metadata/_custom_type_script = "uid://d0afcym3q4c34"

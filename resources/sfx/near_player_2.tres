@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://7k1wgrr6xjw5"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_6bjw2"]
+[ext_resource type="AudioStream" uid="uid://crymoy1shdxkj" path="res://assets/sfx/Near Player 2.ogg" id="2_3hmjm"]
+
+[resource]
+script = ExtResource("1_6bjw2")
+type = 2
+sound_effect = ExtResource("2_3hmjm")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"

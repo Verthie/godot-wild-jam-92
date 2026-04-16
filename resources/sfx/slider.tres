@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://bbur2ald3busn"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_3m07c"]
+[ext_resource type="AudioStream" uid="uid://bqoxcwjxjn03r" path="res://assets/sfx/Slider Blip.wav" id="2_t4trw"]
+
+[resource]
+script = ExtResource("1_3m07c")
+type = 15
+sound_effect = ExtResource("2_t4trw")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"

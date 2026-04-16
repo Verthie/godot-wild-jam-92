@@ -6,7 +6,7 @@ var sound_effect_dict: Dictionary = {}
 
 func _ready() -> void:
 	for sound_effect: SoundEffect in sound_effects:
-		print("Registering:", sound_effect.type)
+		# print("Registering:", sound_effect.type)
 		sound_effect_dict[sound_effect.type] = sound_effect
 
 func create_3d_audio_at_location(location: Vector3, type: SoundEffect.SoundEffectType) -> void:

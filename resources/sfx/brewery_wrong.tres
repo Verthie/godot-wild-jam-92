@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://b45ieb2fntnl6"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_c3guj"]
+[ext_resource type="AudioStream" uid="uid://clgi7diyckq1t" path="res://assets/sfx/Brewery Blips (Wrong).wav" id="2_c3guj"]
+
+[resource]
+script = ExtResource("1_c3guj")
+type = 20
+sound_effect = ExtResource("2_c3guj")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"

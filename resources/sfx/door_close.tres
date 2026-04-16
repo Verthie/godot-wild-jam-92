@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://cq0a6mvk0qk33"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_d6ulw"]
+[ext_resource type="AudioStream" uid="uid://u6b5geeqf0t" path="res://assets/sfx/Door Swish (Close).wav" id="2_d6ulw"]
+
+[resource]
+script = ExtResource("1_d6ulw")
+limit = 1
+type = 23
+sound_effect = ExtResource("2_d6ulw")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"
