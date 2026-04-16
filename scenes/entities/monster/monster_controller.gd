@@ -18,13 +18,14 @@ var wander_timer := 0.0
 var is_idle := false
 var idle_timer := 0.0
 
+var distance: float = 0.0
 
 func _physics_process(delta):
 	if player == null:
 		return
 
 	wander_timer -= delta
-	var distance = global_position.distance_to(player.global_position)
+	distance = global_position.distance_to(player.global_position)
 	if distance > chasing_distance:
 		# --- Idle ---
 		idle_timer -= delta

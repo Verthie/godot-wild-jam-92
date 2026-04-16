@@ -47,6 +47,8 @@ signal talked(text: String)
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
 
+@export var interact_distance := 3.0 # how far player can interact
+
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 @onready var hold_ray = $Head/InteractionRay
@@ -54,9 +56,10 @@ signal talked(text: String)
 @onready var hand_right: Node3D = $Head/HandRight
 @onready var hand_left: Node3D = $Head/HandLeft
 
-@export var interact_distance := 3.0 # how far player can interact
 @onready var interaction_label = $"CanvasLayer/InteractionLabel"
 @onready var crosshair = $"CanvasLayer/CenterContainer/Crosshair"
+
+@onready var health_component: HealthComponent = $HealthComponent
 
 var left_hand_item = null
 var right_hand_item = null
