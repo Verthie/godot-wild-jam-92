@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://6ruxv2406ad0" path="res://resources/shaders/psx_fog.gdshader" id="2_rlydy"]
 [ext_resource type="Shader" uid="uid://1mbhtwa2psud" path="res://resources/shaders/psx.gdshader" id="2_twwmx"]
 [ext_resource type="PackedScene" uid="uid://dui58xpxxwpp8" path="res://scenes/components/health_component.tscn" id="2_vxaux"]
-[ext_resource type="Script" path="res://scripts/motion_blur_compositor.gd" id="2_wxmoy"]
+[ext_resource type="Script" uid="uid://dl25ngkctrcfc" path="res://scripts/motion_blur_compositor.gd" id="2_wxmoy"]
 [ext_resource type="PackedScene" uid="uid://cfricpcy0yc7d" path="res://scenes/components/hurtbox_component.tscn" id="3_2lnhi"]
 [ext_resource type="PackedScene" uid="uid://dywu4dsxf2lkk" path="res://scenes/components/death_component.tscn" id="4_2lnhi"]
 
@@ -105,6 +105,7 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18046477, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=631175288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.014098778, 0)
 compositor = SubResource("Compositor_rlydy")
 current = true
 fov = 45.0
