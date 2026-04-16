@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://cgv32ptsdcc6j" path="res://scenes/entities/player/character_controller.gd" id="1_igst2"]
+[ext_resource type="Shader" uid="uid://6ruxv2406ad0" path="res://resources/shaders/psx_fog.gdshader" id="2_rlydy"]
+[ext_resource type="Shader" uid="uid://1mbhtwa2psud" path="res://resources/shaders/psx.gdshader" id="2_twwmx"]
+[ext_resource type="PackedScene" uid="uid://dui58xpxxwpp8" path="res://scenes/components/health_component.tscn" id="2_vxaux"]
+[ext_resource type="Script" path="res://scripts/motion_blur_compositor.gd" id="2_wxmoy"]
+[ext_resource type="PackedScene" uid="uid://cfricpcy0yc7d" path="res://scenes/components/hurtbox_component.tscn" id="3_2lnhi"]
+[ext_resource type="PackedScene" uid="uid://dywu4dsxf2lkk" path="res://scenes/components/death_component.tscn" id="4_2lnhi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_20xh0"]
+radius = 0.05
+height = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.92, 0.5704, 0.22080001, 1)
@@ -13,6 +23,50 @@ height = 0.2
 radius = 0.08
 height = 0.2
 
+[sub_resource type="CompositorEffect" id="CompositorEffect_yr4ye"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = false
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("2_wxmoy")
+
+[sub_resource type="Compositor" id="Compositor_rlydy"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_yr4ye")])
+
+[sub_resource type="QuadMesh" id="QuadMesh_igst2"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twwmx"]
+render_priority = -1
+shader = ExtResource("2_rlydy")
+shader_parameter/enable_fog = true
+shader_parameter/fog_color = Color(0.18, 0.038880005, 0.028800005, 1)
+shader_parameter/noise_color = Color(0, 0, 0, 1)
+shader_parameter/fog_distance = 10.0000004275
+shader_parameter/fog_fade_range = 10.0000004275
+shader_parameter/enable_noise = false
+shader_parameter/noise_time_fac = 4.0
+shader_parameter/enable_color_limitation = false
+shader_parameter/color_levels = 32
+shader_parameter/enable_dithering = false
+shader_parameter/dither_strength = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_igst2"]
+shader = ExtResource("2_twwmx")
+shader_parameter/resolution_x = 160
+shader_parameter/resolution_y = 120
+shader_parameter/color_bit_depth = 32
+shader_parameter/dither_strength = 0.0
+shader_parameter/jitter_amount = 0.001
+shader_parameter/jitter_speed = 1.2
+shader_parameter/jitter_frequency = 180.0
+shader_parameter/chromatic_aberration_strength = 0.0
+shader_parameter/vignette_strength = 0.8
+shader_parameter/vignette_radius = 0.800000038
+
 [node name="CharacterController" type="CharacterBody3D" unique_id=379629607]
 collision_layer = 51
 collision_mask = 4
@@ -20,9 +74,22 @@ script = ExtResource("1_igst2")
 can_sprint = true
 can_freefly = true
 base_speed = 1.0
-jump_velocity = 3.0
+jump_velocity = 1.0
 sprint_speed = 1.6
 freefly_speed = 5.0
+
+[node name="HealthComponent" parent="." unique_id=73983782 instance=ExtResource("2_vxaux")]
+
+[node name="HurtboxComponent" parent="." unique_id=1495007881 node_paths=PackedStringArray("health_component") instance=ExtResource("3_2lnhi")]
+collision_layer = 64
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent" unique_id=2083770833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CapsuleShape3D_20xh0")
+
+[node name="DeathComponent" parent="." unique_id=1454201311 node_paths=PackedStringArray("health_component") instance=ExtResource("4_2lnhi")]
+health_component = NodePath("../HealthComponent")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=2036181286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
@@ -38,10 +105,27 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18046477, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=631175288]
+compositor = SubResource("Compositor_rlydy")
 current = true
 fov = 45.0
 near = 0.01
 far = 300.0
+
+[node name="Fog" type="MeshInstance3D" parent="Head/Camera3D" unique_id=682847816]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.739)
+visible = false
+mesh = SubResource("QuadMesh_igst2")
+surface_material_override/0 = SubResource("ShaderMaterial_twwmx")
+
+[node name="Psx" type="ColorRect" parent="Head/Camera3D" unique_id=540779648]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_igst2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="InteractionRay" type="RayCast3D" parent="Head" unique_id=918543852]
 target_position = Vector3(0, 0, -0.5)

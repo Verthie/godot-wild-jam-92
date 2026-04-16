@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ci65t4naoepao"]
 
 [ext_resource type="Script" uid="uid://1wk8ocghe6p5" path="res://scenes/entities/monster/monster_controller.gd" id="1_ogafg"]
+[ext_resource type="PackedScene" uid="uid://dlsvt76gaeh6a" path="res://scenes/components/hitbox_component.tscn" id="2_wmh48"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogafg"]
 albedo_color = Color(0, 0, 0, 1)
@@ -20,4 +21,11 @@ material_override = SubResource("StandardMaterial3D_ogafg")
 mesh = SubResource("BoxMesh_2c3io")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1560523962]
+shape = SubResource("BoxShape3D_2c3io")
+
+[node name="HitboxComponent" parent="." unique_id=715052324 instance=ExtResource("2_wmh48")]
+collision_layer = 4
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent" unique_id=1564100830]
 shape = SubResource("BoxShape3D_2c3io")

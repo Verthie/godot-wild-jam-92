@@ -24,20 +24,20 @@ func generate_recipe():
 	"potato", "beetroot"]
 	var outside_ingredients = ["mist_seed", "mush_seed"]
 	var recipe = []
-	
+
 	while recipe.size() < 5:
 		var next = ingredients.pick_random()
-		
+
 		# no more than 2 in a recipe
 		if recipe.count(next) >= 2:
 			continue
-		
+
 		recipe.append(next)
 
 	if recipe.count("mist_seed") + recipe.count("mush_seed") < 1:
 		# force replace one slot with outside item
-		recipe[randi() % 5] = ingredients.pick_random()
-	
+		recipe[randi() % 5] = outside_ingredients.pick_random()
+
 	print("Shh, the recipe is: ", recipe)
 	return recipe
 
@@ -51,51 +51,46 @@ func _ready() -> void:
 	correct_recipe = generate_recipe()
 
 
-
-
-func _process(delta: float) -> void:
-	pass
-
 func interact(player, hand):
 	# Press E should do nothing on the brewing stand
 	if hand == "none":
 		return
-	
+
 	var held_item = player.get_hand_item(hand)
-	
+
 	# --- CASE 1: player holding item → put into stand ---
 	if held_item:
 		if current_index >= 5:
 			# print("Stand full!")
 			return
-		
+
 		# Can repeat items, so commented this out
 		'''
 		if current_items.has(held_item.tag):
 			print("Ingredient already added!")
 			return
 		'''
-		
+
 		add_ingredient(held_item.tag)
-		
+
 		# remove from player
 		held_item.queue_free()
 		player.clear_hand_item(hand)
-		
+
 		return
-		
+
 	# --- CASE 2: empty hand → take last item ---
 	if current_index > 0:
 		current_index -= 1
 		board.remove_last_icon(current_index)
-		
+
 		var item_tag = current_items[current_index]
 		current_items[current_index] = null
-		
+
 		var scene = ingredient_scenes[item_tag]
 		if scene:
 			player.give_item_to_hand(scene, hand)
-		
+
 		return
 
 
@@ -103,24 +98,24 @@ func interact(player, hand):
 func add_ingredient(item_tag):
 	current_items[current_index] = item_tag
 	board.add_ingredient_icon(item_tag, current_index)
-	
+
 	current_index += 1
-	
+
 	# print("Current items:", current_items)
-	
+
 
 func start_brewing():
 	if current_index < 5:
 		# print("Need all 5 ingredients!")
 		return
-	
+
 	print("Brewing started...")
-	
+
 	var result = evaluate_guess(current_items, correct_recipe)
-	
+
 	if board:
 		board.display_result(result)
-	
+
 	reset_items()
 
 func reset_items():
@@ -131,32 +126,32 @@ func reset_items():
 func evaluate_guess(guess: Array, correct_recipe: Array) -> Array:
 	var result = []
 	var ingredients_evaluated = []
-	
+
 	# initialize
 	for i in range(correct_recipe.size()):
 		result.append("gray")
 		ingredients_evaluated.append(false)
-	
+
 	# --- PASS 1: GREEN (correct position) ---
 	for i in range(guess.size()):
 		if guess[i] == correct_recipe[i]:
 			result[i] = "green"
 			ingredients_evaluated[i] = true
-	
+
 	# --- PASS 2: YELLOW (correct item, wrong position) ---
 	for i in range(guess.size()):
 		if result[i] == "green":
 			continue
-		
+
 		for j in range(correct_recipe.size()):
 			if not ingredients_evaluated[j] and guess[i] == correct_recipe[j]:
 				result[i] = "yellow"
 				ingredients_evaluated[j] = true
 				break
-	
+
 	if current_items == correct_recipe:
 		print("Congrats! You've crafted a CURE")
-	
+
 	return result
 
 func get_interaction_text(player):

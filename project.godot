@@ -87,6 +87,7 @@ interact={
 3d_physics/layer_4="monster"
 3d_physics/layer_5="structures"
 3d_physics/layer_6="interactable"
+3d_physics/layer_7="hurtbox"
 
 [physics]
 
