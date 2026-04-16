@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://6ruxv2406ad0" path="res://resources/shaders/psx_fog.gdshader" id="2_rlydy"]
 [ext_resource type="Shader" uid="uid://1mbhtwa2psud" path="res://resources/shaders/psx.gdshader" id="2_twwmx"]
 [ext_resource type="PackedScene" uid="uid://dui58xpxxwpp8" path="res://scenes/components/health_component.tscn" id="2_vxaux"]
-[ext_resource type="Script" uid="uid://dl25ngkctrcfc" path="res://scripts/motion_blur_compositor.gd" id="2_wxmoy"]
+[ext_resource type="Script" path="res://scripts/motion_blur_compositor.gd" id="2_wxmoy"]
 [ext_resource type="PackedScene" uid="uid://cfricpcy0yc7d" path="res://scenes/components/hurtbox_component.tscn" id="3_2lnhi"]
 [ext_resource type="PackedScene" uid="uid://dywu4dsxf2lkk" path="res://scenes/components/death_component.tscn" id="4_2lnhi"]
 
@@ -68,7 +68,7 @@ shader_parameter/vignette_strength = 0.8
 shader_parameter/vignette_radius = 0.800000038
 
 [node name="CharacterController" type="CharacterBody3D" unique_id=379629607]
-collision_layer = 51
+collision_layer = 55
 collision_mask = 4
 script = ExtResource("1_igst2")
 can_sprint = true
