@@ -30,7 +30,7 @@ var music_player: AudioStreamPlayer
 var normal_volume_db: float = 0.0
 
 var transition_tween: Tween = null
-var phase_zero_active: bool = false
+var phase_one_active: bool = false
 
 
 func _ready() -> void:
@@ -86,14 +86,23 @@ func _on_monster_entered_phase(phase_number: int) -> void:
 		0:
 			scream_combo = 0
 
+		1:
+			scream_combo = 0
+			MusicManager.stop_music(1, 3.0)
+			if !phase_two_timer.is_stopped():
+				phase_two_timer.stop()
+
+			phase_one_timer.wait_time = 1
+			phase_one_timer.start()
+
 			if !monster_has_been_active:
 				return
 
 			# Don't restart if the dip-and-recover is already running
-			if phase_zero_active:
+			if phase_one_active:
 				return
 
-			phase_zero_active = true
+			phase_one_active = true
 
 			monster_has_been_active = false
 
@@ -103,22 +112,24 @@ func _on_monster_entered_phase(phase_number: int) -> void:
 
 			MusicManager.stop_music(1, 3.0)
 
+			await get_tree().create_timer(0.5).timeout
+
 			transition_tween = create_tween().set_parallel()
-			transition_tween.tween_property(music_player, "volume_db", normal_volume_db - 20.0, 2.0)
-			transition_tween.tween_property(music_player, "pitch_scale", min_pitch_scale, 2.0)
+			transition_tween.tween_property(music_player, "volume_db", normal_volume_db - 30.0, 4.0)
+			transition_tween.tween_property(music_player, "pitch_scale", min_pitch_scale, 8.0)
 
 			await transition_tween.finished
 
 			# If the player walked near the monster during the dip, abort the recovery
 			if current_phase == 2:
-				phase_zero_active = false
+				phase_one_active = false
 				return
 
 			await get_tree().create_timer(1.5).timeout
 
 			# Check again after the pause
 			if current_phase == 2:
-				phase_zero_active = false
+				phase_one_active = false
 				return
 
 			transition_tween = create_tween()
@@ -126,19 +137,11 @@ func _on_monster_entered_phase(phase_number: int) -> void:
 
 			await transition_tween.finished
 
-			phase_zero_active = false
-		1:
-			scream_combo = 0
-			MusicManager.stop_music(1, 3.0)
-			if !phase_two_timer.is_stopped():
-				phase_two_timer.stop()
-
-			phase_one_timer.wait_time = 1
-			phase_one_timer.start()
+			phase_one_active = false
 		2:
 			# Entering chase — immediately abort any ongoing phase zero dip/recover
-			if phase_zero_active:
-				phase_zero_active = false
+			if phase_one_active:
+				phase_one_active = false
 				if transition_tween:
 					transition_tween.kill()
 					transition_tween = null
