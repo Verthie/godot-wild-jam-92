@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://co0ito6d5e54i"]
+
+[ext_resource type="PackedScene" uid="uid://cp1vgj36e0bv1" path="res://scenes/objects/trees and forest/tree_01.tscn" id="1_31ju7"]
+[ext_resource type="PackedScene" uid="uid://bi2sejp6vi2ot" path="res://scenes/objects/trees and forest/tree_02.tscn" id="2_jktsm"]
+[ext_resource type="PackedScene" uid="uid://ppnjt5wvd0w8" path="res://scenes/objects/trees and forest/tree_03.tscn" id="3_sauyx"]
+[ext_resource type="PackedScene" uid="uid://bspqtdixrj2ry" path="res://scenes/objects/trees and forest/tree_04.tscn" id="4_qtmuv"]
+
+[node name="Forest_01" type="Node3D" unique_id=2123613788]
+
+[node name="Tree_01" parent="." unique_id=988459672 instance=ExtResource("1_31ju7")]
+collision_layer = 4
+collision_mask = 16
+
+[node name="Tree_07" parent="." unique_id=1376107881 instance=ExtResource("1_31ju7")]
+transform = Transform3D(0.30582827, 0, -0.9520867, 0, 1, 0, 0.9520867, 0, 0.30582827, -0.74963355, 0, 1.641565)
+collision_layer = 4
+collision_mask = 16
+
+[node name="Tree_02" parent="." unique_id=1992245644 instance=ExtResource("2_jktsm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7839243, 0, -1.1166258)
+collision_layer = 4
+collision_mask = 16
+
+[node name="Tree_06" parent="." unique_id=628032456 instance=ExtResource("2_jktsm")]
+transform = Transform3D(0.5378735, 0, 0.84302557, 0, 1, 0, -0.84302557, 0, 0.5378735, -1.1139736, 0, 0.4754845)
+collision_layer = 4
+collision_mask = 16
+
+[node name="Tree_03" parent="." unique_id=154082768 instance=ExtResource("3_sauyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6730292, 0, 1.2918082)
+collision_layer = 4
+collision_mask = 16
+
+[node name="Tree_04" parent="." unique_id=1678866039 instance=ExtResource("4_qtmuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2482605, 0, 0)
+collision_layer = 4
+collision_mask = 16
+
+[node name="Tree_05" parent="." unique_id=1715851304 instance=ExtResource("4_qtmuv")]
+transform = Transform3D(-0.9647092, 0, -0.26331744, 0, 1, 0, 0.26331744, 0, -0.9647092, -0.56919503, 0, -1.2255939)
+collision_layer = 4
+collision_mask = 16

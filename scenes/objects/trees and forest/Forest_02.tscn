@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://blbbmf2rsj4na"]
+
+[ext_resource type="PackedScene" uid="uid://cp1vgj36e0bv1" path="res://scenes/objects/trees and forest/tree_01.tscn" id="1_rn2fi"]
+[ext_resource type="PackedScene" uid="uid://bi2sejp6vi2ot" path="res://scenes/objects/trees and forest/tree_02.tscn" id="2_5rmro"]
+[ext_resource type="PackedScene" uid="uid://ppnjt5wvd0w8" path="res://scenes/objects/trees and forest/tree_03.tscn" id="3_wpakd"]
+[ext_resource type="PackedScene" uid="uid://bspqtdixrj2ry" path="res://scenes/objects/trees and forest/tree_04.tscn" id="4_yqdrm"]
+
+[node name="Forest_01" type="Node3D" unique_id=2123613788]
+
+[node name="Tree_01" parent="." unique_id=988459672 instance=ExtResource("1_rn2fi")]
+transform = Transform3D(0.87459433, 0, -0.48485544, 0, 1, 0, 0.48485544, 0, 0.87459433, -0.70826507, 0, -0.25974292)
+collision_layer = 4
+collision_mask = 16
+
+[node name="Tree_07" parent="." unique_id=1376107881 instance=ExtResource("1_rn2fi")]
+transform = Transform3D(0.30582827, 0, -0.9520867, 0, 1, 0, 0.9520867, 0, 0.30582827, -1.8651007, -4.7683716e-07, 2.7190485)
+collision_layer = 4
+collision_mask = 16
+
+[node name="Tree_02" parent="." unique_id=1992245644 instance=ExtResource("2_5rmro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59935683, 0, -1.6696513)
+collision_layer = 4
+collision_mask = 16
+
+[node name="Tree_06" parent="." unique_id=628032456 instance=ExtResource("2_5rmro")]
+transform = Transform3D(0.8791666, 0, 0.47651452, 0, 1, 0, -0.47651452, 0, 0.8791666, -1.8381075, 0, -0.88828754)
+collision_layer = 4
+collision_mask = 16
+
+[node name="Tree_03" parent="." unique_id=154082768 instance=ExtResource("3_wpakd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0590472, 2.3841858e-07, 1.5284247)
+collision_layer = 4
+collision_mask = 16
+
+[node name="Tree_04" parent="." unique_id=1678866039 instance=ExtResource("4_yqdrm")]
+transform = Transform3D(0.5512673, 0, -0.83432865, 0, 1, 0, 0.83432865, 0, 0.5512673, -0.6922602, -2.3841858e-07, 1.120142)
+collision_layer = 4
+collision_mask = 16
+
+[node name="Tree_05" parent="." unique_id=1715851304 instance=ExtResource("4_yqdrm")]
+transform = Transform3D(-0.9647092, 0, -0.26331744, 0, 1, 0, 0.26331744, 0, -0.9647092, -1.8524575, 0, 0.30864263)
+collision_layer = 4
+collision_mask = 16

@@ -9,28 +9,32 @@
 [ext_resource type="PackedScene" uid="uid://ccri2hc7dtc13" path="res://scenes/items/brewing_room/oxygen_maker.tscn" id="4_v01af"]
 [ext_resource type="PackedScene" uid="uid://87oflr5ytl6" path="res://scenes/items/brewing_room/bowl.tscn" id="5_32fx4"]
 [ext_resource type="ArrayMesh" uid="uid://db3yslr7lhxjy" path="res://resources/meshes/lunchpad.tres" id="6_ae3sc"]
-[ext_resource type="ArrayMesh" uid="uid://hu8gt6fv2o4q" path="res://resources/meshes/arbol.tres" id="7_1f2hn"]
 [ext_resource type="ArrayMesh" uid="uid://d38vs1nerntc2" path="res://assets/models/misc/PassageV2.obj" id="7_i0yxl"]
 [ext_resource type="PackedScene" uid="uid://dij0fgki3wcqa" path="res://scenes/objects/Floor_Lamp.tscn" id="7_ohk1s"]
 [ext_resource type="PackedScene" uid="uid://b0owiqmsec0x2" path="res://scenes/levels/scene_start_v_1.tscn" id="8_u5lar"]
+[ext_resource type="PackedScene" uid="uid://co0ito6d5e54i" path="res://scenes/objects/trees and forest/Forest_01.tscn" id="10_62ook"]
 [ext_resource type="PackedScene" uid="uid://hk4ht0uf8q0q" path="res://scenes/items/Ingredients/mist_seed.tscn" id="10_ugir4"]
 [ext_resource type="PackedScene" uid="uid://dfrxcowo62lhr" path="res://scenes/items/Ingredients/mush_seed.tscn" id="11_0ms8b"]
-[ext_resource type="Shape3D" uid="uid://cdhd8j5d4jo1g" path="res://resources/collision_shapes/tree_shape.tres" id="11_ae3sc"]
+[ext_resource type="PackedScene" uid="uid://cp1vgj36e0bv1" path="res://scenes/objects/trees and forest/tree_01.tscn" id="11_e5bxq"]
 [ext_resource type="Shape3D" uid="uid://ccwyi0oxl0khj" path="res://resources/collision_shapes/lunchpad_shape.tres" id="11_j46mn"]
+[ext_resource type="PackedScene" uid="uid://bi2sejp6vi2ot" path="res://scenes/objects/trees and forest/tree_02.tscn" id="12_2fe5f"]
 [ext_resource type="PackedScene" uid="uid://bdrugicyh6exo" path="res://scenes/items/Ingredients/watermelon.tscn" id="12_syf5b"]
+[ext_resource type="PackedScene" uid="uid://ppnjt5wvd0w8" path="res://scenes/objects/trees and forest/tree_03.tscn" id="13_1s2ut"]
 [ext_resource type="PackedScene" uid="uid://c7u8vnbckno0g" path="res://scenes/items/Ingredients/pumpkin.tscn" id="13_5e4yr"]
 [ext_resource type="PackedScene" uid="uid://ci65t4naoepao" path="res://scenes/entities/monster/monster_controller.tscn" id="14_84bhp"]
+[ext_resource type="PackedScene" uid="uid://bspqtdixrj2ry" path="res://scenes/objects/trees and forest/tree_04.tscn" id="14_idy17"]
 [ext_resource type="PackedScene" uid="uid://cr3loyqfonkmm" path="res://scenes/items/Ingredients/carrot.tscn" id="14_lm6ht"]
 [ext_resource type="PackedScene" uid="uid://b402hhfymvh8u" path="res://scenes/items/Ingredients/beetroot.tscn" id="15_32fx4"]
+[ext_resource type="PackedScene" uid="uid://blbbmf2rsj4na" path="res://scenes/objects/trees and forest/Forest_02.tscn" id="15_41wiu"]
 [ext_resource type="PackedScene" uid="uid://dtoohwdtfkxew" path="res://scenes/items/brewing_room/wordle_board.tscn" id="18_rm2y2"]
 [ext_resource type="PackedScene" uid="uid://brhoentyagx0l" path="res://scenes/items/brewing_room/brewing_stand.tscn" id="19_3vkbi"]
 [ext_resource type="PackedScene" uid="uid://bd413m28777vl" path="res://scenes/items/Ingredients/potato.tscn" id="21_rm2y2"]
-[ext_resource type="PackedScene" path="res://scenes/levels/base_building.tscn" id="24_tb17h"]
+[ext_resource type="PackedScene" uid="uid://jm5fqe8v3ixo" path="res://scenes/levels/base_building.tscn" id="24_tb17h"]
 [ext_resource type="PackedScene" uid="uid://ckppucvlw5j5o" path="res://scenes/objects/blast_door_small.tscn" id="25_1jl4c"]
 [ext_resource type="PackedScene" uid="uid://jybv4plib51w" path="res://scenes/levels/green_house_v_1.tscn" id="26_osekx"]
-[ext_resource type="PackedScene" path="res://scenes/items/brewing_room/big_round_button.tscn" id="28_5h0fd"]
-[ext_resource type="PackedScene" path="res://scenes/items/brewing_room/sampler.tscn" id="29_i0yxl"]
-[ext_resource type="PackedScene" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
+[ext_resource type="PackedScene" uid="uid://bxpps6iej0xf8" path="res://scenes/items/brewing_room/big_round_button.tscn" id="28_5h0fd"]
+[ext_resource type="PackedScene" uid="uid://cjx44grbhpum7" path="res://scenes/items/brewing_room/sampler.tscn" id="29_i0yxl"]
+[ext_resource type="PackedScene" uid="uid://muvu2v8yftya" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p1d0p"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -226,6 +230,7 @@ environment = SubResource("Environment_cchlx")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2026109559]
 transform = Transform3D(0.12060461, -0.5112786, -0.8509106, 0, -0.85716736, 0.5150381, -0.99270064, -0.062115964, -0.10337834, 0, 0, 0)
 shadow_enabled = true
+shadow_bias = 0.0
 
 [node name="CharacterController" parent="." unique_id=379629607 instance=ExtResource("1_p1d0p")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.6842432, 0.12934062, -1.0861099)
@@ -332,2024 +337,249 @@ shape = ExtResource("11_j46mn")
 [node name="LaunchPad" type="MeshInstance3D" parent="terrain_v3/LaunchPad" unique_id=2002312648]
 mesh = ExtResource("6_ae3sc")
 
-[node name="Forest Node" type="Node3D" parent="terrain_v3" unique_id=840821337]
-transform = Transform3D(-0.99904835, 0, -0.04361939, 0, 1, 0, 0.04361939, 0, -0.99904835, -5.65, -0.165, -17.9)
-
-[node name="Arbol (2)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=687418029]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, 0.30654776, 2.1845717e-15, -17.38626)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (2)" unique_id=139073840]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (2)/StaticBody3D" unique_id=2073143865]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (3)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1351616447]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -8.614705, 3.431601e-15, -18.603184)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (3)" unique_id=428878311]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (3)/StaticBody3D" unique_id=1309512140]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (4)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1176719903]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -9.025921, 3.4210604e-15, -18.127058)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (4)" unique_id=1999464406]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (4)/StaticBody3D" unique_id=1667721958]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (5)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=879772297]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -9.971382, 3.5157985e-15, -17.963236)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (5)" unique_id=2107410583]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (5)/StaticBody3D" unique_id=723645279]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (6)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=804920460]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -10.077374, 3.4076733e-15, -17.015764)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (6)" unique_id=1523366827]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (6)/StaticBody3D" unique_id=191060326]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (7)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1989772725]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -10.767727, 3.604044e-15, -17.891365)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (7)" unique_id=891201834]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (7)/StaticBody3D" unique_id=119983511]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (8)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1794673013]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.505689, 2.9891797e-15, -19.075062)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (8)" unique_id=1916504965]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (8)/StaticBody3D" unique_id=158496692]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (9)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=964867436]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.639813, 3.0032324e-15, -18.099327)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (9)" unique_id=409411041]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (9)/StaticBody3D" unique_id=1381461044]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (10)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1404735702]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.349826, 2.7875348e-15, -15.731949)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (10)" unique_id=455320565]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (10)/StaticBody3D" unique_id=665207444]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (11)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=506654602]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.3002534, 3.0573934e-15, -17.890867)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (11)" unique_id=685181870]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (11)/StaticBody3D" unique_id=148622135]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (12)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1071587827]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.73837, 3.177254e-15, -18.40929)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (12)" unique_id=665846879]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (12)/StaticBody3D" unique_id=1113124600]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (13)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=589182746]
-transform = Transform3D(-0.6306759, 1.2234813e-16, 0.77604645, 1.7634579e-16, 1, -1.4343345e-17, -0.77604645, 1.2780653e-16, -0.6306759, 0.41006604, 2.703116e-15, -21.542618)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (13)" unique_id=2131333299]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (13)/StaticBody3D" unique_id=1870628723]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (14)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=767116167]
-transform = Transform3D(-0.6306759, 1.2234813e-16, 0.77604645, 1.7634579e-16, 1, -1.4343345e-17, -0.77604645, 1.2780653e-16, -0.6306759, -0.013798483, 2.7192536e-15, -21.26312)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (14)" unique_id=1448037589]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (14)/StaticBody3D" unique_id=2136012297]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (15)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1938868639]
-transform = Transform3D(-0.6306759, 1.2234813e-16, 0.77604645, 1.7634579e-16, 1, -1.4343345e-17, -0.77604645, 1.2780653e-16, -0.6306759, -0.59122324, 2.821542e-15, -21.510695)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (15)" unique_id=856097755]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (15)/StaticBody3D" unique_id=1346170963]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (16)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1382466858]
-transform = Transform3D(-0.6306759, 1.2234813e-16, 0.77604645, 1.7634579e-16, 1, -1.4343345e-17, -0.77604645, 1.2780653e-16, -0.6306759, -1.8511219, 2.6309885e-15, -18.813652)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (16)" unique_id=1516743361]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (16)/StaticBody3D" unique_id=217272029]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (17)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=960612158]
-transform = Transform3D(-0.6306759, 1.2234814e-16, 0.7760465, 1.7634579e-16, 1, -1.4343345e-17, -0.7760465, 1.2780653e-16, -0.6306759, -1.8078601, -1.1920929e-07, -20.936687)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (17)" unique_id=1450650446]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (17)/StaticBody3D" unique_id=1914204751]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (18)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=235471664]
-transform = Transform3D(-0.6306759, 1.2234813e-16, 0.77604645, 1.7634579e-16, 1, -1.4343345e-17, -0.77604645, 1.2780653e-16, -0.6306759, -2.2029788, 3.0198914e-15, -21.519726)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (18)" unique_id=84600394]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (18)/StaticBody3D" unique_id=922841885]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (19)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=2115091246]
-transform = Transform3D(-0.6306759, 1.2234813e-16, 0.77604645, 1.7634579e-16, 1, -1.4343345e-17, -0.77604645, 1.2780653e-16, -0.6306759, -2.5782807, 2.9805349e-15, -20.852514)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (19)" unique_id=932986187]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (19)/StaticBody3D" unique_id=17265486]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (20)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1349450129]
-transform = Transform3D(-0.6306759, 1.2234813e-16, 0.77604645, 1.7634579e-16, 1, -1.4343345e-17, -0.77604645, 1.2780653e-16, -0.6306759, -3.5381558, 3.172304e-15, -21.434097)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (20)" unique_id=944356986]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (20)/StaticBody3D" unique_id=1212466430]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (21)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=2076770534]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.9238954, 3.0014915e-15, -18.771048)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (21)" unique_id=872372950]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (21)/StaticBody3D" unique_id=857590919]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (32)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1592030804]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.261932, 3.0474985e-15, -19.764715)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (32)" unique_id=1871311894]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (32)/StaticBody3D" unique_id=1720780201]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (33)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1712589261]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.7649937, 3.0719736e-15, -18.517345)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (33)" unique_id=2046430529]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (33)/StaticBody3D" unique_id=392910691]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (34)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1887408980]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.4968166, 3.832324e-15, -24.723299)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (34)" unique_id=746583684]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (34)/StaticBody3D" unique_id=1884835886]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (35)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=114953111]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -2.9035947, 3.2242523e-15, -22.448019)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (35)" unique_id=1323242255]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (35)/StaticBody3D" unique_id=2020550082]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (36)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=802027439]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, 0.33039406, 2.8898492e-15, -22.92741)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (36)" unique_id=349317622]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (36)/StaticBody3D" unique_id=1159718202]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (37)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=648532817]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, 0.109417535, 2.8499016e-15, -22.403307)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (37)" unique_id=871742507]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (37)/StaticBody3D" unique_id=1425522741]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (38)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=626468260]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -0.40728316, 2.9949425e-15, -23.04352)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (38)" unique_id=1440613992]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (38)/StaticBody3D" unique_id=2007974849]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (39)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=291162266]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -0.16638696, 3.0493478e-15, -23.699814)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (39)" unique_id=283136482]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (39)/StaticBody3D" unique_id=1184078460]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (40)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1460978236]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -1.015662, 3.099147e-15, -23.276457)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (40)" unique_id=648705598]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (40)/StaticBody3D" unique_id=2000383242]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (41)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=998008450]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -1.6454985, 3.1784418e-15, -23.293947)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (41)" unique_id=474287933]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (41)/StaticBody3D" unique_id=584589628]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (42)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=344500431]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -0.4411964, 3.1868463e-15, -24.512575)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (42)" unique_id=753588898]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (42)/StaticBody3D" unique_id=250280006]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (43)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=173200078]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -0.83942103, 3.3060384e-15, -25.063955)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (43)" unique_id=1923178234]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (43)/StaticBody3D" unique_id=1369126267]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (44)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1563975282]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.2882037, 3.9565917e-15, -24.938023)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (44)" unique_id=83947929]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (44)/StaticBody3D" unique_id=636119765]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (45)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=2130970270]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.0162635, 2.8868632e-15, -18.743027)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (45)" unique_id=1714867715]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (45)/StaticBody3D" unique_id=1799615132]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (46)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=2225389]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -0.9259155, 2.969972e-15, -22.351662)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (46)" unique_id=632542302]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (46)/StaticBody3D" unique_id=1306806677]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (47)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1957084668]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.8696194, 3.138479e-15, -18.937548)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (47)" unique_id=1296689971]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (47)/StaticBody3D" unique_id=405572849]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (48)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=825704918]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.421167, 3.2980613e-15, -19.658182)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (48)" unique_id=211852671]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (48)/StaticBody3D" unique_id=996055961]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (49)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=261308218]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.4892244, 3.232365e-15, -19.079)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (49)" unique_id=1959515685]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (49)/StaticBody3D" unique_id=288070529]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (50)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=506041087]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -7.3093743, 3.3307351e-15, -19.063559)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (50)" unique_id=1077140439]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (50)/StaticBody3D" unique_id=415324465]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (51)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1399301994]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -2.6166468, 3.6775087e-15, -26.269138)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (51)" unique_id=1376792660]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (51)/StaticBody3D" unique_id=1965471493]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (52)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1107502057]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -7.782717, 3.3392756e-15, -18.677254)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (52)" unique_id=1200982397]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (52)/StaticBody3D" unique_id=1051907087]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (53)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=847268378]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -7.2761974, 3.0019902e-15, -16.52311)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (53)" unique_id=1425845241]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (53)/StaticBody3D" unique_id=764826082]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (54)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=61810650]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -8.267083, 3.5123301e-15, -19.56761)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (54)" unique_id=196959924]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (54)/StaticBody3D" unique_id=1241920793]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (55)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=411062658]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -9.006254, 3.533517e-15, -19.02578)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (55)" unique_id=1773222381]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (55)/StaticBody3D" unique_id=1869827798]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (56)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=108579150]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -9.003099, 3.5276629e-15, -18.982996)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (56)" unique_id=1197408663]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (56)/StaticBody3D" unique_id=2066083241]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (57)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1342035782]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -10.265081, 3.725404e-15, -19.322102)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (57)" unique_id=357638967]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (57)/StaticBody3D" unique_id=1927180931]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (58)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=110309630]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.945713, 3.1575245e-15, -19.971016)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (58)" unique_id=533426697]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (58)/StaticBody3D" unique_id=2025685413]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (59)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=2107156510]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.144996, 3.1038796e-15, -19.360506)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (59)" unique_id=1444902902]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (59)/StaticBody3D" unique_id=1154459178]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (60)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=391803367]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.4208555, 3.2488052e-15, -20.230375)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (60)" unique_id=2001090025]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (60)/StaticBody3D" unique_id=1140758969]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (61)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=438863082]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.599739, 3.2202139e-15, -20.792715)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (61)" unique_id=629786945]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (61)/StaticBody3D" unique_id=128157475]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (62)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1538259406]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -1.3416483, 3.2982017e-15, -24.521862)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (62)" unique_id=632974874]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (62)/StaticBody3D" unique_id=1362735196]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (63)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1312775328]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -3.2171998, 3.0107837e-15, -20.477558)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (63)" unique_id=336598028]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (63)/StaticBody3D" unique_id=260727801]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (64)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=704571027]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -7.0510044, 3.106227e-15, -17.554268)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (64)" unique_id=633761044]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (64)/StaticBody3D" unique_id=1695470417]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (65)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1931555347]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -7.3737016, 3.4198299e-15, -19.699083)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (65)" unique_id=1952500152]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (65)/StaticBody3D" unique_id=531097622]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (66)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1131831698]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.019375, 3.1418385e-15, -20.735058)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (66)" unique_id=1636081512]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (66)/StaticBody3D" unique_id=1385297957]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (67)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=328756831]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -8.963692, 3.6414247e-15, -19.910831)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (67)" unique_id=595045392]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (67)/StaticBody3D" unique_id=1728479295]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (68)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1213184997]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, 0.7632114, 2.3158518e-15, -18.8506)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (68)" unique_id=1912138851]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (68)/StaticBody3D" unique_id=1419646855]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (69)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=499386441]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.653704, 3.187167e-15, -19.525194)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (69)" unique_id=366524768]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (69)/StaticBody3D" unique_id=46671485]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (70)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=14703916]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.829783, 3.2786259e-15, -20.072239)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (70)" unique_id=1160254885]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (70)/StaticBody3D" unique_id=301660545]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (71)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1318434610]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -2.2622073, 3.323859e-15, -23.841368)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (71)" unique_id=103153571]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (71)/StaticBody3D" unique_id=144171719]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (72)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1510686762]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.4444985, 3.3955363e-15, -20.398523)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (72)" unique_id=450257833]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (72)/StaticBody3D" unique_id=1271850809]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (73)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1086528477]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.857386, 3.4440557e-15, -20.3829)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (73)" unique_id=1269368667]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (73)/StaticBody3D" unique_id=1294661406]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (74)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1298249337]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.0800314, 3.767429e-15, -25.571817)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (74)" unique_id=1059007634]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (74)/StaticBody3D" unique_id=984252280]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (75)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=538857801]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -3.8873854, 2.7795469e-15, -18.026722)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (75)" unique_id=629273566]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (75)/StaticBody3D" unique_id=534775659]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (76)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=2003036106]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -7.911835, 3.1715073e-15, -17.240976)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (76)" unique_id=1498072920]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (76)/StaticBody3D" unique_id=861445958]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (77)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1566977678]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -8.908882, 3.2863343e-15, -17.184956)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (77)" unique_id=921313757]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (77)/StaticBody3D" unique_id=910931988]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (78)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1222732846]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.0682163, 3.3164724e-15, -21.097403)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (78)" unique_id=1273152351]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (78)/StaticBody3D" unique_id=394636198]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (79)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=233184549]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.382019, 3.3193716e-15, -20.819687)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (79)" unique_id=1973532932]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (79)/StaticBody3D" unique_id=1944883911]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (80)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=2077094720]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.457405, 2.7629188e-15, -17.350943)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (80)" unique_id=867910761]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (80)/StaticBody3D" unique_id=923384932]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (81)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=123517788]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, 1.0447427, 2.6666977e-15, -21.86524)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (81)" unique_id=118574882]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (81)/StaticBody3D" unique_id=479493771]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (82)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=178416241]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -3.6696093, 3.7771414e-15, -26.040705)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (82)" unique_id=1439469513]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (82)/StaticBody3D" unique_id=1037028105]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (83)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=586964574]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -2.8207178, 3.4567137e-15, -24.34621)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (83)" unique_id=1129294914]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (83)/StaticBody3D" unique_id=536080146]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (84)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=355352802]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.8887277, 3.5249657e-15, -20.985964)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (84)" unique_id=238067106]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (84)/StaticBody3D" unique_id=1563651672]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (85)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1318814579]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -7.7712927, 3.5536183e-15, -20.365278)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (85)" unique_id=1429337912]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (85)/StaticBody3D" unique_id=745682667]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (86)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=454315191]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, 0.8703327, 2.5290993e-15, -20.621664)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (86)" unique_id=29563210]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (86)/StaticBody3D" unique_id=613160893]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (87)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1130160470]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -3.0164502, 3.161255e-15, -21.84707)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (87)" unique_id=463573708]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (87)/StaticBody3D" unique_id=1078953831]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (88)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=380932111]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.793077, 3.3405112e-15, -21.54888)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (88)" unique_id=1395336091]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (88)/StaticBody3D" unique_id=448159756]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (89)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1692656554]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, 0.22207373, 2.4430184e-15, -19.327564)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (89)" unique_id=1251027468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (89)/StaticBody3D" unique_id=1339944045]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (90)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=402155426]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.0749803, 3.4082586e-15, -20.851803)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (90)" unique_id=214150821]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (90)/StaticBody3D" unique_id=2139642580]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (91)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=18117816]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.4516025, 3.482324e-15, -21.070778)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (91)" unique_id=2061891323]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (91)/StaticBody3D" unique_id=660613381]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (92)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=2100169416]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -7.4628196, 3.6307364e-15, -21.263973)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (92)" unique_id=1746624068]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (92)/StaticBody3D" unique_id=1429171729]
-shape = ExtResource("11_ae3sc")
+[node name="ForestNode v2" type="Node3D" parent="terrain_v3" unique_id=1993070645]
 
-[node name="Arbol (93)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1476032529]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -7.5483813, 3.2204735e-15, -17.972036)
-mesh = ExtResource("7_1f2hn")
+[node name="Forest_01" parent="terrain_v3/ForestNode v2" unique_id=2123613788 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.545, 0, 0, 0, 0.545, 0, 0, 0, 0.545, -1.7631719, -0.3076681, 7.1800857)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (93)" unique_id=537120156]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (93)/StaticBody3D" unique_id=1707450587]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (94)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=272242897]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, 1.0536838, 1.9299665e-15, -16.109371)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (94)" unique_id=1323709408]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (94)/StaticBody3D" unique_id=1988638455]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (95)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1344065553]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.6472616, 3.439641e-15, -21.5068)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (95)" unique_id=289932453]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (95)/StaticBody3D" unique_id=1614428670]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (96)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=284956930]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.209147, 3.4104452e-15, -22.655058)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (96)" unique_id=1995659671]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (96)/StaticBody3D" unique_id=38618909]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (97)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=624937316]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.125862, 3.4812571e-15, -21.374258)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (97)" unique_id=2134482560]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (97)/StaticBody3D" unique_id=430336785]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (98)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=811266361]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -2.7728305, 3.580449e-15, -25.360195)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (98)" unique_id=1792312241]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (98)/StaticBody3D" unique_id=1869521116]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (99)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=482069107]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -3.4049866, 3.6029465e-15, -24.931067)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (99)" unique_id=769488306]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (99)/StaticBody3D" unique_id=194924557]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (100)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1244011433]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, 0.9654282, 2.389562e-15, -19.62091)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (100)" unique_id=1614998549]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (100)/StaticBody3D" unique_id=1044985999]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (101)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1636875202]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, 0.18348067, 2.5363724e-15, -20.021051)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (101)" unique_id=1799477509]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (101)/StaticBody3D" unique_id=1632410438]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (102)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1368935958]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -3.7050562, 3.290962e-15, -22.202744)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (102)" unique_id=579930984]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (102)/StaticBody3D" unique_id=919519971]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (103)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=313570236]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, 1.8390481, 1.847406e-15, -16.215216)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (103)" unique_id=2112514412]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (103)/StaticBody3D" unique_id=1058826964]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (104)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=192453137]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -1.9667029, 3.4518892e-15, -25.126003)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (104)" unique_id=775035247]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (104)/StaticBody3D" unique_id=1311729656]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (105)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=896336349]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.881995, 3.6417944e-15, -21.906513)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (105)" unique_id=630557282]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (105)/StaticBody3D" unique_id=189655834]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (106)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1843773988]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.024693, 3.4453277e-15, -22.147274)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (106)" unique_id=1350482247]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (106)/StaticBody3D" unique_id=705962968]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (107)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=2091770266]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.2177587, 2.6771078e-15, -15.95165)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (107)" unique_id=736143582]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (107)/StaticBody3D" unique_id=371207759]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (108)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=702913845]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -1.5974474, 3.535226e-15, -26.131542)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (108)" unique_id=761953812]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (108)/StaticBody3D" unique_id=1061739393]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (109)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=2027812039]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.998484, 3.586109e-15, -22.31659)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (109)" unique_id=1958254306]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (109)/StaticBody3D" unique_id=2020383641]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (110)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1385107718]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.079157, 2.8686749e-15, -16.625925)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (110)" unique_id=1470433548]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (110)/StaticBody3D" unique_id=1815815362]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (111)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1415548054]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.220762, 3.2801783e-15, -21.62469)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (111)" unique_id=1720490410]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (111)/StaticBody3D" unique_id=1718752427]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (112)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=542750088]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.2477427, 3.62264e-15, -23.3211)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (112)" unique_id=1760700381]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (112)/StaticBody3D" unique_id=1346287914]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (113)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1658491634]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -0.15031686, 2.64154e-15, -20.524376)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (113)" unique_id=1906751695]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (113)/StaticBody3D" unique_id=560391158]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (114)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=194933254]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.341408, 3.660199e-15, -22.56802)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (114)" unique_id=1373732649]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (114)/StaticBody3D" unique_id=888640535]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (115)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=620484940]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.8067284, 3.4862616e-15, -22.67621)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (115)" unique_id=171224202]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (115)/StaticBody3D" unique_id=2107822372]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (116)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1331010371]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.3488226, 2.811713e-15, -16.879377)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (116)" unique_id=1272592820]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (116)/StaticBody3D" unique_id=1219578152]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (117)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=129226348]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.7238264, 2.6895418e-15, -16.521776)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (117)" unique_id=2076892019]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (117)/StaticBody3D" unique_id=1642949286]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (118)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=724588938]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.637173, 3.581902e-15, -22.629553)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (118)" unique_id=2085005401]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (118)/StaticBody3D" unique_id=141752365]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (119)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=632153149]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.618433, 3.0052854e-15, -17.178564)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (119)" unique_id=1334548982]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (119)/StaticBody3D" unique_id=1349814188]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (120)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=48511943]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -7.061143, 3.82627e-15, -23.178415)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (120)" unique_id=1637674354]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (120)/StaticBody3D" unique_id=1754078642]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (121)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1864749789]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -7.439853, 3.948966e-15, -23.775892)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (121)" unique_id=243670378]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (121)/StaticBody3D" unique_id=5541977]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (122)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1953248228]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.0332656, 3.4544812e-15, -23.16798)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (122)" unique_id=1517577545]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (122)/StaticBody3D" unique_id=2145483464]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (123)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1136855197]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.627596, 3.581697e-15, -23.59441)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (123)" unique_id=1903822941]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (123)/StaticBody3D" unique_id=2063398073]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (124)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=66495664]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.2738867, 3.73318e-15, -23.20368)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (124)" unique_id=1466590773]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (124)/StaticBody3D" unique_id=1322319992]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (125)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1714724081]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.1646976, 3.972774e-15, -26.140162)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (125)" unique_id=630496656]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (125)/StaticBody3D" unique_id=319872270]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (126)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1735868826]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.152032, 3.715297e-15, -24.137703)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (126)" unique_id=1338870]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (126)/StaticBody3D" unique_id=599526761]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (127)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1494577022]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -6.1671934, 3.8355024e-15, -24.10642)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (127)" unique_id=1708458216]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (127)/StaticBody3D" unique_id=1563852595]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (128)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=441919611]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, 0.794077, 2.1976384e-15, -17.955206)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (128)" unique_id=659933091]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (128)/StaticBody3D" unique_id=268753782]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (129)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=2082429145]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -7.001666, 3.9879637e-15, -24.500496)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (129)" unique_id=984852373]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (129)/StaticBody3D" unique_id=389026115]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (23)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=384898174]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -3.242198, 2.8019105e-15, -18.819334)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (23)" unique_id=1366229452]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (23)/StaticBody3D" unique_id=977689845]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (24)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=611886880]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -5.572413, 2.9170733e-15, -17.489712)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (24)" unique_id=317428818]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (24)/StaticBody3D" unique_id=919550994]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (25)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1848386936]
-transform = Transform3D(-0.99904835, 1.2234814e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -1.4965792, 0, -20.299458)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (25)" unique_id=1571971852]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (25)/StaticBody3D" unique_id=1921931297]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (26)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=970792355]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -1.3701789, 2.665879e-15, -19.547049)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (26)" unique_id=659933769]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (26)/StaticBody3D" unique_id=79039989]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (27)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1927124683]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -1.9628536, 2.7572373e-15, -19.694504)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (27)" unique_id=1337577136]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (27)/StaticBody3D" unique_id=1786886932]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (28)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=257433999]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -2.3765476, 2.7906845e-15, -19.56018)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (28)" unique_id=294142966]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (28)/StaticBody3D" unique_id=1023474676]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (29)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=456320501]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -2.640219, 2.9171546e-15, -20.297312)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (29)" unique_id=476357287]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (29)/StaticBody3D" unique_id=1321529250]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (30)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1169199840]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -3.0333185, 2.8720844e-15, -19.568357)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (30)" unique_id=1158127344]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (30)/StaticBody3D" unique_id=150942162]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (31)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=545227063]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -3.756259, 3.0301422e-15, -20.11299)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (31)" unique_id=1775280807]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (31)/StaticBody3D" unique_id=382277041]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (22)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=951272261]
-transform = Transform3D(-0.99904835, 1.2234813e-16, 0.04361939, 1.2780651e-16, 1, 1.2234813e-16, -0.04361939, 1.2780651e-16, -0.99904835, -4.8638353, 2.9121382e-15, -18.129414)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (22)" unique_id=1824933153]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (22)/StaticBody3D" unique_id=278902545]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (139)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=760196660]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.082161404, -6.240013e-32, -13.936849)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (139)" unique_id=1997252698]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (139)/StaticBody3D" unique_id=1569276217]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (140)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1496075258]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59, 0, -12.94)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (140)" unique_id=684521727]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (140)/StaticBody3D" unique_id=1298180191]
-shape = ExtResource("11_ae3sc")
+[node name="Forest_20" parent="terrain_v3/ForestNode v2" unique_id=2024979250 instance=ExtResource("10_62ook")]
+transform = Transform3D(-0.26082858, 0, -0.47853258, 0, 0.54499996, 0, 0.47853258, 0, -0.26082858, 0.00090670586, -0.19330847, 8.53906)
 
-[node name="Arbol (141)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1216313570]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3906545, -7.70372e-33, -15.137367)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (141)" unique_id=629462520]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
+[node name="Forest_02" parent="terrain_v3/ForestNode v2" unique_id=338895856 instance=ExtResource("10_62ook")]
+transform = Transform3D(-0.54266644, 0, -0.050379924, 0, 0.54499996, 0, 0.050379924, 0, -0.54266644, -3.3216455, -0.18821073, 6.107958)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (141)/StaticBody3D" unique_id=297109984]
-shape = ExtResource("11_ae3sc")
+[node name="Forest_03" parent="terrain_v3/ForestNode v2" unique_id=1843142264 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.20878221, 0, -0.5034233, 0, 0.54499996, 0, 0.5034233, 0, 0.20878221, -0.07472181, -0.20608893, 4.9182644)
 
-[node name="Arbol (133)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=865905877]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5637748, 0, -11.385143)
-mesh = ExtResource("7_1f2hn")
+[node name="Forest_04" parent="terrain_v3/ForestNode v2" unique_id=2072119154 instance=ExtResource("10_62ook")]
+transform = Transform3D(-0.54296327, 0, -0.0470735, 0, 0.5449999, 0, 0.0470735, 0, -0.54296327, 1.7733536, -0.3076681, 5.8221216)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (133)" unique_id=1685332372]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
+[node name="Forest_05" parent="terrain_v3/ForestNode v2" unique_id=112842942 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.42780927, 0, -0.3376451, 0, 0.5449999, 0, 0.3376451, 0, 0.42780927, -0.741847, -0.3076681, 3.1585612)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (133)/StaticBody3D" unique_id=1420631690]
-shape = ExtResource("11_ae3sc")
+[node name="Forest_06" parent="terrain_v3/ForestNode v2" unique_id=1470082167 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.4951886, 0, 0.22762525, 0, 0.5449999, 0, -0.22762525, 0, 0.4951886, 1.3165212, -0.2799598, 3.4069018)
 
-[node name="Arbol (134)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1001814882]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8299525, 0, -12.009859)
-mesh = ExtResource("7_1f2hn")
+[node name="Forest_07" parent="terrain_v3/ForestNode v2" unique_id=1935631965 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.4951886, 0, 0.22762525, 0, 0.5449999, 0, -0.22762525, 0, 0.4951886, -1.8236741, -0.12521347, -1.2268155)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (134)" unique_id=1364802406]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
+[node name="Forest_08" parent="terrain_v3/ForestNode v2" unique_id=554791379 instance=ExtResource("10_62ook")]
+transform = Transform3D(-0.41472998, 0, 0.35358727, 0, 0.54499984, 0, -0.35358727, 0, -0.41472998, -1.7535461, -0.15018052, 1.7387366)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (134)/StaticBody3D" unique_id=151703267]
-shape = ExtResource("11_ae3sc")
+[node name="Forest_09" parent="terrain_v3/ForestNode v2" unique_id=1832506696 instance=ExtResource("10_62ook")]
+transform = Transform3D(-0.4443438, 0, 0.31556848, 0, 0.54499996, 0, -0.31556848, 0, -0.4443438, 0.58675206, -0.12521347, 1.5726378)
 
-[node name="Arbol (135)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1542306060]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4225113, 0, -12.162101)
-mesh = ExtResource("7_1f2hn")
+[node name="Forest_10" type="Node3D" parent="terrain_v3/ForestNode v2" unique_id=648836358]
+transform = Transform3D(0.09131085, 0, 0.53729624, 0, 0.54499984, 0, -0.53729624, 0, 0.09131085, 2.6381743, -0.12521347, 1.7977042)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (135)" unique_id=787634073]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_01" parent="terrain_v3/ForestNode v2/Forest_10" unique_id=988459672 instance=ExtResource("11_e5bxq")]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, -0.157261, 0)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (135)/StaticBody3D" unique_id=1925391333]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (136)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=53321518]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5333447, 2.1955601e-32, -11.441393)
-mesh = ExtResource("7_1f2hn")
+collision_mask = 16
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (136)" unique_id=432904985]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_07" parent="terrain_v3/ForestNode v2/Forest_10" unique_id=1376107881 instance=ExtResource("11_e5bxq")]
+transform = Transform3D(0.30582827, 0, -0.9520867, 0, 1, 0, 0.9520867, 0, 0.30582827, -0.74963355, 0, 1.641565)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (136)/StaticBody3D" unique_id=375594812]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (137)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=464052980]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7660086, 0, -12.182578)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (137)" unique_id=1457027951]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_02" parent="terrain_v3/ForestNode v2/Forest_10" unique_id=1992245644 instance=ExtResource("12_2fe5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7839243, 0, -1.1166258)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (137)/StaticBody3D" unique_id=881395003]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (138)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=622117454]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02, 0, -11.67)
-mesh = ExtResource("7_1f2hn")
+collision_mask = 16
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (138)" unique_id=1552595633]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_06" parent="terrain_v3/ForestNode v2/Forest_10" unique_id=628032456 instance=ExtResource("12_2fe5f")]
+transform = Transform3D(0.53787345, 0, 0.84302557, 0, 1.0000001, 0, -0.84302557, 0, 0.53787345, -1.1139734, -0.13651516, 0.4754839)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (138)/StaticBody3D" unique_id=363249799]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (149)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1653856847]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31655693, 0, -12.73963)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (149)" unique_id=648139389]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_03" parent="terrain_v3/ForestNode v2/Forest_10" unique_id=154082768 instance=ExtResource("13_1s2ut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6730292, 0, 1.2918082)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (149)/StaticBody3D" unique_id=806872444]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (151)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1418660889]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2637103, -1.5715588e-31, -14.959115)
-mesh = ExtResource("7_1f2hn")
+collision_mask = 16
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (151)" unique_id=527834243]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_04" parent="terrain_v3/ForestNode v2/Forest_10" unique_id=1678866039 instance=ExtResource("14_idy17")]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 1.2482605, -0.011927798, 0)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (151)/StaticBody3D" unique_id=1708739913]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (150)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=2118562824]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4246455, 0, -14.000975)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (150)" unique_id=716323926]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_05" parent="terrain_v3/ForestNode v2/Forest_10" unique_id=1715851304 instance=ExtResource("14_idy17")]
+transform = Transform3D(-0.9647092, 0, -0.26331744, 0, 1, 0, 0.26331744, 0, -0.9647092, -0.56919503, 0, -1.2255939)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (150)/StaticBody3D" unique_id=543814159]
-shape = ExtResource("11_ae3sc")
+[node name="Forest_11" parent="terrain_v3/ForestNode v2" unique_id=308786066 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.43595377, 0, -0.3270615, 0, 0.5449999, 0, 0.3270615, 0, 0.43595377, 2.3992777, -0.14566685, -0.1978786)
 
-[node name="Arbol (154)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1987287240]
-transform = Transform3D(0.6639262, 0, -0.7477981, 0, 1, 0, 0.7477981, 0, 0.6639262, -5.12, 0, -10.06)
-mesh = ExtResource("7_1f2hn")
+[node name="Forest_12" parent="terrain_v3/ForestNode v2" unique_id=494556908 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.5258266, 0, -0.14328761, 0, 0.5449999, 0, 0.14328761, 0, 0.5258266, 0.12680513, -0.259441, -1.7476889)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (154)" unique_id=937105260]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
+[node name="Forest_13" parent="terrain_v3/ForestNode v2" unique_id=791764752 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.42365828, 0, -0.342839, 0, 0.54499984, 0, 0.342839, 0, 0.42365828, 0.9083776, -0.2404194, -3.584979)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (154)/StaticBody3D" unique_id=2025818583]
-shape = ExtResource("11_ae3sc")
+[node name="Forest_21" parent="terrain_v3/ForestNode v2" unique_id=1573513663 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.54222906, 0, 0.05488652, 0, 0.54499984, 0, -0.05488652, 0, 0.54222906, 4.48494, -0.24794361, -0.12156367)
 
-[node name="Arbol (156)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=500831271]
-transform = Transform3D(0.6639262, 0, -0.7477981, 0, 1, 0, 0.7477981, 0, 0.6639262, -4.70873, 0, -10.357718)
-mesh = ExtResource("7_1f2hn")
+[node name="Forest_22" parent="terrain_v3/ForestNode v2" unique_id=44836084 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.21882644, 0, -0.49913913, 0, 0.54499984, 0, 0.49913913, 0, 0.21882644, 1.3260722, -0.22303084, -5.715882)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (156)" unique_id=134942723]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
+[node name="Forest_23" parent="terrain_v3/ForestNode v2" unique_id=2102490656 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.21882643, 0, -0.49913913, 0, 0.54499984, 0, 0.49913913, 0, 0.21882643, -0.23434675, -0.1943539, -7.2814016)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (156)/StaticBody3D" unique_id=680604363]
-shape = ExtResource("11_ae3sc")
+[node name="Forest_24" parent="terrain_v3/ForestNode v2" unique_id=1382257768 instance=ExtResource("10_62ook")]
+transform = Transform3D(-0.51667905, 0, -0.17340015, 0, 0.5449999, 0, 0.17340015, 0, -0.51667905, -2.5446558, -0.16961798, -6.6002364)
 
-[node name="Arbol (155)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1388930943]
-transform = Transform3D(0.6639262, 0, -0.7477981, 0, 1, 0, 0.7477981, 0, 0.6639262, -4.121056, 0, -10.135569)
-mesh = ExtResource("7_1f2hn")
+[node name="Forest_25" type="Node3D" parent="terrain_v3/ForestNode v2" unique_id=1990906304]
+transform = Transform3D(0.072824605, 0, -0.5401124, 0, 0.545, 0, 0.5401124, 0, 0.072824605, -5.041707, -0.12521371, -7.2158227)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (155)" unique_id=2147343567]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_01" parent="terrain_v3/ForestNode v2/Forest_25" unique_id=1259154416 instance=ExtResource("11_e5bxq")]
+transform = Transform3D(1, 0, 1.4901161e-08, 0, 0.99999994, 0, -1.4901161e-08, 0, 1, -0.50145054, 0, -0.58133984)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (155)/StaticBody3D" unique_id=895234867]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (157)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=678673464]
-transform = Transform3D(0.6639262, 0, -0.7477981, 0, 1, 0, 0.7477981, 0, 0.6639262, -3.8, 0, -10.86)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (157)" unique_id=1403357970]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_08" parent="terrain_v3/ForestNode v2/Forest_25" unique_id=158314709 instance=ExtResource("11_e5bxq")]
+transform = Transform3D(1, 0, 2.9802322e-08, 0, 0.9999998, 0, -2.9802322e-08, 0, 1, 7.878293, 0, 1.6800494)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (157)/StaticBody3D" unique_id=1959316029]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (162)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1566220633]
-transform = Transform3D(0.6639262, 0, -0.7477981, 0, 1, 0, 0.7477981, 0, 0.6639262, -3.1016605, 0, -10.725983)
-mesh = ExtResource("7_1f2hn")
+collision_mask = 16
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (162)" unique_id=1195988732]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_07" parent="terrain_v3/ForestNode v2/Forest_25" unique_id=1647285060 instance=ExtResource("11_e5bxq")]
+transform = Transform3D(0.30582827, 0, -0.9520867, 0, 1, 0, 0.9520867, 0, 0.30582827, -0.74963355, 0, 1.641565)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (162)/StaticBody3D" unique_id=1208941908]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (161)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=792657314]
-transform = Transform3D(0.6639262, 0, -0.7477981, 0, 1, 0, 0.7477981, 0, 0.6639262, -2.5104406, 0, -10.196848)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (161)" unique_id=2129069151]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_02" parent="terrain_v3/ForestNode v2/Forest_25" unique_id=1531207040 instance=ExtResource("12_2fe5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7839243, 0, -1.1166258)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (161)/StaticBody3D" unique_id=396095283]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (160)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=160357291]
-transform = Transform3D(0.6639262, 0, -0.7477981, 0, 1, 0, 0.7477981, 0, 0.6639262, -2.1645992, 0, -10.879796)
-mesh = ExtResource("7_1f2hn")
+collision_mask = 16
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (160)" unique_id=446663986]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_06" parent="terrain_v3/ForestNode v2/Forest_25" unique_id=1784673046 instance=ExtResource("12_2fe5f")]
+transform = Transform3D(0.5378735, 0, 0.84302557, 0, 1, 0, -0.84302557, 0, 0.5378735, -1.1139736, 0, 0.4754845)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (160)/StaticBody3D" unique_id=123713953]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (147)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1173247166]
-transform = Transform3D(0.6639262, 0, -0.7477981, 0, 1, 0, 0.7477981, 0, 0.6639262, -1.1802696, 0, -10.340635)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (147)" unique_id=1638951756]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_03" parent="terrain_v3/ForestNode v2/Forest_25" unique_id=1300287036 instance=ExtResource("13_1s2ut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6730292, 0, 1.2918082)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (147)/StaticBody3D" unique_id=1655738414]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (145)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1947490600]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42591867, 4.920751e-32, -13.193979)
-mesh = ExtResource("7_1f2hn")
+collision_mask = 16
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (145)" unique_id=1800426679]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_04" parent="terrain_v3/ForestNode v2/Forest_25" unique_id=1366407676 instance=ExtResource("14_idy17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2482605, 0, 0)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (145)/StaticBody3D" unique_id=1340504019]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (146)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1700185058]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53, 0, -12.04)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (146)" unique_id=952542316]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_05" parent="terrain_v3/ForestNode v2/Forest_25" unique_id=1202033283 instance=ExtResource("14_idy17")]
+transform = Transform3D(-0.9647092, 0, -0.26331744, 0, 0.99999994, 0, 0.26331744, 0, -0.9647092, -0.15538597, 0, -2.0659351)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (146)/StaticBody3D" unique_id=2035572725]
-shape = ExtResource("11_ae3sc")
+[node name="Forest_31" type="Node3D" parent="terrain_v3/ForestNode v2" unique_id=104300655]
+transform = Transform3D(0.072824605, 0, -0.5401124, 0, 0.545, 0, 0.5401124, 0, 0.072824605, -4.4978476, -0.125213, -3.9309456)
 
-[node name="Arbol (144)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=685322851]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6085324, -4.220194e-32, -14.16694)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (144)" unique_id=1950716957]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_01" parent="terrain_v3/ForestNode v2/Forest_31" unique_id=893759370 instance=ExtResource("11_e5bxq")]
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (144)/StaticBody3D" unique_id=1786124174]
-shape = ExtResource("11_ae3sc")
+collision_mask = 16
 
-[node name="Arbol (148)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1263561462]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0474384, -9.783724e-32, -13.378422)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (148)" unique_id=243731317]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_07" parent="terrain_v3/ForestNode v2/Forest_31" unique_id=586622606 instance=ExtResource("11_e5bxq")]
+transform = Transform3D(0.30582827, 0, -0.9520868, 0, 0.99999994, 0, 0.9520868, 0, 0.30582827, -3.529912, 0, 2.6345024)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (148)/StaticBody3D" unique_id=1903146468]
-shape = ExtResource("11_ae3sc")
+collision_mask = 16
 
-[node name="Arbol (152)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=526314213]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0400772, 0, -12.936505)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (152)" unique_id=793772264]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_02" parent="terrain_v3/ForestNode v2/Forest_31" unique_id=1995698813 instance=ExtResource("12_2fe5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7839243, 0, -1.1166258)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (152)/StaticBody3D" unique_id=539901222]
-shape = ExtResource("11_ae3sc")
+collision_mask = 16
 
-[node name="Arbol (159)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1488900077]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24060382, -6.04742e-32, -11.700642)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (159)" unique_id=1740961643]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_08" parent="terrain_v3/ForestNode v2/Forest_31" unique_id=190480129 instance=ExtResource("12_2fe5f")]
+transform = Transform3D(1, 0, 1.4901161e-08, 0, 0.99999994, 0, -1.4901161e-08, 0, 1, -2.0554237, 0, -2.8795466)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (159)/StaticBody3D" unique_id=1493859562]
-shape = ExtResource("11_ae3sc")
+collision_mask = 16
 
-[node name="Arbol (130)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=678288892]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41100413, 9.437057e-33, -12.393868)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (130)" unique_id=1140628409]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_06" parent="terrain_v3/ForestNode v2/Forest_31" unique_id=1454056987 instance=ExtResource("12_2fe5f")]
+transform = Transform3D(0.5378735, 0, 0.84302557, 0, 0.99999994, 0, -0.84302557, 0, 0.5378735, -3.7624502, 0, 1.4767065)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (130)/StaticBody3D" unique_id=985219453]
-shape = ExtResource("11_ae3sc")
+collision_mask = 16
 
-[node name="Arbol (142)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1078988797]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14767316, 0, -11.027712)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (142)" unique_id=564032867]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_03" parent="terrain_v3/ForestNode v2/Forest_31" unique_id=1173522787 instance=ExtResource("13_1s2ut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6730292, 0, 1.2918082)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (142)/StaticBody3D" unique_id=1797687705]
-shape = ExtResource("11_ae3sc")
+collision_mask = 16
 
-[node name="Arbol (158)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1737343585]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5426438, 0, -11.282264)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (158)" unique_id=821548385]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_04" parent="terrain_v3/ForestNode v2/Forest_31" unique_id=455580920 instance=ExtResource("14_idy17")]
+transform = Transform3D(-0.07282044, 0, -0.99734527, 0, 0.9999998, 0, 0.99734527, 0, -0.07282044, 1.2692347, 0, 0.1556983)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (158)/StaticBody3D" unique_id=378220757]
-shape = ExtResource("11_ae3sc")
+collision_mask = 16
 
-[node name="Arbol (132)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1419827339]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.73, 0, -11.06)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (132)" unique_id=301814498]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_05" parent="terrain_v3/ForestNode v2/Forest_31" unique_id=64987369 instance=ExtResource("14_idy17")]
+transform = Transform3D(-0.9647092, 0, -0.26331744, 0, 0.99999994, 0, 0.26331744, 0, -0.9647092, -0.53138447, 0, -1.0644321)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (132)/StaticBody3D" unique_id=219873749]
-shape = ExtResource("11_ae3sc")
+collision_mask = 16
 
-[node name="Arbol (131)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1406657805]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0497732, 0, -11.801157)
-mesh = ExtResource("7_1f2hn")
+[node name="Forest_14" parent="terrain_v3/ForestNode v2" unique_id=1845487074 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.42365828, 0, -0.342839, 0, 0.54499984, 0, 0.342839, 0, 0.42365828, -4.3395643, -0.15604252, -5.4544277)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (131)" unique_id=499004589]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
+[node name="Forest_15" parent="terrain_v3/ForestNode v2" unique_id=1694507096 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.111738876, 0, 0.5334223, 0, 0.54499984, 0, -0.5334223, 0, 0.111738876, -6.008932, -0.19776073, -4.070964)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (131)/StaticBody3D" unique_id=656056669]
-shape = ExtResource("11_ae3sc")
+[node name="Forest_16" parent="terrain_v3/ForestNode v2" unique_id=2014459876 instance=ExtResource("10_62ook")]
+transform = Transform3D(-0.3539419, 0, -0.41442737, 0, 0.54499984, 0, 0.41442737, 0, -0.3539419, -6.259659, -0.18301895, -2.0267117)
 
-[node name="Arbol (153)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1678824212]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8761656, -3.1546732e-31, -14.09163)
-mesh = ExtResource("7_1f2hn")
+[node name="Forest_17" parent="terrain_v3/ForestNode v2" unique_id=18473439 instance=ExtResource("10_62ook")]
+transform = Transform3D(-0.53381866, 0, -0.109829724, 0, 0.54499984, 0, 0.109829724, 0, -0.53381866, -5.680015, -0.21939287, 0.21408296)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (153)" unique_id=1900273296]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
+[node name="Forest_18" parent="terrain_v3/ForestNode v2" unique_id=1171183933 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.14682695, 0, -0.5248493, 0, 0.5449999, 0, 0.5248493, 0, 0.14682695, -5.2267017, -0.19816479, 2.101999)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (153)/StaticBody3D" unique_id=1564313278]
-shape = ExtResource("11_ae3sc")
+[node name="Forest_19" parent="terrain_v3/ForestNode v2" unique_id=1418190808 instance=ExtResource("10_62ook")]
+transform = Transform3D(0.4846058, 0, 0.2493637, 0, 0.54499984, 0, -0.2493637, 0, 0.4846058, -4.5917563, -0.21202722, 4.1687894)
 
-[node name="Arbol (143)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=726581257]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33364838, 0, -10.74375)
-mesh = ExtResource("7_1f2hn")
+[node name="Forest_26" type="Node3D" parent="terrain_v3/ForestNode v2" unique_id=713270158]
+transform = Transform3D(0.07907131, 0, -0.5341795, 0, 0.5400001, 0, 0.5341795, 0, 0.07907131, -2.6901932, -0.13974619, -7.7392406)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (143)" unique_id=766850832]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_01" parent="terrain_v3/ForestNode v2/Forest_26" unique_id=420333543 instance=ExtResource("11_e5bxq")]
+transform = Transform3D(0.87459433, 0, -0.48485544, 0, 1, 0, 0.48485544, 0, 0.87459433, -0.70826507, 0, -0.25974292)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (143)/StaticBody3D" unique_id=662731405]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (165)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=996716724]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63503844, 0, -11.034889)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (165)" unique_id=1527611334]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_07" parent="terrain_v3/ForestNode v2/Forest_26" unique_id=681808902 instance=ExtResource("11_e5bxq")]
+transform = Transform3D(0.3058282, 0, -0.9520867, 0, 0.99999994, 0, 0.9520867, 0, 0.3058282, -1.4017649, -4.7683716e-07, 2.7876337)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (165)/StaticBody3D" unique_id=173392713]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (166)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1066152037]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18, 0, -9.8)
-mesh = ExtResource("7_1f2hn")
+collision_mask = 16
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (166)" unique_id=230181941]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_02" parent="terrain_v3/ForestNode v2/Forest_26" unique_id=658396997 instance=ExtResource("12_2fe5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59935683, 0, -1.6696513)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (166)/StaticBody3D" unique_id=1819928956]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (167)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1706436705]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.62, 0, -10.96)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (167)" unique_id=898883611]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_06" parent="terrain_v3/ForestNode v2/Forest_26" unique_id=190440739 instance=ExtResource("12_2fe5f")]
+transform = Transform3D(0.87916654, 0, 0.47651452, 0, 0.99999994, 0, -0.47651452, 0, 0.87916654, -0.656435, 0, -4.4323454)
 collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (167)/StaticBody3D" unique_id=1641106004]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (163)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=807674109]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.683465, 0, -9.905298)
-mesh = ExtResource("7_1f2hn")
+collision_mask = 16
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (163)" unique_id=1361017140]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_03" parent="terrain_v3/ForestNode v2/Forest_26" unique_id=122361156 instance=ExtResource("13_1s2ut")]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1.6387815, 2.3841858e-07, 1.5906341)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (163)/StaticBody3D" unique_id=2019928482]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (164)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=136077928]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.078464046, 0, -10.280701)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (164)" unique_id=1604120090]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_04" parent="terrain_v3/ForestNode v2/Forest_26" unique_id=894829481 instance=ExtResource("14_idy17")]
+transform = Transform3D(0.5512673, 0, -0.83432865, 0, 1, 0, 0.83432865, 0, 0.5512673, -0.6922602, -2.3841858e-07, 1.120142)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (164)/StaticBody3D" unique_id=1466178234]
-shape = ExtResource("11_ae3sc")
-
-[node name="Arbol (168)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=1378312814]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49, 0, -10.18)
-mesh = ExtResource("7_1f2hn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (168)" unique_id=1053891689]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
+[node name="Tree_05" parent="terrain_v3/ForestNode v2/Forest_26" unique_id=1650548645 instance=ExtResource("14_idy17")]
+transform = Transform3D(-0.96470904, 0, -0.2633174, 0, 0.99999994, 0, 0.2633174, 0, -0.96470904, -0.6374817, 0, -2.8490822)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (168)/StaticBody3D" unique_id=1212874337]
-shape = ExtResource("11_ae3sc")
+[node name="Forest_27" parent="terrain_v3/ForestNode v2" unique_id=264755650 instance=ExtResource("15_41wiu")]
+transform = Transform3D(-0.28220543, 0, -0.46039116, 0, 0.54, 0, 0.46039116, 0, -0.28220543, 1.4329059, -0.20872547, -6.7783732)
 
-[node name="Arbol (169)" type="MeshInstance3D" parent="terrain_v3/Forest Node" unique_id=356020916]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6045656, 0, -11.101715)
-mesh = ExtResource("7_1f2hn")
+[node name="Forest_28" parent="terrain_v3/ForestNode v2" unique_id=203395130 instance=ExtResource("15_41wiu")]
+transform = Transform3D(-0.5395717, 0, 0.02150166, 0, 0.54, 0, -0.02150166, 0, -0.5395717, 5.2350016, -0.13974619, -2.0029945)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="terrain_v3/Forest Node/Arbol (169)" unique_id=460565680]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.049999997, 0.3859999, 0)
-collision_layer = 4
-collision_mask = 2
+[node name="Forest_29" parent="terrain_v3/ForestNode v2" unique_id=802343970 instance=ExtResource("15_41wiu")]
+transform = Transform3D(-0.33308068, 0, 0.42503792, 0, 0.5400001, 0, -0.42503792, 0, -0.33308068, 3.4038234, -0.1981569, -2.2197242)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Forest Node/Arbol (169)/StaticBody3D" unique_id=1457945589]
-shape = ExtResource("11_ae3sc")
+[node name="Forest_30" parent="terrain_v3/ForestNode v2" unique_id=305471695 instance=ExtResource("15_41wiu")]
+transform = Transform3D(-0.38115057, 0, -0.38252348, 0, 0.54000014, 0, 0.38252348, 0, -0.38115057, -0.8957468, -0.19815665, -4.693928)
 
 [node name="LightPath" type="Node3D" parent="." unique_id=3828187]
 
@@ -2411,13 +641,13 @@ transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -0.2
 transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 0.17924905, -0.18473068, -0.31149387)
 
 [node name="Pair7" type="Node3D" parent="LightPath" unique_id=2140183801]
-transform = Transform3D(0.90632266, 0, -0.42258668, 0, 1, 0, 0.42258668, 0, 0.90632266, -3.5163188, -0.058100075, 3.432129)
+transform = Transform3D(0.90632266, 0, -0.42258668, 0, 1, 0, 0.42258668, 0, 0.90632266, -3.0542378, 0.028857738, 3.2640061)
 
 [node name="Floor_Lamp" parent="LightPath/Pair7" unique_id=496607098 instance=ExtResource("7_ohk1s")]
-transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, -0.23470962, -0.21892068, 0.2391653)
+transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, -0.2347095, -0.30142954, 0.2391653)
 
 [node name="Floor_Lamp2" parent="LightPath/Pair7" unique_id=2054700889 instance=ExtResource("7_ohk1s")]
-transform = Transform3D(1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1, 0.17924881, -0.19474155, -0.31149435)
+transform = Transform3D(1, 0, 5.9604645e-08, 0, 1, 0, -5.9604645e-08, 0, 1, 0.17924905, -0.23453224, -0.3114946)
 
 [node name="Pair8" type="Node3D" parent="LightPath" unique_id=878711758]
 transform = Transform3D(0.68326116, 0, -0.7301743, 0, 1, 0, 0.7301743, 0, 0.68326116, -3.891425, -0.058099955, 2.158948)

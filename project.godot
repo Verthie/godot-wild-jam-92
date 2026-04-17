@@ -16,6 +16,10 @@ run/main_scene="uid://bunlygel58xam"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://b4v88i3xftwmv"
+
 [autoload]
 
 EventBus="*uid://dnhki7wr1nvuk"
