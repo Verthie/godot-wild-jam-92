@@ -1,17 +1,10 @@
 [gd_scene format=3 uid="uid://brhoentyagx0l"]
 
 [ext_resource type="Script" uid="uid://du5p3dt7dptrr" path="res://scenes/items/brewing_room/brewing_stand.gd" id="1_7fpll"]
-[ext_resource type="Script" uid="uid://d24b5rjkdjd3j" path="res://scenes/items/brewing_room/big_round_button.gd" id="2_ubdj3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6ivmp"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7fpll"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_ubdj3"]
-height = 0.2
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ubdj3"]
-height = 0.2
 
 [node name="Brewing Stand" type="StaticBody3D" unique_id=1285563339]
 script = ExtResource("1_7fpll")
@@ -21,15 +14,3 @@ shape = SubResource("CylinderShape3D_6ivmp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2142489098]
 mesh = SubResource("CylinderMesh_7fpll")
-
-[node name="Big Round Button" type="StaticBody3D" parent="." unique_id=660527080]
-script = ExtResource("2_ubdj3")
-stand_path = NodePath("..")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Big Round Button" unique_id=1437878764]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.6, 0, 0)
-mesh = SubResource("CylinderMesh_ubdj3")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Big Round Button" unique_id=159176394]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.6, 0, 0)
-shape = SubResource("CylinderShape3D_ubdj3")

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cjx44grbhpum7"]
+
+[ext_resource type="Script" uid="uid://d3tn074h53lc1" path="res://scenes/items/brewing_room/sampler.gd" id="1_7qhvp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ysqcn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qhvp"]
+
+[node name="Sampler" type="StaticBody3D" unique_id=1827925662]
+script = ExtResource("1_7qhvp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1431028384]
+mesh = SubResource("BoxMesh_ysqcn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=326732937]
+shape = SubResource("BoxShape3D_7qhvp")
+
+[node name="NumberDisplay" type="Node3D" parent="." unique_id=1690019421]
+
+[node name="Label3D" type="Label3D" parent="NumberDisplay" unique_id=26255830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51)
+text = "0"
+font_size = 200

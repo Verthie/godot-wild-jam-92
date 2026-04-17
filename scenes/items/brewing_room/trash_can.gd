@@ -6,8 +6,12 @@ func interact(player, hand):
 		return
 	
 	var item = player.get_hand_item(hand)
-	
+
 	if item != null:
+		# Moon seed cannot be thrown away in trash can
+		if item.tag == "moon_seed":
+			return
+		
 		item.queue_free()
 		player.clear_hand_item(hand)
 		# print("Item trashed")

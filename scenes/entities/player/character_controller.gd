@@ -77,16 +77,8 @@ var move_speed : float = 0.0
 var freeflying : bool = false
 var can_interact : bool = false
 
-
-# ? this is not used anywhere
-var item_scenes = {
-	"watermelon": preload("res://scenes/items/Ingredients/watermelon_item.tscn"),
-	"pumpkin": preload("res://scenes/items/Ingredients/pumpkin_item.tscn"),
-	"carrot": preload("res://scenes/items/Ingredients/carrot_item.tscn"),
-	"mist_seed": preload("res://scenes/items/Ingredients/mist_seed_item.tscn"),
-	"mush_seed": preload("res://scenes/items/Ingredients/mush_seed_item.tscn")
-}
-
+@export_group("Item Scenes")
+@export var moon_seed_item_scene: PackedScene
 
 func _ready() -> void:
 	check_input_mappings()
@@ -133,7 +125,7 @@ func _input(event):
 		mouse_delta = event.relative
 
 func _physics_process(delta: float) -> void:
-	interactable = get_looked_at_interactable()
+	
 
 	# If freeflying, handle freefly and nothing else
 	if can_freefly and freeflying:
@@ -178,6 +170,8 @@ func _physics_process(delta: float) -> void:
 		walk_time += delta * 6.0
 	else:
 		walk_time = 0.0
+	
+	interactable = get_looked_at_interactable()
 	update_interaction_ui()
 	update_held_items(delta)
 	mouse_delta = Vector2.ZERO
@@ -277,7 +271,7 @@ func check_input_mappings():
 func get_looked_at_interactable():
 	if hold_ray.is_colliding():
 		var collider = hold_ray.get_collider()
-		if collider.has_method("interact"):
+		if is_instance_valid(collider) and collider.has_method("interact"):
 			return collider
 	return null
 
@@ -318,13 +312,15 @@ func clear_hand_item(hand: String):
 
 func update_held_items(delta):
 	var distance = 0.5
-
+	
+	'''
 	if hold_ray.is_colliding():
 		var collider = hold_ray.get_collider()
 
-		if not collider.has_method("interact"):
+		if is_instance_valid(collider) and collider.has_method("interact"):
 			distance = 0.03
-
+	'''
+	
 	var base_pos = Vector3(0, 0, -distance)
 
 	var current_speed = velocity.length()

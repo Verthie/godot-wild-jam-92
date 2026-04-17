@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://cgv32ptsdcc6j" path="res://scenes/entities/player/character_controller.gd" id="1_igst2"]
+[ext_resource type="PackedScene" uid="uid://dufpv1wml70nf" path="res://scenes/items/Ingredients/moon_seed_item.tscn" id="2_20xh0"]
 [ext_resource type="Shader" uid="uid://6ruxv2406ad0" path="res://resources/shaders/psx_fog.gdshader" id="2_rlydy"]
 [ext_resource type="Shader" uid="uid://1mbhtwa2psud" path="res://resources/shaders/psx.gdshader" id="2_twwmx"]
 [ext_resource type="PackedScene" uid="uid://dui58xpxxwpp8" path="res://scenes/components/health_component.tscn" id="2_vxaux"]
@@ -77,6 +78,7 @@ base_speed = 1.0
 jump_velocity = 1.0
 sprint_speed = 1.6
 freefly_speed = 5.0
+moon_seed_item_scene = ExtResource("2_20xh0")
 
 [node name="HealthComponent" parent="." unique_id=73983782 instance=ExtResource("2_vxaux")]
 

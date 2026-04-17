@@ -20,7 +20,7 @@ func interact(player, hand):
 	
 	var held_item = player.get_hand_item(hand)
 	
-	# Prevent swapping different items (not sure if necessary)
+	# Disable placing back item to a wrong place
 	if held_item != null and held_item.tag != ingredient_tag:
 		# print("Wrong item type")
 		return
@@ -28,10 +28,14 @@ func interact(player, hand):
 	# TAKE from source
 	if held_item == null:
 		player.give_item_to_hand(ingredient_scene, hand)
+		
+		# Ingredients that are finite
+		if ingredient_tag == "moon_seed":
+			call_deferred("queue_free")
 		return
 	
 	# PUT BACK to source
-	# Disable putting back for now
+	# Disabled
 	'''
 	if held_item.tag == ingredient_tag:
 		held_item.queue_free()

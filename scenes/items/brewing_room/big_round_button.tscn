@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bxpps6iej0xf8"]
+
+[ext_resource type="Script" uid="uid://d24b5rjkdjd3j" path="res://scenes/items/brewing_room/big_round_button.gd" id="1_7wa72"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_47kni"]
+height = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nm03m"]
+height = 0.2
+
+[node name="Big Round Button" type="StaticBody3D" unique_id=1031953332]
+script = ExtResource("1_7wa72")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1848883545]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.6, 0, 0)
+mesh = SubResource("CylinderMesh_47kni")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2091894697]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.6, 0, 0)
+shape = SubResource("CylinderShape3D_nm03m")

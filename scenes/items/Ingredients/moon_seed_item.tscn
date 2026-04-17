@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dufpv1wml70nf"]
+
+[ext_resource type="Script" uid="uid://b8k56xde1mn4l" path="res://scenes/items/Ingredients/ingredient_item.gd" id="1_5lqgr"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_skbyi"]
+rings = 1
+
+[node name="MoonSeedItem" type="Node3D" unique_id=1684541103]
+script = ExtResource("1_5lqgr")
+tag = "moon_seed"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=828413749]
+mesh = SubResource("SphereMesh_skbyi")

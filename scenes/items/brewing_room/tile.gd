@@ -16,7 +16,9 @@ var icon_lookup = {
 	"mist_seed": preload("res://assets/textures/icons/mist_seed.png"),
 	"mush_seed": preload("res://assets/textures/icons/mush_seed.png"),
 	"beetroot": preload("res://assets/textures/icons/beetroot.png"),
-	"potato": preload("res://assets/textures/icons/potato.png")
+	"potato": preload("res://assets/textures/icons/potato.png"),
+	
+	"moon_seed": preload("res://assets/textures/icons/moon_seed.png")
 }
 
 

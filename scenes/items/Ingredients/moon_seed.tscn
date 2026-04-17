@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://muvu2v8yftya"]
+
+[ext_resource type="Script" uid="uid://d4nes2xn53c55" path="res://scenes/items/Ingredients/ingredient.gd" id="1_armkn"]
+[ext_resource type="PackedScene" uid="uid://dufpv1wml70nf" path="res://scenes/items/Ingredients/moon_seed_item.tscn" id="2_624rt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_fvoaw"]
+rings = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8e357"]
+
+[node name="MoonSeed" type="StaticBody3D" unique_id=861819151]
+script = ExtResource("1_armkn")
+ingredient_tag = "moon_seed"
+ingredient_scene = ExtResource("2_624rt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=941731838]
+mesh = SubResource("SphereMesh_fvoaw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1679966306]
+shape = SubResource("SphereShape3D_8e357")

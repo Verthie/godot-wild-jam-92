@@ -7,15 +7,15 @@
 script = ExtResource("1_w4bsw")
 
 [node name="Wordle Row1" parent="." unique_id=2038062805 instance=ExtResource("1_8s2aj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 
 [node name="Wordle Row2" parent="." unique_id=1556506058 instance=ExtResource("1_8s2aj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2.5, 0)
 
 [node name="Wordle Row3" parent="." unique_id=40840334 instance=ExtResource("1_8s2aj")]
 
 [node name="Wordle Row4" parent="." unique_id=1125917717 instance=ExtResource("1_8s2aj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0)
 
 [node name="Wordle Row5" parent="." unique_id=1260124552 instance=ExtResource("1_8s2aj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -2.5, 0)

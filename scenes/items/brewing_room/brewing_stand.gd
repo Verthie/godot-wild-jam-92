@@ -7,7 +7,9 @@ extends StaticBody3D
 	"mist_seed": preload("res://scenes/items/Ingredients/mist_seed_item.tscn"),
 	"mush_seed": preload("res://scenes/items/Ingredients/mush_seed_item.tscn"),
 	"beetroot": preload("res://scenes/items/Ingredients/beetroot_item.tscn"),
-	"potato": preload("res://scenes/items/Ingredients/potato_item.tscn")
+	"potato": preload("res://scenes/items/Ingredients/potato_item.tscn"),
+	
+	"moon_seed": preload("res://scenes/items/Ingredients/moon_seed_item.tscn")
 }
 
 var current_items = [null, null, null, null, null]
@@ -16,8 +18,13 @@ var current_index := 0
 var correct_recipe = []
 # Example: ["watermelon", "pumpkin", "carrot", "watermelon", "mush_seed"]
 
-@export var board_path: NodePath # remember to check export (Inspector)
+# remember to check export (Inspector), do it on brewing_stand in Main_Scene
+@export var board_path: NodePath 
 var board
+@export var sampler_path: NodePath
+var sampler
+
+
 
 func generate_recipe():
 	var ingredients = ["watermelon", "pumpkin", "carrot", "mist_seed", "mush_seed",
@@ -43,11 +50,20 @@ func generate_recipe():
 
 
 func _ready() -> void:
+	# Connect brewing stand to sampler
+	if sampler_path != NodePath():
+		sampler = get_node(sampler_path)
+	else:
+		print("Sampler not found in scene")
+	
+	
 	# Connect brewing stand to wordle board
 	if board_path != NodePath():
 		board = get_node(board_path)
 	else:
-		print("Board path not assigned!")
+		print("Board path not found in scene")
+	
+	# Generate a random recipe
 	correct_recipe = generate_recipe()
 
 
@@ -104,6 +120,9 @@ func start_brewing():
 	if current_index < 5:
 		# print("Need all 5 ingredients!")
 		return
+	
+	if not sampler.locked:
+		return
 
 	print("Brewing started...")
 
@@ -111,6 +130,9 @@ func start_brewing():
 
 	if board:
 		board.display_result(result)
+	
+	# Use up one moon_seed
+	sampler.brew()
 
 	reset_items()
 

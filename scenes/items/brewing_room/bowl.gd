@@ -9,7 +9,9 @@ var stored_item = null
 	"mist_seed": preload("res://scenes/items/Ingredients/mist_seed_item.tscn"),
 	"mush_seed": preload("res://scenes/items/Ingredients/mush_seed_item.tscn"),
 	"beetroot": preload("res://scenes/items/Ingredients/beetroot_item.tscn"),
-	"potato": preload("res://scenes/items/Ingredients/potato_item.tscn")
+	"potato": preload("res://scenes/items/Ingredients/potato_item.tscn"),
+	
+	"moon_seed": preload("res://scenes/items/Ingredients/moon_seed_item.tscn")
 }
 
 @onready var holder = $Holder

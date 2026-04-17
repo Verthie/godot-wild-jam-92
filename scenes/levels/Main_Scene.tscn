@@ -24,9 +24,12 @@
 [ext_resource type="PackedScene" uid="uid://dtoohwdtfkxew" path="res://scenes/items/brewing_room/wordle_board.tscn" id="18_rm2y2"]
 [ext_resource type="PackedScene" uid="uid://brhoentyagx0l" path="res://scenes/items/brewing_room/brewing_stand.tscn" id="19_3vkbi"]
 [ext_resource type="PackedScene" uid="uid://bd413m28777vl" path="res://scenes/items/Ingredients/potato.tscn" id="21_rm2y2"]
-[ext_resource type="PackedScene" path="res://scenes/levels/base_building.tscn" id="24_tb17h"]
+[ext_resource type="PackedScene" uid="uid://jm5fqe8v3ixo" path="res://scenes/levels/base_building.tscn" id="24_tb17h"]
 [ext_resource type="PackedScene" uid="uid://ckppucvlw5j5o" path="res://scenes/objects/blast_door_small.tscn" id="25_1jl4c"]
-[ext_resource type="PackedScene" path="res://scenes/levels/green_house_v_1.tscn" id="26_osekx"]
+[ext_resource type="PackedScene" uid="uid://jybv4plib51w" path="res://scenes/levels/green_house_v_1.tscn" id="26_osekx"]
+[ext_resource type="PackedScene" uid="uid://bxpps6iej0xf8" path="res://scenes/items/brewing_room/big_round_button.tscn" id="28_5h0fd"]
+[ext_resource type="PackedScene" uid="uid://cjx44grbhpum7" path="res://scenes/items/brewing_room/sampler.tscn" id="29_i0yxl"]
+[ext_resource type="PackedScene" uid="uid://muvu2v8yftya" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p1d0p"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -2492,12 +2495,21 @@ transform = Transform3D(0.59999996, 0, -1.7763568e-15, 0, 0.6000001, 0, 1.776356
 [node name="BrewingRoom" type="Node3D" parent="." unique_id=1794882959]
 
 [node name="Wordle Board" parent="BrewingRoom" unique_id=1030027931 instance=ExtResource("18_rm2y2")]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -4.122055, 0.44931698, -2.5321171)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -4.259552, 0.4177873, -2.5321171)
 
 [node name="Brewing Stand" parent="BrewingRoom" unique_id=1285563339 instance=ExtResource("19_3vkbi")]
 transform = Transform3D(0.10176517, 0, -0.02586207, 0, 0.105, 0, 0.02586207, 0, 0.10176517, -4.187147, 0.31511736, -2.4236684)
 collision_layer = 5
 board_path = NodePath("../Wordle Board")
+sampler_path = NodePath("../Sampler")
+
+[node name="Big Round Button" parent="BrewingRoom" unique_id=1031953332 instance=ExtResource("28_5h0fd")]
+transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, -4.1893163, 0.3224587, -2.4257362)
+brewing_stand_path = NodePath("../Brewing Stand")
+sampler_path = NodePath("../Sampler")
+
+[node name="Sampler" parent="BrewingRoom" unique_id=1827925662 instance=ExtResource("29_i0yxl")]
+transform = Transform3D(0.105, 0, 0, 0, 0.105, 0, 0, 0, 0.105, -4.0698805, 0.28807038, -2.5686045)
 
 [node name="Trash Can" parent="BrewingRoom" unique_id=871694397 instance=ExtResource("3_7npca")]
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -4.0124445, 0.100581706, -2.339979)
@@ -2508,7 +2520,7 @@ transform = Transform3D(0.115, 0, 0, 0, 0.115, 0, 0, 0, 0.115, -4.1950803, 0.332
 collision_layer = 5
 
 [node name="Bowl" parent="BrewingRoom" unique_id=1430480643 instance=ExtResource("5_32fx4")]
-transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -4.3063097, 0.10878962, -2.4523816)
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -4.2020464, 0.23281732, -1.2829474)
 collision_layer = 5
 
 [node name="Ingredients" type="Node3D" parent="BrewingRoom" unique_id=411891239]
@@ -2533,3 +2545,6 @@ transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -4.190037, 0.2590
 
 [node name="Potato" parent="BrewingRoom/Ingredients" unique_id=1860237427 instance=ExtResource("21_rm2y2")]
 transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -4.203292, 0.2402463, -1.6623023)
+
+[node name="MoonSeed" parent="." unique_id=861819151 instance=ExtResource("30_62ook")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.725135, 0.3, -2.155)

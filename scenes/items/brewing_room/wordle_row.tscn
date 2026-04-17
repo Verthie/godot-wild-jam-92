@@ -18,7 +18,7 @@ script = ExtResource("1_2lh0i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
 
 [node name="Tile2" type="MeshInstance3D" parent="." unique_id=1173656238]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3, 0, 0)
 mesh = SubResource("PlaneMesh_3bgiv")
 script = ExtResource("1_2lh0i")
 
@@ -26,7 +26,7 @@ script = ExtResource("1_2lh0i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
 
 [node name="Tile3" type="MeshInstance3D" parent="." unique_id=1958306569]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6, 0, 0)
 mesh = SubResource("PlaneMesh_3bgiv")
 script = ExtResource("1_2lh0i")
 
@@ -34,7 +34,7 @@ script = ExtResource("1_2lh0i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
 
 [node name="Tile4" type="MeshInstance3D" parent="." unique_id=958232381]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9, 0, 0)
 mesh = SubResource("PlaneMesh_3bgiv")
 script = ExtResource("1_2lh0i")
 
@@ -42,7 +42,7 @@ script = ExtResource("1_2lh0i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
 
 [node name="Tile5" type="MeshInstance3D" parent="." unique_id=1379498749]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2, 0, 0)
 mesh = SubResource("PlaneMesh_3bgiv")
 script = ExtResource("1_2lh0i")
 
