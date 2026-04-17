@@ -7,18 +7,6 @@ var visual_items = []
 
 @export var capacity := 2
 
-@export var ingredient_scenes := {
-	"watermelon": preload("res://scenes/items/Ingredients/watermelon_item.tscn"),
-	"pumpkin": preload("res://scenes/items/Ingredients/pumpkin_item.tscn"),
-	"carrot": preload("res://scenes/items/Ingredients/carrot_item.tscn"),
-	"mist_seed": preload("res://scenes/items/Ingredients/mist_seed_item.tscn"),
-	"mush_seed": preload("res://scenes/items/Ingredients/mush_seed_item.tscn"),
-	"beetroot": preload("res://scenes/items/Ingredients/beetroot_item.tscn"),
-	"potato": preload("res://scenes/items/Ingredients/potato_item.tscn"),
-	
-	"moon_seed": preload("res://scenes/items/Ingredients/moon_seed_item.tscn")
-}
-
 @onready var holder = $Holder
 @onready var slots = [$Holder/Slot0, $Holder/Slot1]
 
@@ -31,13 +19,15 @@ func interact(player, hand):
 	# NOTE VERT: Changing some stuff just for testing
 	# NOTE Mainly just allowing to produce oxygen using the oxygen maker by pressing "e" on it
 	# NOTE Can be deleted/changed later just make sure to emit the same signal as I placed at the end when you implement producing the oxygen
+	# Jason: Changed the check condition so either order of mist and watermelon works
+	# (Since there are only two items, I'll just use this method to check)
 	if hand == "none":
 		# return
 		# CHANGES:
 		if stored_items.size() != capacity:
 			return
 
-		if stored_items == correct_recipe:
+		if stored_items[0] in correct_recipe and stored_items[1] in correct_recipe:
 			stored_items.clear()
 			visual_items.clear()
 			for slot: Node3D in slots:
@@ -66,7 +56,7 @@ func interact(player, hand):
 		# print("Inserted: ", tag)
 
 		# spawn visual item
-		var scene = ingredient_scenes.get(tag, null)
+		var scene = Globals.ingredient_scenes.get(tag, null)
 		if scene:
 			var instance = scene.instantiate()
 			var index = stored_items.size() - 1
@@ -94,7 +84,7 @@ func interact(player, hand):
 			visual.queue_free()
 
 		# give real item back
-		var scene = ingredient_scenes.get(tag, null)
+		var scene = Globals.ingredient_scenes.get(tag, null)
 		if scene:
 			player.give_item_to_hand(scene, hand)
 
@@ -102,8 +92,8 @@ func interact(player, hand):
 
 
 func get_interaction_text(player):
-	if stored_items == correct_recipe:
-		return "Produce oxygen"
+	if stored_items.size() == capacity and stored_items[0] in correct_recipe and stored_items[1] in correct_recipe:
+		return "Oxygen Dispenser\nPress E: Produce oxygen"
 	elif stored_items.size() >= capacity:
 		return "Oxygen Dispenser\nFull"
 	elif stored_items.size() == 0:

@@ -1,20 +1,10 @@
 extends StaticBody3D
 
-@export var ingredient_scenes := {
-	"watermelon": preload("res://scenes/items/Ingredients/watermelon_item.tscn"),
-	"pumpkin": preload("res://scenes/items/Ingredients/pumpkin_item.tscn"),
-	"carrot": preload("res://scenes/items/Ingredients/carrot_item.tscn"),
-	"mist_seed": preload("res://scenes/items/Ingredients/mist_seed_item.tscn"),
-	"mush_seed": preload("res://scenes/items/Ingredients/mush_seed_item.tscn"),
-	"beetroot": preload("res://scenes/items/Ingredients/beetroot_item.tscn"),
-	"potato": preload("res://scenes/items/Ingredients/potato_item.tscn"),
-	
-	"moon_seed": preload("res://scenes/items/Ingredients/moon_seed_item.tscn")
-}
-
 var current_items = [null, null, null, null, null]
 var current_index := 0
-# Just for testing
+var output_item = null
+var cure_crafted = false
+
 var correct_recipe = []
 # Example: ["watermelon", "pumpkin", "carrot", "watermelon", "mush_seed"]
 
@@ -24,6 +14,7 @@ var board
 @export var sampler_path: NodePath
 var sampler
 
+@onready var output_slot = $OutputSlot  # Node3D in front
 
 
 func generate_recipe():
@@ -71,8 +62,17 @@ func interact(player, hand):
 	# Press E should do nothing on the brewing stand
 	if hand == "none":
 		return
+	
+	# If sampler is empty
+	if sampler.remaining_brews <= 0:
+		return
 
 	var held_item = player.get_hand_item(hand)
+	
+	# --- Force player to take vial first ---
+	if output_item != null:
+			return
+	
 
 	# --- CASE 1: player holding item → put into stand ---
 	if held_item:
@@ -99,7 +99,7 @@ func interact(player, hand):
 		var item_tag = current_items[current_index]
 		current_items[current_index] = null
 
-		var scene = ingredient_scenes[item_tag]
+		var scene = Globals.ingredient_scenes[item_tag]
 		if scene:
 			player.give_item_to_hand(scene, hand)
 
@@ -117,13 +117,24 @@ func add_ingredient(item_tag):
 
 
 func start_brewing():
+	# --- Test conditions ---
+	# -----------------------------------
+	# block if output (vial) not taken
+	if output_item != null:
+		return
+		
 	if current_index < 5:
 		# print("Need all 5 ingredients!")
 		return
 	
 	if not sampler.locked:
 		return
-
+	
+	if sampler.remaining_brews <= 0:
+		return
+	# -------------------------------------
+	
+	# Confirm start brewing
 	print("Brewing started...")
 
 	var result = evaluate_guess(current_items, correct_recipe)
@@ -131,14 +142,40 @@ func start_brewing():
 	if board:
 		board.display_result(result)
 	
-	# Use up one moon_seed
-	sampler.brew()
-
+	if current_items == correct_recipe:
+		print("Congrats! You've crafted a CURE")
+		cure_crafted = true
+		spawn("cure")
+	else:
+		spawn("bad_vial")
+		
+	sampler.brew() # Use up one moon_seed
 	reset_items()
+	
+	if sampler.remaining_brews <=0 and not cure_crafted:
+		print("You lost the game bro")
+		# TODO trigger game lost sequence
+
 
 func reset_items():
 	current_items = [null, null, null, null, null]
 	current_index = 0
+
+
+func spawn(type: String):
+	var scene
+	
+	if type == "cure":
+		scene = preload("res://scenes/items/vials/cure.tscn")
+	else:
+		scene = preload("res://scenes/items/vials/vial_bad.tscn")
+	
+	if scene:
+		output_item = scene.instantiate()
+		output_slot.add_child(output_item)
+		
+		output_item.transform = Transform3D.IDENTITY
+
 
 # Wordle
 func evaluate_guess(guess: Array, correct_recipe: Array) -> Array:
@@ -167,12 +204,16 @@ func evaluate_guess(guess: Array, correct_recipe: Array) -> Array:
 				ingredients_evaluated[j] = true
 				break
 
-	if current_items == correct_recipe:
-		print("Congrats! You've crafted a CURE")
-
 	return result
 
 func get_interaction_text(player):
+	# block if output (vial) not taken
+	if output_item != null:
+		return "Take the vial first!"
+	if not sampler.locked:
+		return "Sampler not activated"
+	if sampler.remaining_brews <= 0:
+		return "Sampler depleted"
 	if current_index < 5:
 		return "Brewing Stand\nLeft/Right: Insert/Take out item"
 	else:

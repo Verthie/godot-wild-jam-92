@@ -8,8 +8,9 @@ func interact(player, hand):
 	var item = player.get_hand_item(hand)
 
 	if item != null:
-		# Moon seed cannot be thrown away in trash can
-		if item.tag == "moon_seed":
+		# Moon seed and cure cannot be thrown away in trash can
+		var unthrowable_items = ["moon_seed", "cure"]
+		if item.tag in unthrowable_items:
 			return
 		
 		item.queue_free()

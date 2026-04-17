@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c85jl8lfc55ye"]
+
+[ext_resource type="PackedScene" uid="uid://22afhqg3cesv" path="res://assets/models/potion1.glb" id="1_g4cat"]
+[ext_resource type="Script" uid="uid://d4nes2xn53c55" path="res://scenes/items/Ingredients/ingredient.gd" id="2_ylbxl"]
+[ext_resource type="PackedScene" uid="uid://cxawp0hi7kce3" path="res://scenes/items/vials/cure_item.tscn" id="3_egugw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ylbxl"]
+height = 0.865
+radius = 0.32
+
+[node name="Cure" type="StaticBody3D" unique_id=879200906]
+script = ExtResource("2_ylbxl")
+ingredient_tag = "cure"
+ingredient_scene = ExtResource("3_egugw")
+
+[node name="potion1" parent="." unique_id=460103875 instance=ExtResource("1_g4cat")]
+transform = Transform3D(0.32, 0, 0, 0, 0.32, 0, 0, 0, 0.32, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=840539420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515, 0)
+shape = SubResource("CylinderShape3D_ylbxl")

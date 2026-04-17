@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dmfjkkwlmwlnm"]
+
+[ext_resource type="PackedScene" uid="uid://22afhqg3cesv" path="res://assets/models/potion1.glb" id="1_1r6vm"]
+[ext_resource type="Script" uid="uid://b8k56xde1mn4l" path="res://scenes/items/Ingredients/ingredient_item.gd" id="2_ygxwb"]
+
+[node name="VialBadItem" type="Node3D" unique_id=1317118618]
+script = ExtResource("2_ygxwb")
+tag = "vial_bad"
+
+[node name="potion1" parent="." unique_id=460103875 instance=ExtResource("1_1r6vm")]
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, -0.0005710125, 0.0021800399, -0.001045227)

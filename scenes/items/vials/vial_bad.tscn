@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dfd3qw2y7d6yg"]
+
+[ext_resource type="Script" uid="uid://d4nes2xn53c55" path="res://scenes/items/Ingredients/ingredient.gd" id="1_cg4jh"]
+[ext_resource type="PackedScene" uid="uid://22afhqg3cesv" path="res://assets/models/potion1.glb" id="1_wgs2q"]
+[ext_resource type="PackedScene" uid="uid://dmfjkkwlmwlnm" path="res://scenes/items/vials/vial_bad_item.tscn" id="2_q0g13"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s01cj"]
+height = 0.865
+radius = 0.32
+
+[node name="VialBad" type="StaticBody3D" unique_id=1728386994]
+script = ExtResource("1_cg4jh")
+ingredient_tag = "vial_bad"
+ingredient_scene = ExtResource("2_q0g13")
+
+[node name="potion1" parent="." unique_id=460103875 instance=ExtResource("1_wgs2q")]
+transform = Transform3D(0.32, 0, 0, 0, 0.32, 0, 0, 0, 0.32, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1709513013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515, 0)
+shape = SubResource("CylinderShape3D_s01cj")

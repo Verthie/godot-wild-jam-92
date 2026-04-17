@@ -2,18 +2,6 @@ extends StaticBody3D
 
 var stored_item = null
 
-@export var ingredient_scenes := {
-	"watermelon": preload("res://scenes/items/Ingredients/watermelon_item.tscn"),
-	"pumpkin": preload("res://scenes/items/Ingredients/pumpkin_item.tscn"),
-	"carrot": preload("res://scenes/items/Ingredients/carrot_item.tscn"),
-	"mist_seed": preload("res://scenes/items/Ingredients/mist_seed_item.tscn"),
-	"mush_seed": preload("res://scenes/items/Ingredients/mush_seed_item.tscn"),
-	"beetroot": preload("res://scenes/items/Ingredients/beetroot_item.tscn"),
-	"potato": preload("res://scenes/items/Ingredients/potato_item.tscn"),
-	
-	"moon_seed": preload("res://scenes/items/Ingredients/moon_seed_item.tscn")
-}
-
 @onready var holder = $Holder
 
 var stored_tag = null
@@ -34,7 +22,7 @@ func interact(player, hand):
 		player.clear_hand_item(hand)
 		
 		# create visual in bowl
-		var scene = ingredient_scenes.get(stored_tag, null)
+		var scene = Globals.ingredient_scenes.get(stored_tag, null)
 		if scene:
 			visual_item = scene.instantiate()
 			holder.add_child(visual_item)
@@ -57,7 +45,7 @@ func interact(player, hand):
 			visual_item = null
 		
 		# spawn real item back on hand
-		var scene = ingredient_scenes.get(tag, null)
+		var scene = Globals.ingredient_scenes.get(tag, null)
 		if scene:
 			player.give_item_to_hand(scene, hand)
 		

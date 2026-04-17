@@ -14,3 +14,6 @@ shape = SubResource("CylinderShape3D_6ivmp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2142489098]
 mesh = SubResource("CylinderMesh_7fpll")
+
+[node name="OutputSlot" type="Node3D" parent="." unique_id=968099184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4950026, -0.9770055, 0)

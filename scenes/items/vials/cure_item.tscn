@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cxawp0hi7kce3"]
+
+[ext_resource type="Script" uid="uid://b8k56xde1mn4l" path="res://scenes/items/Ingredients/ingredient_item.gd" id="1_o50do"]
+[ext_resource type="PackedScene" uid="uid://22afhqg3cesv" path="res://assets/models/potion1.glb" id="2_61u2q"]
+
+[node name="CureItem" type="Node3D" unique_id=1159006035]
+script = ExtResource("1_o50do")
+tag = "cure"
+
+[node name="potion1" parent="." unique_id=460103875 instance=ExtResource("2_61u2q")]
+transform = Transform3D(0.32, 0, 0, 0, 0.32, 0, 0, 0, 0.32, 0, 0, 0)

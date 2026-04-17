@@ -9,25 +9,12 @@ var flipped := false
 
 
 
-var icon_lookup = {
-	"watermelon": preload("res://assets/textures/icons/watermelon.png"),
-	"pumpkin": preload("res://assets/textures/icons/pumpkin.png"),
-	"carrot": preload("res://assets/textures/icons/carrot.png"),
-	"mist_seed": preload("res://assets/textures/icons/mist_seed.png"),
-	"mush_seed": preload("res://assets/textures/icons/mush_seed.png"),
-	"beetroot": preload("res://assets/textures/icons/beetroot.png"),
-	"potato": preload("res://assets/textures/icons/potato.png"),
-	
-	"moon_seed": preload("res://assets/textures/icons/moon_seed.png")
-}
-
-
 
 func _ready() -> void:
 	icon.visible = false
 
 func set_icon(tag):
-	icon.texture = icon_lookup[tag]
+	icon.texture = Globals.icon_lookup[tag]
 	icon.visible = true
 
 func clear():

@@ -29,8 +29,9 @@ func interact(player, hand):
 	if held_item == null:
 		player.give_item_to_hand(ingredient_scene, hand)
 		
-		# Ingredients that are finite
-		if ingredient_tag == "moon_seed":
+		# Ingredients/items that are finite (disappears after picking up)
+		var finite_ingredients = ["moon_seed", "vial_bad", "cure"]
+		if ingredient_tag in finite_ingredients:
 			call_deferred("queue_free")
 		return
 	

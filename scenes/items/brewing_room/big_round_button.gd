@@ -30,6 +30,8 @@ func get_interaction_text(player):
 	
 	if not sampler.locked:
 		return "Sampler not activated"
+	if sampler.remaining_brews <= 0:
+		return "Sampler depleted"
 	
 	if brewing_stand.current_index >= 5:
 		return "Press E to brew!"
