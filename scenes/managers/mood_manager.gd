@@ -14,9 +14,17 @@ extends Node
 @onready var phase_one_timer: Timer = $PhaseOneTimer
 @onready var phase_two_timer: Timer = $PhaseTwoTimer
 
+const PLAYER_NUM_COMPANION := 1  # MusicManager slot used by monster
+
 var phase_one_sounds: Array[SoundEffect.SoundEffectType] = [SoundEffect.SoundEffectType.NEAR_PLAYER_1, SoundEffect.SoundEffectType.NEAR_PLAYER_2, SoundEffect.SoundEffectType.NEAR_PLAYER_3, SoundEffect.SoundEffectType.NEAR_PLAYER_4, SoundEffect.SoundEffectType.NEAR_PLAYER_5]
 
 var phase_two_sounds: Array[SoundEffect.SoundEffectType] = [SoundEffect.SoundEffectType.SCREAM_1, SoundEffect.SoundEffectType.SCREAM_2, SoundEffect.SoundEffectType.SCREAM_3, SoundEffect.SoundEffectType.SCREAM_4, SoundEffect.SoundEffectType.SCREAM_5, ]
+
+var ending_sounds: Array[SoundEffect.SoundEffectType] = [
+	SoundEffect.SoundEffectType.NEAR_PLAYER_3,
+	SoundEffect.SoundEffectType.NEAR_PLAYER_5,
+	SoundEffect.SoundEffectType.MONSTER_APPEARS,
+]
 
 var monster_distance_to_player: float = 1000.0
 var monster_has_been_active: bool = false
@@ -27,8 +35,6 @@ var chase_just_finished: bool = false
 var psx_material
 
 var last_random_sound: SoundEffect.SoundEffectType
-var music_player: AudioStreamPlayer
-
 var normal_volume_db: float = 0.0
 
 var transition_tween: Tween = null
@@ -41,8 +47,6 @@ func _ready() -> void:
 	phase_two_timer.timeout.connect(_on_phase_two_timer_timeout)
 	interior_area.body_entered.connect(_on_interior_area_body_entered)
 	exterior_area.body_entered.connect(_on_exterior_area_body_entered)
-	music_player = MusicManager.current_player
-	normal_volume_db = music_player.volume_db
 
 func _process(_delta) -> void:
 	if player == null or monster == null:
@@ -90,98 +94,100 @@ func produce_random_sound(timer: Timer, sounds: Array[SoundEffect.SoundEffectTyp
 func _on_monster_entered_phase(phase_number: int) -> void:
 	match phase_number:
 		1:
-			current_phase = 1
-			scream_combo = 0
-			if !phase_two_timer.is_stopped():
-				phase_two_timer.stop()
-
-			phase_one_timer.wait_time = 1
-			phase_one_timer.start()
-
-			if !monster_has_been_active:
-				return
-
-			# Don't restart if the dip-and-recover is already running
-			if phase_one_active:
-				return
-
-			phase_one_active = true
-			monster_has_been_active = false
-			chase_just_finished = true
-
-			if transition_tween:
-				transition_tween.kill()
-				transition_tween = null
-
-			MusicManager.stop_music(1, 3.0)
-
-			if !phase_one_timer.is_stopped():
-				phase_two_timer.stop()
-
-			var ending_sound_array: Array[SoundEffect.SoundEffectType] = [phase_one_sounds[2], phase_one_sounds[4], SoundEffect.SoundEffectType.MONSTER_APPEARS]
-			var random_ending_sound = (randi() % 3)
-			AudioManager.create_3d_audio_at_location(monster.global_position, ending_sound_array[random_ending_sound])
-
-			transition_tween = create_tween().set_parallel()
-			transition_tween.tween_property(music_player, "volume_db", normal_volume_db - 30.0, 4.0)
-			transition_tween.tween_property(music_player, "pitch_scale", min_pitch_scale, 3.0)
-
-			await transition_tween.finished
-
-			# If the player walked near the monster during the dip, abort the recovery
-			if current_phase == 2:
-				phase_one_active = false
-				return
-
-			await get_tree().create_timer(1.5).timeout
-
-			# Check again after the pause
-			if current_phase == 2:
-				phase_one_active = false
-				return
-
-			transition_tween = create_tween()
-			transition_tween.tween_property(music_player, "volume_db", normal_volume_db, 3.0)
-
-			await transition_tween.finished
-
-			phase_one_active = false
+			_enter_phase_one()
 		2:
-			current_phase = 2
-			# Entering chase — immediately abort any ongoing phase zero dip/recover
-			if phase_one_active:
-				phase_one_active = false
-				if transition_tween:
-					transition_tween.kill()
-					transition_tween = null
-				# Snap pitch back toward normal so the chase ramp starts from a sane value
-				music_player.volume_db = normal_volume_db
-
-			if !phase_one_timer.is_stopped():
-				phase_one_timer.stop()
-
-			if monster_has_been_active:
-				return
-
-			monster_has_been_active = true
-
-			MusicManager.play_music(MusicTrack.MusicType.MONSTER_CLOSE_PROXIMITY, 1)
-
-			AudioManager.create_3d_audio_at_location(monster.global_position, SoundEffect.SoundEffectType.MONSTER_APPEARS)
-			var pitch_scale_value = clamp(music_player.pitch_scale + 0.60, min_pitch_scale, max_pitch_scale)
-			var tween = create_tween()
-			tween.tween_property(music_player, "pitch_scale", pitch_scale_value, 2.0)
-
-			phase_two_timer.wait_time = 1
-			phase_two_timer.start()
+			_enter_phase_two()
 		3:
 			pass
 		_:
-			current_phase = 1
-			scream_combo = 0
+			_reset()
 
-			if !phase_one_timer.is_stopped():
-				phase_one_timer.stop()
+
+func _enter_phase_one() -> void:
+	current_phase = 1
+	scream_combo = 0
+
+	phase_two_timer.stop()
+	phase_one_timer.wait_time = 1
+	phase_one_timer.start()
+
+	if !monster_has_been_active:
+		return
+	if phase_one_active: # Don't restart if the dip-and-recover is already running
+		return
+
+	phase_one_active = true
+	monster_has_been_active = false
+	chase_just_finished = true
+
+	MusicManager.stop_music(MusicTrack.MusicType.MONSTER_CLOSE_PROXIMITY, 3.0)
+
+	if !phase_one_timer.is_stopped():
+		phase_two_timer.stop()
+
+	AudioManager.create_3d_audio_at_location(monster.global_position, ending_sounds.pick_random())
+
+	var dip: Tween = MusicManager.duck(-30.0, 4.0)
+	MusicManager.tween_track_pitch(MusicTrack.MusicType.CHASE, min_pitch_scale, 3.0)
+	await dip.finished
+
+	# If the player walked near the monster during the dip, abort the recovery
+	if current_phase == 2:
+		phase_one_active = false
+		return
+
+	await get_tree().create_timer(1.5).timeout
+
+	# Check again after the pause
+	if current_phase == 2:
+		phase_one_active = false
+		return
+
+	MusicManager.unduck(3.0)
+
+	phase_one_active = false
+
+func _enter_phase_two() -> void:
+	current_phase = 2
+	# Entering chase — immediately abort any ongoing phase zero dip/recover
+	if phase_one_active:
+		phase_one_active = false
+		if transition_tween:
+			transition_tween.kill()
+			transition_tween = null
+		# Snap pitch back toward normal so the chase ramp starts from a sane value
+		MusicManager.set_music_volume(MusicManager.get_target_volume(), 0)
+
+	phase_one_timer.stop()
+
+	if monster_has_been_active:
+		return
+
+	# NOTE OTHER VERSION
+	# if exterior_music_on:
+		# MusicManager.play_music(MusicTrack.MusicType.EXTERIOR, 0, 2)
+
+	monster_has_been_active = true
+	chase_just_finished = false
+
+	MusicManager.play_music(MusicTrack.MusicType.MONSTER_CLOSE_PROXIMITY, 0.5)
+	AudioManager.create_3d_audio_at_location(monster.global_position, SoundEffect.SoundEffectType.MONSTER_APPEARS)
+
+	var new_pitch: float = clamp(
+		MusicManager.get_track_pitch(MusicTrack.MusicType.CHASE) + 0.60,
+		min_pitch_scale,
+		max_pitch_scale
+	)
+	MusicManager.tween_track_pitch(MusicTrack.MusicType.CHASE, new_pitch, 2.0)
+
+	phase_two_timer.wait_time = 1
+	phase_two_timer.start()
+
+func _reset() -> void:
+	current_phase = 1
+	scream_combo = 0
+	phase_one_timer.stop()
+	phase_two_timer.stop()
 
 
 func _on_phase_one_timer_timeout() -> void:
@@ -191,27 +197,38 @@ func _on_phase_one_timer_timeout() -> void:
 func _on_phase_two_timer_timeout() -> void:
 	if chase_just_finished:
 		chase_just_finished = false
-		phase_two_timer.stop()
 		return
 	if monster_distance_to_player < 4:
 		produce_random_sound(phase_two_timer, phase_two_sounds)
+
+		var new_pitch: float
 		if monster_distance_to_player < 2.25:
-			var tween = create_tween()
-			tween.tween_property(music_player, "pitch_scale", max_pitch_scale, 1.0)
+			new_pitch = max_pitch_scale
 		else:
-			var pitch_scale_value = clamp(music_player.pitch_scale + 0.30, min_pitch_scale, max_pitch_scale)
-			var tween = create_tween()
-			tween.tween_property(music_player, "pitch_scale", pitch_scale_value, 1.0)
+			new_pitch = clamp(
+				MusicManager.get_track_pitch(MusicTrack.MusicType.CHASE) + 0.30,
+				min_pitch_scale,
+				max_pitch_scale
+			)
+
+		MusicManager.tween_track_pitch(MusicTrack.MusicType.CHASE, new_pitch, 1.0)
 
 func _on_interior_area_body_entered(body: Node3D) -> void:
 	if body is not Player:
 		return
 
+	MusicManager.set_lowpass_cutoff(800.0, 1.0)
+
 func _on_exterior_area_body_entered(body: Node3D) -> void:
 	if body is not Player:
 		return
 
+	MusicManager.clear_lowpass(1.0)
+
+	# NOTE: OTHER VERSION
 	# if exterior_music_on:
-		# MusicManager.pla
-	else:
-		MusicManager.play_music(MusicTrack.MusicType.CHASE)
+		# MusicManager.play_music(MusicTrack.MusicType.EXTERIOR, 0, 2)
+	# else:
+		# MusicManager.play_music(MusicTrack.MusicType.CHASE, 0, 2)
+
+	MusicManager.play_music(MusicTrack.MusicType.CHASE)

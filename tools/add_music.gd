@@ -1,6 +1,6 @@
 @tool
 extends EditorScript
-## Automatically adds all MusicTrack resources found in the [member folder_path] that are not already in the [member music_manager_path]'s music_tracks Array.
+## Automatically adds all MusicTrack resources found in the [member folder_path] that are not already in the [member music_manager_path]'s tracks Array.
 
 var music_manager_path: String = "res://scenes/autoload/music_manager.tscn" ## The path to the music manager scene.
 var music_manager_scene: PackedScene = load(music_manager_path) ## Loads the music manager scene so the tool can modify it.
@@ -18,10 +18,10 @@ func _run() -> void:
 		var resource: Resource = load(file_path) ## Set to the resource to load
 
 		# Check if the resource is valid and not already in the array
-		if resource != null and not resource in music_manager_instance.music_tracks and resource is MusicTrack:
+		if resource != null and not resource in music_manager_instance.tracks and resource is MusicTrack:
 			modified = true
-			# Add the resource to the MusicManager music_tracks array.
-			music_manager_instance.music_tracks.append(resource)
+			# Add the resource to the MusicManager tracks array.
+			music_manager_instance.tracks.append(resource)
 
 	# Save the modified scene only if we've modified it.
 	if modified == true:
