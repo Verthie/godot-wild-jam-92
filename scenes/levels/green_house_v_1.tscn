@@ -28,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09581983, 0, -0.23616195)
 mesh = ExtResource("1_3fpob")
 
 [node name="blastDoor_Small" parent="." unique_id=702524994 instance=ExtResource("1_jmltk")]
-transform = Transform3D(-2.9802322e-08, 0, 0.5999999, 0, 0.59999996, 0, -0.5999999, 0, -2.9802322e-08, 1.0454441, 0.04060942, -0.83797204)
+transform = Transform3D(-2.9802322e-08, 0, 0.5999999, 0, 0.59999996, 0, -0.5999999, 0, -2.9802322e-08, 1.0298476, 0.04060942, -0.83797204)
 
 [node name="blastDoor_Small2" parent="." unique_id=367713655 instance=ExtResource("1_jmltk")]
 transform = Transform3D(-2.9802322e-08, 0, 0.5999999, 0, 0.59999996, 0, -0.5999999, 0, -2.9802322e-08, 1.0292456, -0.6886603, -0.83797204)
