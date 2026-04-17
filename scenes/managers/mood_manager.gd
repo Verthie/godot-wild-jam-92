@@ -4,7 +4,6 @@ extends Node
 @export var player: Player
 @export var exterior_area: Area3D
 @export var interior_area: Area3D
-@export var exterior_music_on: bool = false
 
 @export_range(0.0, 0.1) var max_jitter_value: float = 0.05
 @export_range(0.0, 0.1) var max_chrome_abberation: float = 0.1
@@ -152,20 +151,11 @@ func _enter_phase_two() -> void:
 	# Entering chase — immediately abort any ongoing phase zero dip/recover
 	if phase_one_active:
 		phase_one_active = false
-		if transition_tween:
-			transition_tween.kill()
-			transition_tween = null
-		# Snap pitch back toward normal so the chase ramp starts from a sane value
-		MusicManager.set_music_volume(MusicManager.get_target_volume(), 0)
 
 	phase_one_timer.stop()
 
 	if monster_has_been_active:
 		return
-
-	# NOTE OTHER VERSION
-	# if exterior_music_on:
-		# MusicManager.play_music(MusicTrack.MusicType.EXTERIOR, 0, 2)
 
 	monster_has_been_active = true
 	chase_just_finished = false
@@ -217,6 +207,8 @@ func _on_interior_area_body_entered(body: Node3D) -> void:
 	if body is not Player:
 		return
 
+	# TODO ADD THE CROSSFADE TO INTERIOR THEME
+
 	MusicManager.set_lowpass_cutoff(800.0, 1.0)
 
 func _on_exterior_area_body_entered(body: Node3D) -> void:
@@ -225,10 +217,5 @@ func _on_exterior_area_body_entered(body: Node3D) -> void:
 
 	MusicManager.clear_lowpass(1.0)
 
-	# NOTE: OTHER VERSION
-	# if exterior_music_on:
-		# MusicManager.play_music(MusicTrack.MusicType.EXTERIOR, 0, 2)
-	# else:
-		# MusicManager.play_music(MusicTrack.MusicType.CHASE, 0, 2)
-
+	# TODO CHANGE TO CROSSFADE ONCE THE MUSIC IS ADDED AT BEGINNING OF THE LEVEL
 	MusicManager.play_music(MusicTrack.MusicType.CHASE)

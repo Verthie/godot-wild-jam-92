@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cdrocvttmtsis"]
+[gd_scene format=4 uid="uid://dhbxpqdqfjwh6"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/entities/player/character_controller.tscn" id="1_p1d0p"]
 [ext_resource type="PackedScene" uid="uid://clqtkjumui0ww" path="res://scenes/managers/oxygen_manager.tscn" id="1_r8nyi"]
@@ -29,12 +29,12 @@
 [ext_resource type="PackedScene" uid="uid://dtoohwdtfkxew" path="res://scenes/items/brewing_room/wordle_board.tscn" id="18_rm2y2"]
 [ext_resource type="PackedScene" uid="uid://brhoentyagx0l" path="res://scenes/items/brewing_room/brewing_stand.tscn" id="19_3vkbi"]
 [ext_resource type="PackedScene" uid="uid://bd413m28777vl" path="res://scenes/items/Ingredients/potato.tscn" id="21_rm2y2"]
-[ext_resource type="PackedScene" uid="uid://jm5fqe8v3ixo" path="res://scenes/levels/base_building.tscn" id="24_tb17h"]
+[ext_resource type="PackedScene" path="res://scenes/levels/base_building.tscn" id="24_tb17h"]
 [ext_resource type="PackedScene" uid="uid://ckppucvlw5j5o" path="res://scenes/objects/blast_door_small.tscn" id="25_1jl4c"]
 [ext_resource type="PackedScene" uid="uid://jybv4plib51w" path="res://scenes/levels/green_house_v_1.tscn" id="26_osekx"]
-[ext_resource type="PackedScene" uid="uid://bxpps6iej0xf8" path="res://scenes/items/brewing_room/big_round_button.tscn" id="28_5h0fd"]
-[ext_resource type="PackedScene" uid="uid://cjx44grbhpum7" path="res://scenes/items/brewing_room/sampler.tscn" id="29_i0yxl"]
-[ext_resource type="PackedScene" uid="uid://muvu2v8yftya" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
+[ext_resource type="PackedScene" path="res://scenes/items/brewing_room/big_round_button.tscn" id="28_5h0fd"]
+[ext_resource type="PackedScene" path="res://scenes/items/brewing_room/sampler.tscn" id="29_i0yxl"]
+[ext_resource type="PackedScene" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p1d0p"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
