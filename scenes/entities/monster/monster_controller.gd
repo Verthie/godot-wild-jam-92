@@ -1,4 +1,7 @@
 extends CharacterBody3D
+class_name Monster
+
+signal entered_phase(phase_number: int)
 
 @export var speed := 3.0
 @export var player: Player
@@ -18,19 +21,23 @@ var wander_timer := 0.0
 var is_idle := false
 var idle_timer := 0.0
 
-var distance: float = 0.0
+var current_phase: int = 0
 
 func _physics_process(delta):
 	if player == null:
 		return
 
 	wander_timer -= delta
-	distance = global_position.distance_to(player.global_position)
+	var distance = global_position.distance_to(player.global_position)
 	if distance > chasing_distance:
 		# --- Idle ---
 		idle_timer -= delta
 
 		if is_idle:
+			if current_phase != 0:
+				current_phase = 0
+				entered_phase.emit(current_phase)
+
 			velocity.x = 0
 			velocity.z = 0
 
@@ -42,6 +49,11 @@ func _physics_process(delta):
 		else:
 			# --- Wander ---
 			wander_timer -= delta
+
+			if current_phase != 1:
+				current_phase = 1
+				entered_phase.emit(current_phase)
+
 
 			if wander_timer <= 0:
 				# 30% chance to idle instead of moving
@@ -67,7 +79,11 @@ func _physics_process(delta):
 
 	else:
 		# --- Chase Player ---
-		AudioManager.create_3d_audio_at_location(global_position, SoundEffect.SoundEffectType.MONSTER_APPEARS)
+
+		if current_phase != 2:
+			current_phase = 2
+			entered_phase.emit(current_phase)
+
 
 		# "target" is the position of the player if standing on the floor
 		var target = player.global_position

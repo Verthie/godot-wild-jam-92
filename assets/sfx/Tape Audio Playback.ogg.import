@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://r24u7ow1602p"
+path="res://.godot/imported/Tape Audio Playback.ogg-f5243cf1b44e486b5ec88cc6961e7903.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/Tape Audio Playback.ogg"
+dest_files=["res://.godot/imported/Tape Audio Playback.ogg-f5243cf1b44e486b5ec88cc6961e7903.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

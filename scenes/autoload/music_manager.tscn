@@ -1,5 +1,39 @@
 [gd_scene format=3 uid="uid://imsso14w3fwx"]
 
-[node name="MusicManager" type="Node" unique_id=1034825410]
+[ext_resource type="Script" uid="uid://c2njr1t6ysj22" path="res://scenes/autoload/music_manager.gd" id="1_6lml3"]
+[ext_resource type="Script" uid="uid://d0afcym3q4c34" path="res://resources/custom_resources/music_track.gd" id="2_p6bt6"]
+[ext_resource type="AudioStream" uid="uid://d1d48aeq14twq" path="res://assets/music/Chase Music.ogg" id="2_ptpun"]
+[ext_resource type="AudioStream" uid="uid://kpym4yn6gsnr" path="res://assets/music/Monster Close Proximity Glitch SFX.ogg" id="4_5ttln"]
+[ext_resource type="AudioStream" uid="uid://cwsmrwpybsqq2" path="res://assets/music/Red Mist Alpha Tape Music.ogg" id="5_rukfi"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=696642994]
+[sub_resource type="Resource" id="Resource_q08n6"]
+script = ExtResource("2_p6bt6")
+audio_stream = ExtResource("2_ptpun")
+metadata/_custom_type_script = "uid://d0afcym3q4c34"
+
+[sub_resource type="Resource" id="Resource_2xxbi"]
+script = ExtResource("2_p6bt6")
+type = 1
+audio_stream = ExtResource("4_5ttln")
+metadata/_custom_type_script = "uid://d0afcym3q4c34"
+
+[sub_resource type="Resource" id="Resource_yd6sr"]
+script = ExtResource("2_p6bt6")
+type = 2
+audio_stream = ExtResource("5_rukfi")
+metadata/_custom_type_script = "uid://d0afcym3q4c34"
+
+[node name="MusicManager" type="Node" unique_id=1034825410]
+script = ExtResource("1_6lml3")
+music_tracks = Array[ExtResource("2_p6bt6")]([SubResource("Resource_q08n6"), SubResource("Resource_2xxbi"), SubResource("Resource_yd6sr")])
+
+[node name="CurrentPlayer" type="AudioStreamPlayer" parent="." unique_id=696642994]
+stream = ExtResource("2_ptpun")
+pitch_scale = 0.15
+parameters/looping = true
+
+[node name="FadingPlayer" type="AudioStreamPlayer" parent="." unique_id=871472897]
+
+[node name="CompanionPlayer" type="AudioStreamPlayer" parent="." unique_id=1059652332]
+stream = ExtResource("4_5ttln")
+parameters/looping = true

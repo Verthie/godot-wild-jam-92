@@ -28,8 +28,12 @@
 [ext_resource type="Resource" uid="uid://b7v4d8mcxw8bk" path="res://resources/sfx/select.tres" id="26_bhlir"]
 [ext_resource type="Resource" uid="uid://bbur2ald3busn" path="res://resources/sfx/slider.tres" id="27_s4tvq"]
 [ext_resource type="Resource" uid="uid://b7k8u8krhh72r" path="res://resources/sfx/start.tres" id="28_ivdgc"]
+[ext_resource type="Resource" uid="uid://yt553p6ppfxw" path="res://resources/sfx/brewery_full_error.tres" id="29_2ml5i"]
+[ext_resource type="Resource" uid="uid://coj47qwfk22nj" path="res://resources/sfx/pick_up_ingredient.tres" id="30_gcj8c"]
+[ext_resource type="Resource" uid="uid://clarry058hs8q" path="res://resources/sfx/tape_playback.tres" id="31_snx7y"]
+[ext_resource type="Resource" uid="uid://ccrcwu8w0l8j6" path="res://resources/sfx/trash_item.tres" id="32_p62wp"]
 
 [node name="AudioManager" type="Node3D" unique_id=1202498834]
 process_mode = 3
 script = ExtResource("1_dwcjb")
-sound_effects = Array[ExtResource("2_2geml")]([ExtResource("3_hhkxr"), ExtResource("4_t2w81"), ExtResource("5_4snii"), ExtResource("6_lq213"), ExtResource("7_0mlsi"), ExtResource("8_2ml5i"), ExtResource("9_gcj8c"), ExtResource("10_snx7y"), ExtResource("11_p62wp"), ExtResource("12_jixr5"), ExtResource("13_wkplh"), ExtResource("14_8w7cp"), ExtResource("15_jv23f"), ExtResource("16_yurmx"), ExtResource("17_83f3h"), ExtResource("18_vdjer"), ExtResource("19_4jobu"), ExtResource("20_4tt3a"), ExtResource("21_c6qwd"), ExtResource("22_yrwy1"), ExtResource("23_dtxqk"), ExtResource("24_katuk"), ExtResource("25_fc4g6"), ExtResource("26_bhlir"), ExtResource("27_s4tvq"), ExtResource("28_ivdgc")])
+sound_effects = Array[ExtResource("2_2geml")]([ExtResource("3_hhkxr"), ExtResource("4_t2w81"), ExtResource("5_4snii"), ExtResource("6_lq213"), ExtResource("7_0mlsi"), ExtResource("8_2ml5i"), ExtResource("9_gcj8c"), ExtResource("10_snx7y"), ExtResource("11_p62wp"), ExtResource("12_jixr5"), ExtResource("13_wkplh"), ExtResource("14_8w7cp"), ExtResource("15_jv23f"), ExtResource("16_yurmx"), ExtResource("17_83f3h"), ExtResource("18_vdjer"), ExtResource("19_4jobu"), ExtResource("20_4tt3a"), ExtResource("21_c6qwd"), ExtResource("22_yrwy1"), ExtResource("23_dtxqk"), ExtResource("24_katuk"), ExtResource("25_fc4g6"), ExtResource("26_bhlir"), ExtResource("27_s4tvq"), ExtResource("28_ivdgc"), ExtResource("29_2ml5i"), ExtResource("30_gcj8c"), ExtResource("31_snx7y"), ExtResource("32_p62wp")])

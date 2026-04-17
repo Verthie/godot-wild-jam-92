@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://coj47qwfk22nj"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_5ggww"]
+[ext_resource type="AudioStream" uid="uid://parxoe00afy6" path="res://assets/sfx/Picking Up Ingredient.ogg" id="2_8n7lc"]
+
+[resource]
+script = ExtResource("1_5ggww")
+type = 29
+sound_effect = ExtResource("2_8n7lc")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"

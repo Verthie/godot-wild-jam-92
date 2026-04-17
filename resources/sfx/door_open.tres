@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_3biad")
 limit = 1
-type = 22
+type = 24
 sound_effect = ExtResource("2_3biad")
 metadata/_custom_type_script = "uid://cod75dt4mb5lk"

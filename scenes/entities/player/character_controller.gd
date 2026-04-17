@@ -61,6 +61,9 @@ signal talked(text: String)
 
 @onready var health_component: HealthComponent = $HealthComponent
 
+@onready var fog: MeshInstance3D = %Fog
+@onready var psx: ColorRect = %Psx
+
 var left_hand_item = null
 var right_hand_item = null
 var interactable = null
@@ -90,7 +93,7 @@ func _ready() -> void:
 	capture_mouse()
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
-	%Fog.show()
+	fog.show()
 
 
 func _unhandled_input(event: InputEvent) -> void:

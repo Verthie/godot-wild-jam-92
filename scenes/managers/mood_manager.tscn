@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dsab4xeyumgco"]
+
+[ext_resource type="Script" uid="uid://cqwsmcr258dcd" path="res://scenes/managers/mood_manager.gd" id="1_1dmaa"]
+
+[node name="MoodManager" type="Node" unique_id=1883706707]
+script = ExtResource("1_1dmaa")
+
+[node name="PhaseOneTimer" type="Timer" parent="." unique_id=1012347200]
+one_shot = true
+
+[node name="PhaseTwoTimer" type="Timer" parent="." unique_id=356586067]
