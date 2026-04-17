@@ -4,6 +4,7 @@ extends Node
 @export var player: Player
 @export var exterior_area: Area3D
 @export var interior_area: Area3D
+@export var exterior_music_on: bool = false
 
 @export_range(0.0, 0.1) var max_jitter_value: float = 0.05
 @export_range(0.0, 0.1) var max_chrome_abberation: float = 0.1
@@ -19,8 +20,9 @@ var phase_two_sounds: Array[SoundEffect.SoundEffectType] = [SoundEffect.SoundEff
 
 var monster_distance_to_player: float = 1000.0
 var monster_has_been_active: bool = false
-var current_phase: int = 0
+var current_phase: int = 1
 var scream_combo: int = 0
+var chase_just_finished: bool = false
 
 var psx_material
 
@@ -68,6 +70,10 @@ func produce_random_sound(timer: Timer, sounds: Array[SoundEffect.SoundEffectTyp
 	var random_interval = (randi() % 3 + 1) * 3 # 3, 6, 9
 	timer.wait_time = random_interval
 
+	if chase_just_finished:
+		chase_just_finished = false
+		return
+
 	scream_combo += 1
 
 	var random_sound: SoundEffect.SoundEffectType = sounds.pick_random()
@@ -83,12 +89,9 @@ func produce_random_sound(timer: Timer, sounds: Array[SoundEffect.SoundEffectTyp
 
 func _on_monster_entered_phase(phase_number: int) -> void:
 	match phase_number:
-		0:
-			scream_combo = 0
-
 		1:
+			current_phase = 1
 			scream_combo = 0
-			MusicManager.stop_music(1, 3.0)
 			if !phase_two_timer.is_stopped():
 				phase_two_timer.stop()
 
@@ -103,8 +106,8 @@ func _on_monster_entered_phase(phase_number: int) -> void:
 				return
 
 			phase_one_active = true
-
 			monster_has_been_active = false
+			chase_just_finished = true
 
 			if transition_tween:
 				transition_tween.kill()
@@ -112,11 +115,16 @@ func _on_monster_entered_phase(phase_number: int) -> void:
 
 			MusicManager.stop_music(1, 3.0)
 
-			await get_tree().create_timer(0.5).timeout
+			if !phase_one_timer.is_stopped():
+				phase_two_timer.stop()
+
+			var ending_sound_array: Array[SoundEffect.SoundEffectType] = [phase_one_sounds[2], phase_one_sounds[4], SoundEffect.SoundEffectType.MONSTER_APPEARS]
+			var random_ending_sound = (randi() % 3)
+			AudioManager.create_3d_audio_at_location(monster.global_position, ending_sound_array[random_ending_sound])
 
 			transition_tween = create_tween().set_parallel()
 			transition_tween.tween_property(music_player, "volume_db", normal_volume_db - 30.0, 4.0)
-			transition_tween.tween_property(music_player, "pitch_scale", min_pitch_scale, 8.0)
+			transition_tween.tween_property(music_player, "pitch_scale", min_pitch_scale, 3.0)
 
 			await transition_tween.finished
 
@@ -139,6 +147,7 @@ func _on_monster_entered_phase(phase_number: int) -> void:
 
 			phase_one_active = false
 		2:
+			current_phase = 2
 			# Entering chase — immediately abort any ongoing phase zero dip/recover
 			if phase_one_active:
 				phase_one_active = false
@@ -150,6 +159,9 @@ func _on_monster_entered_phase(phase_number: int) -> void:
 
 			if !phase_one_timer.is_stopped():
 				phase_one_timer.stop()
+
+			if monster_has_been_active:
+				return
 
 			monster_has_been_active = true
 
@@ -165,14 +177,22 @@ func _on_monster_entered_phase(phase_number: int) -> void:
 		3:
 			pass
 		_:
-			return
+			current_phase = 1
+			scream_combo = 0
+
+			if !phase_one_timer.is_stopped():
+				phase_one_timer.stop()
+
 
 func _on_phase_one_timer_timeout() -> void:
 	if monster_distance_to_player > 4 and monster_distance_to_player < 7:
 		produce_random_sound(phase_one_timer, phase_one_sounds)
 
-
 func _on_phase_two_timer_timeout() -> void:
+	if chase_just_finished:
+		chase_just_finished = false
+		phase_two_timer.stop()
+		return
 	if monster_distance_to_player < 4:
 		produce_random_sound(phase_two_timer, phase_two_sounds)
 		if monster_distance_to_player < 2.25:
@@ -191,4 +211,7 @@ func _on_exterior_area_body_entered(body: Node3D) -> void:
 	if body is not Player:
 		return
 
-	MusicManager.play_music(MusicTrack.MusicType.CHASE)
+	# if exterior_music_on:
+		# MusicManager.pla
+	else:
+		MusicManager.play_music(MusicTrack.MusicType.CHASE)

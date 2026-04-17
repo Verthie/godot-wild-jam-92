@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bunlygel58xam"]
+[gd_scene format=4 uid="uid://bvjo2u328h8ux"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/entities/player/character_controller.tscn" id="1_p1d0p"]
 [ext_resource type="PackedScene" uid="uid://clqtkjumui0ww" path="res://scenes/managers/oxygen_manager.tscn" id="1_r8nyi"]
