@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b8tln2w8nx5g5"
+path="res://.godot/imported/Red Mist Alpha Exterior.ogg-27f15e2fb16a598fc8f2302f0a0f168b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Interior + Exterior Tracks/Red Mist Alpha Exterior.ogg"
+dest_files=["res://.godot/imported/Red Mist Alpha Exterior.ogg-27f15e2fb16a598fc8f2302f0a0f168b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
