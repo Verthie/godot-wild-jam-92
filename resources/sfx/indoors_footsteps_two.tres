@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://bwa0j1pyhip7c"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_qfgay"]
+[ext_resource type="AudioStream" uid="uid://dc7luo3avkcce" path="res://assets/sfx/player/Indoors 2.ogg" id="2_yv26i"]
+
+[resource]
+script = ExtResource("1_qfgay")
+type = 40
+sound_effect = ExtResource("2_yv26i")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dwxp5abhnq3kh"
+path="res://.godot/imported/Indoors 1.ogg-98cc48f0dc3c3b4f169ad654ba458d75.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/player/Indoors 1.ogg"
+dest_files=["res://.godot/imported/Indoors 1.ogg-98cc48f0dc3c3b4f169ad654ba458d75.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

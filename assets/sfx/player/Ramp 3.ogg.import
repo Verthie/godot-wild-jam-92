@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bych188rpbsdf"
+path="res://.godot/imported/Ramp 3.ogg-d1bd154eb177c545d5a24b98503048be.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/player/Ramp 3.ogg"
+dest_files=["res://.godot/imported/Ramp 3.ogg-d1bd154eb177c545d5a24b98503048be.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

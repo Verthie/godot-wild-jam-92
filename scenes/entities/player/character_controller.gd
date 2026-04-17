@@ -61,6 +61,7 @@ signal talked(text: String)
 
 @onready var health_component: HealthComponent = $HealthComponent
 
+@onready var camera: Camera3D = %Camera3D
 @onready var fog: MeshInstance3D = %Fog
 @onready var psx: ColorRect = %Psx
 
@@ -119,13 +120,19 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		try_interact("none")
 
+	if Input.is_action_just_pressed("zoom_out"):
+		camera.fov = min(camera.fov + 5, 45)
+
+	if Input.is_action_just_pressed("zoom_in"):
+		camera.fov = max(camera.fov - 5, 25)
+
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		mouse_delta = event.relative
 
 func _physics_process(delta: float) -> void:
-	
+
 
 	# If freeflying, handle freefly and nothing else
 	if can_freefly and freeflying:
@@ -170,7 +177,7 @@ func _physics_process(delta: float) -> void:
 		walk_time += delta * 6.0
 	else:
 		walk_time = 0.0
-	
+
 	interactable = get_looked_at_interactable()
 	update_interaction_ui()
 	update_held_items(delta)
@@ -312,7 +319,7 @@ func clear_hand_item(hand: String):
 
 func update_held_items(delta):
 	var distance = 0.5
-	
+
 	'''
 	if hold_ray.is_colliding():
 		var collider = hold_ray.get_collider()
@@ -320,7 +327,7 @@ func update_held_items(delta):
 		if is_instance_valid(collider) and collider.has_method("interact"):
 			distance = 0.03
 	'''
-	
+
 	var base_pos = Vector3(0, 0, -distance)
 
 	var current_speed = velocity.length()

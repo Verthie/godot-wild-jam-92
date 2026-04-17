@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MusicTrack" format=3 uid="uid://4b1ms051r7f6"]
+
+[ext_resource type="AudioStream" uid="uid://bn8i1mh4k3pvo" path="res://assets/music/Red Mist Alpha Outro.ogg" id="1_inv1m"]
+[ext_resource type="Script" uid="uid://d0afcym3q4c34" path="res://resources/custom_resources/music_track.gd" id="1_prxld"]
+
+[resource]
+script = ExtResource("1_prxld")
+type = 5
+audio_stream = ExtResource("1_inv1m")
+metadata/_custom_type_script = "uid://d0afcym3q4c34"

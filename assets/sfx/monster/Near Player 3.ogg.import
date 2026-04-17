@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cl0a63tbmjmig"
+path="res://.godot/imported/Near Player 3.ogg-9801c6c3df5ce9a3410e5133ec86839e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/monster/Near Player 3.ogg"
+dest_files=["res://.godot/imported/Near Player 3.ogg-9801c6c3df5ce9a3410e5133ec86839e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

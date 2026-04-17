@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://comovfpgaxtqu"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_fs5s4"]
+[ext_resource type="AudioStream" uid="uid://nqe2fw5aqil3" path="res://assets/sfx/player/Ramp 1.ogg" id="2_kx2kd"]
+
+[resource]
+script = ExtResource("1_fs5s4")
+limit = 1
+type = 37
+sound_effect = ExtResource("2_kx2kd")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"

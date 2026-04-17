@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://qm7ilekjvcg3"
+path="res://.godot/imported/Brewery Activate (Long).ogg-76df468d892c433fda61dfa67b6df6ec.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/base/Brewery Activate (Long).ogg"
+dest_files=["res://.godot/imported/Brewery Activate (Long).ogg-76df468d892c433fda61dfa67b6df6ec.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

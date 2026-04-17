@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://doss16w3mrm5n"]
 
 [ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_3biad"]
-[ext_resource type="AudioStream" uid="uid://cvy66r12i8kfl" path="res://assets/sfx/Door Swish (Open).wav" id="2_3biad"]
+[ext_resource type="AudioStream" uid="uid://cvy66r12i8kfl" path="res://assets/sfx/base/Door Swish (Open).wav" id="2_3biad"]
 
 [resource]
 script = ExtResource("1_3biad")
 limit = 1
 type = 24
 sound_effect = ExtResource("2_3biad")
+pitch_randomness = 0.04
 metadata/_custom_type_script = "uid://cod75dt4mb5lk"

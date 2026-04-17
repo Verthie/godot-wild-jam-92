@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://des1e4krx3ff3"
+path="res://.godot/imported/Ending Cutscene Getting Hit.ogg-932ebe3012ee637fc5537782e1d52f87.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/Ending Cutscene Getting Hit.ogg"
+dest_files=["res://.godot/imported/Ending Cutscene Getting Hit.ogg-932ebe3012ee637fc5537782e1d52f87.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

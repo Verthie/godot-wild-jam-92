@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cbr0bgdwrm70u"
+path="res://.godot/imported/Low Oxygen First Warning.ogg-88e7c4c2df7ace7a88f995de56db9b87.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/player/Low Oxygen First Warning.ogg"
+dest_files=["res://.godot/imported/Low Oxygen First Warning.ogg-88e7c4c2df7ace7a88f995de56db9b87.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

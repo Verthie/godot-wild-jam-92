@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cr6o6q7rwsm06"
+path="res://.godot/imported/Return Blip.wav-301bb1cf815a5566341b7b4e646f681a.sample"
+
+[deps]
+
+source_file="res://assets/sfx/monster/Return Blip.wav"
+dest_files=["res://.godot/imported/Return Blip.wav-301bb1cf815a5566341b7b4e646f681a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -4,7 +4,10 @@ class_name MusicTrack
 enum MusicType {
 	CHASE,
 	MONSTER_CLOSE_PROXIMITY,
-	TAPE
+	TAPE,
+	INTERIOR,
+	INTRO,
+	OUTRO
 }
 
 @export var type: MusicType

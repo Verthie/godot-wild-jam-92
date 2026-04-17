@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://61chrfspa2an"
+path="res://.godot/imported/Scream 5.ogg-3b74ceb6889787e7b73b075ef9895f27.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/monster/Scream 5.ogg"
+dest_files=["res://.godot/imported/Scream 5.ogg-3b74ceb6889787e7b73b075ef9895f27.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

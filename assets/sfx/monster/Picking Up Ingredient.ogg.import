@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://parxoe00afy6"
+path="res://.godot/imported/Picking Up Ingredient.ogg-7acb0a3d5405b48cd90eeba00decee73.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/monster/Picking Up Ingredient.ogg"
+dest_files=["res://.godot/imported/Picking Up Ingredient.ogg-7acb0a3d5405b48cd90eeba00decee73.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

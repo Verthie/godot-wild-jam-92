@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://ccrcwu8w0l8j6"]
 
 [ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_chate"]
-[ext_resource type="AudioStream" uid="uid://d1a8chv4nlslj" path="res://assets/sfx/Trashbin Dispose Item.ogg" id="2_n4a4o"]
+[ext_resource type="AudioStream" uid="uid://d1a8chv4nlslj" path="res://assets/sfx/base/Trashbin Dispose Item.ogg" id="2_n4a4o"]
 
 [resource]
 script = ExtResource("1_chate")
 type = 28
 sound_effect = ExtResource("2_n4a4o")
+pitch_randomness = 0.1
 metadata/_custom_type_script = "uid://cod75dt4mb5lk"

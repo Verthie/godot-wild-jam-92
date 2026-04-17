@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://6in6ifyjidla"]
 
 [ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_jxcsw"]
-[ext_resource type="AudioStream" uid="uid://dv7xrc0tb03l2" path="res://assets/sfx/Scream 1.ogg" id="2_5tcud"]
+[ext_resource type="AudioStream" uid="uid://dv7xrc0tb03l2" path="res://assets/sfx/monster/Scream 1.ogg" id="2_5tcud"]
 
 [resource]
 script = ExtResource("1_jxcsw")
 type = 7
 sound_effect = ExtResource("2_5tcud")
+pitch_randomness = 0.1
 metadata/_custom_type_script = "uid://cod75dt4mb5lk"

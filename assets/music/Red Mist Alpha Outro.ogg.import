@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bn8i1mh4k3pvo"
+path="res://.godot/imported/Red Mist Alpha Outro.ogg-7b6defcca04cbfb5e6f9f21c4fbcbe3c.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Red Mist Alpha Outro.ogg"
+dest_files=["res://.godot/imported/Red Mist Alpha Outro.ogg-7b6defcca04cbfb5e6f9f21c4fbcbe3c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://qeh7l3acjyco"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_44863"]
+[ext_resource type="AudioStream" uid="uid://cbr0bgdwrm70u" path="res://assets/sfx/player/Low Oxygen First Warning.ogg" id="2_hr5lx"]
+
+[resource]
+script = ExtResource("1_44863")
+limit = 1
+type = 32
+sound_effect = ExtResource("2_hr5lx")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"

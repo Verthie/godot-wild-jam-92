@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://8fbyj2cp6lwy"
+path="res://.godot/imported/Brewery Full Error Sound.ogg-fb17548dbd4c7c12b7c2cfbe69f2e1b3.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/base/Brewery Full Error Sound.ogg"
+dest_files=["res://.godot/imported/Brewery Full Error Sound.ogg-fb17548dbd4c7c12b7c2cfbe69f2e1b3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

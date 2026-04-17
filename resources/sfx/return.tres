@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://dmuuk4wfjj0df"]
 
 [ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_jav8n"]
-[ext_resource type="AudioStream" uid="uid://cr6o6q7rwsm06" path="res://assets/sfx/Return Blip.wav" id="2_u3335"]
+[ext_resource type="AudioStream" uid="uid://cr6o6q7rwsm06" path="res://assets/sfx/monster/Return Blip.wav" id="2_u3335"]
 
 [resource]
 script = ExtResource("1_jav8n")

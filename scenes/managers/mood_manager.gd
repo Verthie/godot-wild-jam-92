@@ -36,8 +36,8 @@ var psx_material
 var last_random_sound: SoundEffect.SoundEffectType
 var normal_volume_db: float = 0.0
 
-var transition_tween: Tween = null
 var phase_one_active: bool = false
+var dip_tween: Tween = null
 
 
 func _ready() -> void:
@@ -126,9 +126,14 @@ func _enter_phase_one() -> void:
 
 	AudioManager.create_3d_audio_at_location(monster.global_position, ending_sounds.pick_random())
 
-	var dip: Tween = MusicManager.duck(-30.0, 4.0)
+	dip_tween = MusicManager.duck(-30.0, 4.0)
 	MusicManager.tween_track_pitch(MusicTrack.MusicType.CHASE, min_pitch_scale, 3.0)
-	await dip.finished
+	await dip_tween.finished
+	dip_tween = null
+	# MusicManager.duck(-30.0, 4.0)
+	# MusicManager.tween_track_pitch(MusicTrack.MusicType.CHASE, min_pitch_scale, 3.0)
+
+	# await get_tree().create_timer(4.0).timeout
 
 	# If the player walked near the monster during the dip, abort the recovery
 	if current_phase == 2:
@@ -150,6 +155,10 @@ func _enter_phase_two() -> void:
 	current_phase = 2
 	# Entering chase — immediately abort any ongoing phase zero dip/recover
 	if phase_one_active:
+		if dip_tween and dip_tween.is_valid():
+			dip_tween.kill()
+			dip_tween = null
+		MusicManager.unduck(0.5)
 		phase_one_active = false
 
 	phase_one_timer.stop()

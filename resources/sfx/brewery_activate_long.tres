@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://db53o5pwj3wxy"]
 
 [ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_eiwpl"]
-[ext_resource type="AudioStream" uid="uid://qm7ilekjvcg3" path="res://assets/sfx/Brewery Activate (Long).ogg" id="2_eiwpl"]
+[ext_resource type="AudioStream" uid="uid://qm7ilekjvcg3" path="res://assets/sfx/base/Brewery Activate (Long).ogg" id="2_eiwpl"]
 
 [resource]
 script = ExtResource("1_eiwpl")

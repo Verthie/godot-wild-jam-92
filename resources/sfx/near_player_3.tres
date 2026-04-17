@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://rhxj38tifj3l"]
 
 [ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_xtwq6"]
-[ext_resource type="AudioStream" uid="uid://cl0a63tbmjmig" path="res://assets/sfx/Near Player 3.ogg" id="2_2dyi5"]
+[ext_resource type="AudioStream" uid="uid://cl0a63tbmjmig" path="res://assets/sfx/monster/Near Player 3.ogg" id="2_2dyi5"]
 
 [resource]
 script = ExtResource("1_xtwq6")
 type = 3
 sound_effect = ExtResource("2_2dyi5")
+pitch_randomness = 0.1
 metadata/_custom_type_script = "uid://cod75dt4mb5lk"

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://s5pdyifpa3ci"]
 
 [ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_gg6e7"]
-[ext_resource type="AudioStream" uid="uid://dv5pxnfvpbxae" path="res://assets/sfx/Journal Interact Blip (Close).wav" id="2_gg6e7"]
+[ext_resource type="AudioStream" uid="uid://dv5pxnfvpbxae" path="res://assets/sfx/logs/Journal Interact Blip (Close).wav" id="2_gg6e7"]
 
 [resource]
 script = ExtResource("1_gg6e7")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://x8vcft86oo6o"]
 
 [ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_hptpu"]
-[ext_resource type="AudioStream" uid="uid://cdqhh01acasdj" path="res://assets/sfx/Brewery Blips (Correct).wav" id="2_hptpu"]
+[ext_resource type="AudioStream" uid="uid://cdqhh01acasdj" path="res://assets/sfx/base/Brewery Blips (Correct).wav" id="2_hptpu"]
 
 [resource]
 script = ExtResource("1_hptpu")
