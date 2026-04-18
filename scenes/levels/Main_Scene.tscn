@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ccri2hc7dtc13" path="res://scenes/items/brewing_room/oxygen_maker.tscn" id="4_v01af"]
 [ext_resource type="Script" path="res://scripts/motion_blur_compositor.gd" id="5_0ofrv"]
 [ext_resource type="PackedScene" uid="uid://87oflr5ytl6" path="res://scenes/items/brewing_room/bowl.tscn" id="5_32fx4"]
-[ext_resource type="ArrayMesh" uid="uid://d38vs1nerntc2" path="res://assets/models/misc/PassageV2.obj" id="7_i0yxl"]
+[ext_resource type="ArrayMesh" uid="uid://b7ass7eitqeyp" path="res://assets/models/misc/PassageV4.obj" id="7_71s1a"]
 [ext_resource type="PackedScene" uid="uid://dij0fgki3wcqa" path="res://scenes/objects/Floor_Lamp.tscn" id="7_ohk1s"]
 [ext_resource type="PackedScene" uid="uid://b0owiqmsec0x2" path="res://scenes/levels/scene_start_v_1.tscn" id="8_u5lar"]
 [ext_resource type="PackedScene" uid="uid://co0ito6d5e54i" path="res://scenes/objects/trees and forest/Forest_01.tscn" id="10_62ook"]
@@ -444,7 +444,7 @@ collision_mask = 16
 
 [node name="Passage" type="MeshInstance3D" parent="terrain_v3/OutsidePlatform" unique_id=854576049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.802818, 0.0793529, -1.8635077)
-mesh = ExtResource("7_i0yxl")
+mesh = ExtResource("7_71s1a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/OutsidePlatform" unique_id=717645123]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.802818, 0.0793529, -1.8635077)
