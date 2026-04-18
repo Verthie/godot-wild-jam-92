@@ -36,6 +36,9 @@
 [ext_resource type="PackedScene" uid="uid://bxpps6iej0xf8" path="res://scenes/items/brewing_room/big_round_button.tscn" id="28_5h0fd"]
 [ext_resource type="PackedScene" uid="uid://cjx44grbhpum7" path="res://scenes/items/brewing_room/sampler.tscn" id="29_i0yxl"]
 [ext_resource type="PackedScene" uid="uid://muvu2v8yftya" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
+[ext_resource type="PackedScene" uid="uid://cnl81uovfvoov" path="res://scenes/items/journal.tscn" id="37_e5bxq"]
+[ext_resource type="PackedScene" uid="uid://bw1eck8ne6hjx" path="res://scenes/items/tape.tscn" id="38_1s2ut"]
+[ext_resource type="Script" uid="uid://b56tqyujtnroc" path="res://scenes/items/story_text.gd" id="39_idy17"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p1d0p"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -74,7 +77,6 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("5_0ofrv")
-alpha = null
 
 [sub_resource type="Compositor" id="Compositor_uof65"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_ma2cu")])
@@ -368,7 +370,7 @@ current = true
 fov = 45.0
 
 [node name="CharacterController" parent="." unique_id=379629607 instance=ExtResource("1_p1d0p")]
-transform = Transform3D(0.24361503, 0, 0.969872, 0, 1, 0, -0.969872, 0, 0.24361503, 5.7854223, 4.3136926, 8.378028)
+transform = Transform3D(0.24361503, 0, 0.969872, 0, 1, 0, -0.969872, 0, 0.24361503, 7.344051, 2.4437017, 8.188024)
 
 [node name="MonsterController" parent="." unique_id=1093900517 node_paths=PackedStringArray("player") instance=ExtResource("14_84bhp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7567844, 2.033417, 7.7408624)
@@ -897,3 +899,36 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.725135, 0.3, -2.1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1931625618]
 libraries/ = SubResource("AnimationLibrary_u2i4f")
 autoplay = &"wake_up_camurai"
+
+[node name="Journal (Trevor Brewery)" parent="." unique_id=1858384251 instance=ExtResource("37_e5bxq")]
+transform = Transform3D(1.3113414e-07, 0.99999994, 4.3711385e-08, 3.8213705e-15, 4.3711385e-08, -0.99999994, -0.9999999, 1.3113414e-07, 1.9106853e-15, -4.155056, 0.31510034, -0.97904766)
+text_tag = "journal_trevor_brewery"
+
+[node name="Journal1" parent="." unique_id=545759711 instance=ExtResource("37_e5bxq")]
+transform = Transform3D(0.08530853, 0, -0.6947823, 0, 0.7, 0, 0.6947823, 0, 0.08530853, -3.1671581, 0.21128, -1.716238)
+
+[node name="Journal2" parent="." unique_id=2040570615 instance=ExtResource("37_e5bxq")]
+transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, -3.4850686, 0.20411365, -0.5416372)
+text_tag = "journal_2"
+
+[node name="Journal3" parent="." unique_id=21467777 instance=ExtResource("37_e5bxq")]
+transform = Transform3D(-0.13146691, 0, -0.68754375, 0, 0.7, 0, 0.68754375, 0, -0.13146691, -2.1848803, 0.19663225, -4.520365)
+text_tag = "journal_3"
+
+[node name="Tape1" parent="." unique_id=2120888103 instance=ExtResource("38_1s2ut")]
+transform = Transform3D(-0.6249702, -0.7806486, 3.4123232e-08, 0, -4.371138e-08, -0.9999999, 0.7806486, -0.6249701, 2.731831e-08, 6.871222, 2.3749912, 8.088737)
+script = ExtResource("39_idy17")
+text_tag = "tape_1"
+ui_type = 2
+
+[node name="Tape2" parent="." unique_id=2006413386 instance=ExtResource("38_1s2ut")]
+transform = Transform3D(0.004067137, -0.20329994, 0.979108, 0.00084448466, 0.97911644, 0.20329824, -0.9999913, -1.11557624e-10, 0.004153884, -2.672398, -0.6487938, -2.3374965)
+script = ExtResource("39_idy17")
+text_tag = "tape_2"
+ui_type = 2
+
+[node name="Light at Spawn" type="Node3D" parent="." unique_id=847797550]
+transform = Transform3D(0.004067137, -0.20329994, 0.979108, 0.00084448466, 0.97911644, 0.20329824, -0.9999913, -1.11557624e-10, 0.004153884, 6.650349, 2.4372013, 7.9858723)
+
+[node name="Floor_Lamp" parent="Light at Spawn" unique_id=1804176768 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 3.0365022e-10, 0, 2.910373e-10, 1, 7.450532e-08, 0, -7.450828e-08, 1, -0.084554195, -0.13483238, 0.1804514)

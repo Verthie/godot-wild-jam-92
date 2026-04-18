@@ -56,9 +56,28 @@ signal talked(text: String)
 @onready var hand_right: Node3D = $Head/HandRight
 @onready var hand_left: Node3D = $Head/HandLeft
 
+# Interface
 @onready var canvas_layer = $CanvasLayer
 @onready var interaction_label = $"CanvasLayer/InteractionLabel"
 @onready var crosshair = $"CanvasLayer/CenterContainer/Crosshair"
+@onready var journal_ui = $JournalUI
+@onready var journal_text = $JournalUI/TextureRect/JournalText
+@onready var tape_ui = $TapeUI
+@onready var tape_text = $TapeUI/TextureRect/TapeText
+@onready var brewery_handbook_ui = $BreweryHandbookUI
+@onready var brewery_handbook_text = $BreweryHandbookUI/TextureRect/BreweryHandbookText
+
+
+var current_ui = null
+var ui_open := false
+
+@onready var ui_map = {
+	Globals.UITextType.JOURNAL: $JournalUI,
+	Globals.UITextType.HANDBOOK: $BreweryHandbookUI,
+	Globals.UITextType.TAPE: $TapeUI
+}
+
+#--------------
 
 @onready var health_component: HealthComponent = $HealthComponent
 
@@ -119,7 +138,17 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	# Press E
 	if event.is_action_pressed("interact"):
-		try_interact("none")
+		
+		if ui_open:
+			if current_ui.typing:
+				current_ui.finish_typing()
+			else:
+				if current_ui.has_next_page():
+					current_ui.next_page()
+				else:
+					close_ui()
+		else:
+			try_interact("none")
 
 	if Input.is_action_just_pressed("zoom_out"):
 		camera.fov = min(camera.fov + 5, 45)
@@ -127,10 +156,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("zoom_in"):
 		camera.fov = max(camera.fov - 5, 25)
 
+		
+
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		mouse_delta = event.relative
+
+
 
 func _physics_process(delta: float) -> void:
 
@@ -172,6 +205,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		velocity.y = 0
+		velocity.z = 0
 
 	# for bobbing of items, keep track of walk time
 	if velocity.length() > 0.1:
@@ -214,6 +248,16 @@ func update_interaction_ui():
 		if crosshair:
 			crosshair.modulate = Color.WHITE
 
+# Jason 15/4/26
+func get_looked_at_interactable():
+	if ui_open:
+		return null
+	
+	if hold_ray.is_colliding():
+		var collider = hold_ray.get_collider()
+		if is_instance_valid(collider) and collider.has_method("interact"):
+			return collider
+	return null
 
 
 ## Rotate us to look around.
@@ -275,13 +319,7 @@ func check_input_mappings():
 		can_freefly = false
 
 
-# Jason 15/4/26
-func get_looked_at_interactable():
-	if hold_ray.is_colliding():
-		var collider = hold_ray.get_collider()
-		if is_instance_valid(collider) and collider.has_method("interact"):
-			return collider
-	return null
+
 
 
 # Item helper functions
@@ -362,3 +400,35 @@ func spawn_item_by_tag(tag, hand):
 			give_item_to_hand(preload("res://scenes/items/Ingredients/mist_seed_item.tscn"), hand)
 		"watermelon":
 			give_item_to_hand(preload("res://scenes/items/Ingredients/watermelon_item.tscn"), hand)
+
+
+func set_movement_enabled(state: bool):
+	can_move = state
+
+
+func show_ui(tag: String, type: int):
+	var pages = Globals.journal_texts.get(tag, [])
+	
+	var ui = ui_map.get(type, null)
+	if ui == null:
+		push_error("UI type not found")
+		return
+	
+	ui.show_pages(pages)
+	ui.visible = true
+	
+	current_ui = ui
+	ui_open = true
+	set_movement_enabled(false)
+	
+
+func close_ui():
+	if current_ui:
+		current_ui.visible = false
+	
+	current_ui = null
+	ui_open = false
+	set_movement_enabled(true)
+
+func is_ui_open() -> bool:
+	return ui_open
