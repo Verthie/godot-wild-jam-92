@@ -5,7 +5,10 @@
 [ext_resource type="Resource" uid="uid://b7iquu6jol3tq" path="res://resources/music/tape.tres" id="3_p6bt6"]
 [ext_resource type="Resource" uid="uid://c53uqihtvgajn" path="res://resources/music/chase.tres" id="4_5ttln"]
 [ext_resource type="Resource" uid="uid://bpq6eguiirt83" path="res://resources/music/monster_close_proximity.tres" id="5_rukfi"]
+[ext_resource type="Resource" uid="uid://dn2cfwggoicda" path="res://resources/music/intro.tres" id="6_q08n6"]
+[ext_resource type="Resource" uid="uid://4b1ms051r7f6" path="res://resources/music/outro.tres" id="7_2xxbi"]
+[ext_resource type="Resource" uid="uid://3uy2wuxj2jtg" path="res://resources/music/interior.tres" id="8_yd6sr"]
 
 [node name="MusicManager" type="Node" unique_id=1034825410]
 script = ExtResource("1_6lml3")
-tracks = Array[ExtResource("2_p6bt6")]([ExtResource("3_p6bt6"), ExtResource("4_5ttln"), ExtResource("5_rukfi")])
+tracks = Array[ExtResource("2_p6bt6")]([ExtResource("3_p6bt6"), ExtResource("4_5ttln"), ExtResource("5_rukfi"), ExtResource("6_q08n6"), ExtResource("7_2xxbi"), ExtResource("8_yd6sr")])

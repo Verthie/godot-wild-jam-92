@@ -32,8 +32,19 @@
 [ext_resource type="Resource" uid="uid://coj47qwfk22nj" path="res://resources/sfx/pick_up_ingredient.tres" id="30_gcj8c"]
 [ext_resource type="Resource" uid="uid://clarry058hs8q" path="res://resources/sfx/tape_playback.tres" id="31_snx7y"]
 [ext_resource type="Resource" uid="uid://ccrcwu8w0l8j6" path="res://resources/sfx/trash_item.tres" id="32_p62wp"]
+[ext_resource type="Resource" uid="uid://dvourlayo6237" path="res://resources/sfx/cutscene_hit.tres" id="33_4jobu"]
+[ext_resource type="Resource" uid="uid://dkfaadtdqlum1" path="res://resources/sfx/exhale.tres" id="34_4tt3a"]
+[ext_resource type="Resource" uid="uid://bss7srrgumj5k" path="res://resources/sfx/heartbeat.tres" id="35_c6qwd"]
+[ext_resource type="Resource" uid="uid://k4or8oeiaeua" path="res://resources/sfx/indoors_footsteps_one.tres" id="36_yrwy1"]
+[ext_resource type="Resource" uid="uid://bwa0j1pyhip7c" path="res://resources/sfx/indoors_footsteps_two.tres" id="37_dtxqk"]
+[ext_resource type="Resource" uid="uid://cq43xal8o3bpl" path="res://resources/sfx/inhale.tres" id="38_katuk"]
+[ext_resource type="Resource" uid="uid://cyjdnsspn4f8m" path="res://resources/sfx/oxygen_replenish.tres" id="39_fc4g6"]
+[ext_resource type="Resource" uid="uid://qeh7l3acjyco" path="res://resources/sfx/oxygen_warning.tres" id="40_bhlir"]
+[ext_resource type="Resource" uid="uid://drxruewtw220u" path="res://resources/sfx/oxygen_warning_final.tres" id="41_s4tvq"]
+[ext_resource type="Resource" uid="uid://comovfpgaxtqu" path="res://resources/sfx/ramp_footsteps_one.tres" id="42_ivdgc"]
+[ext_resource type="Resource" uid="uid://d1q0fuu27k2b7" path="res://resources/sfx/ramp_footsteps_two.tres" id="43_nqo8i"]
 
 [node name="AudioManager" type="Node3D" unique_id=1202498834]
 process_mode = 3
 script = ExtResource("1_dwcjb")
-sound_effects = Array[ExtResource("2_2geml")]([ExtResource("3_hhkxr"), ExtResource("4_t2w81"), ExtResource("5_4snii"), ExtResource("6_lq213"), ExtResource("7_0mlsi"), ExtResource("8_2ml5i"), ExtResource("9_gcj8c"), ExtResource("10_snx7y"), ExtResource("11_p62wp"), ExtResource("12_jixr5"), ExtResource("13_wkplh"), ExtResource("14_8w7cp"), ExtResource("15_jv23f"), ExtResource("16_yurmx"), ExtResource("17_83f3h"), ExtResource("18_vdjer"), ExtResource("19_4jobu"), ExtResource("20_4tt3a"), ExtResource("21_c6qwd"), ExtResource("22_yrwy1"), ExtResource("23_dtxqk"), ExtResource("24_katuk"), ExtResource("25_fc4g6"), ExtResource("26_bhlir"), ExtResource("27_s4tvq"), ExtResource("28_ivdgc"), ExtResource("29_2ml5i"), ExtResource("30_gcj8c"), ExtResource("31_snx7y"), ExtResource("32_p62wp")])
+sound_effects = Array[ExtResource("2_2geml")]([ExtResource("3_hhkxr"), ExtResource("4_t2w81"), ExtResource("5_4snii"), ExtResource("6_lq213"), ExtResource("7_0mlsi"), ExtResource("8_2ml5i"), ExtResource("9_gcj8c"), ExtResource("10_snx7y"), ExtResource("11_p62wp"), ExtResource("12_jixr5"), ExtResource("13_wkplh"), ExtResource("14_8w7cp"), ExtResource("15_jv23f"), ExtResource("16_yurmx"), ExtResource("17_83f3h"), ExtResource("18_vdjer"), ExtResource("19_4jobu"), ExtResource("20_4tt3a"), ExtResource("21_c6qwd"), ExtResource("22_yrwy1"), ExtResource("23_dtxqk"), ExtResource("24_katuk"), ExtResource("25_fc4g6"), ExtResource("26_bhlir"), ExtResource("27_s4tvq"), ExtResource("28_ivdgc"), ExtResource("29_2ml5i"), ExtResource("30_gcj8c"), ExtResource("31_snx7y"), ExtResource("32_p62wp"), ExtResource("33_4jobu"), ExtResource("34_4tt3a"), ExtResource("35_c6qwd"), ExtResource("36_yrwy1"), ExtResource("37_dtxqk"), ExtResource("38_katuk"), ExtResource("39_fc4g6"), ExtResource("40_bhlir"), ExtResource("41_s4tvq"), ExtResource("42_ivdgc"), ExtResource("43_nqo8i")])

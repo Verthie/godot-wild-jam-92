@@ -3,6 +3,8 @@ class_name Monster
 
 signal entered_phase(phase_number: int)
 
+@export var chase_enabled: bool = false
+
 @export var speed := 3.0
 @export var player: Player
 @export var chasing_distance := 10.0
@@ -24,14 +26,19 @@ var idle_timer := 0.0
 var current_phase: int = 0
 
 func _physics_process(delta):
-	if player == null:
+	if !chase_enabled:
 		return
+
+	if player == null:
+		player = get_tree().get_first_node_in_group("player")
 
 	wander_timer -= delta
 	var distance = global_position.distance_to(player.global_position)
 	if distance > chasing_distance:
 		# --- Idle ---
 		idle_timer -= delta
+
+		# TODO turns black & stops glowing
 
 		if is_idle:
 			if current_phase != 0:
@@ -79,6 +86,8 @@ func _physics_process(delta):
 
 	else:
 		# --- Chase Player ---
+
+		# TODO turns red & starts glowing
 
 		if current_phase != 2:
 			current_phase = 2

@@ -1,8 +1,8 @@
-[gd_scene format=4 uid="uid://dx4rbftjx31ap"]
+[gd_scene format=4 uid="uid://dy47gf7y2ui2h"]
 
+[ext_resource type="PackedScene" uid="uid://ce7elg35nvj5" path="res://scenes/managers/cutscene_manager.tscn" id="1_0ofrv"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/entities/player/character_controller.tscn" id="1_p1d0p"]
 [ext_resource type="PackedScene" uid="uid://clqtkjumui0ww" path="res://scenes/managers/oxygen_manager.tscn" id="1_r8nyi"]
-[ext_resource type="Script" uid="uid://3lbkup00bu2d" path="res://scenes/managers/cutscene_manager.gd" id="1_u2i4f"]
 [ext_resource type="PackedScene" uid="uid://dsab4xeyumgco" path="res://scenes/managers/mood_manager.tscn" id="1_wn3jb"]
 [ext_resource type="PackedScene" uid="uid://bdsxr6usn5h1h" path="res://scenes/ui/ui.tscn" id="2_r8nyi"]
 [ext_resource type="PackedScene" uid="uid://i5ci573m23wc" path="res://scenes/items/brewing_room/trash_can.tscn" id="3_7npca"]
@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://ppnjt5wvd0w8" path="res://scenes/objects/trees and forest/tree_03.tscn" id="13_1s2ut"]
 [ext_resource type="PackedScene" uid="uid://c7u8vnbckno0g" path="res://scenes/items/Ingredients/pumpkin.tscn" id="13_5e4yr"]
 [ext_resource type="PackedScene" uid="uid://dmdo4jrfayrp3" path="res://scenes/levels/launch_pad.tscn" id="14_71s1a"]
-[ext_resource type="PackedScene" uid="uid://ci65t4naoepao" path="res://scenes/entities/monster/monster_controller.tscn" id="14_84bhp"]
 [ext_resource type="PackedScene" uid="uid://bspqtdixrj2ry" path="res://scenes/objects/trees and forest/tree_04.tscn" id="14_idy17"]
 [ext_resource type="PackedScene" uid="uid://cr3loyqfonkmm" path="res://scenes/items/Ingredients/carrot.tscn" id="14_lm6ht"]
 [ext_resource type="PackedScene" uid="uid://b402hhfymvh8u" path="res://scenes/items/Ingredients/beetroot.tscn" id="15_32fx4"]
@@ -65,6 +64,10 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.0907
 volumetric_fog_albedo = Color(1, 0.24000001, 0.24000001, 1)
 volumetric_fog_anisotropy = 0.0
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0ofrv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ofrv"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_ma2cu"]
 resource_local_to_scene = false
@@ -268,7 +271,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_0ofrv"]
 resource_name = "wake_up_camurai"
-length = 10.6
+length = 13.5
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -289,10 +292,10 @@ tracks/1/path = NodePath("CutsceneCamera:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.9815145, 2.2, 5.7443876, 6.5, 8.491787, 9.6, 10.6),
-"transitions": PackedFloat32Array(0.5547846, 1, 2.4622886, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.9815145, 2.2, 5.7443876, 6.5, 8.491787, 9.6, 10.6, 11, 12),
+"transitions": PackedFloat32Array(0.5547846, 1, 2.4622886, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.10759364, 1.0951427, -1.004312), Vector3(1.097812, -0.012217305, -2.6424284), Vector3(1.097812, -0.012217305, -2.6424284), Vector3(-0.10759364, 1.0951427, -1.004312), Vector3(-0.10759364, 1.0951427, -1.004312), Vector3(0.15455534, 1.1073462, -0.49996862), Vector3(0.18546124, 1.2999823, 0.10082734), Vector3(0, 1.3238846, 0)]
+"values": [Vector3(-0.10759364, 1.0951427, -1.004312), Vector3(1.097812, -0.012217305, -2.6424284), Vector3(1.097812, -0.012217305, -2.6424284), Vector3(-0.10759364, 1.0951427, -1.004312), Vector3(-0.10759364, 1.0951427, -1.004312), Vector3(0.15455534, 1.1073462, -0.49996862), Vector3(0.18546124, 1.2999823, 0.10082734), Vector3(0, 1.3238846, 0), Vector3(0, 1.3238846, 0), Vector3(-0.4632173, 1.2940778, 0.12622681)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -317,27 +320,30 @@ _data = {
 
 [node name="MainScene" type="Node3D" unique_id=602291638]
 
-[node name="CutsceneManager" type="Node" parent="." unique_id=754631928 node_paths=PackedStringArray("ui", "player", "monster", "cutscene_camera", "animation_player")]
-script = ExtResource("1_u2i4f")
+[node name="CutsceneManager" parent="." unique_id=235455415 node_paths=PackedStringArray("ui", "player", "cutscene_camera", "animation_player", "oxygen_manager", "cutscene_area") instance=ExtResource("1_0ofrv")]
 ui = NodePath("../UI")
 player = NodePath("../CharacterController")
-monster = NodePath("../MonsterController")
 cutscene_camera = NodePath("../CutsceneCamera")
 animation_player = NodePath("../AnimationPlayer")
-play_cutscenes = false
+oxygen_manager = NodePath("../OxygenManager")
+cutscene_area = NodePath("../CutsceneArea")
+play_cutscenes = true
+player_initial_location = Vector3(6.997, 2.382, 8.535)
+player_initial_rotation = Vector3(0, 75.9, 0)
 
-[node name="MoodManager" parent="." unique_id=1883706707 node_paths=PackedStringArray("monster", "player", "exterior_area", "interior_area") instance=ExtResource("1_wn3jb")]
-monster = NodePath("../MonsterController")
+[node name="MoodManager" parent="." unique_id=1883706707 node_paths=PackedStringArray("player", "exterior_area", "interior_area", "cutscene_area") instance=ExtResource("1_wn3jb")]
 player = NodePath("../CharacterController")
 exterior_area = NodePath("../ExteriorArea")
 interior_area = NodePath("../InteriorArea")
+cutscene_area = NodePath("../CutsceneArea")
 
 [node name="OxygenManager" parent="." unique_id=1735648967 node_paths=PackedStringArray("oxygen_maker", "player", "ui") instance=ExtResource("1_r8nyi")]
 oxygen_maker = NodePath("../BrewingRoom/Oxygen Maker")
 player = NodePath("../CharacterController")
 ui = NodePath("../UI")
 
-[node name="UI" parent="." unique_id=1959464522 instance=ExtResource("2_r8nyi")]
+[node name="UI" parent="." unique_id=1959464522 node_paths=PackedStringArray("player") instance=ExtResource("2_r8nyi")]
+player = NodePath("../CharacterController")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2146959312]
 environment = SubResource("Environment_cchlx")
@@ -346,8 +352,26 @@ environment = SubResource("Environment_cchlx")
 transform = Transform3D(0.12060461, -0.5112786, -0.8509106, 0, -0.85716736, 0.5150381, -0.99270064, -0.062115964, -0.10337834, 0, 0, 0)
 light_color = Color(0.37, 0.37, 0.37, 1)
 light_energy = 0.0
-shadow_enabled = true
 shadow_bias = 0.0
+directional_shadow_mode = 0
+sky_mode = 2
+
+[node name="CutsceneArea" type="Area3D" parent="." unique_id=1544303181]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CutsceneArea" unique_id=1462412674]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 2.4264307)
+shape = SubResource("WorldBoundaryShape3D_0ofrv")
+
+[node name="CutsceneArea2" type="Area3D" parent="." unique_id=1849802548]
+transform = Transform3D(0.99998015, 0, -0.006300589, 0, 1, 0, 0.006300589, 0, 0.99998015, 0, 0, -3.0584025)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CutsceneArea2" unique_id=1252931252]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -3.8031132, 0.3871963, 2.0485516)
+shape = SubResource("BoxShape3D_0ofrv")
 
 [node name="CutsceneCamera" type="Camera3D" parent="." unique_id=1979079288]
 transform = Transform3D(0.32630438, 0.3351559, 0.8838529, -0.8389137, 0.5335655, 0.10738617, -0.4356023, -0.77651685, 0.45527163, 6.995584, 2.451365, 8.410142)
@@ -356,11 +380,7 @@ current = true
 fov = 45.0
 
 [node name="CharacterController" parent="." unique_id=379629607 instance=ExtResource("1_p1d0p")]
-transform = Transform3D(0.24361503, 0, 0.969872, 0, 1, 0, -0.969872, 0, 0.24361503, 6.996, 2.382, 8.535)
-
-[node name="MonsterController" parent="." unique_id=1093900517 node_paths=PackedStringArray("player") instance=ExtResource("14_84bhp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6276593, 0, 4.5970864)
-player = NodePath("../CharacterController")
+transform = Transform3D(0.24361503, 0, 0.969872, 0, 1, 0, -0.969872, 0, 0.24361503, -3.738186, 0.1290066, -1.6968474)
 
 [node name="ExteriorArea" type="Area3D" parent="." unique_id=254690698]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8527198, 0.22385901, 0.023457736)

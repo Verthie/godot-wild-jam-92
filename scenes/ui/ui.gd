@@ -1,19 +1,42 @@
 extends CanvasLayer
+class_name Interface
 
-# @export var player: Player
+@export var player: Player
 
-@onready var player_speech: Label = %PlayerSpeech
+@onready var bottom_prompt: Label = %BottomPrompt
 @onready var oxygen_bar: ProgressBar = $OxygenBar
+@onready var color_rect: ColorRect = $ColorRect
 
 func _ready() -> void:
-	# player.talked.connect(_on_player_talked)
-	player_speech.hide()
+	bottom_prompt.hide()
+
+	if player != null:
+		player.talked.connect(_on_player_talked)
 
 func update_oxygen_display(value: float) -> void:
 	oxygen_bar.value = value
 
+func display_prompt(text: String):
+	bottom_prompt.text = text
+	bottom_prompt.show()
+
+func hide_prompt():
+	bottom_prompt.hide()
+
+func timed_display_prompt(text: String, seconds: float) -> void:
+	display_prompt(text)
+	await get_tree().create_timer(seconds).timeout
+	hide_prompt()
+
+func fade_out_screen(duration: float) -> void:
+	var tween = create_tween()
+	tween.tween_property(color_rect, "modulate:a", 0.0, duration)
+	await tween.finished
+
+func fade_in_screen(duration: float) -> void:
+	var tween = create_tween()
+	tween.tween_property(color_rect, "modulate:a", 1.0, duration)
+	await tween.finished
+
 func _on_player_talked(text: String) -> void:
-	player_speech.text = text
-	player_speech.show()
-	await get_tree().create_timer(2.0).timeout
-	player_speech.hide()
+	timed_display_prompt(text, 3)

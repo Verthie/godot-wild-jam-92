@@ -12,7 +12,7 @@ config_version=5
 
 config/name="godot_wild_jam_92"
 config/tags=PackedStringArray("3d", "adventure", "puzzle", "wild_jam")
-run/main_scene="uid://dx4rbftjx31ap"
+run/main_scene="uid://dy47gf7y2ui2h"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

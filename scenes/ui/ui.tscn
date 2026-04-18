@@ -6,7 +6,6 @@
 script = ExtResource("1_u7n8c")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=605245987]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_bottom = 24
 
-[node name="PlayerSpeech" type="Label" parent="MarginContainer" unique_id=1129774086]
+[node name="BottomPrompt" type="Label" parent="MarginContainer" unique_id=1129774086]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
@@ -28,3 +27,11 @@ offset_right = 223.0
 offset_bottom = 41.0
 step = 2.0
 value = 100.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2073601125]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

@@ -78,6 +78,7 @@ var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
 var can_interact : bool = false
+var can_move_camera: bool = true
 
 @export_group("Item Scenes")
 @export var moon_seed_item_scene: PackedScene
@@ -101,6 +102,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	# Look around
 	if mouse_captured and event is InputEventMouseMotion:
+		if !can_move_camera:
+			return
 		rotate_look(event.relative)
 
 	# Toggle freefly mode
@@ -133,8 +136,6 @@ func _input(event):
 		mouse_delta = event.relative
 
 func _physics_process(delta: float) -> void:
-
-
 	# If freeflying, handle freefly and nothing else
 	if can_freefly and freeflying:
 		var input_dir := Input.get_vector(input_left, input_right, input_forward, input_back)

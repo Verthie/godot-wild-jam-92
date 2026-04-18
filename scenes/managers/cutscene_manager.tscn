@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ce7elg35nvj5"]
+
+[ext_resource type="Script" uid="uid://3lbkup00bu2d" path="res://scenes/managers/cutscene_manager.gd" id="1_1douk"]
+
+[node name="CutsceneManager" type="Node" unique_id=235455415]
+script = ExtResource("1_1douk")
+play_cutscenes = null
+player_initial_location = null
+player_initial_rotation = null

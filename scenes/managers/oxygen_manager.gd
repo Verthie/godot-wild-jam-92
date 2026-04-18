@@ -12,6 +12,8 @@ extends Node
 @onready var timer: Timer = $Timer
 @onready var sprint_timer: Timer = $SprintTimer
 
+var oxygen_deplete_enabled: bool = false
+
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("sprint"):
 		sprint_timer.start()
@@ -25,6 +27,12 @@ func _ready() -> void:
 
 func _process(_delta) -> void:
 	ui.update_oxygen_display(timer.time_left)
+
+func enable_oxygen_deplete() -> void:
+	timer.start()
+
+func disable_oxygen_deplete() -> void:
+	timer.stop()
 
 func _on_timer_timeout() -> void:
 	player.health_component.damage(player.health_component.max_health)

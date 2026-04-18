@@ -1,9 +1,10 @@
 extends Node
 
-@export var monster: Monster
 @export var player: Player
 @export var exterior_area: Area3D
 @export var interior_area: Area3D
+
+@export var cutscene_area: Area3D
 
 @export_range(0.0, 0.1) var max_jitter_value: float = 0.05
 @export_range(0.0, 0.1) var max_chrome_abberation: float = 0.1
@@ -39,9 +40,10 @@ var normal_volume_db: float = 0.0
 var phase_one_active: bool = false
 var dip_tween: Tween = null
 
+var monster: Monster
 
 func _ready() -> void:
-	monster.entered_phase.connect(_on_monster_entered_phase)
+	cutscene_area.body_entered.connect(_on_first_cutscene_area_player_entered)
 	phase_one_timer.timeout.connect(_on_phase_one_timer_timeout)
 	phase_two_timer.timeout.connect(_on_phase_two_timer_timeout)
 	interior_area.body_entered.connect(_on_interior_area_body_entered)
@@ -89,6 +91,9 @@ func produce_random_sound(timer: Timer, sounds: Array[SoundEffect.SoundEffectTyp
 
 	timer.start()
 
+func _on_first_cutscene_area_player_entered(_body: Node3D) -> void:
+	await get_tree().process_frame
+	monster = get_tree().get_first_node_in_group("monster")
 
 func _on_monster_entered_phase(phase_number: int) -> void:
 	match phase_number:
