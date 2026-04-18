@@ -5,9 +5,13 @@
 [ext_resource type="Shader" uid="uid://6ruxv2406ad0" path="res://resources/shaders/psx_fog.gdshader" id="2_rlydy"]
 [ext_resource type="Shader" uid="uid://1mbhtwa2psud" path="res://resources/shaders/psx.gdshader" id="2_twwmx"]
 [ext_resource type="PackedScene" uid="uid://dui58xpxxwpp8" path="res://scenes/components/health_component.tscn" id="2_vxaux"]
-[ext_resource type="Script" path="res://scripts/motion_blur_compositor.gd" id="2_wxmoy"]
+[ext_resource type="Script" uid="uid://dl25ngkctrcfc" path="res://scripts/motion_blur_compositor.gd" id="2_wxmoy"]
 [ext_resource type="PackedScene" uid="uid://cfricpcy0yc7d" path="res://scenes/components/hurtbox_component.tscn" id="3_2lnhi"]
 [ext_resource type="PackedScene" uid="uid://dywu4dsxf2lkk" path="res://scenes/components/death_component.tscn" id="4_2lnhi"]
+[ext_resource type="FontFile" uid="uid://b7cidb34a11n0" path="res://assets/fonts/MGS1 HUD.ttf" id="9_i5s3e"]
+[ext_resource type="Texture2D" uid="uid://cnehmsuqd3d32" path="res://assets/ui/demo_2.svg" id="10_rfeav"]
+[ext_resource type="Script" uid="uid://c4uqyevnmlfkf" path="res://scenes/items/story_text_ui.gd" id="10_ygr4t"]
+[ext_resource type="FontFile" uid="uid://dirnnxmmgi5u0" path="res://assets/fonts/MGS1 Codec.ttf" id="11_ygr4t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_20xh0"]
 radius = 0.05
@@ -144,7 +148,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041, -0.027, -0.103)
 [node name="InteractionLabel" type="Label" parent="CanvasLayer" unique_id=82246271]
 offset_right = 1153.0
 offset_bottom = 531.0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("9_i5s3e")
+theme_override_font_sizes/font_size = 32
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -161,6 +166,124 @@ theme_override_font_sizes/font_size = 28
 text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="JournalUI" type="CanvasLayer" parent="." unique_id=109536768 node_paths=PackedStringArray("title_label", "body_label")]
+visible = false
+script = ExtResource("10_ygr4t")
+title_label = NodePath("TextureRect/JournalTitle")
+body_label = NodePath("TextureRect/JournalText")
+
+[node name="TextureRect" type="TextureRect" parent="JournalUI" unique_id=695969927]
+modulate = Color(0.39215687, 1, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -303.25
+offset_top = -303.25
+offset_right = 303.25
+offset_bottom = 303.25
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_rfeav")
+
+[node name="JournalTitle" type="Label" parent="JournalUI/TextureRect" unique_id=590630380]
+layout_mode = 0
+offset_left = 135.25
+offset_top = 6.25
+offset_right = 584.25
+offset_bottom = 122.25
+theme_override_fonts/font = ExtResource("11_ygr4t")
+theme_override_font_sizes/font_size = 49
+text = "Trevor's Brewery handbook"
+autowrap_mode = 3
+
+[node name="JournalText" type="RichTextLabel" parent="JournalUI/TextureRect" unique_id=546063244]
+layout_mode = 0
+offset_left = 25.25
+offset_top = 111.5
+offset_right = 591.25
+offset_bottom = 583.25
+theme_override_fonts/normal_font = ExtResource("9_i5s3e")
+theme_override_font_sizes/normal_font_size = 48
+text = "red mist: alpha
+"
+scroll_active = false
+autowrap_mode = 2
+justification_flags = 160
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
+
+[node name="BreweryHandbookUI" type="CanvasLayer" parent="." unique_id=378324377 node_paths=PackedStringArray("title_label", "body_label")]
+visible = false
+script = ExtResource("10_ygr4t")
+title_label = NodePath("TextureRect/BreweryHandbookTitle")
+body_label = NodePath("TextureRect/BreweryHandbookText")
+
+[node name="TextureRect" type="TextureRect" parent="BreweryHandbookUI" unique_id=582516255]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BreweryHandbookTitle" type="Label" parent="BreweryHandbookUI/TextureRect" unique_id=1275202160]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BreweryHandbookText" type="RichTextLabel" parent="BreweryHandbookUI/TextureRect" unique_id=986567934]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TapeUI" type="CanvasLayer" parent="." unique_id=643808436 node_paths=PackedStringArray("title_label", "body_label")]
+visible = false
+script = ExtResource("10_ygr4t")
+title_label = NodePath("TextureRect/TapeTitle")
+body_label = NodePath("TextureRect/TapeText")
+
+[node name="TextureRect" type="TextureRect" parent="TapeUI" unique_id=1023268311]
+modulate = Color(0.39215687, 1, 1, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -303.25
+offset_top = -303.25
+offset_right = 303.25
+offset_bottom = 303.25
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_rfeav")
+
+[node name="TapeTitle" type="Label" parent="TapeUI/TextureRect" unique_id=55691417]
+layout_mode = 0
+offset_left = 135.25
+offset_top = 6.25
+offset_right = 584.25
+offset_bottom = 122.25
+theme_override_fonts/font = ExtResource("11_ygr4t")
+theme_override_font_sizes/font_size = 49
+text = "Trevor's Brewery handbook"
+autowrap_mode = 3
+
+[node name="TapeText" type="RichTextLabel" parent="TapeUI/TextureRect" unique_id=700248684]
+layout_mode = 0
+offset_left = 25.25
+offset_top = 111.5
+offset_right = 591.25
+offset_bottom = 583.25
+theme_override_fonts/normal_font = ExtResource("9_i5s3e")
+theme_override_font_sizes/normal_font_size = 48
+text = "red mist: alpha
+"
+scroll_active = false
+autowrap_mode = 2
+justification_flags = 160
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1578059824]
 current = true

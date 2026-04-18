@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://gs4avma7fv2x"
-path="res://.godot/imported/blastDoor_small.fbx-89f1ea6dec2f503079f399b3ee3d7d28.scn"
+uid="uid://cxoitaqmybtnc"
+path="res://.godot/imported/Indoor_Full_UV.fbx-032281fdab0e4f99e6d5956008e477a9.scn"
 
 [deps]
 
-source_file="res://assets/models/misc/Puerta_Blastdoor/blastDoor_small.fbx"
-dest_files=["res://.godot/imported/blastDoor_small.fbx-89f1ea6dec2f503079f399b3ee3d7d28.scn"]
+source_file="res://assets/models/misc/Indoor/Indoor_Full_UV.fbx"
+dest_files=["res://.godot/imported/Indoor_Full_UV.fbx-032281fdab0e4f99e6d5956008e477a9.scn"]
 
 [params]
 

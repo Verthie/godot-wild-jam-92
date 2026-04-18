@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bw1eck8ne6hjx"]
+
+[ext_resource type="ArrayMesh" uid="uid://bn8yv6qu5y2hk" path="res://assets/models/vhs.obj" id="1_vf5ug"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vctv2"]
+size = Vector3(0.09976074, 0.059902344, 0.018300781)
+
+[node name="Tape" type="StaticBody3D" unique_id=2120888103]
+
+[node name="Vhs" type="MeshInstance3D" parent="." unique_id=974024183]
+transform = Transform3D(0.085, 0, 0, 0, 0.085, 0, 0, 0, 0.085, 0, 0, 0)
+mesh = ExtResource("1_vf5ug")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=150330366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00041259825, 0.030236317, -0.0047970964)
+shape = SubResource("BoxShape3D_vctv2")

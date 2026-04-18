@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://i5ci573m23wc" path="res://scenes/items/brewing_room/trash_can.tscn" id="3_7npca"]
 [ext_resource type="ArrayMesh" uid="uid://kjt1hc6140uf" path="res://assets/models/Terrain/terrain_06.obj" id="3_b4qxk"]
 [ext_resource type="PackedScene" uid="uid://ccri2hc7dtc13" path="res://scenes/items/brewing_room/oxygen_maker.tscn" id="4_v01af"]
-[ext_resource type="Script" path="res://scripts/motion_blur_compositor.gd" id="5_0ofrv"]
+[ext_resource type="Script" uid="uid://dl25ngkctrcfc" path="res://scripts/motion_blur_compositor.gd" id="5_0ofrv"]
 [ext_resource type="PackedScene" uid="uid://87oflr5ytl6" path="res://scenes/items/brewing_room/bowl.tscn" id="5_32fx4"]
 [ext_resource type="ArrayMesh" uid="uid://b7ass7eitqeyp" path="res://assets/models/misc/PassageV4.obj" id="7_71s1a"]
 [ext_resource type="PackedScene" uid="uid://dij0fgki3wcqa" path="res://scenes/objects/Floor_Lamp.tscn" id="7_ohk1s"]
@@ -29,12 +29,15 @@
 [ext_resource type="PackedScene" uid="uid://dtoohwdtfkxew" path="res://scenes/items/brewing_room/wordle_board.tscn" id="18_rm2y2"]
 [ext_resource type="PackedScene" uid="uid://brhoentyagx0l" path="res://scenes/items/brewing_room/brewing_stand.tscn" id="19_3vkbi"]
 [ext_resource type="PackedScene" uid="uid://bd413m28777vl" path="res://scenes/items/Ingredients/potato.tscn" id="21_rm2y2"]
-[ext_resource type="PackedScene" path="res://scenes/levels/base_building.tscn" id="24_tb17h"]
+[ext_resource type="PackedScene" uid="uid://jm5fqe8v3ixo" path="res://scenes/levels/base_building.tscn" id="24_tb17h"]
 [ext_resource type="PackedScene" uid="uid://ckppucvlw5j5o" path="res://scenes/objects/blast_door_small.tscn" id="25_1jl4c"]
 [ext_resource type="PackedScene" uid="uid://jybv4plib51w" path="res://scenes/levels/green_house_v_1.tscn" id="26_osekx"]
-[ext_resource type="PackedScene" path="res://scenes/items/brewing_room/big_round_button.tscn" id="28_5h0fd"]
-[ext_resource type="PackedScene" path="res://scenes/items/brewing_room/sampler.tscn" id="29_i0yxl"]
-[ext_resource type="PackedScene" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
+[ext_resource type="PackedScene" uid="uid://bxpps6iej0xf8" path="res://scenes/items/brewing_room/big_round_button.tscn" id="28_5h0fd"]
+[ext_resource type="PackedScene" uid="uid://cjx44grbhpum7" path="res://scenes/items/brewing_room/sampler.tscn" id="29_i0yxl"]
+[ext_resource type="PackedScene" uid="uid://muvu2v8yftya" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
+[ext_resource type="PackedScene" uid="uid://cnl81uovfvoov" path="res://scenes/items/journal.tscn" id="37_e5bxq"]
+[ext_resource type="PackedScene" uid="uid://bw1eck8ne6hjx" path="res://scenes/items/tape.tscn" id="38_1s2ut"]
+[ext_resource type="Script" uid="uid://b56tqyujtnroc" path="res://scenes/items/story_text.gd" id="39_idy17"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p1d0p"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -77,13 +80,24 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("5_0ofrv")
-alpha = 0.825
 
 [sub_resource type="Compositor" id="Compositor_uof65"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_ma2cu")])
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eyj4g"]
 size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2fe5f"]
+size = Vector3(11.245, 1, 17.42)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1s2ut"]
+size = Vector3(4.53, 1, 10.37)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gxhqm"]
+size = Vector3(1.795, 5, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5bxq"]
+size = Vector3(1.845, 5, 2.515)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jecdl"]
 resource_name = "Default"
@@ -380,7 +394,15 @@ current = true
 fov = 45.0
 
 [node name="CharacterController" parent="." unique_id=379629607 instance=ExtResource("1_p1d0p")]
+<<<<<<< HEAD
 transform = Transform3D(0.24361503, 0, 0.969872, 0, 1, 0, -0.969872, 0, 0.24361503, -3.738186, 0.1290066, -1.6968474)
+=======
+transform = Transform3D(0.24361503, 0, 0.969872, 0, 1, 0, -0.969872, 0, 0.24361503, 7.344051, 2.4437017, 8.188024)
+
+[node name="MonsterController" parent="." unique_id=1093900517 node_paths=PackedStringArray("player") instance=ExtResource("14_84bhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7567844, 2.033417, 7.7408624)
+player = NodePath("../CharacterController")
+>>>>>>> 432b7e5215b00a9979d46f80b77f023468735167
 
 [node name="ExteriorArea" type="Area3D" parent="." unique_id=254690698]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8527198, 0.22385901, 0.023457736)
@@ -398,6 +420,26 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteriorArea" unique_id=1538338448]
 shape = SubResource("BoxShape3D_eyj4g")
+
+[node name="MonsterRegion" type="Area3D" parent="." unique_id=1224125478]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MonsterRegion" unique_id=494327242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8469429, 0, -0.06006074)
+shape = SubResource("BoxShape3D_2fe5f")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MonsterRegion" unique_id=248955215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6398783, 0, -2.9430947)
+shape = SubResource("BoxShape3D_1s2ut")
+
+[node name="IndoorRegion" type="Area3D" parent="." unique_id=519812196]
+
+[node name="BrewingRoomRegion" type="CollisionShape3D" parent="IndoorRegion" unique_id=1769088827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7908707, 0, -1.5065113)
+shape = SubResource("BoxShape3D_gxhqm")
+
+[node name="GreenHouseRegion" type="CollisionShape3D" parent="IndoorRegion" unique_id=1759380992]
+transform = Transform3D(0.6976029, 0, 0.7164846, 0, 1, 0, -0.7164846, 0, 0.6976029, -1.8425593, 0, -3.97134)
+shape = SubResource("BoxShape3D_e5bxq")
 
 [node name="terrain_v3" type="Node3D" parent="." unique_id=2059095153]
 
@@ -450,7 +492,7 @@ shape = SubResource("ConcavePolygonShape3D_u5lar")
 collision_layer = 12
 
 [node name="Terrain2" type="MeshInstance3D" parent="terrain_v3/Terrain" unique_id=1679018076]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08014536, 0, -0.050492287)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08181524, 0.0074664354, -0.055344105)
 mesh = ExtResource("3_b4qxk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_v3/Terrain" unique_id=927524200]
@@ -809,10 +851,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4171736, 0.08606687, 9.0161
 
 [node name="GreenHouseV1" parent="." unique_id=21872692 instance=ExtResource("26_osekx")]
 transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710677, -2.2135646, -0.0074211657, -4.212251)
+collision_layer = 12
 
 [node name="Base_Building" parent="." unique_id=467962067 instance=ExtResource("24_tb17h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8099597, 0.002, -1.313)
-collision_layer = 4
+collision_layer = 12
 collision_mask = 16
 
 [node name="blastDoor_Small" parent="Base_Building" unique_id=702524994 instance=ExtResource("25_1jl4c")]
@@ -823,6 +866,13 @@ transform = Transform3D(-2.6226832e-08, 0, 0.59999996, 0, 0.6000001, 0, -0.59999
 
 [node name="blastDoor_Small2" parent="Base_Building" unique_id=1807997930 instance=ExtResource("25_1jl4c")]
 transform = Transform3D(0.59999996, 0, -1.7763568e-15, 0, 0.6000001, 0, 1.7763568e-15, 0, 0.59999996, -0.18602848, 0.043567408, 1.2599802)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Base_Building" unique_id=1411832747]
+transform = Transform3D(-5.0097338e-08, 0, 0.3207867, 0, 1.0397944, 0, -1.1460935, 0, -1.4022032e-08, 0.15322375, -0.44343, 1.2609318)
+use_collision = true
+collision_layer = 4
+collision_mask = 16
+polygon = PackedVector2Array(-0.81, 0, 0, 0.5, 0, 0, 0, 0)
 
 [node name="BrewingRoom" type="Node3D" parent="." unique_id=1794882959]
 
@@ -884,3 +934,36 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.725135, 0.3, -2.1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1931625618]
 libraries/ = SubResource("AnimationLibrary_u2i4f")
 autoplay = &"wake_up_camurai"
+
+[node name="Journal (Trevor Brewery)" parent="." unique_id=1858384251 instance=ExtResource("37_e5bxq")]
+transform = Transform3D(1.3113414e-07, 0.99999994, 4.3711385e-08, 3.8213705e-15, 4.3711385e-08, -0.99999994, -0.9999999, 1.3113414e-07, 1.9106853e-15, -4.155056, 0.31510034, -0.97904766)
+text_tag = "journal_trevor_brewery"
+
+[node name="Journal1" parent="." unique_id=545759711 instance=ExtResource("37_e5bxq")]
+transform = Transform3D(0.08530853, 0, -0.6947823, 0, 0.7, 0, 0.6947823, 0, 0.08530853, -3.1671581, 0.21128, -1.716238)
+
+[node name="Journal2" parent="." unique_id=2040570615 instance=ExtResource("37_e5bxq")]
+transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, -3.4850686, 0.20411365, -0.5416372)
+text_tag = "journal_2"
+
+[node name="Journal3" parent="." unique_id=21467777 instance=ExtResource("37_e5bxq")]
+transform = Transform3D(-0.13146691, 0, -0.68754375, 0, 0.7, 0, 0.68754375, 0, -0.13146691, -2.1848803, 0.19663225, -4.520365)
+text_tag = "journal_3"
+
+[node name="Tape1" parent="." unique_id=2120888103 instance=ExtResource("38_1s2ut")]
+transform = Transform3D(-0.6249702, -0.7806486, 3.4123232e-08, 0, -4.371138e-08, -0.9999999, 0.7806486, -0.6249701, 2.731831e-08, 6.871222, 2.3749912, 8.088737)
+script = ExtResource("39_idy17")
+text_tag = "tape_1"
+ui_type = 2
+
+[node name="Tape2" parent="." unique_id=2006413386 instance=ExtResource("38_1s2ut")]
+transform = Transform3D(0.004067137, -0.20329994, 0.979108, 0.00084448466, 0.97911644, 0.20329824, -0.9999913, -1.11557624e-10, 0.004153884, -2.672398, -0.6487938, -2.3374965)
+script = ExtResource("39_idy17")
+text_tag = "tape_2"
+ui_type = 2
+
+[node name="Light at Spawn" type="Node3D" parent="." unique_id=847797550]
+transform = Transform3D(0.004067137, -0.20329994, 0.979108, 0.00084448466, 0.97911644, 0.20329824, -0.9999913, -1.11557624e-10, 0.004153884, 6.650349, 2.4372013, 7.9858723)
+
+[node name="Floor_Lamp" parent="Light at Spawn" unique_id=1804176768 instance=ExtResource("7_ohk1s")]
+transform = Transform3D(1, 3.0365022e-10, 0, 2.910373e-10, 1, 7.450532e-08, 0, -7.450828e-08, 1, -0.084554195, -0.13483238, 0.1804514)
