@@ -98,22 +98,22 @@ collision_layer = 4
 collision_mask = 16
 
 [node name="Potato" parent="Indoor2" unique_id=1860237427 instance=ExtResource("5_4sll4")]
-transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 0.049441934, 0.06665403, 0.052245617)
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 0.049441993, 0.080428064, 0.052245617)
 
 [node name="Potato2" parent="Indoor2" unique_id=770488290 instance=ExtResource("5_4sll4")]
-transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -0.0854525, 0.06665403, -0.004105374)
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -0.08545247, 0.080428064, -0.004105374)
 
 [node name="Potato3" parent="Indoor2" unique_id=132919671 instance=ExtResource("5_4sll4")]
-transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -0.011683553, 0.06665403, -0.061059773)
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -0.011683524, 0.080428064, -0.06105978)
 
 [node name="Potato4" parent="Indoor2" unique_id=1689269811 instance=ExtResource("5_4sll4")]
-transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 0.07962221, 0.06665403, -0.048546165)
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 0.07962224, 0.080428064, -0.04854618)
 
 [node name="Potato5" parent="Indoor2" unique_id=1945462494 instance=ExtResource("5_4sll4")]
-transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -0.04223618, 0.06665403, 0.072682515)
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -0.04223615, 0.080428064, 0.072682515)
 
 [node name="Potato6" parent="Indoor2" unique_id=1876306224 instance=ExtResource("5_4sll4")]
-transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -0.0034502745, 0.06665403, 0.007277578)
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -0.0034502447, 0.080428064, 0.007277563)
 
 [node name="Crates" type="Node3D" parent="." unique_id=517704051]
 
