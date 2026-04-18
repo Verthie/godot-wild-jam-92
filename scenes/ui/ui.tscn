@@ -26,5 +26,5 @@ vertical_alignment = 1
 [node name="OxygenBar" type="ProgressBar" parent="." unique_id=660596919]
 offset_right = 223.0
 offset_bottom = 41.0
-step = 1.0
+step = 2.0
 value = 100.0

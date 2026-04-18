@@ -56,6 +56,7 @@ signal talked(text: String)
 @onready var hand_right: Node3D = $Head/HandRight
 @onready var hand_left: Node3D = $Head/HandLeft
 
+@onready var canvas_layer = $CanvasLayer
 @onready var interaction_label = $"CanvasLayer/InteractionLabel"
 @onready var crosshair = $"CanvasLayer/CenterContainer/Crosshair"
 

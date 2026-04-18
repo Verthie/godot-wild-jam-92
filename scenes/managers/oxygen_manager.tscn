@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cp7b2o2eixs5s" path="res://scenes/managers/oxygen_manager.gd" id="1_klcwf"]
 
-[node name="OxygenManager" type="Node" unique_id=1735648967 node_paths=PackedStringArray("player")]
+[node name="OxygenManager" type="Node" unique_id=1735648967]
 script = ExtResource("1_klcwf")
-player = NodePath("")
 
 [node name="Timer" type="Timer" parent="." unique_id=1738924671]
 wait_time = 100.0
 autostart = true
+
+[node name="SprintTimer" type="Timer" parent="." unique_id=1695270915]
