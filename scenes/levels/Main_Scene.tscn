@@ -839,6 +839,13 @@ transform = Transform3D(-2.6226832e-08, 0, 0.59999996, 0, 0.6000001, 0, -0.59999
 [node name="blastDoor_Small2" parent="Base_Building" unique_id=1807997930 instance=ExtResource("25_1jl4c")]
 transform = Transform3D(0.59999996, 0, -1.7763568e-15, 0, 0.6000001, 0, 1.7763568e-15, 0, 0.59999996, -0.18602848, 0.043567408, 1.2599802)
 
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Base_Building" unique_id=1411832747]
+transform = Transform3D(-5.0097338e-08, 0, 0.3207867, 0, 1.0397944, 0, -1.1460935, 0, -1.4022032e-08, 0.15322375, -0.44343, 1.2609318)
+use_collision = true
+collision_layer = 4
+collision_mask = 16
+polygon = PackedVector2Array(-0.81, 0, 0, 0.5, 0, 0, 0, 0)
+
 [node name="BrewingRoom" type="Node3D" parent="." unique_id=1794882959]
 
 [node name="Wordle Board" parent="BrewingRoom" unique_id=1030027931 instance=ExtResource("18_rm2y2")]
