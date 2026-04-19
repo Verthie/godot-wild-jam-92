@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cc4tit4tklkm"
+path="res://.godot/imported/Rocket Ready For Launch.ogg-17df4eb8dd0007a44e92cd5d8ed27581.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/Rocket Ready For Launch.ogg"
+dest_files=["res://.godot/imported/Rocket Ready For Launch.ogg-17df4eb8dd0007a44e92cd5d8ed27581.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

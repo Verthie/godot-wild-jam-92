@@ -4,9 +4,10 @@
 
 [node name="OxygenManager" type="Node" unique_id=1735648967]
 script = ExtResource("1_klcwf")
+oxygen_replenishment_amount = 100
 
 [node name="Timer" type="Timer" parent="." unique_id=1738924671]
-wait_time = 100.0
+wait_time = 150.0
 autostart = true
 
 [node name="SprintTimer" type="Timer" parent="." unique_id=1695270915]

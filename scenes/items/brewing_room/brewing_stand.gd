@@ -64,7 +64,7 @@ func interact(player, hand):
 	if not shown_first_text and cutscene_manager.second_cutscene_done:
 		player.show_ui("brewing_stand", Globals.UITextType.TUTORIAL)
 		shown_first_text = true
-	
+
 	# Press E should do nothing on the brewing stand
 	if hand == "none":
 		return
@@ -78,7 +78,7 @@ func interact(player, hand):
 	# --- Force player to take vial first ---
 	if output_item != null:
 		return
-	
+
 	# prevent empty hand click
 	if held_item:
 		if held_item.tag in ["moon_seed", "vial_bad", "cure"]:
@@ -114,6 +114,8 @@ func interact(player, hand):
 		if scene:
 			player.give_item_to_hand(scene, hand)
 
+		AudioManager.create_audio(SoundEffect.SoundEffectType.PICK_UP_INGREDIENT)
+
 		return
 
 
@@ -148,6 +150,8 @@ func start_brewing():
 	# Confirm start brewing
 	print("Brewing started...")
 
+	AudioManager.create_audio(SoundEffect.SoundEffectType.BREWERY_ACTIVATE)
+
 	var result = evaluate_guess(current_items, correct_recipe)
 
 	if board:
@@ -163,9 +167,9 @@ func start_brewing():
 	sampler.brew() # Use up one moon_seed
 	reset_items()
 
-	if sampler.remaining_brews <=0 and not cure_crafted:
-		print("You lost the game bro")
-		# TODO trigger game lost sequence
+	if sampler.remaining_brews <= 0 and not cure_crafted:
+		var player: Player = get_tree().get_first_node_in_group("player")
+		player.health_component.damage(1)
 
 
 func reset_items():
@@ -203,6 +207,7 @@ func evaluate_guess(guess: Array, correct_recipe: Array) -> Array:
 		if guess[i] == correct_recipe[i]:
 			result[i] = "green"
 			ingredients_evaluated[i] = true
+			AudioManager.create_audio(SoundEffect.SoundEffectType.BREWERY_CORRECT)
 
 	# --- PASS 2: YELLOW (correct item, wrong position) ---
 	for i in range(guess.size()):

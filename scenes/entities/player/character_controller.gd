@@ -106,6 +106,10 @@ var can_move_camera: bool = true
 @export_group("Item Scenes")
 @export var moon_seed_item_scene: PackedScene
 
+var footstep_timer: float = 0.0
+var footstep_interval: float = 0.5  # seconds between steps
+var use_first_footstep: bool = true
+
 func _ready() -> void:
 	check_input_mappings()
 	capture_mouse()
@@ -233,12 +237,37 @@ func _physics_process(delta: float) -> void:
 	# Use velocity to actually move
 	move_and_slide()
 
+	# var is_moving = velocity.length() > 0.1
+	# var is_on_floor = is_on_floor()
+
+	# if is_moving and is_on_floor:
+	# 	footstep_timer -= delta
+	# 	if footstep_timer <= 0.0:
+	# 		play_footstep()
+	# 		footstep_timer = footstep_interval
+	# else:
+	# 	footstep_timer = 0.0
+
+
+# func play_footstep() -> void:
+	# if use_first_footstep and is_indoors:
+	# 	AudioManager.create_audio(SoundEffect.SoundEffectType.INDOORS_FOOTSTEPS_ONE)
+	# else:
+	# 	AudioManager.create_audio(SoundEffect.SoundEffectType.INDOORS_FOOTSTEPS_TWO)
+
+	# use_first_footstep = !use_first_footstep
 
 func try_interact(hand: String):
 
 	if interactable:
 		interactable.interact(self, hand)
 
+func respawn():
+	await TransitionNode.fade_in()
+	global_position = Vector3(-3.527, 0.068, -1.34)
+	await TransitionNode.fade_out(3)
+	await TransitionNode.fade_in(1)
+	await TransitionNode.fade_out(1)
 
 func update_interaction_ui():
 	var interactable = get_looked_at_interactable()
@@ -422,7 +451,7 @@ func set_movement_enabled(state: bool):
 func show_ui(tag: String, type: int):
 	# Pause movement/oxygen etc
 	get_tree().paused = true
-	
+
 	interaction_label.visible = false
 	crosshair.visible = false
 
@@ -444,10 +473,10 @@ func show_ui(tag: String, type: int):
 func close_ui():
 	# Unpause movement/oxygen etc
 	get_tree().paused = false
-	
+
 	interaction_label.visible = true
 	crosshair.visible = true
-	
+
 	if current_ui:
 		current_ui.visible = false
 

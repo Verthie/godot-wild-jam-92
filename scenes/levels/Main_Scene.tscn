@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://fgwxnfttaro7"]
+[gd_scene format=4 uid="uid://bhpv1a2obrvgc"]
 
 [ext_resource type="Script" uid="uid://ugnt3riwyw0r" path="res://scenes/levels/main_scene.gd" id="1_0ofrv"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/entities/player/character_controller.tscn" id="1_p1d0p"]
@@ -7,9 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dsab4xeyumgco" path="res://scenes/managers/mood_manager.tscn" id="1_wn3jb"]
 [ext_resource type="PackedScene" uid="uid://bdsxr6usn5h1h" path="res://scenes/ui/ui.tscn" id="2_r8nyi"]
 [ext_resource type="PackedScene" uid="uid://i5ci573m23wc" path="res://scenes/items/brewing_room/trash_can.tscn" id="3_7npca"]
-[ext_resource type="ArrayMesh" uid="uid://kjt1hc6140uf" path="res://assets/models/Terrain/terrain_06.obj" id="3_b4qxk"]
 [ext_resource type="PackedScene" uid="uid://ccri2hc7dtc13" path="res://scenes/items/brewing_room/oxygen_maker.tscn" id="4_v01af"]
-[ext_resource type="Script" uid="uid://dl25ngkctrcfc" path="res://scripts/motion_blur_compositor.gd" id="5_0ofrv"]
+[ext_resource type="Script" path="res://scripts/motion_blur_compositor.gd" id="5_0ofrv"]
 [ext_resource type="PackedScene" uid="uid://87oflr5ytl6" path="res://scenes/items/brewing_room/bowl.tscn" id="5_32fx4"]
 [ext_resource type="Shader" uid="uid://6ruxv2406ad0" path="res://resources/shaders/psx_fog.gdshader" id="6_crguu"]
 [ext_resource type="ArrayMesh" uid="uid://b7ass7eitqeyp" path="res://assets/models/misc/PassageV4.obj" id="7_71s1a"]
@@ -20,9 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://co0ito6d5e54i" path="res://scenes/objects/trees and forest/Forest_01.tscn" id="10_62ook"]
 [ext_resource type="PackedScene" uid="uid://hk4ht0uf8q0q" path="res://scenes/items/Ingredients/mist_seed.tscn" id="10_ugir4"]
 [ext_resource type="PackedScene" uid="uid://cp1vgj36e0bv1" path="res://scenes/objects/trees and forest/tree_01.tscn" id="11_e5bxq"]
+[ext_resource type="PackedScene" uid="uid://dfrxcowo62lhr" path="res://scenes/items/Ingredients/mush_seed.tscn" id="11_8tn4d"]
 [ext_resource type="PackedScene" uid="uid://bi2sejp6vi2ot" path="res://scenes/objects/trees and forest/tree_02.tscn" id="12_2fe5f"]
 [ext_resource type="PackedScene" uid="uid://bdrugicyh6exo" path="res://scenes/items/Ingredients/watermelon.tscn" id="12_syf5b"]
 [ext_resource type="PackedScene" uid="uid://ppnjt5wvd0w8" path="res://scenes/objects/trees and forest/tree_03.tscn" id="13_1s2ut"]
+[ext_resource type="ArrayMesh" uid="uid://dur5ivs7xloxu" path="res://assets/models/Terrain/terrain_10.obj" id="13_8tn4d"]
 [ext_resource type="PackedScene" uid="uid://dmdo4jrfayrp3" path="res://scenes/levels/launch_pad.tscn" id="14_71s1a"]
 [ext_resource type="PackedScene" uid="uid://bspqtdixrj2ry" path="res://scenes/objects/trees and forest/tree_04.tscn" id="14_idy17"]
 [ext_resource type="PackedScene" uid="uid://blbbmf2rsj4na" path="res://scenes/objects/trees and forest/Forest_02.tscn" id="15_41wiu"]
@@ -426,10 +427,13 @@ _data = {
 size = Vector2(0.1, 0.1)
 orientation = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xlhmg"]
+size = Vector3(0.625, 0.545, 0.76501954)
+
 [node name="MainScene" type="Node3D" unique_id=602291638]
 script = ExtResource("1_0ofrv")
 
-[node name="CutsceneManager" type="Node" parent="." unique_id=754631928 node_paths=PackedStringArray("ui", "player", "cutscene_camera", "animation_player", "oxygen_manager", "tape_1", "exit_door", "mist_seed", "oxygen_maker", "cutscene_area_exterior", "cutscene_area_base")]
+[node name="CutsceneManager" type="Node" parent="." unique_id=754631928 node_paths=PackedStringArray("ui", "player", "cutscene_camera", "animation_player", "oxygen_manager", "tape_1", "exit_door", "mist_seed", "oxygen_maker", "launch_pad", "cutscene_area_exterior", "cutscene_area_base")]
 script = ExtResource("1_u2i4f")
 ui = NodePath("../UI")
 player = NodePath("../CharacterController")
@@ -440,9 +444,9 @@ tape_1 = NodePath("../Tape1")
 exit_door = NodePath("../Base_Building/blastDoor_Small2")
 mist_seed = NodePath("../BrewingRoom/Ingredients/Mist Seed")
 oxygen_maker = NodePath("../BrewingRoom/Oxygen Maker")
+launch_pad = NodePath("../terrain_v3/LaunchPad2")
 cutscene_area_exterior = NodePath("../CutsceneAreaExterior")
 cutscene_area_base = NodePath("../CutsceneAreaBase")
-play_cutscenes = false
 
 [node name="MoodManager" parent="." unique_id=1883706707 node_paths=PackedStringArray("player", "exterior_area", "interior_area", "cutscene_area") instance=ExtResource("1_wn3jb")]
 player = NodePath("../CharacterController")
@@ -488,8 +492,49 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="CharacterController" parent="." unique_id=379629607 instance=ExtResource("1_p1d0p")]
-transform = Transform3D(0.7858566, 0, 0.6184083, 0, 1.0000001, 0, -0.6184082, 0, 0.7858567, 6.9939713, 2.3838441, 8.535909)
+transform = Transform3D(0.7858566, 0, 0.6184083, 0, 1.0000001, 0, -0.6184082, 0, 0.7858567, -3.5267003, 0.06842911, -1.3396759)
+[node name="FIXED IN PLACE SEEDS" type="Node3D" parent="." unique_id=723045147]
+transform = Transform3D(0.5837964, 0, 0.8119004, 0, 1, 0, -0.8119004, 0, 0.5837964, -0.2938423, -0.057056338, 0.74010897)
 
+[node name="Mist" type="Node3D" parent="FIXED IN PLACE SEEDS" unique_id=662381329]
+
+[node name="Mist Seed5" parent="FIXED IN PLACE SEEDS/Mist" unique_id=2058058112 instance=ExtResource("10_ugir4")]
+transform = Transform3D(-0.017179172, 0, -0.09851329, 0, 0.099999994, 0, 0.09851329, 0, -0.017179172, 4.5978446, -0.2552072, -6.595279)
+
+[node name="Mist Seed6" parent="FIXED IN PLACE SEEDS/Mist" unique_id=188042147 instance=ExtResource("10_ugir4")]
+transform = Transform3D(-0.017179172, 0, -0.09851329, 0, 0.099999994, 0, 0.09851329, 0, -0.017179172, 4.139945, -0.24977738, -7.6756086)
+
+[node name="Mist Seed3" parent="FIXED IN PLACE SEEDS/Mist" unique_id=1994247018 instance=ExtResource("10_ugir4")]
+transform = Transform3D(-0.017179172, 0, -0.09851329, 0, 0.099999994, 0, 0.09851329, 0, -0.017179172, 5.66283, -0.20449153, -6.026051)
+
+[node name="Mist Seed4" parent="FIXED IN PLACE SEEDS/Mist" unique_id=270634699 instance=ExtResource("10_ugir4")]
+transform = Transform3D(-0.017179172, 0, -0.09851329, 0, 0.099999994, 0, 0.09851329, 0, -0.017179172, 5.9787717, -0.13670607, -4.2378893)
+
+[node name="Mist Seed2" parent="FIXED IN PLACE SEEDS/Mist" unique_id=434480574 instance=ExtResource("10_ugir4")]
+transform = Transform3D(0.07498501, 0.0057152365, -0.06591341, -0.008148307, 0.09966548, -0.0006279014, 0.06565705, 0.005841668, 0.07519985, 5.894048, -0.09786981, -4.9419475)
+
+[node name="Mist Seed" parent="FIXED IN PLACE SEEDS/Mist" unique_id=83065014 instance=ExtResource("10_ugir4")]
+transform = Transform3D(-0.017179172, 0, -0.09851329, 0, 0.099999994, 0, 0.09851329, 0, -0.017179172, 7.359087, -0.23690644, -3.7737117)
+
+[node name="Mush" type="Node3D" parent="FIXED IN PLACE SEEDS" unique_id=1840168934]
+
+[node name="Mush Seed" parent="FIXED IN PLACE SEEDS/Mush" unique_id=1163685808 instance=ExtResource("11_8tn4d")]
+transform = Transform3D(0.0583796, 0, -0.08119, 0, 0.1, 0, 0.08119, 0, 0.0583796, -1.084733, -0.18983957, 2.1101856)
+
+[node name="Mush Seed3" parent="FIXED IN PLACE SEEDS/Mush" unique_id=1516363717 instance=ExtResource("11_8tn4d")]
+transform = Transform3D(0.0583796, 0, -0.08119, 0, 0.1, 0, 0.08119, 0, 0.0583796, -2.1770496, -0.17360798, 1.6816661)
+
+[node name="Mush Seed2" parent="FIXED IN PLACE SEEDS/Mush" unique_id=181654474 instance=ExtResource("11_8tn4d")]
+transform = Transform3D(0.0583796, 0, -0.08119, 0, 0.1, 0, 0.08119, 0, 0.0583796, 0.06703377, -0.006006226, 1.7473502)
+
+[node name="Mush Seed4" parent="FIXED IN PLACE SEEDS/Mush" unique_id=1028110224 instance=ExtResource("11_8tn4d")]
+transform = Transform3D(0.0583796, 0, -0.08119, 0, 0.1, 0, 0.08119, 0, 0.0583796, 1.5658581, -0.11197311, 2.7724667)
+
+[node name="Mush Seed5" parent="FIXED IN PLACE SEEDS/Mush" unique_id=1706097548 instance=ExtResource("11_8tn4d")]
+transform = Transform3D(0.09958826, 0.003054563, 0.008534823, -5.4651386e-09, 0.09415177, -0.03369637, -0.009064965, 0.033557646, 0.0937641, 1.0034747, -0.02705723, 2.3404942)
+
+[node name="Mush Seed6" parent="FIXED IN PLACE SEEDS/Mush" unique_id=600941608 instance=ExtResource("11_8tn4d")]
+transform = Transform3D(0.0583796, 0, -0.08119, 0, 0.1, 0, 0.08119, 0, 0.0583796, 2.8631406, -0.008563951, 2.110812)
 [node name="CutsceneAreaExterior" type="Area3D" parent="." unique_id=734963161]
 collision_layer = 0
 collision_mask = 4
@@ -1073,12 +1118,14 @@ collision_layer = 5
 cutscene_manager = NodePath("../../CutsceneManager")
 
 [node name="Ingredients" type="Node3D" parent="BrewingRoom" unique_id=411891239]
-
+[node name="Mist Seed" parent="BrewingRoom/Ingredients" unique_id=254666375 instance=ExtResource("10_ugir4")]
 [node name="Mist Seed" parent="BrewingRoom/Ingredients" unique_id=2058058112 instance=ExtResource("10_ugir4")]
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -4.126314, 0.22093767, -1.6310465)
+finite_enabled = true
 
 [node name="Watermelon" parent="BrewingRoom/Ingredients" unique_id=395670652 instance=ExtResource("12_syf5b")]
 transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -4.1443744, 0.23456118, -1.7299252)
+finite_enabled = true
 
 [node name="MoonSeed" parent="." unique_id=861819151 instance=ExtResource("30_62ook")]
 transform = Transform3D(0.005028229, 0.14991571, 0, -0.14991571, 0.005028229, 0, 0, 0, 0.14999999, 6.7742443, 2.3774369, 8.286237)
@@ -1103,7 +1150,7 @@ transform = Transform3D(-0.13146691, 0, -0.68754375, 0, 0.7, 0, 0.68754375, 0, -
 text_tag = "journal_3"
 
 [node name="Tape1" parent="." unique_id=2120888103 instance=ExtResource("38_1s2ut")]
-transform = Transform3D(0.94665676, -0.31325153, -0.07559316, 0.045765847, -0.10151117, 0.9937807, -0.31897706, -0.944229, -0.08176, 6.8325458, 2.3928263, 8.486437)
+transform = Transform3D(0.94665676, -0.31325144, -0.07559316, 0.045765847, -0.10151114, 0.9937807, -0.31897706, -0.94422877, -0.08176, 6.8325458, 2.3928263, 8.486437)
 script = ExtResource("39_idy17")
 text_tag = "tape_1"
 ui_type = 2
@@ -1162,7 +1209,7 @@ transform = Transform3D(0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, 0.70710
 mesh = SubResource("PlaneMesh_cjtiw")
 
 [node name="Sprite3D" type="Sprite3D" parent="Signs/Tile6" unique_id=1523519496]
-transform = Transform3D(0.055, 0, -1.8626451e-09, 0, 0.055, 0, 1.8626451e-09, 0, 0.055, -0.016483784, -0.020305336, 0.0036642551)
+transform = Transform3D(0.055, 0, -1.8626451e-09, 0, 0.055, 0, 1.8626451e-09, 0, 0.055, 0.0007247925, 0.0014078021, 0.0028116703)
 texture = ExtResource("42_5cpeo")
 
 [node name="Tile3" type="MeshInstance3D" parent="Signs" unique_id=1369225615]
@@ -1180,3 +1227,12 @@ mesh = SubResource("PlaneMesh_cjtiw")
 [node name="Sprite3D" type="Sprite3D" parent="Signs/Tile4" unique_id=1336628915]
 transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 0, 0, 0.014519215)
 texture = ExtResource("43_5cpeo")
+
+[node name="LaunchArea" type="Area3D" parent="." unique_id=955645046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.314547, 0.50618124, -5.8273416)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LaunchArea" unique_id=1443701251]
+transform = Transform3D(0.39021692, 0, -0.92072296, 0, 1, 0, 0.92072296, 0, 0.39021692, 0.088037014, -5.9604645e-08, 0.19089317)
+shape = SubResource("BoxShape3D_xlhmg")

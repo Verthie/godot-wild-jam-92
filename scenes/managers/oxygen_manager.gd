@@ -12,6 +12,8 @@ extends Node
 @onready var timer: Timer = $Timer
 @onready var sprint_timer: Timer = $SprintTimer
 
+var warning_triggered: bool = false
+
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("sprint"):
@@ -26,6 +28,10 @@ func _ready() -> void:
 
 func _process(_delta) -> void:
 	ui.update_oxygen_display(timer.time_left)
+	if timer.time_left == 20 and !warning_triggered:
+		ui.timed_display_prompt("LOW OXYGEN WARNING", 3)
+		AudioManager.create_audio(SoundEffect.SoundEffectType.OXYGEN_WARNING_FINAL)
+		warning_triggered = true
 
 func set_oxygen_display(state: bool = true) -> void:
 	if state:
@@ -33,7 +39,7 @@ func set_oxygen_display(state: bool = true) -> void:
 	else:
 		ui.oxygen_bar.hide()
 
-func enable_oxygen_deplete(initial_value: float = 100) -> void:
+func enable_oxygen_deplete(initial_value: float = timer.wait_time) -> void:
 	timer.start(initial_value)
 
 func disable_oxygen_deplete() -> void:
@@ -48,7 +54,9 @@ func _on_timer_timeout() -> void:
 func _on_oxygen_maker_produced_oxygen() -> void:
 	var current_percentage = clamp(timer.time_left + oxygen_replenishment_amount, 0, ui.oxygen_bar.max_value)
 	timer.start(current_percentage)
+	warning_triggered = false
+	AudioManager.create_3d_audio_at_location(oxygen_maker.global_position, SoundEffect.SoundEffectType.OXYGEN_REPLENISH)
 
 func _on_sprint_timer_timeout() -> void:
-	var current_percentage = clamp(timer.time_left - ui.oxygen_bar.step + 1, 0, 100)
+	var current_percentage = clamp(timer.time_left - ui.oxygen_bar.step + 1, 0, timer.wait_time)
 	timer.start(current_percentage)

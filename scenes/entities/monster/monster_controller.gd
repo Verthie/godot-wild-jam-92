@@ -9,7 +9,7 @@ signal entered_phase(phase_number: int)
 @export var panic_speed := 1.1 # Phase 3 panic chase speed
 
 @export var player: Player
-@export var chasing_distance := 4.0
+@export var chasing_distance := 10.0
 @export var panic_distance := 1.0
 
 @export var gravity := 9.8 # Earth gravity

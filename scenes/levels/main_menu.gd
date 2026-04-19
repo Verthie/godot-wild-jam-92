@@ -14,11 +14,14 @@ func _ready() -> void:
 	exit.pressed.connect(_on_exit_button_pressed)
 
 func _on_start_button_pressed() -> void:
+	AudioManager.create_audio(SoundEffect.SoundEffectType.START)
 	await TransitionNode.fade_in()
 	get_tree().change_scene_to_packed(GAME_SCENE)
 
 func _on_credits_button_pressed() -> void:
+	AudioManager.create_audio(SoundEffect.SoundEffectType.SELECT)
 	get_tree().change_scene_to_packed(CREDITS_SCENE)
 
 func _on_exit_button_pressed() -> void:
+	AudioManager.create_audio(SoundEffect.SoundEffectType.RETURN)
 	get_tree().quit()

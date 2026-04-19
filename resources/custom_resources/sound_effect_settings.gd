@@ -44,6 +44,8 @@ enum SoundEffectType{
 	RAMP_FOOTSTEPS_TWO,
 	INDOORS_FOOTSTEPS_ONE,
 	INDOORS_FOOTSTEPS_TWO,
+
+	ROCKET
 }
 
 @export_range(0, 10) var limit: int = 5

@@ -10,6 +10,7 @@ var remaining_brews := 5
 
 func _ready() -> void:
 	update_display()
+	EventBus.lost_seed.connect(_on_lost_seed)
 
 func interact(player, hand):
 	# Interact by left click or right click
@@ -60,3 +61,6 @@ func get_interaction_text(player):
 		return "Brews Left: " + str(remaining_brews)
 
 	return "Sampler Depleted"
+
+func _on_lost_seed() -> void:
+	remaining_brews = max(0, remaining_brews-1)

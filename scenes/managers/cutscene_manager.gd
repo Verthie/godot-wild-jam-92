@@ -11,6 +11,7 @@ const MONSTER_SCENE = preload("res://scenes/entities/monster/monster_controller.
 @export var exit_door: Node3D
 @export var mist_seed: Node3D
 @export var oxygen_maker: Node3D
+@export var launch_pad: StaticBody3D
 
 @export var cutscene_area_exterior: Area3D
 @export var cutscene_area_base: Area3D
@@ -32,7 +33,6 @@ func _ready() -> void:
 	await get_tree().process_frame
 
 	player.set_movement_enabled(false)
-	player.canvas_layer.hide()
 
 	in_cutscene = true
 
@@ -64,6 +64,9 @@ func _ready() -> void:
 	await _open_eyes()
 
 	animation_player.play("wake_up_camurai")
+
+	await get_tree().create_timer(1.0).timeout
+
 	await animation_player.animation_finished
 
 	player.canvas_layer.show()
@@ -73,6 +76,8 @@ func _ready() -> void:
 
 	var player_input = await _wait_for_input(["interact_left"])
 
+	AudioManager.create_audio(SoundEffect.SoundEffectType.PICK_UP_INGREDIENT)
+
 	print("playing pick_up_animation: ", player_input)
 
 	animation_player.play("pick_up_camera")
@@ -81,18 +86,27 @@ func _ready() -> void:
 	ui.display_prompt("Press E to play the tape")
 	await _wait_for_input(["interact"])
 
+	player.set_movement_enabled(false)
+
+	AudioManager.create_audio(SoundEffect.SoundEffectType.TAPE_PLAYBACK)
+	MusicManager.play_music(MusicTrack.MusicType.TAPE, 4)
+
 	ui.hide_prompt()
 
 	tape_1.fyi_ui_should_never_be_tied_to_the_player_there_is_no_way_to_call_it_from_other_nodes_and_i_need_to_use_this_hacky_solution(player)
 
 	await player.finished_reading
+	player.set_movement_enabled(false)
 
 	tape_1.queue_free()
 
 	animation_player.play("go_back_to_default")
 	await animation_player.animation_finished
+	player.set_movement_enabled(false)
 
 	_cutscene_end()
+
+	player.set_movement_enabled(true)
 
 # player triggers the cutscene near the base
 func _on_first_cutscene_area_player_entered(_body: Node3D) -> void:
@@ -123,11 +137,15 @@ func _on_first_cutscene_area_player_entered(_body: Node3D) -> void:
 		Vector3.UP
 	)
 
+	MusicManager.crossfade(MusicTrack.MusicType.TAPE, MusicTrack.MusicType.CHASE)
+	MusicManager.tween_track_pitch(MusicTrack.MusicType.CHASE, 0.8, 2.0)
+
 	await get_tree().create_timer(0.5).timeout
 	turn_to_target(cutscene_camera, ANIMATION_DURATION, target_transform)
 	await get_tree().create_timer(ANIMATION_DURATION * 2).timeout
 
 	# monster starts glowing and runnning towards the player
+	AudioManager.create_audio(SoundEffect.SoundEffectType.HEARTBEAT)
 
 	monster.chase_enabled = true
 	monster.speed = 0.5
@@ -228,6 +246,9 @@ func _on_second_cutscene_area_player_entered(_body: Node3D) -> void:
 	# Jason:
 	second_cutscene_done = true
 
+func play_final_cutscene() -> void:
+	AudioManager.create_3d_audio_at_location(launch_pad.global_position, SoundEffect.SoundEffectType.ROCKET)
+
 
 func apply_blur() -> void:
 	# var tween = create_tween()
@@ -253,9 +274,13 @@ func turn_to_target(camera: Camera3D, duration: float, target_transform) -> void
 
 
 func _open_eyes() -> void:
+	AudioManager.create_audio(SoundEffect.SoundEffectType.INHALE)
+
 	await ui.fade_out_screen(2.0)
 	await get_tree().create_timer(2.0).timeout
 	await ui.fade_in_screen(0.5)
+
+	AudioManager.create_audio(SoundEffect.SoundEffectType.EXHALE)
 	await ui.fade_out_screen(2.5)
 
 

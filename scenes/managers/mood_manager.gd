@@ -49,6 +49,9 @@ func _ready() -> void:
 	interior_area.body_entered.connect(_on_interior_area_body_entered)
 	exterior_area.body_entered.connect(_on_exterior_area_body_entered)
 
+	await get_tree().process_frame
+	player.health_component.died.connect(_on_player_death)
+
 func _process(_delta) -> void:
 	if player == null or monster == null:
 		return
@@ -221,9 +224,10 @@ func _on_interior_area_body_entered(body: Node3D) -> void:
 	if body is not Player:
 		return
 
-	# TODO ADD THE CROSSFADE TO INTERIOR THEME
+	if !MusicManager.is_playing(MusicTrack.MusicType.INTERIOR):
+		MusicManager.crossfade(MusicTrack.MusicType.CHASE, MusicTrack.MusicType.INTERIOR)
 
-	MusicManager.set_lowpass_cutoff(800.0, 1.0)
+	MusicManager.set_lowpass_cutoff(500.0, 1.0)
 
 func _on_exterior_area_body_entered(body: Node3D) -> void:
 	if body is not Player:
@@ -231,5 +235,10 @@ func _on_exterior_area_body_entered(body: Node3D) -> void:
 
 	MusicManager.clear_lowpass(1.0)
 
-	# TODO CHANGE TO CROSSFADE ONCE THE MUSIC IS ADDED AT BEGINNING OF THE LEVEL
-	MusicManager.play_music(MusicTrack.MusicType.CHASE)
+	if !MusicManager.is_playing(MusicTrack.MusicType.CHASE):
+		MusicManager.crossfade(MusicTrack.MusicType.INTERIOR, MusicTrack.MusicType.CHASE)
+		MusicManager.tween_track_pitch(MusicTrack.MusicType.CHASE, 0.2, 2)
+
+func _on_player_death() -> void:
+	player.psx.material.set_shader_parameter("jitter_amount", 0.001)
+	player.psx.material.set_shader_parameter("chromatic_aberration_strength", 0.0)

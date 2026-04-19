@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SoundEffect" format=3 uid="uid://ch182tqq2yoap"]
+
+[ext_resource type="Script" uid="uid://cod75dt4mb5lk" path="res://resources/custom_resources/sound_effect_settings.gd" id="1_2tfve"]
+[ext_resource type="AudioStream" uid="uid://cc4tit4tklkm" path="res://assets/sfx/Rocket Ready For Launch.ogg" id="2_ati0q"]
+
+[resource]
+script = ExtResource("1_2tfve")
+type = 41
+sound_effect = ExtResource("2_ati0q")
+metadata/_custom_type_script = "uid://cod75dt4mb5lk"
