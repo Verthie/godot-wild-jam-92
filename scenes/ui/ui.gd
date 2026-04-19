@@ -1,17 +1,12 @@
 extends CanvasLayer
 class_name Interface
 
-@export var player: Player
-
 @onready var bottom_prompt: Label = %BottomPrompt
 @onready var oxygen_bar: ProgressBar = $OxygenBar
 @onready var color_rect: ColorRect = $ColorRect
 
 func _ready() -> void:
 	bottom_prompt.hide()
-
-	if player != null:
-		player.talked.connect(_on_player_talked)
 
 func update_oxygen_display(value: float) -> void:
 	oxygen_bar.value = value
@@ -37,6 +32,3 @@ func fade_in_screen(duration: float) -> void:
 	var tween = create_tween()
 	tween.tween_property(color_rect, "modulate:a", 1.0, duration)
 	await tween.finished
-
-func _on_player_talked(text: String) -> void:
-	timed_display_prompt(text, 3)

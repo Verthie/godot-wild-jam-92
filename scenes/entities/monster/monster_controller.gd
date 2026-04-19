@@ -5,7 +5,7 @@ signal entered_phase(phase_number: int)
 
 @export var chase_enabled: bool = false
 
-@export var speed := 3.0
+@export var speed := 0.9
 @export var panic_speed := 1.1 # Phase 3 panic chase speed
 
 @export var player: Player
@@ -277,8 +277,8 @@ func wander(delta):
 
 	# move toward target
 	var direction = (target - global_position).normalized()
-	velocity.x = direction.x * speed * 0.5
-	velocity.z = direction.z * speed * 0.5
+	velocity.x = direction.x * speed
+	velocity.z = direction.z * speed
 
 	rotate_towards(target, delta)
 

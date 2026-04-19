@@ -3,6 +3,7 @@ extends Node3D
 @onready var player_detector: Area3D = $PlayerDetector
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+var enabled = true
 
 func _ready() -> void:
 	player_detector.body_entered.connect(_on_body_entered)
@@ -10,13 +11,13 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	if body is not Player:
+	if body is not Player or !enabled:
 		return
 	AudioManager.create_3d_audio_at_location(global_position, SoundEffect.SoundEffectType.DOOR_OPEN)
 	animation_player.play("Door_move")
 
 func _on_body_exited(body: Node3D) -> void:
-	if body is not Player:
+	if body is not Player or !enabled:
 		return
 	AudioManager.create_3d_audio_at_location(global_position, SoundEffect.SoundEffectType.DOOR_CLOSE)
 	animation_player.play_backwards("Door_move")

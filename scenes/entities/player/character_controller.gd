@@ -67,7 +67,7 @@ signal finished_reading
 @onready var tape_text = $TapeUI/TextureRect/TapeText
 
 # doesn't exist currently throws errors
-# @onready var brewery_handbook_ui = $BreweryHandbookUI 
+# @onready var brewery_handbook_ui = $BreweryHandbookUI
 # @onready var brewery_handbook_text = $BreweryHandbookUI/TextureRect/BreweryHandbookText
 
 
@@ -147,10 +147,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape") and current_ui:
 		current_ui.finish_typing()
 		close_ui()
-	
+
 	# Press E
 	if event.is_action_pressed("interact"):
-		
+
 		if ui_open:
 			if current_ui.typing:
 				current_ui.finish_typing()
@@ -168,7 +168,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("zoom_in"):
 		camera.fov = max(camera.fov - 5, 25)
 
-		
+
 
 
 func _input(event):
@@ -264,7 +264,7 @@ func update_interaction_ui():
 func get_looked_at_interactable():
 	if ui_open:
 		return null
-	
+
 	if hold_ray.is_colliding():
 		var collider = hold_ray.get_collider()
 		if is_instance_valid(collider) and collider.has_method("interact"):
@@ -283,7 +283,6 @@ func rotate_look(rot_input : Vector2):
 	rotate_y(look_rotation.y)
 	head.transform.basis = Basis()
 	head.rotate_x(look_rotation.x)
-
 
 func enable_freefly():
 	collider.disabled = true
@@ -416,34 +415,35 @@ func spawn_item_by_tag(tag, hand):
 
 func set_movement_enabled(state: bool):
 	can_move = state
+	can_move_camera = state
 
 
 func show_ui(tag: String, type: int):
 	# Pause movement/oxygen etc
 	get_tree().paused = true
-	
+
 	var pages = Globals.journal_texts.get(tag, [])
-	
+
 	var ui = ui_map.get(type, null)
 	if ui == null:
 		push_error("UI type not found")
 		return
-	
+
 	ui.show_pages(pages)
 	ui.visible = true
-	
+
 	current_ui = ui
 	ui_open = true
 	set_movement_enabled(false)
-	
+
 
 func close_ui():
 	# Unpause movement/oxygen etc
 	get_tree().paused = false
-	
+
 	if current_ui:
 		current_ui.visible = false
-	
+
 	current_ui = null
 	ui_open = false
 	set_movement_enabled(true)

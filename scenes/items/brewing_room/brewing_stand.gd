@@ -9,7 +9,7 @@ var correct_recipe = []
 # Example: ["watermelon", "pumpkin", "carrot", "watermelon", "mush_seed"]
 
 # remember to check export (Inspector), do it on brewing_stand in Main_Scene
-@export var board_path: NodePath 
+@export var board_path: NodePath
 var board
 @export var sampler_path: NodePath
 var sampler
@@ -46,14 +46,14 @@ func _ready() -> void:
 		sampler = get_node(sampler_path)
 	else:
 		print("Sampler not found in scene")
-	
-	
+
+
 	# Connect brewing stand to wordle board
 	if board_path != NodePath():
 		board = get_node(board_path)
 	else:
 		print("Board path not found in scene")
-	
+
 	# Generate a random recipe
 	correct_recipe = generate_recipe()
 
@@ -62,17 +62,20 @@ func interact(player, hand):
 	# Press E should do nothing on the brewing stand
 	if hand == "none":
 		return
-	
+
 	# If sampler is empty
 	if sampler.remaining_brews <= 0:
 		return
 
 	var held_item = player.get_hand_item(hand)
-	
+
 	# --- Force player to take vial first ---
 	if output_item != null:
-			return
-	
+		return
+
+	if held_item.tag in ["moon_seed", "vial_bad", "cure"]:
+		AudioManager.create_audio(SoundEffect.SoundEffectType.BREWERY_WRONG)
+		return
 
 	# --- CASE 1: player holding item → put into stand ---
 	if held_item:
@@ -122,18 +125,18 @@ func start_brewing():
 	# block if output (vial) not taken
 	if output_item != null:
 		return
-		
+
 	if current_index < 5:
 		# print("Need all 5 ingredients!")
 		return
-	
+
 	if not sampler.locked:
 		return
-	
+
 	if sampler.remaining_brews <= 0:
 		return
 	# -------------------------------------
-	
+
 	# Confirm start brewing
 	print("Brewing started...")
 
@@ -141,17 +144,17 @@ func start_brewing():
 
 	if board:
 		board.display_result(result)
-	
+
 	if current_items == correct_recipe:
 		print("Congrats! You've crafted a CURE")
 		cure_crafted = true
 		spawn("cure")
 	else:
 		spawn("bad_vial")
-		
+
 	sampler.brew() # Use up one moon_seed
 	reset_items()
-	
+
 	if sampler.remaining_brews <=0 and not cure_crafted:
 		print("You lost the game bro")
 		# TODO trigger game lost sequence
@@ -164,16 +167,16 @@ func reset_items():
 
 func spawn(type: String):
 	var scene
-	
+
 	if type == "cure":
 		scene = preload("res://scenes/items/vials/cure.tscn")
 	else:
 		scene = preload("res://scenes/items/vials/vial_bad.tscn")
-	
+
 	if scene:
 		output_item = scene.instantiate()
 		output_slot.add_child(output_item)
-		
+
 		output_item.transform = Transform3D.IDENTITY
 
 

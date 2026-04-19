@@ -7,12 +7,11 @@ extends Node
 @export_group("Node references")
 @export var oxygen_maker: Node3D
 @export var player: Player
-@export var ui: CanvasLayer
+@export var ui: Interface
 
 @onready var timer: Timer = $Timer
 @onready var sprint_timer: Timer = $SprintTimer
 
-var oxygen_deplete_enabled: bool = false
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("sprint"):
@@ -28,19 +27,28 @@ func _ready() -> void:
 func _process(_delta) -> void:
 	ui.update_oxygen_display(timer.time_left)
 
-func enable_oxygen_deplete() -> void:
-	timer.start()
+func set_oxygen_display(state: bool = true) -> void:
+	if state:
+		ui.oxygen_bar.show()
+	else:
+		ui.oxygen_bar.hide()
+
+func enable_oxygen_deplete(initial_value: float = 100) -> void:
+	timer.start(initial_value)
 
 func disable_oxygen_deplete() -> void:
 	timer.stop()
+
+func pause_oxygen_deplete(state: bool = true) -> void:
+	timer.paused = state
 
 func _on_timer_timeout() -> void:
 	player.health_component.damage(player.health_component.max_health)
 
 func _on_oxygen_maker_produced_oxygen() -> void:
-	var current_percentage = clamp(timer.time_left + 50, 0, 100)
+	var current_percentage = clamp(timer.time_left + oxygen_replenishment_amount, 0, ui.oxygen_bar.max_value)
 	timer.start(current_percentage)
 
 func _on_sprint_timer_timeout() -> void:
-	var current_percentage = clamp(timer.time_left - 1, 0, 100)
+	var current_percentage = clamp(timer.time_left - ui.oxygen_bar.step + 1, 0, 100)
 	timer.start(current_percentage)

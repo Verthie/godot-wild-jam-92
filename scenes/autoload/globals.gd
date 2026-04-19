@@ -17,9 +17,9 @@ var last_saved_sequence: Array = []
 	"mush_seed": preload("res://scenes/items/Ingredients/mush_seed_item.tscn"),
 	"beetroot": preload("res://scenes/items/Ingredients/beetroot_item.tscn"),
 	"potato": preload("res://scenes/items/Ingredients/potato_item.tscn"),
-	
+
 	"moon_seed": preload("res://scenes/items/Ingredients/moon_seed_item.tscn"),
-	
+
 	"vial_bad": preload("res://scenes/items/vials/vial_bad_item.tscn"),
 	"cure": preload("res://scenes/items/vials/cure_item.tscn")
 }
@@ -32,9 +32,9 @@ var icon_lookup = {
 	"mush_seed": preload("res://assets/textures/icons/mush_seed.png"),
 	"beetroot": preload("res://assets/textures/icons/beetroot.png"),
 	"potato": preload("res://assets/textures/icons/potato.png"),
-	
+
 	"moon_seed": preload("res://assets/textures/icons/moon_seed.png"),
-	
+
 	"vial_bad": preload("res://assets/textures/icons/vial_bad.png"),
 	"cure": preload("res://assets/textures/icons/cure.png")
 }
@@ -60,18 +60,18 @@ STEP 2: Collect the ingredients we gathered and insert them into the brewing sta
 STEP 3: After inputting the correct order of ingredients into the mixture, press the BIG ROUND BUTTON on the brewing stand to begin brewing."
 
 },
-	{ "title": "Trevor's Brewery Handbook (Page 2)", "text": "STEP 4: Carefully procure the 'Cure of our Atmosphere and voila! 
+	{ "title": "Trevor's Brewery Handbook (Page 2)", "text": "STEP 4: Carefully procure the 'Cure of our Atmosphere and voila!
 
 The captain will then take it to the launchpad and Earth shall be rid of all red mist! Pretty easy right? What could go wrong right..?
 
-As long as you follow these steps you'll be fine Trevor.. It's not like the fate of humanity lies in your hands am I right? 
+As long as you follow these steps you'll be fine Trevor.. It's not like the fate of humanity lies in your hands am I right?
 
  "},
 	{ "title": "Trevor's Brewery Handbook (Page 3)", "text": "In case you forget:
 
+- Oxygen is produced by combining a Watermelon and Mist Seed. It's crucial for our survival when exploring outdoors.
 - Mist Seeds and Mush Seeds are planted outside the brewery. You can find them amongst the trees.
-
-- Watermelons, Carrots, Pumpkins and Beetroots are grown in the greenhouse. 
+- Watermelons, Carrots, Pumpkins and Beetroots are grown in the greenhouse.
 
 Ever since the red mist announcement, access to tunnels have been off limits until the crops are ready to be harvested. A bit odd they haven't given us an update on the greenhouse ever since. Well, who am I to question authority, T.."}
 ],
@@ -81,18 +81,18 @@ Ever since the red mist announcement, access to tunnels have been off limits unt
 			"title": "Lab Journal #1",
 			"text": "Alas! The final batch of crops have reached their final growth stage just in time before the incoming storm. All we need to do now is to let the fermentation do it's thing and everything will be fine right? ... Right? ..
 
-Yes.. The captain must be right.. 
+Yes.. The captain must be right..
 
 -- T."
 		}
 	],
-	
+
 	"journal_2": [
 		{
 			"title": "Lab Journal #2",
 			"text": "For the 500th and last time, we CANNOT brew anything until the crops are fully grown! Protocol suggests we stay calm and let the process take place. I would suggest the same thing to anyone else reading this.
 
-Only once the crops are ready, we will take them back to the fermenter and prepare them for brewing. 
+Only once the crops are ready, we will take them back to the fermenter and prepare them for brewing.
 
 Until then, the air you breathe is limited. Please stop the quarrel and be patient.
 
@@ -101,7 +101,7 @@ This is the only way we survive.
 — W."
 		}
 	],
-	
+
 	"journal_3": [
 		{
 			"title": "Lab Journal #3",
@@ -110,15 +110,15 @@ This is the only way we survive.
 -- S."
 		}
 	],
-	
+
 	"tape_1": [
 		{
 			"title": "Tape Recorder #1",
 			"text": "\"Captains log #9. Reporting for mission: Red Mist Alpha..
-			
-..730 days since the red mist infected our planet's atmosphere.. 
 
-..The rest of my team has been fatally attacked by the unknown entity lurking just outside the perimeter of our sector.. 
+..730 days since the red mist infected our planet's atmosphere..
+
+..The rest of my team has been fatally attacked by the unknown entity lurking just outside the perimeter of our sector..
 
 ..I, Captain Jakub and my partner Lieutenant Yesan have been mortally wounded on our return trip.. *static*.. back to the brewery..
 
@@ -133,7 +133,7 @@ This is the only way we survive.
 *static*"
 		}
 	],
-	
+
 	"tape_2": [
 		{
 			"title": "Tape Recorder #2",
@@ -155,7 +155,7 @@ This is the only way we survive.
 			"text": "..If only we had more time to study this beautiful phenomenon..\""
 		}
 	],
-	
+
 	"placeholder1": [
 		{
 			"title": "title",
@@ -164,7 +164,7 @@ This is the only way we survive.
 -- S."
 		}
 	],
-	
+
 	"placeholder2": [
 		{
 			"title": "title",
@@ -173,7 +173,7 @@ This is the only way we survive.
 -- S."
 		}
 	],
-	
+
 	"placeholder3": [
 		{
 			"title": "Lab Journal #3",

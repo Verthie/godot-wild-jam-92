@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://c4uqyevnmlfkf" path="res://scenes/items/story_text_ui.gd" id="10_ygr4t"]
 [ext_resource type="FontFile" uid="uid://dirnnxmmgi5u0" path="res://assets/fonts/MGS1 Codec.ttf" id="11_ygr4t"]
 [ext_resource type="Texture2D" uid="uid://bxc6eha6xo2pl" path="res://assets/ui/demo_1.svg" id="13_52u0t"]
+[ext_resource type="Shader" uid="uid://5106ua7w105k" path="res://resources/shaders/blur.gdshader" id="13_cgxn4"]
 [ext_resource type="Script" path="res://scenes/entities/player/audio_listener_3d.gd" id="13_n5nu3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_20xh0"]
@@ -73,6 +74,10 @@ shader_parameter/jitter_frequency = 180.0
 shader_parameter/chromatic_aberration_strength = 0.0
 shader_parameter/vignette_strength = 0.8
 shader_parameter/vignette_radius = 0.800000038
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vpew2"]
+shader = ExtResource("13_cgxn4")
+shader_parameter/blur = 2.0
 
 [node name="CharacterController" type="CharacterBody3D" unique_id=379629607 groups=["player"]]
 collision_layer = 55
@@ -176,6 +181,14 @@ title_label = NodePath("TextureRect/JournalTitle")
 body_label = NodePath("TextureRect/JournalText")
 hint_label = NodePath("TextureRect/JournalHintLabel")
 
+[node name="TextureRect2" type="ColorRect" parent="JournalUI" unique_id=552940276]
+material = SubResource("ShaderMaterial_vpew2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="TextureRect" type="TextureRect" parent="JournalUI" unique_id=695969927]
 modulate = Color(0.39215687, 1, 1, 1)
 anchors_preset = 8
@@ -236,6 +249,14 @@ script = ExtResource("10_ygr4t")
 title_label = NodePath("TextureRect/TapeTitle")
 body_label = NodePath("TextureRect/TapeText")
 hint_label = NodePath("TextureRect/TapeHintLabel")
+
+[node name="TextureRect2" type="ColorRect" parent="TapeUI" unique_id=1772319455]
+material = SubResource("ShaderMaterial_vpew2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="TapeUI" unique_id=918219625]
 anchors_preset = 8
