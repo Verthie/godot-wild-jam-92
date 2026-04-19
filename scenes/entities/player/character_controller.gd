@@ -65,8 +65,10 @@ signal finished_reading
 @onready var journal_text = $JournalUI/TextureRect/JournalText
 @onready var tape_ui = $TapeUI
 @onready var tape_text = $TapeUI/TextureRect/TapeText
-@onready var brewery_handbook_ui = $BreweryHandbookUI
-@onready var brewery_handbook_text = $BreweryHandbookUI/TextureRect/BreweryHandbookText
+
+# doesn't exist currently throws errors
+# @onready var brewery_handbook_ui = $BreweryHandbookUI 
+# @onready var brewery_handbook_text = $BreweryHandbookUI/TextureRect/BreweryHandbookText
 
 
 var current_ui = null
@@ -74,7 +76,7 @@ var ui_open := false
 
 @onready var ui_map = {
 	Globals.UITextType.JOURNAL: $JournalUI,
-	Globals.UITextType.HANDBOOK: $BreweryHandbookUI,
+	# Globals.UITextType.HANDBOOK: $BreweryHandbookUI,  # doesn't exist currently throws errors
 	Globals.UITextType.TAPE: $TapeUI
 }
 

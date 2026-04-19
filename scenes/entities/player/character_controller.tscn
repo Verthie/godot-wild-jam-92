@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://6ruxv2406ad0" path="res://resources/shaders/psx_fog.gdshader" id="2_rlydy"]
 [ext_resource type="Shader" uid="uid://1mbhtwa2psud" path="res://resources/shaders/psx.gdshader" id="2_twwmx"]
 [ext_resource type="PackedScene" uid="uid://dui58xpxxwpp8" path="res://scenes/components/health_component.tscn" id="2_vxaux"]
-[ext_resource type="Script" uid="uid://dl25ngkctrcfc" path="res://scripts/motion_blur_compositor.gd" id="2_wxmoy"]
+[ext_resource type="Script" path="res://scripts/motion_blur_compositor.gd" id="2_wxmoy"]
 [ext_resource type="PackedScene" uid="uid://cfricpcy0yc7d" path="res://scenes/components/hurtbox_component.tscn" id="3_2lnhi"]
 [ext_resource type="PackedScene" uid="uid://dywu4dsxf2lkk" path="res://scenes/components/death_component.tscn" id="4_2lnhi"]
 [ext_resource type="FontFile" uid="uid://b7cidb34a11n0" path="res://assets/fonts/MGS1 HUD.ttf" id="9_i5s3e"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://c4uqyevnmlfkf" path="res://scenes/items/story_text_ui.gd" id="10_ygr4t"]
 [ext_resource type="FontFile" uid="uid://dirnnxmmgi5u0" path="res://assets/fonts/MGS1 Codec.ttf" id="11_ygr4t"]
 [ext_resource type="Texture2D" uid="uid://bxc6eha6xo2pl" path="res://assets/ui/demo_1.svg" id="13_52u0t"]
-[ext_resource type="Script" uid="uid://cblyk7lmhmymr" path="res://scenes/entities/player/audio_listener_3d.gd" id="13_n5nu3"]
+[ext_resource type="Script" path="res://scenes/entities/player/audio_listener_3d.gd" id="13_n5nu3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_20xh0"]
 radius = 0.05

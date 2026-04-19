@@ -10,5 +10,6 @@
 [ext_resource type="Resource" uid="uid://3uy2wuxj2jtg" path="res://resources/music/interior.tres" id="8_yd6sr"]
 
 [node name="MusicManager" type="Node" unique_id=1034825410]
+process_mode = 3
 script = ExtResource("1_6lml3")
 tracks = Array[ExtResource("2_p6bt6")]([ExtResource("3_p6bt6"), ExtResource("4_5ttln"), ExtResource("5_rukfi"), ExtResource("6_q08n6"), ExtResource("7_2xxbi"), ExtResource("8_yd6sr")])
