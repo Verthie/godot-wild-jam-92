@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://da0mbcy5pbqn"]
+[gd_scene format=4 uid="uid://cv4t8g56sfgex"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/entities/player/character_controller.tscn" id="1_p1d0p"]
 [ext_resource type="PackedScene" uid="uid://clqtkjumui0ww" path="res://scenes/managers/oxygen_manager.tscn" id="1_r8nyi"]
@@ -35,9 +35,9 @@
 [ext_resource type="PackedScene" path="res://scenes/items/brewing_room/big_round_button.tscn" id="28_5h0fd"]
 [ext_resource type="PackedScene" path="res://scenes/items/brewing_room/sampler.tscn" id="29_i0yxl"]
 [ext_resource type="PackedScene" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
-[ext_resource type="PackedScene" path="res://scenes/items/journal.tscn" id="37_e5bxq"]
-[ext_resource type="PackedScene" path="res://scenes/items/tape.tscn" id="38_1s2ut"]
-[ext_resource type="Script" path="res://scenes/items/story_text.gd" id="39_idy17"]
+[ext_resource type="PackedScene" uid="uid://cnl81uovfvoov" path="res://scenes/items/journal.tscn" id="37_e5bxq"]
+[ext_resource type="PackedScene" uid="uid://bw1eck8ne6hjx" path="res://scenes/items/tape.tscn" id="38_1s2ut"]
+[ext_resource type="Script" uid="uid://b56tqyujtnroc" path="res://scenes/items/story_text.gd" id="39_idy17"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p1d0p"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -71,11 +71,12 @@ volumetric_fog_anisotropy = 0.0
 [sub_resource type="CompositorEffect" id="CompositorEffect_ma2cu"]
 resource_local_to_scene = false
 resource_name = ""
-enabled = true
+enabled = false
 effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("5_0ofrv")
+alpha = 0.902
 
 [sub_resource type="Compositor" id="Compositor_uof65"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_ma2cu")])
@@ -280,10 +281,60 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(6.995584, 2.451365, 8.410142)]
 }
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tape1")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 6.8325458, 2.3928263, 8.486437)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tape1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.72971386, 0.091640614, 0.13518007, 0.6639625)
+
+[sub_resource type="Animation" id="Animation_j6j5q"]
+resource_name = "go_back_to_default"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutsceneCamera:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1.4640857),
+"update": 0,
+"values": [Vector3(-0.7466251, 1.1800897, 0.20407605), Vector3(0, 1.3247049, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uof65"]
+resource_name = "pick_up_camera"
+length = 0.5
+step = 0.1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tape1")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 6.8325458, 2.3928263, 8.486437, 0.39999998, 1, 6.9634166, 2.496194, 8.424254)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tape1")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.72971386, 0.091640614, 0.13518007, 0.6639625, 0.39999998, 1, -0.14499974, 0.035869546, 0.51896745, 0.841642)
 
 [sub_resource type="Animation" id="Animation_0ofrv"]
 resource_name = "wake_up_camurai"
-length = 10.6
+length = 12.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -304,10 +355,10 @@ tracks/1/path = NodePath("CutsceneCamera:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.9815145, 2.2, 5.7443876, 6.5, 8.491787, 9.6, 10.6),
-"transitions": PackedFloat32Array(0.5547846, 1, 2.4622886, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.9815145, 2.2, 5.7443876, 6.5, 8.491787, 9.6, 10.6, 10.8, 12),
+"transitions": PackedFloat32Array(0.5547846, 1, 2.4622886, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.10759364, 1.0951427, -1.004312), Vector3(1.097812, -0.012217305, -2.6424284), Vector3(1.097812, -0.012217305, -2.6424284), Vector3(-0.10759364, 1.0951427, -1.004312), Vector3(-0.10759364, 1.0951427, -1.004312), Vector3(0.15455534, 1.1073462, -0.49996862), Vector3(0.18546124, 1.2999823, 0.10082734), Vector3(0, 1.3238846, 0)]
+"values": [Vector3(-0.10759364, 1.0951427, -1.004312), Vector3(1.097812, -0.012217305, -2.6424284), Vector3(1.097812, -0.012217305, -2.6424284), Vector3(-0.10759364, 1.0951427, -1.004312), Vector3(-0.10759364, 1.0951427, -1.004312), Vector3(0.15455534, 1.1073462, -0.49996862), Vector3(0.18546124, 1.2999823, 0.10082734), Vector3(0, 1.3238846, 0), Vector3(0, 1.3238846, 0), Vector3(-0.7466251, 1.1800897, 0.20407607)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -316,7 +367,7 @@ tracks/2/path = NodePath("CutsceneManager")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(6.4),
+"times": PackedFloat32Array(6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -327,18 +378,21 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u2i4f"]
 _data = {
 &"RESET": SubResource("Animation_u2i4f"),
+&"go_back_to_default": SubResource("Animation_j6j5q"),
+&"pick_up_camera": SubResource("Animation_uof65"),
 &"wake_up_camurai": SubResource("Animation_0ofrv")
 }
 
 [node name="MainScene" type="Node3D" unique_id=602291638]
 
-[node name="CutsceneManager" type="Node" parent="." unique_id=754631928 node_paths=PackedStringArray("ui", "player", "cutscene_camera", "animation_player", "oxygen_manager", "cutscene_area")]
+[node name="CutsceneManager" type="Node" parent="." unique_id=754631928 node_paths=PackedStringArray("ui", "player", "cutscene_camera", "animation_player", "oxygen_manager", "tape_1", "cutscene_area")]
 script = ExtResource("1_u2i4f")
 ui = NodePath("../UI")
 player = NodePath("../CharacterController")
 cutscene_camera = NodePath("../CutsceneCamera")
 animation_player = NodePath("../AnimationPlayer")
 oxygen_manager = NodePath("../OxygenManager")
+tape_1 = NodePath("../Tape1")
 cutscene_area = NodePath("../CutsceneArea1")
 
 [node name="MoodManager" parent="." unique_id=1883706707 node_paths=PackedStringArray("player", "exterior_area", "interior_area", "cutscene_area") instance=ExtResource("1_wn3jb")]
@@ -365,7 +419,7 @@ shadow_enabled = true
 shadow_bias = 0.0
 
 [node name="CutsceneCamera" type="Camera3D" parent="." unique_id=1979079288]
-transform = Transform3D(0.32630438, 0.3351559, 0.8838529, -0.8389137, 0.5335655, 0.10738617, -0.4356023, -0.77651685, 0.45527163, 6.995584, 2.451365, 8.410142)
+transform = Transform3D(0.32630438, 0.33515587, 0.8838529, -0.8389137, 0.53356546, 0.10738617, -0.4356023, -0.7765168, 0.45527163, 6.995584, 2.451365, 8.410142)
 compositor = SubResource("Compositor_uof65")
 current = true
 fov = 45.0
@@ -928,7 +982,7 @@ transform = Transform3D(-0.13146691, 0, -0.68754375, 0, 0.7, 0, 0.68754375, 0, -
 text_tag = "journal_3"
 
 [node name="Tape1" parent="." unique_id=2120888103 instance=ExtResource("38_1s2ut")]
-transform = Transform3D(-0.6249702, -0.7806486, 3.4123232e-08, 0, -4.371138e-08, -0.9999999, 0.7806486, -0.6249701, 2.731831e-08, 6.871222, 2.3749912, 8.088737)
+transform = Transform3D(0.9466568, -0.31325164, -0.075593166, 0.04576585, -0.10151121, 0.9937808, -0.3189771, -0.94422936, -0.081760004, 6.8325458, 2.3928263, 8.486437)
 script = ExtResource("39_idy17")
 text_tag = "tape_1"
 ui_type = 2

@@ -7,6 +7,7 @@ extends CharacterBody3D
 class_name Player
 
 signal talked(text: String)
+signal finished_reading
 
 ## Can we move around?
 @export var can_move : bool = true
@@ -430,6 +431,7 @@ func close_ui():
 	current_ui = null
 	ui_open = false
 	set_movement_enabled(true)
+	finished_reading.emit()
 
 func is_ui_open() -> bool:
 	return ui_open

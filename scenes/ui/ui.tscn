@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bdsxr6usn5h1h"]
 
 [ext_resource type="Script" uid="uid://cytvprkhiiwil" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
+[ext_resource type="FontFile" uid="uid://dirnnxmmgi5u0" path="res://assets/fonts/MGS1 Codec.ttf" id="2_f5cxw"]
 
 [node name="UI" type="CanvasLayer" unique_id=1959464522]
 script = ExtResource("1_u7n8c")
@@ -17,7 +18,8 @@ theme_override_constants/margin_bottom = 24
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("2_f5cxw")
+theme_override_font_sizes/font_size = 52
 text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -29,6 +31,7 @@ step = 2.0
 value = 100.0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2073601125]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

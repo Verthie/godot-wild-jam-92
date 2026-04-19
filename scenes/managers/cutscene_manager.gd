@@ -7,11 +7,12 @@ const MONSTER_SCENE = preload("res://scenes/entities/monster/monster_controller.
 @export var cutscene_camera: Camera3D
 @export var animation_player: AnimationPlayer
 @export var oxygen_manager: Node
+@export var tape_1: StaticBody3D
 
 @export var cutscene_area: Area3D
 
 @export var play_cutscenes: bool = true
-@export var player_initial_location: Vector3 = Vector3(6.997, 2.382, 8.535)
+@export var player_initial_location: Vector3 = Vector3(6.998, 2.577, 8.535)
 @export var player_initial_rotation: Vector3 = Vector3(0, 75.9, 0)
 
 var player_camera: Camera3D
@@ -28,6 +29,7 @@ func _ready() -> void:
 	player_canvas = player.canvas_layer
 
 	if !play_cutscenes:
+		ui.fade_out_screen(2.0)
 		player_camera.current = true
 		cutscene_camera.current = false
 		return
@@ -49,61 +51,28 @@ func _ready() -> void:
 
 	await get_tree().create_timer(0.2).timeout
 
-	ui.display_prompt("Press LMB or RMB to pick up the tape")
+	ui.display_prompt("Press LMB to pick up the tape")
 
-	var player_input = await _wait_for_input(["interact_left", "interact_right"])
+	var player_input = await _wait_for_input(["interact_left"])
 
-	# DELETE LATER
 	print("playing pick_up_animation: ", player_input)
-	await get_tree().create_timer(1.0).timeout
 
-	# play picking up animation -> move the item to hand
-
-	# if player_input == "interact_left":
-		# animation_player.play("pick_up_tape_left")
-	# else:
-		# animation_player.play("pick_up_tape_right")
-	# await animation_player.animation_finished
+	animation_player.play("pick_up_camera")
+	await animation_player.animation_finished
 
 	ui.display_prompt("Press E to play the tape")
 	await _wait_for_input(["interact"])
 
-
 	ui.hide_prompt()
 
-	# DELETE LATER
-	print("playing tape")
-	print("tape page 1")
+	tape_1.fyi_ui_should_never_be_tied_to_the_player_there_is_no_way_to_call_it_from_other_nodes_and_i_need_to_use_this_hacky_solution(player)
 
-	# display tape log 1
-	await _wait_for_input(["interact", "interact_left", "interact_right"])
-	print("tape page 2")
-	# display tape log 2
-	await _wait_for_input(["interact", "interact_left", "interact_right"])
-	print("tape page 3")
-	# display tape log 3
-	await _wait_for_input(["interact", "interact_left", "interact_right"])
-	print("tape page 4")
-	# display tape log 4
-	await _wait_for_input(["interact", "interact_left", "interact_right"])
-	print("tape page 5")
-	# display tape log 5
-	await _wait_for_input(["interact", "interact_left", "interact_right"])
-	print("tape page 6")
-	# display tape log 6
-	await _wait_for_input(["interact", "interact_left", "interact_right"])
-	print("tape page 7")
-	# display tape log 7
-	await _wait_for_input(["interact", "interact_left", "interact_right"])
-	print("tape page 8")
-	# display tape log 8
-	await _wait_for_input(["interact", "interact_left", "interact_right"])
+	await player.finished_reading
 
-	print("exited tape")
+	tape_1.queue_free()
 
-	# exit the tape log
-
-	# animate restore origianl rotation
+	animation_player.play("go_back_to_default")
+	await animation_player.animation_finished	
 
 	_cutscene_end()
 
