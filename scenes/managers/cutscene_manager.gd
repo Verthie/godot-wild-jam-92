@@ -202,7 +202,7 @@ func _on_second_cutscene_area_player_entered(_body: Node3D) -> void:
 	oxygen_manager.pause_oxygen_deplete(false)
 	player.set_movement_enabled(true)
 
-	ui.display_prompt("I should probably put them\nin the oxygen dispenser")
+	ui.display_prompt("I have to put them\nin the oxygen dispenser")
 
 	await oxygen_maker.produced_oxygen
 
