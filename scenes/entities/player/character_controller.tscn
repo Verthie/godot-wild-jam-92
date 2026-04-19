@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cnehmsuqd3d32" path="res://assets/ui/demo_2.svg" id="10_rfeav"]
 [ext_resource type="Script" uid="uid://c4uqyevnmlfkf" path="res://scenes/items/story_text_ui.gd" id="10_ygr4t"]
 [ext_resource type="FontFile" uid="uid://dirnnxmmgi5u0" path="res://assets/fonts/MGS1 Codec.ttf" id="11_ygr4t"]
+[ext_resource type="Texture2D" uid="uid://bxc6eha6xo2pl" path="res://assets/ui/demo_1.svg" id="13_52u0t"]
+[ext_resource type="Script" uid="uid://cblyk7lmhmymr" path="res://scenes/entities/player/audio_listener_3d.gd" id="13_n5nu3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_20xh0"]
 radius = 0.05
@@ -167,11 +169,12 @@ text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="JournalUI" type="CanvasLayer" parent="." unique_id=109536768 node_paths=PackedStringArray("title_label", "body_label")]
+[node name="JournalUI" type="CanvasLayer" parent="." unique_id=109536768 node_paths=PackedStringArray("title_label", "body_label", "hint_label")]
 visible = false
 script = ExtResource("10_ygr4t")
 title_label = NodePath("TextureRect/JournalTitle")
 body_label = NodePath("TextureRect/JournalText")
+hint_label = NodePath("TextureRect/JournalHintLabel")
 
 [node name="TextureRect" type="TextureRect" parent="JournalUI" unique_id=695969927]
 modulate = Color(0.39215687, 1, 1, 1)
@@ -216,53 +219,44 @@ visible_characters = 0
 visible_characters_behavior = 1
 visible_ratio = 0.0
 
-[node name="BreweryHandbookUI" type="CanvasLayer" parent="." unique_id=378324377 node_paths=PackedStringArray("title_label", "body_label")]
-visible = false
-script = ExtResource("10_ygr4t")
-title_label = NodePath("TextureRect/BreweryHandbookTitle")
-body_label = NodePath("TextureRect/BreweryHandbookText")
-
-[node name="TextureRect" type="TextureRect" parent="BreweryHandbookUI" unique_id=582516255]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="BreweryHandbookTitle" type="Label" parent="BreweryHandbookUI/TextureRect" unique_id=1275202160]
+[node name="JournalHintLabel" type="Label" parent="JournalUI/TextureRect" unique_id=728660191]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 634.25
+offset_top = 564.25
+offset_right = 792.25
+offset_bottom = 621.25
+theme_override_fonts/font = ExtResource("11_ygr4t")
+theme_override_font_sizes/font_size = 32
+text = "Next page
+Press E"
 
-[node name="BreweryHandbookText" type="RichTextLabel" parent="BreweryHandbookUI/TextureRect" unique_id=986567934]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TapeUI" type="CanvasLayer" parent="." unique_id=643808436 node_paths=PackedStringArray("title_label", "body_label")]
+[node name="TapeUI" type="CanvasLayer" parent="." unique_id=643808436 node_paths=PackedStringArray("title_label", "body_label", "hint_label")]
 visible = false
 script = ExtResource("10_ygr4t")
 title_label = NodePath("TextureRect/TapeTitle")
 body_label = NodePath("TextureRect/TapeText")
+hint_label = NodePath("TextureRect/TapeHintLabel")
 
-[node name="TextureRect" type="TextureRect" parent="TapeUI" unique_id=1023268311]
-modulate = Color(0.39215687, 1, 1, 1)
+[node name="TextureRect" type="TextureRect" parent="TapeUI" unique_id=918219625]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -303.25
-offset_top = -303.25
-offset_right = 303.25
-offset_bottom = 303.25
+offset_left = -299.5
+offset_top = -299.5
+offset_right = 299.5
+offset_bottom = 299.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_rfeav")
+texture = ExtResource("13_52u0t")
 
 [node name="TapeTitle" type="Label" parent="TapeUI/TextureRect" unique_id=55691417]
 layout_mode = 0
-offset_left = 135.25
-offset_top = 6.25
-offset_right = 584.25
-offset_bottom = 122.25
+offset_left = 99.5
+offset_top = 17.5
+offset_right = 548.5
+offset_bottom = 133.5
 theme_override_fonts/font = ExtResource("11_ygr4t")
 theme_override_font_sizes/font_size = 49
 text = "Trevor's Brewery handbook"
@@ -270,10 +264,10 @@ autowrap_mode = 3
 
 [node name="TapeText" type="RichTextLabel" parent="TapeUI/TextureRect" unique_id=700248684]
 layout_mode = 0
-offset_left = 25.25
-offset_top = 111.5
-offset_right = 591.25
-offset_bottom = 583.25
+offset_left = 17.5
+offset_top = 96.5
+offset_right = 583.5
+offset_bottom = 572.5
 theme_override_fonts/normal_font = ExtResource("9_i5s3e")
 theme_override_font_sizes/normal_font_size = 48
 text = "red mist: alpha
@@ -285,5 +279,18 @@ visible_characters = 0
 visible_characters_behavior = 1
 visible_ratio = 0.0
 
+[node name="TapeHintLabel" type="Label" parent="TapeUI/TextureRect" unique_id=828953619]
+layout_mode = 0
+offset_left = 630.5
+offset_top = 560.5
+offset_right = 788.5
+offset_bottom = 617.5
+theme_override_fonts/font = ExtResource("11_ygr4t")
+theme_override_font_sizes/font_size = 32
+text = "Next page
+Press E"
+
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1578059824]
+process_mode = 3
 current = true
+script = ExtResource("13_n5nu3")

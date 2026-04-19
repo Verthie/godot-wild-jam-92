@@ -115,7 +115,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Mouse capturing
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		capture_mouse()
-	if event is InputEventKey and event.keycode == KEY_ESCAPE and event.pressed:
+	if event is InputEventKey and event.keycode == KEY_ESCAPE and not ui_open and event.pressed:
 		if mouse_captured:
 			release_mouse()
 			get_viewport().set_input_as_handled()
@@ -140,6 +140,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact_right"):
 		try_interact("right")
 
+	# Press Escape
+	# To immediately close UI
+	if event.is_action_pressed("escape") and current_ui:
+		current_ui.finish_typing()
+		close_ui()
+	
 	# Press E
 	if event.is_action_pressed("interact"):
 		
@@ -243,11 +249,13 @@ func update_interaction_ui():
 			interaction_label.text = "Press E"
 
 		if crosshair:
+			crosshair.visible = true
 			crosshair.modulate = Color.GREEN
 	else:
 		interaction_label.visible = false
 
 		if crosshair:
+			crosshair.visible = true
 			crosshair.modulate = Color.WHITE
 
 # Jason 15/4/26
@@ -409,6 +417,9 @@ func set_movement_enabled(state: bool):
 
 
 func show_ui(tag: String, type: int):
+	# Pause movement/oxygen etc
+	get_tree().paused = true
+	
 	var pages = Globals.journal_texts.get(tag, [])
 	
 	var ui = ui_map.get(type, null)
@@ -425,6 +436,9 @@ func show_ui(tag: String, type: int):
 	
 
 func close_ui():
+	# Unpause movement/oxygen etc
+	get_tree().paused = false
+	
 	if current_ui:
 		current_ui.visible = false
 	
