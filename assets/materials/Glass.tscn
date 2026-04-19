@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c8pns3mj1bkil"]
+
+[ext_resource type="Material" uid="uid://becggxee2bjsf" path="res://assets/materials/Glass.tres" id="1_dgtb1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_88bnt"]
+size = Vector3(0.01, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6wwjb"]
+size = Vector3(0.02, 1, 1)
+
+[node name="Glass" type="StaticBody3D" unique_id=875984425]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=280104107]
+shape = SubResource("BoxShape3D_88bnt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=914353902]
+material_override = ExtResource("1_dgtb1")
+mesh = SubResource("BoxMesh_6wwjb")

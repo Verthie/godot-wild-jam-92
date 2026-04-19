@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dmdo4jrfayrp3" path="res://scenes/levels/launch_pad.tscn" id="14_71s1a"]
 [ext_resource type="PackedScene" uid="uid://bspqtdixrj2ry" path="res://scenes/objects/trees and forest/tree_04.tscn" id="14_idy17"]
 [ext_resource type="PackedScene" uid="uid://blbbmf2rsj4na" path="res://scenes/objects/trees and forest/Forest_02.tscn" id="15_41wiu"]
+[ext_resource type="PackedScene" uid="uid://c8pns3mj1bkil" path="res://assets/materials/Glass.tscn" id="18_gxhqm"]
 [ext_resource type="PackedScene" uid="uid://dtoohwdtfkxew" path="res://scenes/items/brewing_room/wordle_board.tscn" id="18_rm2y2"]
 [ext_resource type="PackedScene" uid="uid://brhoentyagx0l" path="res://scenes/items/brewing_room/brewing_stand.tscn" id="19_3vkbi"]
 [ext_resource type="PackedScene" uid="uid://jm5fqe8v3ixo" path="res://scenes/levels/base_building.tscn" id="24_tb17h"]
@@ -845,6 +846,12 @@ transform = Transform3D(-0.38115057, 0, -0.38252348, 0, 0.54000014, 0, 0.3825234
 
 [node name="LaunchPad2" parent="terrain_v3" unique_id=1202363043 instance=ExtResource("14_71s1a")]
 transform = Transform3D(-0.92481846, 0, -0.3804087, 0, 1, 0, 0.3804087, 0, -0.92481846, 4.794993, -0.32615718, -4.670306)
+
+[node name="Glass" parent="terrain_v3" unique_id=875984425 instance=ExtResource("18_gxhqm")]
+transform = Transform3D(0.325, 0, 0, 0, 0.43, 0, 0, 0, 0.325, -2.4394636, 0.32945395, -2.0894818)
+
+[node name="Glass2" parent="terrain_v3" unique_id=342729848 instance=ExtResource("18_gxhqm")]
+transform = Transform3D(0.70296043, 0, -0.4338497, 0, 0.46, 0, 0.71122897, 0, 0.4288059, -2.1936498, 0.32229427, -2.4694288)
 
 [node name="LightPath" type="Node3D" parent="." unique_id=3828187]
 

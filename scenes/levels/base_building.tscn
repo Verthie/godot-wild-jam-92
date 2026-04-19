@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cr3loyqfonkmm" path="res://scenes/items/Ingredients/carrot.tscn" id="3_a8hjq"]
 [ext_resource type="PackedScene" uid="uid://i5ci573m23wc" path="res://scenes/items/brewing_room/trash_can.tscn" id="4_bd765"]
 [ext_resource type="PackedScene" uid="uid://b2dueucoqwjgg" path="res://scenes/objects/crates/crate_03.tscn" id="4_gmwk3"]
+[ext_resource type="PackedScene" uid="uid://c8pns3mj1bkil" path="res://assets/materials/Glass.tscn" id="5_1alik"]
 [ext_resource type="PackedScene" uid="uid://bd413m28777vl" path="res://scenes/items/Ingredients/potato.tscn" id="5_4sll4"]
 [ext_resource type="PackedScene" uid="uid://b48udivt8tmct" path="res://scenes/objects/crates/small_crate_01.tscn" id="5_a7aoy"]
 [ext_resource type="PackedScene" uid="uid://ci8a8ge0jkfgq" path="res://scenes/objects/crates/small_crate_03.tscn" id="6_lnja1"]
@@ -91,6 +92,18 @@ transform = Transform3D(0.00095463975, 0, -0.049990904, 0, 0.05, 0, 0.049990904,
 
 [node name="Trash Can2" parent="Indoor" unique_id=2069537780 instance=ExtResource("4_bd765")]
 transform = Transform3D(0.00095463987, 0, -0.049990907, 0, 0.05, 0, 0.049990907, 0, 0.00095463987, -0.89200556, 0.01616311, 0.17943738)
+
+[node name="Glass" parent="Indoor" unique_id=875984425 instance=ExtResource("5_1alik")]
+transform = Transform3D(0.010596498, 0, -0.55489886, 0, 0.555, 0, 0.55489886, 0, 0.010596498, 0.33455524, 1.0332139, -1.0559266)
+
+[node name="Glass2" parent="Indoor" unique_id=1238000723 instance=ExtResource("5_1alik")]
+transform = Transform3D(0.0105965, 0, -0.55489886, 0, 0.555, 0, 0.55489886, 0, 0.0105965, -0.67564094, 1.0332139, -1.0366358)
+
+[node name="Glass3" parent="Indoor" unique_id=1078244565 instance=ExtResource("5_1alik")]
+transform = Transform3D(0.010596503, 0, -0.55489886, 0, 0.555, 0, 0.55489886, 0, 0.010596503, -0.70792603, 1.0332139, 0.68241984)
+
+[node name="Glass4" parent="Indoor" unique_id=1762473048 instance=ExtResource("5_1alik")]
+transform = Transform3D(0.0105965035, 0, -0.55489886, 0, 0.555, 0, 0.55489886, 0, 0.0105965035, -0.17205584, 1.0332139, 0.67218673)
 
 [node name="Indoor2" parent="." unique_id=1108927795 instance=ExtResource("2_7ywmg")]
 transform = Transform3D(0.0272412, 0, 0.9996289, 0, 1, 0, -0.9996289, 0, 0.0272412, 0.1309542, -0.64523447, 0.3590096)
