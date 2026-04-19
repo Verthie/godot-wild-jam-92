@@ -36,7 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://muvu2v8yftya" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
 [ext_resource type="PackedScene" uid="uid://cnl81uovfvoov" path="res://scenes/items/journal.tscn" id="37_e5bxq"]
 [ext_resource type="PackedScene" uid="uid://bw1eck8ne6hjx" path="res://scenes/items/tape.tscn" id="38_1s2ut"]
-[ext_resource type="PackedScene" uid="uid://bwpckftuhwv7g" path="res://scenes/objects/corpse.tscn" id="38_2fe5f"]
+[ext_resource type="PackedScene" path="res://scenes/objects/corpse.tscn" id="38_2fe5f"]
 [ext_resource type="Script" uid="uid://b56tqyujtnroc" path="res://scenes/items/story_text.gd" id="39_idy17"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p1d0p"]
@@ -973,19 +973,22 @@ polygon = PackedVector2Array(-0.81, 0, 0, 0.5, 0, 0, 0, 0)
 
 [node name="BrewingRoom" type="Node3D" parent="." unique_id=1794882959]
 
-[node name="Wordle Board" parent="BrewingRoom" unique_id=1030027931 instance=ExtResource("18_rm2y2")]
+[node name="Wordle Board" parent="BrewingRoom" unique_id=1030027931 node_paths=PackedStringArray("cutscene_manager") instance=ExtResource("18_rm2y2")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -4.259552, 0.4177873, -2.5321171)
+cutscene_manager = NodePath("../../CutsceneManager")
 
-[node name="Brewing Stand" parent="BrewingRoom" unique_id=1285563339 instance=ExtResource("19_3vkbi")]
+[node name="Brewing Stand" parent="BrewingRoom" unique_id=1285563339 node_paths=PackedStringArray("cutscene_manager") instance=ExtResource("19_3vkbi")]
 transform = Transform3D(0.10499986, 0, -0.00015942752, 0, 0.10499999, 0, 0.00015942752, 0, 0.10499986, -4.1159163, 0.32185394, -1.9344314)
 collision_layer = 5
 board_path = NodePath("../Wordle Board")
 sampler_path = NodePath("../Sampler")
+cutscene_manager = NodePath("../../CutsceneManager")
 
-[node name="Big Round Button" parent="BrewingRoom" unique_id=1031953332 instance=ExtResource("28_5h0fd")]
+[node name="Big Round Button" parent="BrewingRoom" unique_id=1031953332 node_paths=PackedStringArray("cutscene_manager") instance=ExtResource("28_5h0fd")]
 transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, -4.130475, 0.33857304, -1.9327812)
 brewing_stand_path = NodePath("../Brewing Stand")
 sampler_path = NodePath("../Sampler")
+cutscene_manager = NodePath("../../CutsceneManager")
 
 [node name="Sampler" parent="BrewingRoom" unique_id=1827925662 instance=ExtResource("29_i0yxl")]
 transform = Transform3D(0.029795254, 0, 0.100683875, 0, 0.105, 0, -0.100683875, 0, 0.029795254, -4.0698805, 0.27007085, -2.2912874)
@@ -994,13 +997,15 @@ transform = Transform3D(0.029795254, 0, 0.100683875, 0, 0.105, 0, -0.100683875, 
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -3.9845212, 0.100581706, -2.339979)
 collision_layer = 5
 
-[node name="Oxygen Maker" parent="BrewingRoom" unique_id=1999525160 instance=ExtResource("4_v01af")]
+[node name="Oxygen Maker" parent="BrewingRoom" unique_id=1999525160 node_paths=PackedStringArray("cutscene_manager") instance=ExtResource("4_v01af")]
 transform = Transform3D(0.115, 0, 0, 0, 0.115, 0, 0, 0, 0.115, -4.1950803, 0.33264643, -1.4802142)
 collision_layer = 5
+cutscene_manager = NodePath("../../CutsceneManager")
 
-[node name="Bowl" parent="BrewingRoom" unique_id=1430480643 instance=ExtResource("5_32fx4")]
+[node name="Bowl" parent="BrewingRoom" unique_id=1430480643 node_paths=PackedStringArray("cutscene_manager") instance=ExtResource("5_32fx4")]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -4.1311045, 0.23281732, -1.2829474)
 collision_layer = 5
+cutscene_manager = NodePath("../../CutsceneManager")
 
 [node name="Ingredients" type="Node3D" parent="BrewingRoom" unique_id=411891239]
 

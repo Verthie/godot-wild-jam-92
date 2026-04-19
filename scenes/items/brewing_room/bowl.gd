@@ -7,7 +7,14 @@ var stored_item = null
 var stored_tag = null
 var visual_item = null
 
+@export var cutscene_manager: Node
+var shown_first_text := false
+
 func interact(player, hand):
+	if not shown_first_text and cutscene_manager.second_cutscene_done:
+		player.show_ui("bowl", Globals.UITextType.TUTORIAL)
+		shown_first_text = true
+	
 	# Press E should do nothing on the bowl
 	if hand == "none":
 		return

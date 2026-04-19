@@ -77,7 +77,8 @@ var ui_open := false
 @onready var ui_map = {
 	Globals.UITextType.JOURNAL: $JournalUI,
 	# Globals.UITextType.HANDBOOK: $BreweryHandbookUI,  # doesn't exist currently throws errors
-	Globals.UITextType.TAPE: $TapeUI
+	Globals.UITextType.TAPE: $TapeUI,
+	Globals.UITextType.TUTORIAL: $TutorialUI
 }
 
 #--------------
@@ -421,8 +422,11 @@ func set_movement_enabled(state: bool):
 func show_ui(tag: String, type: int):
 	# Pause movement/oxygen etc
 	get_tree().paused = true
+	
+	interaction_label.visible = false
+	crosshair.visible = false
 
-	var pages = Globals.journal_texts.get(tag, [])
+	var pages = Globals.ui_texts.get(tag, [])
 
 	var ui = ui_map.get(type, null)
 	if ui == null:
@@ -440,7 +444,10 @@ func show_ui(tag: String, type: int):
 func close_ui():
 	# Unpause movement/oxygen etc
 	get_tree().paused = false
-
+	
+	interaction_label.visible = true
+	crosshair.visible = true
+	
 	if current_ui:
 		current_ui.visible = false
 

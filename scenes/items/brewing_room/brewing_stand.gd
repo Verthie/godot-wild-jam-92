@@ -16,6 +16,8 @@ var sampler
 
 @onready var output_slot = $OutputSlot  # Node3D in front
 
+@export var cutscene_manager: Node
+var shown_first_text := false
 
 func generate_recipe():
 	var ingredients = ["watermelon", "pumpkin", "carrot", "mist_seed", "mush_seed",
@@ -59,6 +61,10 @@ func _ready() -> void:
 
 
 func interact(player, hand):
+	if not shown_first_text and cutscene_manager.second_cutscene_done:
+		player.show_ui("brewing_stand", Globals.UITextType.TUTORIAL)
+		shown_first_text = true
+	
 	# Press E should do nothing on the brewing stand
 	if hand == "none":
 		return
@@ -72,10 +78,12 @@ func interact(player, hand):
 	# --- Force player to take vial first ---
 	if output_item != null:
 		return
-
-	if held_item.tag in ["moon_seed", "vial_bad", "cure"]:
-		AudioManager.create_audio(SoundEffect.SoundEffectType.BREWERY_WRONG)
-		return
+	
+	# prevent empty hand click
+	if held_item:
+		if held_item.tag in ["moon_seed", "vial_bad", "cure"]:
+			AudioManager.create_audio(SoundEffect.SoundEffectType.BREWERY_WRONG)
+			return
 
 	# --- CASE 1: player holding item → put into stand ---
 	if held_item:

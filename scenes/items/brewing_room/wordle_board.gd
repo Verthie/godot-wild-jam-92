@@ -11,6 +11,9 @@ extends Node3D
 var current_row := 0
 var current_index := 0
 
+@export var cutscene_manager: Node
+var shown_first_text := false
+
 func _ready() -> void:
 	# display_result(["green", "green", "yellow", "yellow", "gray"])
 	pass
@@ -58,3 +61,14 @@ func set_tile_color(tile, color):
 	var mat = StandardMaterial3D.new()
 	mat.albedo_color = color
 	tile.material_override = mat
+
+func interact(player, hand):
+	if not shown_first_text and cutscene_manager.second_cutscene_done:
+		player.show_ui("display", Globals.UITextType.TUTORIAL)
+		shown_first_text = true
+
+func get_interaction_text(player):
+	if not shown_first_text and cutscene_manager.second_cutscene_done:
+		return "Press ME"
+	else:
+		return ""

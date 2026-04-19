@@ -12,9 +12,14 @@ var visual_items = []
 
 var correct_recipe = ["mist_seed", "watermelon"]
 
+@export var cutscene_manager: Node
+var shown_first_text := false
 
 func interact(player, hand):
-
+	if not shown_first_text and cutscene_manager.second_cutscene_done:
+		player.show_ui("o2", Globals.UITextType.TUTORIAL)
+		shown_first_text = true
+	
 	# Press E should do nothing on the brewing stand
 	# NOTE VERT: Changing some stuff just for testing
 	# NOTE Mainly just allowing to produce oxygen using the oxygen maker by pressing "e" on it

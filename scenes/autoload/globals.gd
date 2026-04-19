@@ -46,11 +46,65 @@ var icon_lookup = {
 enum UITextType {
 	JOURNAL,
 	HANDBOOK,
-	TAPE
+	TAPE,
+	TUTORIAL
 }
 
-var journal_texts = {
-	"journal_trevor_brewery": [
+
+
+# sorry for weird alignment
+var ui_texts = {
+	"text_1": [
+		{
+			"title": "Storm Incoming",
+			"text": "The storm seems to be intensifying. I'll need more oxygen before I can leave this facility.."
+		}
+	],
+
+	"o2": [
+		{
+			"title": "O2 Dispenser",
+			"text": "With this O2 dispenser, I'm able to replenish my oxygen levels by mixing a Mist Seed with Watermelon.\n\n*After inputting the ingredients into the dispenser, interact with the small button to begin photosynthesis*"
+		}
+	],
+
+	"sampler": [
+		{
+			"title": "Sampler",
+			"text": "Alright, here goes nothing.."
+		}
+	],
+	
+	"brewing_stand": [
+		{
+			"title": "Brewing Stand",
+			"text": "I need to deposit the necessary ingredients needed to brew the cure. I should be able to find them around the facility.\n\n*After placing the ingredients into the dispenser, interact with the BIG ROUND BUTTON to begin the brewing process*\n\n*You will need to find out the correct order the ingredients should be inputted.*"
+		}
+	],
+	
+	"bowl": [
+		{
+			"title": "Bowl",
+			"text": "*This bowl can be used to temporarily store one collected ingredient. You may use this bowl to help you rearrange the order of your brew before confirming it.*"
+		}
+	],
+	
+	"display": [
+		{
+			"title": "Display",
+			"text": "*This display shows the order of the most recent brew inputted into the brewing stand. Green indicates that the correct ingredient is on the right slot. Yellow slot indicates that the ingredient is part of the brew, but is not placed on the right slot. Red indicates that the ingredient is not used in the brew at all*"
+		}
+	],
+	
+	"slots": [
+		{
+			"title": "Fill all slots",
+			"text": "*You must fill all the slots with ingredients before brewing*"
+		}
+	],
+	
+	"journal_trevor_brewery":
+[
 	{ "title": "Trevor's Brewery Handbook (Page 1)", "text": "Alright.. Once the captain returns with the Moon Seeds, we should be able to immediately begin the brewing process for the cure!
 
 STEP 1: Insert the Moon Seeds into the Sampler.

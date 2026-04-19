@@ -5,6 +5,9 @@ var brewing_stand
 @export var sampler_path: NodePath
 var sampler
 
+@export var cutscene_manager: Node
+var shown_first_text := false
+
 func _ready():	
 	# Connect to brewing stand
 	if brewing_stand_path != NodePath():
@@ -18,7 +21,12 @@ func _ready():
 	else:
 		print("Button says: Sampler not found in scene")
 
+
 func interact(player, hand):
+	if not shown_first_text and cutscene_manager.second_cutscene_done:
+		player.show_ui("slots", Globals.UITextType.TUTORIAL)
+		shown_first_text = true
+		
 	# Only allow pressing E on the BIG ROUND BUTTON
 	if hand != "none":
 		return

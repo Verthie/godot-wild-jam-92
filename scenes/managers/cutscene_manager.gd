@@ -24,6 +24,9 @@ var player_canvas: CanvasLayer
 var monster: Monster = null
 var in_cutscene: bool = false
 
+# Jason:
+var second_cutscene_done := false
+
 func _ready() -> void:
 	# add black screen for the blink
 	await get_tree().process_frame
@@ -214,6 +217,9 @@ func _on_second_cutscene_area_player_entered(_body: Node3D) -> void:
 	player.set_movement_enabled(true)
 	ui.hide_prompt()
 	exit_door.enabled = true
+	
+	# Jason:
+	second_cutscene_done = true
 
 
 func apply_blur() -> void:

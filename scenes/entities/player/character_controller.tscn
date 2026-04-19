@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://6ruxv2406ad0" path="res://resources/shaders/psx_fog.gdshader" id="2_rlydy"]
 [ext_resource type="Shader" uid="uid://1mbhtwa2psud" path="res://resources/shaders/psx.gdshader" id="2_twwmx"]
 [ext_resource type="PackedScene" uid="uid://dui58xpxxwpp8" path="res://scenes/components/health_component.tscn" id="2_vxaux"]
-[ext_resource type="Script" path="res://scripts/motion_blur_compositor.gd" id="2_wxmoy"]
+[ext_resource type="Script" uid="uid://dl25ngkctrcfc" path="res://scripts/motion_blur_compositor.gd" id="2_wxmoy"]
 [ext_resource type="PackedScene" uid="uid://cfricpcy0yc7d" path="res://scenes/components/hurtbox_component.tscn" id="3_2lnhi"]
 [ext_resource type="PackedScene" uid="uid://dywu4dsxf2lkk" path="res://scenes/components/death_component.tscn" id="4_2lnhi"]
 [ext_resource type="FontFile" uid="uid://b7cidb34a11n0" path="res://assets/fonts/MGS1 HUD.ttf" id="9_i5s3e"]
@@ -14,7 +14,7 @@
 [ext_resource type="FontFile" uid="uid://dirnnxmmgi5u0" path="res://assets/fonts/MGS1 Codec.ttf" id="11_ygr4t"]
 [ext_resource type="Texture2D" uid="uid://bxc6eha6xo2pl" path="res://assets/ui/demo_1.svg" id="13_52u0t"]
 [ext_resource type="Shader" uid="uid://5106ua7w105k" path="res://resources/shaders/blur.gdshader" id="13_cgxn4"]
-[ext_resource type="Script" path="res://scenes/entities/player/audio_listener_3d.gd" id="13_n5nu3"]
+[ext_resource type="Script" uid="uid://cblyk7lmhmymr" path="res://scenes/entities/player/audio_listener_3d.gd" id="13_n5nu3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_20xh0"]
 radius = 0.05
@@ -310,6 +310,66 @@ theme_override_fonts/font = ExtResource("11_ygr4t")
 theme_override_font_sizes/font_size = 32
 text = "Next page
 Press E"
+
+[node name="TutorialUI" type="CanvasLayer" parent="." unique_id=416784765 node_paths=PackedStringArray("title_label", "body_label", "hint_label")]
+visible = false
+script = ExtResource("10_ygr4t")
+title_label = NodePath("TextureRect/TutorialTitle")
+body_label = NodePath("TextureRect/TutorialText")
+hint_label = NodePath("TextureRect/TutorialHintLabel")
+
+[node name="TextureRect" type="TextureRect" parent="TutorialUI" unique_id=1915972478]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TutorialTitle" type="Label" parent="TutorialUI/TextureRect" unique_id=833502449]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -545.0
+offset_top = -424.0
+offset_right = -441.0
+offset_bottom = -367.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9_i5s3e")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="TutorialText" type="RichTextLabel" parent="TutorialUI/TextureRect" unique_id=1151543969]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -403.5
+offset_top = -206.0
+offset_right = 403.5
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("9_i5s3e")
+theme_override_font_sizes/normal_font_size = 52
+text = "hello"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TutorialHintLabel" type="Label" parent="TutorialUI/TextureRect" unique_id=1455509519]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 564.0
+offset_right = 1042.0
+offset_bottom = 587.0
+theme_override_fonts/font = ExtResource("11_ygr4t")
+theme_override_font_sizes/font_size = 32
+text = "Press E"
 
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1578059824]
 process_mode = 3
