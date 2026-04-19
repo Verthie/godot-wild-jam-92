@@ -16,8 +16,8 @@ const MONSTER_SCENE = preload("res://scenes/entities/monster/monster_controller.
 @export var cutscene_area_base: Area3D
 
 @export var play_cutscenes: bool = true
-@export var player_initial_location: Vector3 = Vector3(6.998, 2.577, 8.535)
-@export var player_initial_rotation: Vector3 = Vector3(0, 75.9, 0)
+@export var player_initial_location: Vector3 = Vector3(6.994, 2.384, 8.536)
+@export var player_initial_rotation: Vector3 = Vector3(0, 38.2, 0)
 
 var player_camera: Camera3D
 var player_canvas: CanvasLayer
@@ -31,11 +31,11 @@ func _ready() -> void:
 	# add black screen for the blink
 	await get_tree().process_frame
 
+	player.set_movement_enabled(false)
 	player.canvas_layer.hide()
 
 	in_cutscene = true
 
-	player.set_movement_enabled(false)
 	oxygen_manager.set_oxygen_display(false)
 	oxygen_manager.disable_oxygen_deplete()
 
@@ -202,7 +202,7 @@ func _on_second_cutscene_area_player_entered(_body: Node3D) -> void:
 	oxygen_manager.pause_oxygen_deplete(false)
 	player.set_movement_enabled(true)
 
-	ui.display_prompt("Now I can put them in the oxygen maker")
+	ui.display_prompt("I should probably put them\nin the oxygen dispenser")
 
 	await oxygen_maker.produced_oxygen
 

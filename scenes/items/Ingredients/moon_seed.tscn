@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://muvu2v8yftya"]
+[gd_scene format=4 uid="uid://d3brhbeuphviu"]
 
 [ext_resource type="Script" uid="uid://d4nes2xn53c55" path="res://scenes/items/Ingredients/ingredient.gd" id="1_armkn"]
 [ext_resource type="PackedScene" uid="uid://dufpv1wml70nf" path="res://scenes/items/Ingredients/moon_seed_item.tscn" id="2_624rt"]
@@ -7,6 +7,7 @@
 rings = 1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8e357"]
+radius = 0.142
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5po1o"]
 resource_name = "MoonSeed"
@@ -90,8 +91,9 @@ visible = false
 mesh = SubResource("SphereMesh_fvoaw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1679966306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.155, 0)
 shape = SubResource("SphereShape3D_8e357")
 
 [node name="MoonSeed" type="MeshInstance3D" parent="." unique_id=285905116]
-transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, -0.3727148, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("ArrayMesh_yc6yh")

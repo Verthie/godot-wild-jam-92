@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d3tn074h53lc1" path="res://scenes/items/brewing_room/sampler.gd" id="1_7qhvp"]
 [ext_resource type="Texture2D" uid="uid://djrgi3tj2xuxr" path="res://assets/materials/lmrb_SF Trimsheet A_BaseColor.png" id="2_l6408"]
-[ext_resource type="Material" path="res://assets/materials/Glass.tres" id="3_nyejh"]
+[ext_resource type="Material" uid="uid://becggxee2bjsf" path="res://assets/materials/Glass.tres" id="3_nyejh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3iaf"]
 resource_name = "Machine"
@@ -90,13 +90,14 @@ shadow_mesh = SubResource("ArrayMesh_1gag6")
 [sub_resource type="BoxMesh" id="BoxMesh_ysqcn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7qhvp"]
+size = Vector3(2.68, 1.125, 1.225)
 
 [node name="Sampler" type="StaticBody3D" unique_id=1827925662]
 transform = Transform3D(0.755, 0, 0, 0, 0.755, 0, 0, 0, 0.755, 0, 0, 0)
 script = ExtResource("1_7qhvp")
 
 [node name="Sampler" type="MeshInstance3D" parent="." unique_id=1678311853]
-transform = Transform3D(11.87, 0, 0, 0, 11.87, 0, 0, 0, 11.87, 0, -0.50432825, -1.0979155)
+transform = Transform3D(11.87, 0, 0, 0, 11.87, 0, 0, 0, 11.87, 0, 0, 0)
 mesh = SubResource("ArrayMesh_5y8ci")
 
 [node name="Glass (2)" type="MeshInstance3D" parent="Sampler" unique_id=1418442858]
@@ -109,7 +110,7 @@ visible = false
 mesh = SubResource("BoxMesh_ysqcn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=326732937]
-transform = Transform3D(11.87, 0, 0, 0, 11.87, 0, 0, 0, 11.87, 0, 0, 0)
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, 0, 0.69140005, 0)
 shape = SubResource("BoxShape3D_7qhvp")
 
 [node name="NumberDisplay" type="Node3D" parent="." unique_id=1690019421]

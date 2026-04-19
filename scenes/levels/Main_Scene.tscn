@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://jybv4plib51w" path="res://scenes/levels/green_house_v_1.tscn" id="26_osekx"]
 [ext_resource type="PackedScene" uid="uid://bxpps6iej0xf8" path="res://scenes/items/brewing_room/big_round_button.tscn" id="28_5h0fd"]
 [ext_resource type="PackedScene" uid="uid://cjx44grbhpum7" path="res://scenes/items/brewing_room/sampler.tscn" id="29_i0yxl"]
-[ext_resource type="PackedScene" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
+[ext_resource type="PackedScene" uid="uid://d3brhbeuphviu" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
 [ext_resource type="PackedScene" uid="uid://cnl81uovfvoov" path="res://scenes/items/journal.tscn" id="37_e5bxq"]
 [ext_resource type="PackedScene" uid="uid://bw1eck8ne6hjx" path="res://scenes/items/tape.tscn" id="38_1s2ut"]
 [ext_resource type="PackedScene" uid="uid://bwpckftuhwv7g" path="res://scenes/objects/corpse.tscn" id="38_2fe5f"]
@@ -331,7 +331,7 @@ tracks/3/keys = PackedFloat32Array(0, 1, -0.72971386, 0.091640614, 0.13518007, 0
 
 [sub_resource type="Animation" id="Animation_j6j5q"]
 resource_name = "go_back_to_default"
-length = 3.0
+length = 6.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -340,10 +340,10 @@ tracks/0/path = NodePath("CutsceneCamera:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1.4640857),
+"times": PackedFloat32Array(0, 0.6, 3, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1.4640857, 1, 1),
 "update": 0,
-"values": [Vector3(-0.7466251, 1.1800897, 0.20407605), Vector3(0, 1.3247049, 0)]
+"values": [Vector3(-0.7466251, 1.1800897, 0.20407605), Vector3(-0.66897607, 1.1951298, 0.18285215), Vector3(-0.59864795, 0.6667158, 0), Vector3(-0.59864795, 0.6667158, 0), Vector3(0, 0.6667158, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_uof65"]
@@ -457,8 +457,7 @@ shadow_enabled = true
 shadow_bias = 0.0
 
 [node name="CutsceneCamera" type="Camera3D" parent="." unique_id=1979079288]
-transform = Transform3D(0.32630438, 0.33515587, 0.8838529, -0.8389137, 0.53356546, 0.10738617, -0.4356023, -0.7765168, 0.45527163, 6.995584, 2.451365, 8.410142)
-visible = false
+transform = Transform3D(0.3263044, 0.33515587, 0.883853, -0.8389138, 0.53356546, 0.10738619, -0.43560237, -0.7765168, 0.4552717, 6.995584, 2.451365, 8.410142)
 compositor = SubResource("Compositor_uof65")
 current = true
 fov = 45.0
@@ -478,7 +477,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="CharacterController" parent="." unique_id=379629607 instance=ExtResource("1_p1d0p")]
-transform = Transform3D(0.24361503, 0, 0.969872, 0, 1, 0, -0.969872, 0, 0.24361503, 7.344051, 2.4437017, 8.188024)
+transform = Transform3D(0.7858566, 0, 0.6184083, 0, 1.0000001, 0, -0.6184082, 0, 0.7858567, 6.9939713, 2.3838441, 8.535909)
 
 [node name="CutsceneAreaExterior" type="Area3D" parent="." unique_id=734963161]
 collision_layer = 0
@@ -515,6 +514,8 @@ collision_mask = 4
 shape = SubResource("BoxShape3D_eyj4g")
 
 [node name="MonsterRegion" type="Area3D" parent="." unique_id=1224125478]
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MonsterRegion" unique_id=494327242]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8469429, 0, -0.06006074)
@@ -525,6 +526,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6398783, 0, -2.9430947)
 shape = SubResource("BoxShape3D_1s2ut")
 
 [node name="IndoorRegion" type="Area3D" parent="." unique_id=519812196]
+monitoring = false
+monitorable = false
 
 [node name="BrewingRoomRegion" type="CollisionShape3D" parent="IndoorRegion" unique_id=1769088827]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7908707, 0, -1.5065113)
@@ -1019,7 +1022,7 @@ transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -4.126314, 0.2209
 transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -4.1443744, 0.23456118, -1.7299252)
 
 [node name="MoonSeed" parent="." unique_id=861819151 instance=ExtResource("30_62ook")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.725135, 0.3, -2.155)
+transform = Transform3D(0.005028229, 0.14991571, 0, -0.14991571, 0.005028229, 0, 0, 0, 0.14999999, 6.7742443, 2.3774369, 8.286237)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1931625618]
 libraries/ = SubResource("AnimationLibrary_u2i4f")
