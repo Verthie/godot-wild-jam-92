@@ -113,7 +113,7 @@ This is the only way we survive.
 	
 	"tape_1": [
 		{
-			"title": "Lab Journal #3",
+			"title": "Tape Recorder #1",
 			"text": "\"Captains log #9. Reporting for mission: Red Mist Alpha..
 			
 ..730 days since the red mist infected our planet's atmosphere.. 
@@ -125,7 +125,7 @@ This is the only way we survive.
 ...We have acquired the moon seeds.. We have the CURE... "},
 
 		{
-			"title": "Lab Journal #3",
+			"title": "Tape Recorder #1",
 			"text": "..*static*.. .. everything in our power to deliver it to the canon before.. *static*
 
 ..We are in grave danger..\"
@@ -136,7 +136,7 @@ This is the only way we survive.
 	
 	"tape_2": [
 		{
-			"title": "Lab Journal #3",
+			"title": "Tape Recorder #2",
 			"text": "\"That's it! There's a recurring pattern!..
 
 ..The unknown entity never fails to appear before each red mist storm..
@@ -151,14 +151,14 @@ This is the only way we survive.
 "
 		},
 		{
-			"title": "Lab Journal #3",
+			"title": "Tape Recorder #2",
 			"text": "..If only we had more time to study this beautiful phenomenon..\""
 		}
 	],
 	
 	"placeholder1": [
 		{
-			"title": "Lab Journal #3",
+			"title": "title",
 			"text": "The first storm is here. We're too late. The animals outside have disappeared, we have lost contact with the other sites. Everything we built will eventually crumble to ash. The vegetation outside has already started to show mild signs of decay. Looks like we were a little too hopeful about this whole operation huh. I miss home.
 
 -- S."
@@ -167,7 +167,7 @@ This is the only way we survive.
 	
 	"placeholder2": [
 		{
-			"title": "Lab Journal #3",
+			"title": "title",
 			"text": "The first storm is here. We're too late. The animals outside have disappeared, we have lost contact with the other sites. Everything we built will eventually crumble to ash. The vegetation outside has already started to show mild signs of decay. Looks like we were a little too hopeful about this whole operation huh. I miss home.
 
 -- S."

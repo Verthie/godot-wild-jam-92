@@ -38,6 +38,11 @@ func _ready() -> void:
 	# Build catalogues
 	for track in tracks:
 		_catalogue[track.type] = track
+	
+	# Jason: for pausing movement/oxygen etc when reading
+	# making sure get_tree().paused does not pause this node along
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	set_process_unhandled_input(true)
 
 func play_music(type: MusicTrack.MusicType, fade_in_time: float = 1.0) -> void:
 	if _active.has(type):
