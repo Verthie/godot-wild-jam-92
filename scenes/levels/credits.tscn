@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://blvmb0v5uldtm"]
+
+[ext_resource type="Script" uid="uid://djynxx02nsd0c" path="res://scenes/levels/credits.gd" id="1_fhg1p"]
+[ext_resource type="FontFile" uid="uid://b7cidb34a11n0" path="res://assets/fonts/MGS1 HUD.ttf" id="1_kxfi0"]
+
+[node name="Credits" type="Control" unique_id=525217462]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_fhg1p")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=27934181]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.6392157)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=871344040]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.49815464, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("1_kxfi0")
+bbcode_enabled = true
+text = "[font_size=86]Programming and Gameplay design[/font_size]
+
+
+
+[font_size=64]Verthie[/url][/font_size]
+
+
+
+
+
+
+[font_size=86]Music, SFX and Narrative[/font_size]
+
+
+
+[font_size=64]Lee Off[/font_size]
+
+
+
+
+
+
+[font_size=86]Programming[/font_size]
+
+
+
+[font_size=64]Jason[/font_size]
+
+
+
+
+
+
+[font_size=86]3D Art[/font_size]
+
+
+
+[font_size=64]Dimm[/font_size]"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 161

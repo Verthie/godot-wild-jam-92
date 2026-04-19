@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://w1k3fe0f4h5x"]
+
+[ext_resource type="Script" uid="uid://muj2hj843xed" path="res://scenes/autoload/transition_node.gd" id="1_qna5e"]
+
+[node name="TransitionNode" type="ColorRect" unique_id=494395634]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0)
+script = ExtResource("1_qna5e")

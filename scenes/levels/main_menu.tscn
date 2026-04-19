@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://di67pls6mwmb8"]
+
+[ext_resource type="FontFile" uid="uid://dirnnxmmgi5u0" path="res://assets/fonts/MGS1 Codec.ttf" id="1_fsby3"]
+[ext_resource type="Script" path="res://scenes/levels/main_menu.gd" id="1_leamy"]
+
+[node name="Control" type="Control" unique_id=1319732538]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_leamy")
+
+[node name="Background" type="TextureRect" parent="." unique_id=561499892]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=59474233]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 367
+theme_override_constants/margin_top = 252
+theme_override_constants/margin_right = 366
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1650620002]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 31
+alignment = 1
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1683264583]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fsby3")
+theme_override_font_sizes/font_size = 82
+text = "START"
+
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer" unique_id=42315136]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fsby3")
+theme_override_font_sizes/font_size = 82
+text = "CREDITS"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=469217684]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fsby3")
+theme_override_font_sizes/font_size = 82
+text = "EXIT"
