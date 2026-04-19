@@ -46,7 +46,11 @@ func _ready() -> void:
 	player_canvas = player.canvas_layer
 
 	if !play_cutscenes:
+		player.canvas_layer.show()
 		ui.fade_out_screen(2.0)
+		player.set_movement_enabled(true)
+		oxygen_manager.set_oxygen_display(true)
+		oxygen_manager.enable_oxygen_deplete()
 		player_camera.current = true
 		cutscene_camera.current = false
 		return

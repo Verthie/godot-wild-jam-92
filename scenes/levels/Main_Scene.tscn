@@ -39,6 +39,12 @@
 [ext_resource type="PackedScene" uid="uid://bw1eck8ne6hjx" path="res://scenes/items/tape.tscn" id="38_1s2ut"]
 [ext_resource type="PackedScene" uid="uid://bwpckftuhwv7g" path="res://scenes/objects/corpse.tscn" id="38_2fe5f"]
 [ext_resource type="Script" uid="uid://b56tqyujtnroc" path="res://scenes/items/story_text.gd" id="39_idy17"]
+[ext_resource type="Texture2D" uid="uid://co1fgiiqm6ts5" path="res://assets/textures/arrows/right-direction-arrow-png.png" id="40_cjtiw"]
+[ext_resource type="Texture2D" uid="uid://ccto6mb4rf8um" path="res://assets/textures/icons/watermelon.png" id="42_5cpeo"]
+[ext_resource type="Texture2D" uid="uid://thmwetx65ndc" path="res://assets/textures/icons/carrot.png" id="42_himu0"]
+[ext_resource type="Texture2D" uid="uid://g6pxbxcxob3c" path="res://assets/textures/icons/potato.png" id="43_5cpeo"]
+[ext_resource type="Texture2D" uid="uid://bfintm5js0uvp" path="res://assets/textures/icons/pumpkin.png" id="43_aeicu"]
+[ext_resource type="Texture2D" uid="uid://b5olgml335nl" path="res://assets/textures/icons/beetroot.png" id="44_uamg2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p1d0p"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -416,6 +422,10 @@ _data = {
 &"wake_up_camurai": SubResource("Animation_0ofrv")
 }
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_cjtiw"]
+size = Vector2(0.1, 0.1)
+orientation = 2
+
 [node name="MainScene" type="Node3D" unique_id=602291638]
 script = ExtResource("1_0ofrv")
 
@@ -432,6 +442,7 @@ mist_seed = NodePath("../BrewingRoom/Ingredients/Mist Seed")
 oxygen_maker = NodePath("../BrewingRoom/Oxygen Maker")
 cutscene_area_exterior = NodePath("../CutsceneAreaExterior")
 cutscene_area_base = NodePath("../CutsceneAreaBase")
+play_cutscenes = false
 
 [node name="MoodManager" parent="." unique_id=1883706707 node_paths=PackedStringArray("player", "exterior_area", "interior_area", "cutscene_area") instance=ExtResource("1_wn3jb")]
 player = NodePath("../CharacterController")
@@ -997,7 +1008,7 @@ sampler_path = NodePath("../Sampler")
 cutscene_manager = NodePath("../../CutsceneManager")
 
 [node name="Sampler" parent="BrewingRoom" unique_id=1827925662 instance=ExtResource("29_i0yxl")]
-transform = Transform3D(0.029795254, 0, 0.100683875, 0, 0.105, 0, -0.100683875, 0, 0.029795254, -4.0698805, 0.27007085, -2.2912874)
+transform = Transform3D(0.029795254, 0, 0.100683875, 0, 0.105, 0, -0.100683875, 0, 0.029795254, -4.1596494, 0.22667164, -2.32327)
 
 [node name="Trash Can" parent="BrewingRoom" unique_id=871694397 instance=ExtResource("3_7npca")]
 transform = Transform3D(0.035, 0, 0, 0, 0.035, 0, 0, 0, 0.035, -3.9845212, 0.100581706, -2.339979)
@@ -1063,3 +1074,61 @@ transform = Transform3D(1, 3.0365022e-10, 0, 2.910373e-10, 1, 7.450532e-08, 0, -
 
 [node name="Corpse" parent="." unique_id=1800283273 instance=ExtResource("38_2fe5f")]
 transform = Transform3D(0.046900727, -0.004301758, 0.19951645, 0.0035771984, 0.20493753, 0.0035777432, -0.19953075, 0.0026629819, 0.046961505, 6.6553254, 2.360422, 8.525839)
+
+[node name="Signs" type="Node3D" parent="." unique_id=1645306061]
+
+[node name="Sprite3D2" type="Sprite3D" parent="Signs" unique_id=492057378]
+transform = Transform3D(4.1653743e-09, 0, 0.05, 0, 0.05, 0, -0.055172056, 0, 3.774895e-09, -4.539405, 0.23392612, -0.7678044)
+texture = ExtResource("40_cjtiw")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Signs" unique_id=1138112396]
+transform = Transform3D(-0.03297423, 0.014738883, 0.03727957, 0.025562597, 0.044296827, 0.0010567133, -0.036099993, 0.017904121, -0.033303417, -0.82492036, -0.43817472, -3.9897294)
+texture = ExtResource("40_cjtiw")
+
+[node name="Tile1" type="MeshInstance3D" parent="Signs" unique_id=1465995919]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.067778, 0.31781796, -1.8582352)
+mesh = SubResource("PlaneMesh_cjtiw")
+
+[node name="Sprite3D" type="Sprite3D" parent="Signs/Tile1" unique_id=579914724]
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 0, 0, 0.006569147)
+texture = ExtResource("42_5cpeo")
+
+[node name="Tile2" type="MeshInstance3D" parent="Signs" unique_id=1407878754]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.067778, -0.49587882, -1.8582352)
+mesh = SubResource("PlaneMesh_cjtiw")
+
+[node name="Sprite3D" type="Sprite3D" parent="Signs/Tile2" unique_id=1266021631]
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 0, 0, 0.0059666634)
+texture = ExtResource("43_aeicu")
+
+[node name="Tile5" type="MeshInstance3D" parent="Signs" unique_id=1120990300]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -3.067778, -0.36620164, -1.8582352)
+mesh = SubResource("PlaneMesh_cjtiw")
+
+[node name="Sprite3D" type="Sprite3D" parent="Signs/Tile5" unique_id=492349260]
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 0, 0, 0.0037949085)
+texture = ExtResource("44_uamg2")
+
+[node name="Tile6" type="MeshInstance3D" parent="Signs" unique_id=1311008416]
+transform = Transform3D(0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, 0.7071067, -0.6855259, -0.36620164, -3.8588133)
+mesh = SubResource("PlaneMesh_cjtiw")
+
+[node name="Sprite3D" type="Sprite3D" parent="Signs/Tile6" unique_id=1523519496]
+transform = Transform3D(0.055, 0, -1.8626451e-09, 0, 0.055, 0, 1.8626451e-09, 0, 0.055, -0.016483784, -0.020305336, 0.0036642551)
+texture = ExtResource("42_5cpeo")
+
+[node name="Tile3" type="MeshInstance3D" parent="Signs" unique_id=1369225615]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -4.549, 0.374, -0.603)
+mesh = SubResource("PlaneMesh_cjtiw")
+
+[node name="Sprite3D" type="Sprite3D" parent="Signs/Tile3" unique_id=238190255]
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 0, 0, 0.0032668114)
+texture = ExtResource("42_himu0")
+
+[node name="Tile4" type="MeshInstance3D" parent="Signs" unique_id=1440964305]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -4.549405, 0.37394744, -0.7286569)
+mesh = SubResource("PlaneMesh_cjtiw")
+
+[node name="Sprite3D" type="Sprite3D" parent="Signs/Tile4" unique_id=1336628915]
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, 0, 0, 0.014519215)
+texture = ExtResource("43_5cpeo")
