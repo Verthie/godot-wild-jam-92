@@ -80,8 +80,6 @@ func _ready() -> void:
 
 # player triggers the cutscene near the base
 func _on_first_cutscene_area_player_entered(_body: Node3D) -> void:
-	print("FUCK")
-
 	# monster needs to be far but its speed should be fast so that the player can't outrun him with sprint and doesn't break the sequence if they don't go to the base
 	# so we need to temporarily modify it's speed, and chase distance
 	monster = MONSTER_SCENE.instantiate()
@@ -119,6 +117,7 @@ func _on_first_cutscene_area_player_entered(_body: Node3D) -> void:
 # player reached the base
 func _on_second_cutscene_area_player_entered() -> void:
 	ui.hide_prompt()
+	monster.chasing_distance = 4.0
 	# enable base lockdown
 	pass
 
