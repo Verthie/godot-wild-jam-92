@@ -202,14 +202,15 @@ func _on_second_cutscene_area_player_entered(_body: Node3D) -> void:
 
 	await ui.timed_display_prompt("Uff, I bought myself some time", 3.0)
 
-	oxygen_manager.pause_oxygen_deplete(false)
 	player.set_movement_enabled(false)
+	oxygen_manager.pause_oxygen_deplete()
 
 	ui.display_prompt("I should quickly look for some\ninformation...anything that could help me")
 	await _wait_for_input(["interact", "interact_left", "interact_right"])
 	ui.display_prompt("Oxygen is scarce\nand time is running out...")
 	await _wait_for_input(["interact", "interact_left", "interact_right"])
 
+	oxygen_manager.pause_oxygen_deplete(false)
 	player.set_movement_enabled(true)
 	ui.hide_prompt()
 	exit_door.enabled = true
