@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cf0hplapx6cco"]
+
+[ext_resource type="Texture2D" uid="uid://ci4y3de1mxryu" path="res://assets/materials/forest_floor_HUE_3.png" id="1_h5kuk"]
+
+[resource]
+albedo_texture = ExtResource("1_h5kuk")
+metallic_specular = 0.0
+uv1_scale = Vector3(50, 50, 50)
