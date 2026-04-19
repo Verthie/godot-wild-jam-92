@@ -1,5 +1,6 @@
-[gd_scene format=4 uid="uid://cv4t8g56sfgex"]
+[gd_scene format=4 uid="uid://fgwxnfttaro7"]
 
+[ext_resource type="Script" uid="uid://ugnt3riwyw0r" path="res://scenes/levels/main_scene.gd" id="1_0ofrv"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://scenes/entities/player/character_controller.tscn" id="1_p1d0p"]
 [ext_resource type="PackedScene" uid="uid://clqtkjumui0ww" path="res://scenes/managers/oxygen_manager.tscn" id="1_r8nyi"]
 [ext_resource type="Script" uid="uid://3lbkup00bu2d" path="res://scenes/managers/cutscene_manager.gd" id="1_u2i4f"]
@@ -8,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://i5ci573m23wc" path="res://scenes/items/brewing_room/trash_can.tscn" id="3_7npca"]
 [ext_resource type="ArrayMesh" uid="uid://kjt1hc6140uf" path="res://assets/models/Terrain/terrain_06.obj" id="3_b4qxk"]
 [ext_resource type="PackedScene" uid="uid://ccri2hc7dtc13" path="res://scenes/items/brewing_room/oxygen_maker.tscn" id="4_v01af"]
-[ext_resource type="Script" uid="uid://dl25ngkctrcfc" path="res://scripts/motion_blur_compositor.gd" id="5_0ofrv"]
+[ext_resource type="Script" path="res://scripts/motion_blur_compositor.gd" id="5_0ofrv"]
 [ext_resource type="PackedScene" uid="uid://87oflr5ytl6" path="res://scenes/items/brewing_room/bowl.tscn" id="5_32fx4"]
 [ext_resource type="Shader" uid="uid://6ruxv2406ad0" path="res://resources/shaders/psx_fog.gdshader" id="6_crguu"]
 [ext_resource type="ArrayMesh" uid="uid://b7ass7eitqeyp" path="res://assets/models/misc/PassageV4.obj" id="7_71s1a"]
@@ -33,10 +34,10 @@
 [ext_resource type="PackedScene" uid="uid://jybv4plib51w" path="res://scenes/levels/green_house_v_1.tscn" id="26_osekx"]
 [ext_resource type="PackedScene" uid="uid://bxpps6iej0xf8" path="res://scenes/items/brewing_room/big_round_button.tscn" id="28_5h0fd"]
 [ext_resource type="PackedScene" uid="uid://cjx44grbhpum7" path="res://scenes/items/brewing_room/sampler.tscn" id="29_i0yxl"]
-[ext_resource type="PackedScene" uid="uid://muvu2v8yftya" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
+[ext_resource type="PackedScene" path="res://scenes/items/Ingredients/moon_seed.tscn" id="30_62ook"]
 [ext_resource type="PackedScene" uid="uid://cnl81uovfvoov" path="res://scenes/items/journal.tscn" id="37_e5bxq"]
 [ext_resource type="PackedScene" uid="uid://bw1eck8ne6hjx" path="res://scenes/items/tape.tscn" id="38_1s2ut"]
-[ext_resource type="PackedScene" path="res://scenes/objects/corpse.tscn" id="38_2fe5f"]
+[ext_resource type="PackedScene" uid="uid://bwpckftuhwv7g" path="res://scenes/objects/corpse.tscn" id="38_2fe5f"]
 [ext_resource type="Script" uid="uid://b56tqyujtnroc" path="res://scenes/items/story_text.gd" id="39_idy17"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p1d0p"]
@@ -416,6 +417,7 @@ _data = {
 }
 
 [node name="MainScene" type="Node3D" unique_id=602291638]
+script = ExtResource("1_0ofrv")
 
 [node name="CutsceneManager" type="Node" parent="." unique_id=754631928 node_paths=PackedStringArray("ui", "player", "cutscene_camera", "animation_player", "oxygen_manager", "tape_1", "exit_door", "mist_seed", "oxygen_maker", "cutscene_area_exterior", "cutscene_area_base")]
 script = ExtResource("1_u2i4f")
@@ -473,6 +475,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="CharacterController" parent="." unique_id=379629607 instance=ExtResource("1_p1d0p")]
 transform = Transform3D(0.24361503, 0, 0.969872, 0, 1, 0, -0.969872, 0, 0.24361503, 7.344051, 2.4437017, 8.188024)
@@ -1038,7 +1041,7 @@ transform = Transform3D(-0.13146691, 0, -0.68754375, 0, 0.7, 0, 0.68754375, 0, -
 text_tag = "journal_3"
 
 [node name="Tape1" parent="." unique_id=2120888103 instance=ExtResource("38_1s2ut")]
-transform = Transform3D(0.9466568, -0.31325158, -0.07559316, 0.04576585, -0.10151118, 0.9937807, -0.3189771, -0.9442291, -0.08176, 6.8325458, 2.3928263, 8.486437)
+transform = Transform3D(0.94665676, -0.31325155, -0.07559316, 0.045765847, -0.10151118, 0.9937807, -0.31897706, -0.94422907, -0.08176, 6.8325458, 2.3928263, 8.486437)
 script = ExtResource("39_idy17")
 text_tag = "tape_1"
 ui_type = 2

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="godot_wild_jam_92"
 config/tags=PackedStringArray("3d", "adventure", "puzzle", "wild_jam")
-run/main_scene="uid://cv4t8g56sfgex"
+run/main_scene="uid://di67pls6mwmb8"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -26,11 +26,16 @@ EventBus="*uid://dnhki7wr1nvuk"
 Globals="*uid://c2vnoyoxorfxu"
 AudioManager="*uid://lv3hc1djv0g2"
 MusicManager="*uid://imsso14w3fwx"
+TransitionNode="*uid://w1k3fe0f4h5x"
 
 [debug]
 
 gdscript/warnings/unused_signal=0
 gdscript/warnings/standalone_ternary=0
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [input]
 
@@ -109,6 +114,13 @@ escape={
 3d_physics/layer_5="structures"
 3d_physics/layer_6="interactable"
 3d_physics/layer_7="hurtbox"
+
+[maaacks_menus_template]
+
+disable_install_audio_busses=true
+disable_update_check=false
+disable_install_wizard=true
+copy_path="res://ok/"
 
 [physics]
 

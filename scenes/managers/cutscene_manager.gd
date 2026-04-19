@@ -31,6 +31,8 @@ func _ready() -> void:
 	# add black screen for the blink
 	await get_tree().process_frame
 
+	player.canvas_layer.hide()
+
 	in_cutscene = true
 
 	player.set_movement_enabled(false)
@@ -60,6 +62,7 @@ func _ready() -> void:
 	animation_player.play("wake_up_camurai")
 	await animation_player.animation_finished
 
+	player.canvas_layer.show()
 	await get_tree().create_timer(0.2).timeout
 
 	ui.display_prompt("Press LMB to pick up the tape")
@@ -217,7 +220,7 @@ func _on_second_cutscene_area_player_entered(_body: Node3D) -> void:
 	player.set_movement_enabled(true)
 	ui.hide_prompt()
 	exit_door.enabled = true
-	
+
 	# Jason:
 	second_cutscene_done = true
 
