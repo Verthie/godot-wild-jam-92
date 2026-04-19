@@ -1,7 +1,5 @@
 extends Control
 
-@onready var button: Button = $Button
-
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") or \
 	Input.is_action_just_pressed("interact_left") or \
