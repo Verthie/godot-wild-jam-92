@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckppucvlw5j5o" path="res://scenes/objects/blast_door_small.tscn" id="1_jmltk"]
 [ext_resource type="PackedScene" uid="uid://bydcikdt8fal7" path="res://scenes/objects/indoor_half.tscn" id="2_td5t5"]
 [ext_resource type="PackedScene" uid="uid://1nq4phegnidu" path="res://scenes/objects/crates/crate_01.tscn" id="3_ss7iq"]
+[ext_resource type="PackedScene" uid="uid://i5ci573m23wc" path="res://scenes/items/brewing_room/trash_can.tscn" id="3_wc46g"]
 [ext_resource type="PackedScene" uid="uid://conw1c8gmbaqp" path="res://scenes/objects/crates/crate_02.tscn" id="4_3ot3x"]
 [ext_resource type="PackedScene" uid="uid://b2dueucoqwjgg" path="res://scenes/objects/crates/crate_03.tscn" id="5_jvovn"]
 [ext_resource type="PackedScene" uid="uid://b48udivt8tmct" path="res://scenes/objects/crates/small_crate_01.tscn" id="6_xfehu"]
@@ -34,47 +35,46 @@ transform = Transform3D(-2.9802322e-08, 0, 0.5999999, 0, 0.59999996, 0, -0.59999
 [node name="blastDoor_Small2" parent="." unique_id=367713655 instance=ExtResource("1_jmltk")]
 transform = Transform3D(-2.9802322e-08, 0, 0.5999999, 0, 0.59999996, 0, -0.5999999, 0, -2.9802322e-08, 1.0292456, -0.6886603, -0.83797204)
 
+[node name="Trash Can2" parent="." unique_id=871694397 instance=ExtResource("3_wc46g")]
+transform = Transform3D(-0.011737928, 0, 0.032973036, 0, 0.035, 0, -0.032973036, 0, -0.011737928, -0.38552314, -0.6339738, -0.22970203)
+collision_layer = 5
+
+[node name="Trash Can" parent="." unique_id=466412898 instance=ExtResource("3_wc46g")]
+transform = Transform3D(-0.011737927, 0, 0.032973036, 0, 0.035, 0, -0.032973036, 0, -0.011737927, -0.23020029, 0.09679869, -0.39265683)
+collision_layer = 5
+
 [node name="IndoorHalf" parent="." unique_id=1207245287 instance=ExtResource("2_td5t5")]
 transform = Transform3D(-0.3353694, 0, 0.9420867, 0, 1, 0, -0.9420867, 0, -0.3353694, -0.30516505, 0.04997161, -0.08575651)
 collision_layer = 4
 collision_mask = 16
 
 [node name="Watermelon" parent="IndoorHalf" unique_id=395670652 instance=ExtResource("9_acgi3")]
-transform = Transform3D(-0.021799011, 0, -0.061235633, 0, 0.065, 0, 0.061235633, 0, -0.021799011, -0.0074890554, 0.1262761, 0.07722926)
+transform = Transform3D(-0.021799011, 0, -0.061235633, 0, 0.065, 0, 0.061235633, 0, -0.021799011, 0.066996545, 0.12076549, 0.08087206)
 
 [node name="Watermelon2" parent="IndoorHalf" unique_id=1616001802 instance=ExtResource("9_acgi3")]
-transform = Transform3D(0.04266095, 0, -0.049041234, 0, 0.065, 0, 0.049041234, 0, 0.04266095, -0.079599686, 0.1262761, 0.078605875)
-
-[node name="Watermelon3" parent="IndoorHalf" unique_id=1000361083 instance=ExtResource("9_acgi3")]
-transform = Transform3D(0.06392394, 0, 0.011778375, 0, 0.06499999, 0, -0.011778375, 0, 0.06392394, 0.07960364, 0.1262761, 0.0803107)
+transform = Transform3D(0.04266095, 0, -0.049041234, 0, 0.065, 0, 0.049041234, 0, 0.04266095, -0.07959969, 0.12076549, 0.07860589)
 
 [node name="IndoorHalf2" parent="." unique_id=895665621 instance=ExtResource("2_td5t5")]
 transform = Transform3D(0.0075745843, 0, 0.99997133, 0, 1, 0, -0.99997133, 0, 0.0075745843, -0.37438378, 0.04997161, -0.65918785)
 collision_layer = 4
 collision_mask = 16
 
-[node name="Watermelon2" parent="IndoorHalf2" unique_id=2012634085 instance=ExtResource("9_acgi3")]
-transform = Transform3D(0.000492348, 0, -0.064998135, 0, 0.065, 0, 0.064998135, 0, 0.000492348, -0.01723528, 0.11743638, 0.03770882)
-
 [node name="Watermelon3" parent="IndoorHalf2" unique_id=1794845239 instance=ExtResource("9_acgi3")]
-transform = Transform3D(-0.05618244, 0, -0.032688454, 0, 0.065, 0, 0.032688454, 0, -0.05618244, -0.09417707, 0.11743638, 0.073158026)
+transform = Transform3D(-0.01973622, 0, -0.061931293, 0, 0.065, 0, 0.061931293, 0, -0.01973622, -0.064965904, 0.10843718, 0.07053521)
 
 [node name="Watermelon4" parent="IndoorHalf2" unique_id=981390502 instance=ExtResource("9_acgi3")]
-transform = Transform3D(-0.050336972, 0, 0.041124113, 0, 0.065, 0, -0.041124113, 0, -0.050336972, 0.085182846, 0.11743638, 0.058634847)
+transform = Transform3D(-0.05033698, 0, 0.041124128, 0, 0.065, 0, -0.041124128, 0, -0.05033698, 0.070343375, 0.10843718, 0.06164056)
 
 [node name="IndoorHalf3" parent="." unique_id=512705215 instance=ExtResource("2_td5t5")]
 transform = Transform3D(0.5008009, 0, 0.86556256, 0, 1, 0, -0.86556256, 0, 0.5008009, -0.24520886, 0.038636297, -1.2482272)
 collision_layer = 4
 collision_mask = 16
 
-[node name="Watermelon3" parent="IndoorHalf3" unique_id=1862316724 instance=ExtResource("9_acgi3")]
-transform = Transform3D(0.060692452, 0, 0.02326848, 0, 0.06499998, 0, -0.02326848, 0, 0.060692452, -0.013620138, 0.12042233, 0.057168543)
-
 [node name="Watermelon4" parent="IndoorHalf3" unique_id=340863749 instance=ExtResource("9_acgi3")]
-transform = Transform3D(-0.026773246, 0, -0.05923, 0, 0.06499999, 0, 0.05923, 0, -0.026773246, -0.11321986, 0.12042233, 0.049708843)
+transform = Transform3D(-0.026773246, 0, -0.05923, 0, 0.06499999, 0, 0.05923, 0, -0.026773246, -0.06890708, 0.11379647, 0.05509752)
 
 [node name="Watermelon5" parent="IndoorHalf3" unique_id=778018090 instance=ExtResource("9_acgi3")]
-transform = Transform3D(0.041953877, 0, -0.04964748, 0, 0.06499999, 0, 0.04964748, 0, 0.041953877, 0.0846504, 0.12042233, 0.06622481)
+transform = Transform3D(0.04195387, 0, -0.049647473, 0, 0.06499999, 0, 0.049647473, 0, 0.04195387, 0.07263291, 0.11379647, 0.06256068)
 
 [node name="Crates" type="Node3D" parent="." unique_id=944219089]
 
