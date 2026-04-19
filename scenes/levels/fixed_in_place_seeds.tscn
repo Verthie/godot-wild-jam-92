@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://gv5psvm11653"]
+
+[ext_resource type="PackedScene" uid="uid://hk4ht0uf8q0q" path="res://scenes/items/Ingredients/mist_seed.tscn" id="1_jqj6q"]
+[ext_resource type="PackedScene" uid="uid://dfrxcowo62lhr" path="res://scenes/items/Ingredients/mush_seed.tscn" id="2_lnn0t"]
+
+[node name="FIXED IN PLACE SEEDS" type="Node3D" unique_id=590351400]
+transform = Transform3D(0.5837964, 0, 0.8119004, 0, 1, 0, -0.8119004, 0, 0.5837964, 0, 0, 0)
+
+[node name="Mist" type="Node3D" parent="." unique_id=589285404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+
+[node name="Mist Seed5" parent="Mist" unique_id=2058058112 instance=ExtResource("1_jqj6q")]
+transform = Transform3D(-0.017179172, 0, -0.09851329, 0, 0.099999994, 0, 0.09851329, 0, -0.017179172, 4.5978446, -0.2552072, -6.595279)
+
+[node name="Mist Seed6" parent="Mist" unique_id=1912029022 instance=ExtResource("1_jqj6q")]
+transform = Transform3D(-0.017179172, 0, -0.09851329, 0, 0.099999994, 0, 0.09851329, 0, -0.017179172, 4.139945, -0.24977738, -7.6756086)
+
+[node name="Mist Seed3" parent="Mist" unique_id=1516625024 instance=ExtResource("1_jqj6q")]
+transform = Transform3D(-0.017179172, 0, -0.09851329, 0, 0.099999994, 0, 0.09851329, 0, -0.017179172, 5.66283, -0.20449153, -6.026051)
+
+[node name="Mist Seed4" parent="Mist" unique_id=237512142 instance=ExtResource("1_jqj6q")]
+transform = Transform3D(-0.017179172, 0, -0.09851329, 0, 0.099999994, 0, 0.09851329, 0, -0.017179172, 5.9787717, -0.13670607, -4.2378893)
+
+[node name="Mist Seed2" parent="Mist" unique_id=1156613080 instance=ExtResource("1_jqj6q")]
+transform = Transform3D(0.07498501, 0.0057152365, -0.06591341, -0.008148307, 0.09966548, -0.0006279014, 0.06565705, 0.005841668, 0.07519985, 5.894048, -0.09786981, -4.9419475)
+
+[node name="Mist Seed" parent="Mist" unique_id=1497659395 instance=ExtResource("1_jqj6q")]
+transform = Transform3D(-0.017179172, 0, -0.09851329, 0, 0.099999994, 0, 0.09851329, 0, -0.017179172, 7.359087, -0.23690644, -3.7737117)
+
+[node name="Mush" type="Node3D" parent="." unique_id=922631111]
+
+[node name="Mush Seed" parent="Mush" unique_id=1163685808 instance=ExtResource("2_lnn0t")]
+transform = Transform3D(0.0583796, 0, -0.08119, 0, 0.1, 0, 0.08119, 0, 0.0583796, -1.084733, -0.18983957, 2.1101856)
+
+[node name="Mush Seed3" parent="Mush" unique_id=1068624825 instance=ExtResource("2_lnn0t")]
+transform = Transform3D(0.0583796, 0, -0.08119, 0, 0.1, 0, 0.08119, 0, 0.0583796, -2.1770496, -0.17360798, 1.6816661)
+
+[node name="Mush Seed2" parent="Mush" unique_id=1058900415 instance=ExtResource("2_lnn0t")]
+transform = Transform3D(0.0583796, 0, -0.08119, 0, 0.1, 0, 0.08119, 0, 0.0583796, 0.06703377, -0.006006226, 1.7473502)
+
+[node name="Mush Seed4" parent="Mush" unique_id=1474789258 instance=ExtResource("2_lnn0t")]
+transform = Transform3D(0.0583796, 0, -0.08119, 0, 0.1, 0, 0.08119, 0, 0.0583796, 1.5658581, -0.11197311, 2.7724667)
+
+[node name="Mush Seed5" parent="Mush" unique_id=913138683 instance=ExtResource("2_lnn0t")]
+transform = Transform3D(0.09958826, 0.003054563, 0.008534823, -5.4651386e-09, 0.09415177, -0.03369637, -0.009064965, 0.033557646, 0.0937641, 1.0034747, -0.02705723, 2.3404942)
+
+[node name="Mush Seed6" parent="Mush" unique_id=839986557 instance=ExtResource("2_lnn0t")]
+transform = Transform3D(0.0583796, 0, -0.08119, 0, 0.1, 0, 0.08119, 0, 0.0583796, 2.8631406, -0.008563951, 2.110812)
