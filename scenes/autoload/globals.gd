@@ -99,7 +99,7 @@ var ui_texts = {
 	"slots": [
 		{
 			"title": "Fill all slots",
-			"text": "*You must fill all the slots with ingredients before brewing*"
+			"text": "This is the Big Round Button\n*You must fill all the slots with ingredients before brewing*"
 		}
 	],
 	

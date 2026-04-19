@@ -10,7 +10,8 @@ var visual_items = []
 @onready var holder = $Holder
 @onready var slots = [$Holder/Slot0, $Holder/Slot1]
 
-var correct_recipe = ["mist_seed", "watermelon"]
+var correct_recipe1 = ["mist_seed", "watermelon"]
+var correct_recipe2 = ["watermelon", "mist_seed"]
 
 @export var cutscene_manager: Node
 var shown_first_text := false
@@ -32,7 +33,7 @@ func interact(player, hand):
 		if stored_items.size() != capacity:
 			return
 
-		if stored_items[0] in correct_recipe and stored_items[1] in correct_recipe:
+		if stored_items == correct_recipe1 or stored_items == correct_recipe2:
 			stored_items.clear()
 			visual_items.clear()
 			for slot: Node3D in slots:
@@ -97,7 +98,7 @@ func interact(player, hand):
 
 
 func get_interaction_text(player):
-	if stored_items.size() == capacity and stored_items[0] in correct_recipe and stored_items[1] in correct_recipe:
+	if stored_items.size() == capacity and (stored_items == correct_recipe1 or stored_items == correct_recipe2):
 		return "Oxygen Dispenser\nPress E: Produce oxygen"
 	elif stored_items.size() >= capacity:
 		return "Oxygen Dispenser\nFull"
